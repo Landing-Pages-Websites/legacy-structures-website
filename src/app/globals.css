@@ -1,68 +1,92 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-header-bg: #ebe9e3;
-  --color-nav-red: #b12029;
-  --color-nav-red-dark: #af1919;
-  --color-heading-blue: #00567a;
-  --color-heading-blue-dark: #004a69;
-  --color-link: #03597c;
-  --color-cta-gold: #ffc800;
-  --color-cta-gold-hover: #ffd168;
-  --color-accent-gold: #fabe08;
-  --color-accent-gold-dark: #e9bb52;
-  --color-red-section: #af1919;
-  --color-letter-red: #c81100;
-  --color-footer-bg: #ebe9e3;
-  --color-teal-cta: #03597c;
-  --color-form-bg: #00567a;
-  --color-form-dark: #1f1e1e;
-  --color-pricing-bg: #eae9e4;
-  --color-featured-bg: #ebe9e3;
-  --color-text: #222222;
-  --color-text-blue: #194b7d;
-  --color-inventory-red: #af0019;
-  --font-heading: var(--font-oswald), "Oswald", sans-serif;
-  --font-body: var(--font-roboto), "Roboto", "Helmet", "Freesans", sans-serif;
+  /* NEW modern color palette */
+  --color-primary: #1a3a5c;
+  --color-primary-light: #2a5a8c;
+  --color-primary-dark: #0f2440;
+  --color-accent: #c0392b;
+  --color-accent-light: #e74c3c;
+  --color-accent-dark: #962d22;
+  --color-gold: #d4a017;
+  --color-gold-light: #f0c040;
+  --color-warm-bg: #f7f5f2;
+  --color-warm-bg-dark: #eae7e2;
+  --color-text: #2c3e50;
+  --color-text-light: #5a6c7e;
+  --color-text-muted: #8899aa;
+  --color-border: #e2ddd7;
+  --color-white: #ffffff;
+
+  /* Legacy references for components that still use old vars */
+  --color-header-bg: #f7f5f2;
+  --color-nav-red: #c0392b;
+  --color-heading-blue: #1a3a5c;
+  --color-link: #2a5a8c;
+  --color-cta-gold: #d4a017;
+  --color-form-bg: #1a3a5c;
+  --color-form-dark: #1a1a1a;
+  --color-pricing-bg: #f7f5f2;
+  --color-featured-bg: #f7f5f2;
+  --color-inventory-red: #c0392b;
+  --color-teal-cta: #1a3a5c;
+  --color-footer-bg: #f7f5f2;
+  --color-accent-gold: #d4a017;
+
+  /* Fonts */
+  --font-heading: var(--font-poppins), "Poppins", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: var(--font-body);
-  font-size: 19px;
+  font-size: 16px;
   color: var(--color-text);
   background-color: #fff;
   overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
   text-align: center;
-  color: var(--color-heading-blue);
-  font-weight: 600;
-  font-size: 42px;
-  padding: 25px 0 12px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 32px;
+  padding: 20px 0 10px;
   font-family: var(--font-heading);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 h2 {
-  color: var(--color-heading-blue);
-  font-weight: 600;
-  font-size: 40px;
-  padding-bottom: 12px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 28px;
+  padding-bottom: 10px;
   font-family: var(--font-heading);
-  letter-spacing: 1.5px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 h3 {
-  color: var(--color-heading-blue);
-  font-weight: bold;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 20px;
+  font-family: var(--font-heading);
 }
 
 p {
-  line-height: 30px;
-  padding-bottom: 20px;
+  line-height: 1.7;
+  padding-bottom: 16px;
   font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-light);
 }
 
 p:last-child {
@@ -71,18 +95,19 @@ p:last-child {
 
 a {
   color: var(--color-link);
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-heading-blue-dark);
+  color: var(--color-primary);
 }
 
 select, input, textarea {
-  font-size: 16px;
+  font-size: 15px;
+  font-family: var(--font-body);
 }
 
 ::selection {
-  background: #fcd700;
+  background: var(--color-gold-light);
   color: #fff;
-  text-shadow: none;
 }

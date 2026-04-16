@@ -22,402 +22,120 @@ const materials = [
   { label: "B", text: "Exposed nails are ring-shanked and galvanized for rust prevention" },
   { label: "C", text: "Treating buildings have water-sealed, T1-11 siding" },
   { label: "D", text: "Painted buildings LP Smartside Panel siding with 5/50-year limited warranty" },
-  { label: "E", text: "All siding comes with a Manufacturer's warranty" },
+  { label: "E", text: "All siding comes with a Manufacturer\u2019s warranty" },
   { label: "F", text: '2x4 studs set 16" OC on painted buildings & 24" OC on treated buildings' },
   { label: "G", text: "Double studs under siding seams" },
   { label: "H", text: '5/8" treated floor decking' },
 ];
 
-/* Keyframes injected via style tag for pulse animation */
-const styleTag = `
-@keyframes pulseBtn {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-}
-.cta-gold-btn {
-  display: inline-block;
-  background-color: #ffc800;
-  color: #000;
-  text-transform: uppercase;
-  padding: 14px 32px;
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
-}
-.cta-gold-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-`;
-
-/* Diagonal stripe pattern as inline SVG data URI */
-const diagonalPattern =
-  "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpath d='M-10 10L10 -10' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpath d='M30 50L50 30' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E\")";
-
 export default function Home() {
   return (
     <div>
-      <style dangerouslySetInnerHTML={{ __html: styleTag }} />
+      {/* Hero Slider */}
+      <HeroSlider />
 
-      {/* ===== Section 1: Hero Slider ===== */}
-      <div style={{ overflow: "hidden", position: "relative" }}>
-        <HeroSlider />
-      </div>
-
-      {/* ===== Section 2: Red Two-Column CTA ===== */}
-      <section
-        style={{
-          backgroundColor: "#af1919",
-          backgroundImage: diagonalPattern,
-          backgroundRepeat: "repeat",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1150px",
-            margin: "0 auto",
-            display: "flex",
-          }}
-        >
-          {/* Left Column - 3D Shed Builder */}
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              padding: "30px",
-              borderRight: "1px solid rgba(255,255,255,0.2)",
-              border: "1px solid rgba(255,255,255,0.2)",
-            }}
-          >
-            <h2
-              style={{
-                color: "#fff",
-                textAlign: "center",
-                fontSize: "40px",
-                paddingBottom: "15px",
-              }}
-            >
-              Try Our 3D Shed Builder
-            </h2>
-            <p
-              style={{
-                color: "#fff",
-                fontSize: "18px",
-                textAlign: "center",
-                lineHeight: "30px",
-                paddingBottom: "20px",
-              }}
-            >
-              Do you have a specific plan in mind for your dream shed?? Try our 3D shed designer to create the perfect shed for your needs!
-            </p>
-            <div
-              style={{
-                minHeight: "288px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/3d-shed-builder-screen.png"
-                alt="3D Shed Builder"
-                style={{
-                  maxWidth: "100%",
-                  border: "3px solid rgba(255,255,255,0.3)",
-                  borderRadius: "8px",
-                }}
-              />
+      {/* Two-Column CTA */}
+      <section style={{ background: "#c0392b", padding: "48px 24px" }}>
+        <div style={{ maxWidth: 1150, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+          {[
+            {
+              title: "Try Our 3D Shed Builder",
+              desc: "Design your dream shed with our interactive 3D builder. Choose your style, size, and finish.",
+              img: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/3d-shed-builder-screen.png",
+              btn: "Design Your Shed",
+              href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
+              external: true,
+            },
+            {
+              title: "View Our Inventory",
+              desc: "Browse our current selection of in-stock buildings ready for delivery.",
+              img: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/view-inventory-sheds.png",
+              btn: "View Our Inventory",
+              href: "/inventory",
+              external: false,
+            },
+          ].map((card) => (
+            <div key={card.title} style={{ background: "rgba(255,255,255,0.08)", borderRadius: 12, padding: 32, textAlign: "center", border: "1px solid rgba(255,255,255,0.15)" }}>
+              <h2 style={{ color: "#fff", fontSize: 24, fontWeight: 700, paddingBottom: 8, fontFamily: "var(--font-poppins)" }}>{card.title}</h2>
+              <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, paddingBottom: 20 }}>{card.desc}</p>
+              <div style={{ marginBottom: 20 }}>
+                <img src={card.img} alt={card.title} style={{ maxWidth: "100%", borderRadius: 8 }} />
+              </div>
+              {card.external ? (
+                <a href={card.href} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 32px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase", letterSpacing: 0.5, transition: "all 0.2s" }}>
+                  {card.btn}
+                </a>
+              ) : (
+                <Link href={card.href} style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 32px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase", letterSpacing: 0.5, transition: "all 0.2s" }}>
+                  {card.btn}
+                </Link>
+              )}
             </div>
-            <a
-              href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
-              className="cta-gold-btn"
-            >
-              Design Your Shed
-            </a>
-          </div>
-
-          {/* Right Column - View Inventory */}
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              padding: "30px",
-              border: "1px solid rgba(255,255,255,0.2)",
-            }}
-          >
-            <h2
-              style={{
-                color: "#fff",
-                textAlign: "center",
-                fontSize: "40px",
-                paddingBottom: "15px",
-              }}
-            >
-              View Our Inventory
-            </h2>
-            <p
-              style={{
-                color: "#fff",
-                fontSize: "18px",
-                textAlign: "center",
-                lineHeight: "30px",
-                paddingBottom: "20px",
-              }}
-            >
-              While we regularly sell buildings off our lot, we are also always getting more sheds on our lot. Check out our current inventory!
-            </p>
-            <div
-              style={{
-                minHeight: "288px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/view-inventory-sheds.png"
-                alt="View Our Inventory"
-                style={{
-                  maxWidth: "100%",
-                  border: "3px solid rgba(255,255,255,0.3)",
-                  borderRadius: "8px",
-                }}
-              />
-            </div>
-            <Link
-              href="/inventory"
-              className="cta-gold-btn"
-            >
-              View Our Inventory
-            </Link>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* ===== Section 3: Featured Sheds ===== */}
-      <section style={{ backgroundColor: "#ebe9e3", padding: "20px 0 60px" }}>
-        <h2
-          style={{
-            textAlign: "center",
-            padding: "30px 0",
-            color: "#00567a",
-            fontSize: "40px",
-          }}
-        >
-          Featured Sheds For Sale in Hudson Falls, NY
-        </h2>
-        <div style={{ maxWidth: "1150px", margin: "0 auto", padding: "0 30px" }}>
+      {/* Featured Sheds */}
+      <section style={{ background: "#f7f5f2", padding: "48px 0 56px" }}>
+        <h2 style={{ textAlign: "center", fontSize: 28, color: "#1a3a5c", paddingBottom: 24, fontFamily: "var(--font-poppins)" }}>Featured Sheds For Sale in Hudson Falls, NY</h2>
+        <div style={{ maxWidth: 1150, margin: "0 auto", padding: "0 24px" }}>
           <FeaturedCarousel sheds={featuredSheds} />
         </div>
       </section>
 
-      {/* ===== Section 4: CTA Pricing Bar ===== */}
-      <section style={{ backgroundColor: "#b12029", padding: "20px" }}>
-        <div style={{ textAlign: "center" }}>
-          <Link
-            href="/inventory"
-            style={{
-              color: "#fff",
-              fontFamily: 'var(--font-oswald), "Oswald", sans-serif',
-              fontSize: "32px",
-              fontWeight: "bold",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              letterSpacing: "2px",
-              textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-            }}
-          >
-            high quality materials and superior craftsmanship
-          </Link>
-        </div>
+      {/* CTA Bar */}
+      <section style={{ background: "#1a3a5c", padding: "20px 24px", textAlign: "center" }}>
+        <Link href="/inventory" style={{ color: "#fff", fontFamily: "var(--font-poppins)", fontSize: 18, fontWeight: 600, textTransform: "uppercase", textDecoration: "none", letterSpacing: 2 }}>
+          High Quality Materials &amp; Superior Craftsmanship
+        </Link>
       </section>
 
-      {/* ===== Section 5: Pricing Guide ===== */}
-      <section style={{ backgroundColor: "#eae9e4", padding: "40px 20px", borderRadius: "8px" }}>
-        <h2
-          style={{
-            textAlign: "center",
-            color: "#af1919",
-            fontSize: "40px",
-            paddingBottom: "15px",
-          }}
-        >
-          Looking for Pricing? Download Our FREE Pricing Guide!
-        </h2>
-        <p style={{ textAlign: "center", maxWidth: "900px", margin: "0 auto", paddingBottom: "30px" }}>
-          Ready to explore your options for the perfect portable building? Start with our FREE Pricing Guide! This detailed download provides you with all the pricing information you need to make an informed decision, including various models, sizes, and customization options. Don&apos;t miss out on this essential resource — click below to Download Your FREE Copy and take the first step towards choosing your ideal portable building today!
-        </p>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "5%",
-            maxWidth: "1150px",
-            margin: "0 auto",
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Left: Device Image */}
-          <div style={{ flex: "1 1 400px", maxWidth: "500px" }}>
-            <img
-              src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/homepage-devices.png"
-              alt="Pricing Guide on devices"
-              style={{ width: "100%" }}
-            />
-          </div>
-
-          {/* Right: CTA */}
-          <div style={{ flex: "0 1 auto", textAlign: "center" }}>
-            <h2
-              style={{
-                color: "#af1919",
-                fontSize: "40px",
-                paddingBottom: "15px",
-                textAlign: "center",
-              }}
-            >
-              Free Pricing Guide!
-            </h2>
-            <a
-              href="#pricing-form"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#ffc800",
-                color: "#000",
-                fontWeight: "bold",
-                fontSize: "25px",
-                textDecoration: "none",
-                borderRadius: "8px",
-                width: "300px",
-                height: "60px",
-                margin: "0 auto",
-                textTransform: "uppercase",
-                animation: "pulseBtn 3s ease-in-out infinite",
-              }}
-            >
-              DOWNLOAD HERE!
+      {/* Pricing Guide */}
+      <section style={{ background: "#f7f5f2", padding: "48px 24px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ color: "#c0392b", fontSize: 26, fontFamily: "var(--font-poppins)", paddingBottom: 12 }}>
+            Download Our FREE Pricing Guide
+          </h2>
+          <p style={{ fontSize: 15, color: "#5a6c7e", maxWidth: 700, margin: "0 auto", paddingBottom: 32 }}>
+            Get all the pricing information you need — models, sizes, and customization options — to make an informed decision.
+          </p>
+        </div>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, flexWrap: "wrap" }}>
+          <img src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/homepage-devices.png" alt="Pricing Guide" style={{ maxWidth: 400, width: "100%" }} />
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontWeight: 700, fontSize: 20, color: "#1a3a5c", paddingBottom: 12, fontFamily: "var(--font-poppins)" }}>Free Pricing Guide!</p>
+            <a href="#pricing-form" style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 16, padding: "14px 40px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase" }}>
+              Download Here
             </a>
           </div>
         </div>
       </section>
 
-      {/* ===== Section 6: Warranty CTA Bar ===== */}
-      <section style={{ backgroundColor: "#b12029", padding: "20px" }}>
-        <div style={{ textAlign: "center" }}>
-          <a
-            href="https://backyardoutfittersusa.com/warranty-and-guarantee/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "#fff",
-              fontFamily: 'var(--font-oswald), "Oswald", sans-serif',
-              fontSize: "32px",
-              fontWeight: "bold",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              letterSpacing: "2px",
-              textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-            }}
-          >
-            Learn More About Our 5 Year Warranty!{" "}
-            <span style={{ color: "#FABE08" }}>Click Here</span>
-          </a>
-        </div>
+      {/* Warranty CTA */}
+      <section style={{ background: "#c0392b", padding: "16px 24px", textAlign: "center" }}>
+        <a href="https://backyardoutfittersusa.com/warranty-and-guarantee/" target="_blank" rel="noopener noreferrer" style={{ color: "#fff", fontFamily: "var(--font-poppins)", fontSize: 16, fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: 1.5 }}>
+          Learn More About Our 5 Year Warranty — <span style={{ color: "#d4a017" }}>Click Here</span>
+        </a>
       </section>
 
-      {/* ===== Section 7: Materials Section ===== */}
-      <section style={{ padding: "0 20px", backgroundColor: "#fff", color: "#222" }}>
-        <h1
-          style={{
-            textAlign: "center",
-            color: "#00567a",
-            fontFamily: 'var(--font-oswald), "Oswald", sans-serif',
-            fontSize: "40px",
-            fontWeight: "bold",
-            padding: "30px 0 15px",
-          }}
-        >
-          Built With Superior Materials and Construction!
+      {/* Materials Section */}
+      <section style={{ padding: "48px 24px", background: "#fff" }}>
+        <h1 style={{ color: "#1a3a5c", fontSize: 28, fontFamily: "var(--font-poppins)", fontWeight: 700, paddingBottom: 32 }}>
+          Built With Superior Materials and Construction
         </h1>
-        <div
-          style={{
-            display: "flex",
-            maxWidth: "1150px",
-            margin: "0 auto",
-            padding: "40px 0",
-            gap: "40px",
-            alignItems: "flex-start",
-          }}
-        >
-          {/* Left: Materials List */}
+        <div style={{ display: "flex", maxWidth: 1050, margin: "0 auto", gap: 48, alignItems: "flex-start" }}>
           <div style={{ flex: 1 }}>
             {materials.map((item) => (
-              <div
-                key={item.label}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "12px",
-                  backgroundColor: "#f8f8f8",
-                  borderRadius: "8px",
-                  padding: "12px 16px",
-                }}
-              >
-                <div
-                  style={{
-                    backgroundColor: "#c81100",
-                    borderRadius: "50%",
-                    width: "28px",
-                    height: "28px",
-                    minWidth: "28px",
-                    color: "#fff",
-                    fontSize: "13px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontWeight: "bold",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.15)",
-                  }}
-                >
+              <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 16, background: "#f7f5f2", borderRadius: 8, padding: "14px 18px" }}>
+                <div style={{ background: "#c0392b", borderRadius: "50%", width: 28, height: 28, minWidth: 28, color: "#fff", fontSize: 13, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>
                   {item.label}
                 </div>
-                <div
-                  style={{
-                    fontSize: "16px",
-                    textAlign: "left",
-                    marginLeft: "16px",
-                  }}
-                >
-                  {item.text}
-                </div>
+                <span style={{ fontSize: 15, color: "#2c3e50", lineHeight: 1.5 }}>{item.text}</span>
               </div>
             ))}
           </div>
-
-          {/* Right: Interior Image */}
           <div style={{ flex: 1 }}>
-            <img
-              src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/barn-interior-img.png"
-              alt="Barn interior showing construction quality"
-              style={{
-                width: "100%",
-                height: "auto",
-                borderRadius: "8px",
-                boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
-              }}
-            />
+            <img src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/barn-interior-img.png" alt="Barn interior" style={{ width: "100%", borderRadius: 8 }} />
           </div>
         </div>
       </section>
