@@ -44,7 +44,7 @@ export default function Header() {
         .hdr-phone:hover { color: #c0392b; }
         .hdr-phone svg { color: #c0392b; }
 
-        .nav-wrap { background: #1a3a5c; width: 100%; }
+        .nav-wrap { background: #1a3a5c; width: 100%; position: sticky; top: 0; z-index: 50; }
         .nav-inner { max-width: 1150px; margin: 0 auto; }
         .nav-toggle { display: none; padding: 12px 16px; }
         .nav-toggle button { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 4px; }

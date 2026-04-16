@@ -16,19 +16,9 @@ const US_STATES = [
 ];
 
 const BUILDING_TYPES = [
-  "Animal Shelter",
-  "Deluxe Lofted Cabin",
-  "Garage",
-  "Gazebo",
-  "Horse Barn",
-  "Lofted Barn",
-  "Lofted Cabin",
-  "Metal Building",
-  "Mini Barn",
-  "Portable Garage",
-  "Storage Shed",
-  "Utility Shed",
-  "Other",
+  "Animal Shelter", "Deluxe Lofted Cabin", "Garage", "Gazebo",
+  "Horse Barn", "Lofted Barn", "Lofted Cabin", "Metal Building",
+  "Mini Barn", "Portable Garage", "Storage Shed", "Utility Shed", "Other",
 ];
 
 const BUILDING_SIZES = [
@@ -37,47 +27,31 @@ const BUILDING_SIZES = [
   "12x12", "12x14", "12x16", "12x20", "12x24",
   "12x28", "12x32", "12x36", "12x40",
   "14x14", "14x16", "14x20", "14x24", "14x28",
-  "14x32", "14x36", "14x40",
-  "Other",
+  "14x32", "14x36", "14x40", "Other",
 ];
 
-const SIDING_OPTIONS = [
-  "Treated T1-11",
-  "Painted LP Smart Panel",
-  "Urethane Wilderness Stained",
-];
-
-const ROOF_OPTIONS = [
-  "Metal Roof",
-  "Shingle Roof",
-];
+const SIDING_OPTIONS = ["Treated T1-11", "Painted LP Smart Panel", "Urethane Wilderness Stained"];
+const ROOF_OPTIONS = ["Metal Roof", "Shingle Roof"];
 
 interface QuoteFormProps {
   title?: string;
   titleSpan?: string;
 }
 
+const inputClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4a017] focus:border-transparent transition";
+const selectClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#d4a017] focus:border-transparent transition appearance-none";
+
 export default function QuoteForm({
   title = "Request a",
   titleSpan = "FREE Quote!",
 }: QuoteFormProps) {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    buildingType: "",
-    buildingSize: "",
-    sidingOption: "",
-    roofOption: "",
-    zipCode: "",
-    state: "",
-    message: "",
+    firstName: "", lastName: "", email: "", phone: "",
+    buildingType: "", buildingSize: "", sidingOption: "",
+    roofOption: "", zipCode: "", state: "", message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -87,151 +61,50 @@ export default function QuoteForm({
   };
 
   return (
-    <div className="bg-form-bg p-[20px] ml-0 md:ml-[40px]">
-      <h2 className="text-white text-center font-bold text-[50px] font-heading tracking-[1.5px] pb-[15px]">
-        {title} <span className="text-[#FFC801] font-bold">{titleSpan}</span>
+    <div style={{ background: "#fff", borderRadius: 12, padding: 24, border: "1px solid #e8e4df", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+      <h2 style={{ color: "#1a3a5c", textAlign: "center", fontSize: 22, fontWeight: 700, fontFamily: "var(--font-poppins), Poppins, sans-serif", marginBottom: 4 }}>
+        {title}
       </h2>
+      <p style={{ color: "#c0392b", textAlign: "center", fontSize: 20, fontWeight: 700, fontFamily: "var(--font-poppins), Poppins, sans-serif", marginBottom: 20 }}>
+        {titleSpan}
+      </p>
 
-      <form onSubmit={handleSubmit}>
-        {/* Row: First + Last Name */}
-        <div className="flex flex-col md:flex-row justify-between gap-[20px]">
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name *"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-            className="w-full md:w-[calc(50%-10px)] p-[10px] mb-[15px] border border-[#ccc] rounded text-black"
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name *"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-            className="w-full md:w-[calc(50%-10px)] p-[10px] mb-[15px] border border-[#ccc] rounded text-black"
-          />
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <input type="text" name="firstName" placeholder="First Name *" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
+          <input type="text" name="lastName" placeholder="Last Name *" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <input type="email" name="email" placeholder="Email *" value={formData.email} onChange={handleChange} required className={inputClasses} />
+          <input type="tel" name="phone" placeholder="Phone *" value={formData.phone} onChange={handleChange} required className={inputClasses} />
         </div>
 
-        {/* Row: Email + Phone */}
-        <div className="flex flex-col md:flex-row justify-between gap-[20px]">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email *"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full md:w-[calc(50%-10px)] p-[10px] mb-[15px] border border-[#ccc] rounded text-black"
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone *"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full md:w-[calc(50%-10px)] p-[10px] mb-[15px] border border-[#ccc] rounded text-black"
-          />
-        </div>
-
-        {/* Building Type */}
-        <select
-          name="buildingType"
-          value={formData.buildingType}
-          onChange={handleChange}
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black bg-white"
-        >
+        <select name="buildingType" value={formData.buildingType} onChange={handleChange} className={selectClasses}>
           <option value="">Building Type</option>
-          {BUILDING_TYPES.map((t) => (
-            <option key={t} value={t}>{t}</option>
-          ))}
+          {BUILDING_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
-
-        {/* Building Size */}
-        <select
-          name="buildingSize"
-          value={formData.buildingSize}
-          onChange={handleChange}
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black bg-white"
-        >
+        <select name="buildingSize" value={formData.buildingSize} onChange={handleChange} className={selectClasses}>
           <option value="">Building Size</option>
-          {BUILDING_SIZES.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
+          {BUILDING_SIZES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
-
-        {/* Siding Option */}
-        <select
-          name="sidingOption"
-          value={formData.sidingOption}
-          onChange={handleChange}
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black bg-white"
-        >
+        <select name="sidingOption" value={formData.sidingOption} onChange={handleChange} className={selectClasses}>
           <option value="">Siding Option</option>
-          {SIDING_OPTIONS.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
+          {SIDING_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
-
-        {/* Roof Option */}
-        <select
-          name="roofOption"
-          value={formData.roofOption}
-          onChange={handleChange}
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black bg-white"
-        >
+        <select name="roofOption" value={formData.roofOption} onChange={handleChange} className={selectClasses}>
           <option value="">Roof Option</option>
-          {ROOF_OPTIONS.map((r) => (
-            <option key={r} value={r}>{r}</option>
-          ))}
+          {ROOF_OPTIONS.map((r) => <option key={r} value={r}>{r}</option>)}
         </select>
-
-        {/* Zip Code */}
-        <input
-          type="text"
-          name="zipCode"
-          placeholder="Zip Code *"
-          value={formData.zipCode}
-          onChange={handleChange}
-          required
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black"
-        />
-
-        {/* State */}
-        <select
-          name="state"
-          value={formData.state}
-          onChange={handleChange}
-          required
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black bg-white"
-        >
+        <input type="text" name="zipCode" placeholder="Zip Code *" value={formData.zipCode} onChange={handleChange} required className={inputClasses} />
+        <select name="state" value={formData.state} onChange={handleChange} required className={selectClasses}>
           <option value="">State *</option>
-          {US_STATES.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
+          {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
+        <textarea name="message" placeholder="Message" value={formData.message} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
 
-        {/* Message */}
-        <textarea
-          name="message"
-          placeholder="Message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-[10px] mb-[15px] border border-[#ccc] rounded text-black h-[72px]"
-        />
-
-        {/* Submit */}
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-red-section text-white font-bold uppercase py-[15px] px-[40px] rounded-md text-[21px] cursor-pointer hover:opacity-90 transition-opacity"
-          >
-            GET MY FREE QUOTE!
-          </button>
-        </div>
+        <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", width: "100%", transition: "background 0.2s" }}>
+          Get My Free Quote
+        </button>
       </form>
     </div>
   );

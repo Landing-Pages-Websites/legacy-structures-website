@@ -15,106 +15,41 @@ const US_STATES = [
   "West Virginia", "Wisconsin", "Wyoming",
 ];
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    state: "",
-    message: "",
-  });
+const inputClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4a017] focus:border-transparent transition";
+const selectClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#d4a017] focus:border-transparent transition appearance-none";
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
+export default function ContactForm() {
+  const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "", state: "", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // TODO: integrate with form handler / email service
     console.log("Contact form submitted:", formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <p className="text-gray-600 text-sm mb-4">
-        Please fill out the below form and we will get back to you as quickly as
-        possible. Please allow up to 2 business days for our reply.
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <p style={{ color: "#5a6c7e", fontSize: 14, paddingBottom: 8 }}>
+        Please fill out the below form and we will get back to you as quickly as possible. Please allow up to 2 business days for our reply.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a27]"
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a27]"
-        />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
+        <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
       </div>
-
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a27]"
-      />
-
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Phone"
-        value={formData.phone}
-        onChange={handleChange}
-        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a27]"
-      />
-
-      <select
-        name="state"
-        value={formData.state}
-        onChange={handleChange}
-        required
-        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a27] bg-white"
-      >
-        <option value="">State / Province</option>
-        {US_STATES.map((state) => (
-          <option key={state} value={state}>
-            {state}
-          </option>
-        ))}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required className={inputClasses} />
+        <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className={inputClasses} />
+      </div>
+      <select name="state" value={formData.state} onChange={handleChange} required className={selectClasses}>
+        <option value="">State/Province</option>
+        {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
       </select>
-
-      <textarea
-        name="message"
-        placeholder="Message"
-        value={formData.message}
-        onChange={handleChange}
-        rows={5}
-        required
-        className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a27] resize-vertical"
-      />
-
-      <button
-        type="submit"
-        className="bg-[#2d5a27] hover:bg-[#1e3d1a] text-white font-bold py-3 px-8 rounded transition-colors"
-      >
+      <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required className={inputClasses} style={{ height: 120, resize: "none" }} />
+      <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", alignSelf: "flex-start" }}>
         Submit
       </button>
     </form>
