@@ -47,7 +47,6 @@ export default function Header() {
     <>
       <style>{`
         .header-bar {
-          background: #1a3a5c;
           position: fixed;
           top: 0;
           left: 0;
@@ -59,26 +58,30 @@ export default function Header() {
           height: var(--header-height, 130px);
         }
         .header-top {
+          background: #fff;
+          max-width: 100%;
+          padding: 12px 24px;
+        }
+        .header-top-inner {
           max-width: 1200px;
           margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 12px 24px;
         }
         .header-phone {
           display: flex;
           align-items: center;
           gap: 8px;
-          color: #fff;
+          color: #1a3a5c;
           text-decoration: none;
           font-weight: 700;
           font-size: 20px;
           font-family: var(--font-poppins), Poppins, sans-serif;
           transition: color 0.2s;
         }
-        .header-phone:hover { color: #d4a017; }
-        .header-phone svg { color: #d4a017; }
+        .header-phone:hover { color: #c0392b; }
+        .header-phone svg { color: #c0392b; }
 
         .nav-bar {
           max-width: 1200px;
@@ -144,20 +147,22 @@ export default function Header() {
       <header className="header-bar" ref={headerRef}>
         {/* Top row: logo + phone */}
         <div className="header-top">
-          <Link href="/">
-            <Image
-              src="https://legacystructuresusa.com/wp-content/uploads/2025/07/LEGECY-STRUCTURES-dark-blue-1.png"
-              alt="Legacy Structures"
-              width={280}
-              height={90}
-              style={{ maxHeight: "70px", width: "auto", height: "auto", filter: "brightness(0) invert(1)" }}
-              priority
-            />
-          </Link>
-          <a href="tel:518-544-2889" className="header-phone">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            518-544-2889
-          </a>
+          <div className="header-top-inner">
+            <Link href="/">
+              <Image
+                src="https://legacystructuresusa.com/wp-content/uploads/2025/07/LEGECY-STRUCTURES-dark-blue-1.png"
+                alt="Legacy Structures"
+                width={280}
+                height={90}
+                style={{ maxHeight: "70px", width: "auto", height: "auto" }}
+                priority
+              />
+            </Link>
+            <a href="tel:518-544-2889" className="header-phone">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              518-544-2889
+            </a>
+          </div>
         </div>
 
         {/* Nav row */}
