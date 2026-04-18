@@ -4,6 +4,14 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 
 export const metadata: Metadata = {
   title: "About Us | Legacy Structures",
+  description:
+    "Legacy Structures is a family-owned business in Hudson Falls, NY, crafting high-quality sheds and outdoor storage solutions built to last. We have succeeded by providing our customers with dependable storage solutions and a quality buying experience.",
+  openGraph: {
+    title: "About Us | Legacy Structures",
+    description:
+      "Family-owned shed builder in Hudson Falls, NY — quality craftsmanship, dependable storage solutions, and friendly personalized service.",
+    type: "website",
+  },
 };
 
 export default function AboutUsPage() {

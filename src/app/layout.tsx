@@ -18,9 +18,52 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+  metadataBase: new URL("https://legacystructuresusa.com"),
+  title: {
+    default: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+    template: "%s | Legacy Structures",
+  },
   description:
     "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation. Rent to own options available.",
+  keywords: [
+    "storage sheds",
+    "Hudson Falls NY",
+    "lofted barns",
+    "portable cabins",
+    "portable garages",
+    "chicken coops",
+    "greenhouses",
+    "rent to own sheds",
+    "backyard barns",
+  ],
+  authors: [{ name: "Legacy Structures" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://legacystructuresusa.com",
+    siteName: "Legacy Structures",
+    title: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+    description:
+      "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation. Rent to own options available.",
+    images: [
+      {
+        url: "https://barndealer.com/assets/img/social-share-barn-icon-250c.png",
+        width: 250,
+        height: 250,
+        alt: "Legacy Structures",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+    description:
+      "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
