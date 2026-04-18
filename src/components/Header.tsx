@@ -83,10 +83,13 @@ export default function Header() {
         .header-phone:hover { color: #c0392b; }
         .header-phone svg { color: #c0392b; }
 
+        .nav-wrap-outer {
+          background: #1a3a5c;
+          width: 100%;
+        }
         .nav-bar {
           max-width: 1200px;
           margin: 0 auto;
-          border-top: 1px solid rgba(255,255,255,0.12);
         }
         .nav-toggle { display: none; padding: 10px 24px; }
         .nav-toggle button {
@@ -166,6 +169,7 @@ export default function Header() {
         </div>
 
         {/* Nav row */}
+        <div className="nav-wrap-outer">
         <nav className="nav-bar">
           <div className="nav-toggle">
             <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
@@ -206,6 +210,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
+        </div>
       </header>
     </>
   );
