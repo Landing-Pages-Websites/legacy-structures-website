@@ -4,6 +4,8 @@ import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
+import PageHero from "@/components/PageHero";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Chicken Coops | Legacy Structures",
@@ -17,10 +19,11 @@ const BASE_URL =
 export default function ChickenCoopsPage() {
   return (
     <div>
-      {/* Inner Hero - Page Title Bar */}
-      <div className="bg-[#00567a] py-8 text-center">
-        <h1 className="text-white text-4xl font-bold" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif" }}>About Our Chicken Coops</h1>
-      </div>
+      <PageHero
+        title="Chicken Coops"
+        subtitle="Safe, practical, and affordable backyard chicken coops."
+        variant="navy"
+      />
 
       {/* Hero Image + Quote Form Row */}
       <div className="bg-white">
@@ -49,22 +52,25 @@ export default function ChickenCoopsPage() {
 
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
-        <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
-          Chicken Coops for Sale in Hudson Falls, NY
-        </h1>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Looking for a safe, practical, and affordable way to raise chickens? Our Chicken Coops at Legacy Structures are designed to make backyard chicken keeping easy and enjoyable. Whether you&apos;re starting with a few hens or expanding your flock, these coops offer everything you need to keep your birds happy and protected.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Each Chicken Coop includes a 3ft barn door on the end for easy access, two 24&quot; x 27&quot; single-pane windows for fresh air and ventilation, a roosting ladder, and raised nesting boxes with an exterior hatch so you can easily collect eggs. There&apos;s even a small chicken door to give your flock access to roam the yard or a fenced-in area. Coops are available in either 6ft or 8ft widths with several length options depending on your needs.
-        </p>
-        <p className="mb-8">
-          <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
-            Download Our FREE Shed Buying Guide - Click Here
-          </a>
-        </p>
+        <FadeIn>
+          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+            Chicken Coops for Sale in Hudson Falls, NY
+          </h1>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Looking for a safe, practical, and affordable way to raise chickens? Our Chicken Coops at Legacy Structures are designed to make backyard chicken keeping easy and enjoyable. Whether you&apos;re starting with a few hens or expanding your flock, these coops offer everything you need to keep your birds happy and protected.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Each Chicken Coop includes a 3ft barn door on the end for easy access, two 24&quot; x 27&quot; single-pane windows for fresh air and ventilation, a roosting ladder, and raised nesting boxes with an exterior hatch so you can easily collect eggs. There&apos;s even a small chicken door to give your flock access to roam the yard or a fenced-in area. Coops are available in either 6ft or 8ft widths with several length options depending on your needs.
+          </p>
+          <p className="mb-8">
+            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+              Download Our FREE Shed Buying Guide - Click Here
+            </a>
+          </p>
+        </FadeIn>
 
         {/* Chicken Coops */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="More About Our Chicken Coops..."
@@ -77,6 +83,7 @@ export default function ChickenCoopsPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         <DisclaimerText />
         <DesignerCTA />

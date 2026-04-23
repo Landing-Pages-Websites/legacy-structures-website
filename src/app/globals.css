@@ -35,6 +35,7 @@
 
   /* Fonts */
   --font-heading: var(--font-poppins), "Poppins", sans-serif;
+  --font-display: var(--font-bricolage), "Bricolage Grotesque", var(--font-poppins), sans-serif;
   --font-body: var(--font-inter), "Inter", sans-serif;
 }
 

@@ -4,6 +4,8 @@ import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
+import PageHero from "@/components/PageHero";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Portable Cabins | Legacy Structures",
@@ -31,10 +33,11 @@ const DELUXE_CABIN_SIZES = [
 export default function PortableCabinsPage() {
   return (
     <div>
-      {/* Inner Hero - Page Title Bar */}
-      <div className="bg-[#00567a] py-8 text-center">
-        <h1 className="text-white text-4xl font-bold" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif" }}>About Our Portable Cabins</h1>
-      </div>
+      <PageHero
+        title="Portable Cabins"
+        subtitle="Home office, hunting cabin, she-shed, or tiny home — our cabins are a blank canvas."
+        variant="navy"
+      />
 
       {/* Hero Image + Quote Form Row */}
       <div className="bg-white">
@@ -63,28 +66,31 @@ export default function PortableCabinsPage() {
 
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
-        <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
-          Dream big in one of our portable cabins&hellip;
-        </h1>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our pre-fab cabins are one of the most popular structures we sell. These buildings have many possible uses, such as a hunting cabin, home office, &ldquo;she-shed,&rdquo; &ldquo;man-cave,&rdquo; or even a tiny home. While we do not sell tiny homes, several of our customers have done the necessary work to properly finish out one of the cabins pursuant to their local building codes.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our cabins start out as small as 8ft x 10ft and come as big as 16ft x 40ft (depending on location.) We offer three basic styles of cabins: Side Porch Cabins, Playhouse Cabins, and Deluxe Cabins. Each building has its own unique advantage.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          The Side Porch Cabin is what some refer to as a &ldquo;his &amp; hers&rdquo; cabin since it has a work area to be used for gardening or other uses as well as a large storage area. The Playhouse Cabin comes with 4ft of porch as well a house-style walk-in door and three 2ft x 3ft windows. Our Deluxe Cabin comes with up to 8ft of porch as well as three bay windows and a house-style walk-in door. All three of our cabins come in either a Utility version or a Lofted version.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          The benefit of the Utility version is the ability to have 8ft sidewalls while the benefit of the Lofted version is the built-in overhead lofted storage. If you are in the market for a prefab cabin in or around Hudson Falls, NY give us a call at <a href="tel:518-544-2889" className="text-[#00567a] underline">518-544-2889</a>.
-        </p>
-        <p className="mb-8">
-          <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
-            Download Our FREE Shed Buying Guide - Click Here
-          </a>
-        </p>
+        <FadeIn>
+          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+            Dream big in one of our portable cabins&hellip;
+          </h1>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our pre-fab cabins are one of the most popular structures we sell. These buildings have many possible uses, such as a hunting cabin, home office, &ldquo;she-shed,&rdquo; &ldquo;man-cave,&rdquo; or even a tiny home. While we do not sell tiny homes, several of our customers have done the necessary work to properly finish out one of the cabins pursuant to their local building codes.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our cabins start out as small as 8ft x 10ft and come as big as 16ft x 40ft (depending on location.) We offer three basic styles of cabins: Side Porch Cabins, Playhouse Cabins, and Deluxe Cabins. Each building has its own unique advantage.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            The Side Porch Cabin is what some refer to as a &ldquo;his &amp; hers&rdquo; cabin since it has a work area to be used for gardening or other uses as well as a large storage area. The Playhouse Cabin comes with 4ft of porch as well a house-style walk-in door and three 2ft x 3ft windows. Our Deluxe Cabin comes with up to 8ft of porch as well as three bay windows and a house-style walk-in door. All three of our cabins come in either a Utility version or a Lofted version.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            The benefit of the Utility version is the ability to have 8ft sidewalls while the benefit of the Lofted version is the built-in overhead lofted storage. If you are in the market for a prefab cabin in or around Hudson Falls, NY give us a call at <a href="tel:518-544-2889" className="text-[#00567a] underline">518-544-2889</a>.
+          </p>
+          <p className="mb-8">
+            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+              Download Our FREE Shed Buying Guide - Click Here
+            </a>
+          </p>
+        </FadeIn>
 
         {/* Utility Side Porch Cabins */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR UTILITY SIDE PORCH CABINS"
@@ -94,8 +100,10 @@ export default function PortableCabinsPage() {
             sizeGroups={STANDARD_CABIN_SIZES}
           />
         </div>
+        </FadeIn>
 
         {/* Lofted Side Porch Cabins */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR LOFTED SIDE PORCH BARNS"
@@ -105,8 +113,10 @@ export default function PortableCabinsPage() {
             sizeGroups={STANDARD_CABIN_SIZES}
           />
         </div>
+        </FadeIn>
 
         {/* Utility Playhouse Cabins */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR UTILITY PLAYHOUSE CABINS"
@@ -116,8 +126,10 @@ export default function PortableCabinsPage() {
             sizeGroups={STANDARD_CABIN_SIZES}
           />
         </div>
+        </FadeIn>
 
         {/* Lofted Playhouse Cabins */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR LOFTED PLAYHOUSE CABINS"
@@ -127,8 +139,10 @@ export default function PortableCabinsPage() {
             sizeGroups={STANDARD_CABIN_SIZES}
           />
         </div>
+        </FadeIn>
 
         {/* Deluxe Utility Cabins */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR DELUXE UTILITY CABINS"
@@ -138,8 +152,10 @@ export default function PortableCabinsPage() {
             sizeGroups={DELUXE_CABIN_SIZES}
           />
         </div>
+        </FadeIn>
 
         {/* Deluxe Lofted Cabins */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR DELUXE LOFTED CABINS"
@@ -149,6 +165,7 @@ export default function PortableCabinsPage() {
             sizeGroups={DELUXE_CABIN_SIZES}
           />
         </div>
+        </FadeIn>
 
         <DisclaimerText />
         <DesignerCTA />

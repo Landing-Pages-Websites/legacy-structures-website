@@ -4,6 +4,8 @@ import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
+import PageHero from "@/components/PageHero";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Double Wide Garages | Legacy Structures",
@@ -17,10 +19,11 @@ const BASE_URL =
 export default function DoubleWideGaragesPage() {
   return (
     <div>
-      {/* Inner Hero - Page Title Bar */}
-      <div className="bg-[#00567a] py-8 text-center">
-        <h1 className="text-white text-4xl font-bold" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif" }}>About Our Double Wide Garages</h1>
-      </div>
+      <PageHero
+        title="Double Wide Garages"
+        subtitle="Serious space for vehicles, tools, and projects — delivered in two halves."
+        variant="navy"
+      />
 
       {/* Hero Image + Quote Form Row */}
       <div className="bg-white">
@@ -49,22 +52,25 @@ export default function DoubleWideGaragesPage() {
 
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
-        <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
-          Double Wide Garages for Sale in Hudson Falls, NY
-        </h1>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Need serious space for vehicles, tools, or your next project? The Double Wide Garage at Legacy Structures delivers the room you need&mdash;without the hassle of on-site construction. These buildings are delivered in two fully-built halves and then joined and leveled on-site (up to 2 feet) as part of the standard delivery process.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Each garage comes equipped with (1) 9-lite entry door, (4) 2&apos; x 3&apos; windows, and (2) roll-up garage doors for easy access. Built tough with &frac34;&quot; treated flooring and 12&quot; on-center floor joists, the Double Wide Garage is ready to handle your vehicles, equipment, or workshop setup. Optional upgrades include painted siding, panel garage doors, or other custom door styles to fit your needs.
-        </p>
-        <p className="mb-8">
-          <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
-            Download Our FREE Shed Buying Guide - Click Here
-          </a>
-        </p>
+        <FadeIn>
+          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+            Double Wide Garages for Sale in Hudson Falls, NY
+          </h1>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Need serious space for vehicles, tools, or your next project? The Double Wide Garage at Legacy Structures delivers the room you need&mdash;without the hassle of on-site construction. These buildings are delivered in two fully-built halves and then joined and leveled on-site (up to 2 feet) as part of the standard delivery process.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Each garage comes equipped with (1) 9-lite entry door, (4) 2&apos; x 3&apos; windows, and (2) roll-up garage doors for easy access. Built tough with &frac34;&quot; treated flooring and 12&quot; on-center floor joists, the Double Wide Garage is ready to handle your vehicles, equipment, or workshop setup. Optional upgrades include painted siding, panel garage doors, or other custom door styles to fit your needs.
+          </p>
+          <p className="mb-8">
+            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+              Download Our FREE Shed Buying Guide - Click Here
+            </a>
+          </p>
+        </FadeIn>
 
         {/* Double Wide Garages */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR DOUBLE WIDE GARAGES"
@@ -76,6 +82,7 @@ export default function DoubleWideGaragesPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         <DisclaimerText />
         <DesignerCTA />

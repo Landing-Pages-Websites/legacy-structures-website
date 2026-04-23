@@ -4,6 +4,8 @@ import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
+import PageHero from "@/components/PageHero";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Storage Sheds | Legacy Structures",
@@ -17,10 +19,11 @@ const BASE_URL =
 export default function StorageShedsPage() {
   return (
     <div>
-      {/* Inner Hero - Page Title Bar */}
-      <div className="bg-[#00567a] py-8 text-center">
-        <h1 className="text-white text-4xl font-bold" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif" }}>About Our Storage Sheds</h1>
-      </div>
+      <PageHero
+        title="Storage Sheds"
+        subtitle="High-quality storage sheds built to last. Customizable siding, roofing, and sizes."
+        variant="navy"
+      />
 
       {/* Hero Image + Quote Form Row */}
       <div className="bg-white">
@@ -49,28 +52,31 @@ export default function StorageShedsPage() {
 
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
-        <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
-          We have a large variety of storage sheds&hellip;
-        </h1>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our storage sheds are a great option for adding much-needed storage space around your home. Rather than spending money at a local mini-storage facility, why not purchase one of our storage sheds or use our helpful Rent-To-Own option with easy monthly payments? To learn more about our Rent-To-Own sheds <a href="/rent-to-own" className="text-[#00567a] underline">click here</a>.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our storage sheds are built using the best quality materials and exacting standards resulting in a quality building that will last for years to come. We offer three basic versions of our storage sheds: Utility Sheds, Metal Utility Sheds, and our Utility Dormer sheds. Each shed has its own unique value:
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our basic Utility Shed comes with the option to have either T1-11 pressure-treated siding or LP Smart&#8482; Panel siding. You can choose either option at no additional charge. The Metal Shed uses the same construction process but with 29 gauge metal siding instead of wood. The Utility Dormer Shed is also made with T1-11 pressure-treated siding or LP Smart&#8482; Panel siding but it includes a dormer which brings in a significant amount of natural light to the structure.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our Utility Shed can be built with 8ft sidewalls, while the Utility Dormer Shed comes with 7ft sidewalls. Our Metal Sheds are built on 6ft sidewalls. Whatever storage needs you have, one of our storage sheds is sure to fit the bill. If you are looking for a storage shed in or around Hudson Falls, NY then give us a call at <a href="tel:518-544-2889" className="text-[#00567a] underline">518-544-2889</a>.
-        </p>
-        <p className="mb-8">
-          <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
-            Download Our FREE Shed Buying Guide - Click Here
-          </a>
-        </p>
+        <FadeIn>
+          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+            We have a large variety of storage sheds&hellip;
+          </h1>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our storage sheds are a great option for adding much-needed storage space around your home. Rather than spending money at a local mini-storage facility, why not purchase one of our storage sheds or use our helpful Rent-To-Own option with easy monthly payments? To learn more about our Rent-To-Own sheds <a href="/rent-to-own" className="text-[#00567a] underline">click here</a>.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our storage sheds are built using the best quality materials and exacting standards resulting in a quality building that will last for years to come. We offer three basic versions of our storage sheds: Utility Sheds, Metal Utility Sheds, and our Utility Dormer sheds. Each shed has its own unique value:
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our basic Utility Shed comes with the option to have either T1-11 pressure-treated siding or LP Smart&#8482; Panel siding. You can choose either option at no additional charge. The Metal Shed uses the same construction process but with 29 gauge metal siding instead of wood. The Utility Dormer Shed is also made with T1-11 pressure-treated siding or LP Smart&#8482; Panel siding but it includes a dormer which brings in a significant amount of natural light to the structure.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our Utility Shed can be built with 8ft sidewalls, while the Utility Dormer Shed comes with 7ft sidewalls. Our Metal Sheds are built on 6ft sidewalls. Whatever storage needs you have, one of our storage sheds is sure to fit the bill. If you are looking for a storage shed in or around Hudson Falls, NY then give us a call at <a href="tel:518-544-2889" className="text-[#00567a] underline">518-544-2889</a>.
+          </p>
+          <p className="mb-8">
+            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+              Download Our FREE Shed Buying Guide - Click Here
+            </a>
+          </p>
+        </FadeIn>
 
         {/* Utility Sheds */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR UTILITY SHEDS"
@@ -86,8 +92,10 @@ export default function StorageShedsPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         {/* Metal Sheds */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR METAL SHEDS"
@@ -101,8 +109,10 @@ export default function StorageShedsPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         {/* Single Slope Sheds */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR SINGLE SLOPE SHEDS"
@@ -117,8 +127,10 @@ export default function StorageShedsPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         {/* Utility Dormer Sheds */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR UTILITY DORMER SHEDS"
@@ -132,8 +144,10 @@ export default function StorageShedsPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         {/* Gable Dormer Sheds */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR GABLE DORMER SHEDS"
@@ -149,6 +163,7 @@ export default function StorageShedsPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         <DisclaimerText />
         <DesignerCTA />

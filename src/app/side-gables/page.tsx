@@ -4,6 +4,8 @@ import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
+import PageHero from "@/components/PageHero";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Side Gables | Legacy Structures",
@@ -17,10 +19,11 @@ const BASE_URL =
 export default function SideGablesPage() {
   return (
     <div>
-      {/* Inner Hero - Page Title Bar */}
-      <div className="bg-[#00567a] py-8 text-center">
-        <h1 className="text-white text-4xl font-bold" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif" }}>About Our Side Gables</h1>
-      </div>
+      <PageHero
+        title="Side Gable Buildings"
+        subtitle="A smart alternative to traditional side-entry utility sheds."
+        variant="navy"
+      />
 
       {/* Hero Image + Quote Form Row */}
       <div className="bg-white">
@@ -49,22 +52,25 @@ export default function SideGablesPage() {
 
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
-        <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
-          Side Gable Buildings for Sale in Hudson Falls, NY
-        </h1>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Our Side Gable Buildings at Legacy Structures are a smart alternative to traditional side-entry utility sheds. Designed with the roof gable running along the length of the building, these sheds are ideal when placing the long side of the structure toward your yard, driveway, or property line&mdash;especially when you want the roofline to match the visual flow of your space. Not only are they functional, but the center height provides extra headroom and storage flexibility.
-        </p>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          Available in multiple widths and lengths, Side Gables can be customized with your choice of siding, roof style, and paint or stain color. Each one includes either a single or double barn door depending on the size, and comes built to last using quality materials. Whether you&apos;re storing lawn equipment, tools, or just need more space, these sheds are a stylish and durable solution.
-        </p>
-        <p className="mb-8">
-          <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
-            Download Our FREE Shed Buying Guide - Click Here
-          </a>
-        </p>
+        <FadeIn>
+          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+            Side Gable Buildings for Sale in Hudson Falls, NY
+          </h1>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our Side Gable Buildings at Legacy Structures are a smart alternative to traditional side-entry utility sheds. Designed with the roof gable running along the length of the building, these sheds are ideal when placing the long side of the structure toward your yard, driveway, or property line&mdash;especially when you want the roofline to match the visual flow of your space. Not only are they functional, but the center height provides extra headroom and storage flexibility.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Available in multiple widths and lengths, Side Gables can be customized with your choice of siding, roof style, and paint or stain color. Each one includes either a single or double barn door depending on the size, and comes built to last using quality materials. Whether you&apos;re storing lawn equipment, tools, or just need more space, these sheds are a stylish and durable solution.
+          </p>
+          <p className="mb-8">
+            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+              Download Our FREE Shed Buying Guide - Click Here
+            </a>
+          </p>
+        </FadeIn>
 
         {/* Side Gable Buildings */}
+        <FadeIn>
         <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR SIDE GABLE BUILDINGS"
@@ -78,6 +84,7 @@ export default function SideGablesPage() {
             ]}
           />
         </div>
+        </FadeIn>
 
         <DisclaimerText />
         <DesignerCTA />

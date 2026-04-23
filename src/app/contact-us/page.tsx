@@ -1,24 +1,6 @@
-"use client";
-
-import { useState, FormEvent } from "react";
-
-const STATES_PROVINCES = [
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-  "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia",
-  "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-  "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
-  "New Hampshire", "New Jersey", "New Mexico", "New York",
-  "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
-  "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
-  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-  "West Virginia", "Wisconsin", "Wyoming",
-  "Armed Forces Americas", "Armed Forces Europe", "Armed Forces Pacific",
-  "Alberta", "British Columbia", "Manitoba", "New Brunswick",
-  "Newfoundland and Labrador", "Northwest Territories", "Nova Scotia",
-  "Nunavut", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan",
-  "Yukon",
-];
+import PageHero from "@/components/PageHero";
+import FadeIn from "@/components/FadeIn";
+import ContactForm from "@/components/ContactForm";
 
 const businessHours = [
   { day: "Monday", hours: "By Appointment" },
@@ -30,152 +12,198 @@ const businessHours = [
   { day: "Sunday", hours: "Closed" },
 ];
 
+const MAP_SRC =
+  "https://maps.google.com/maps?q=3570+US+4,+Hudson+Falls,+NY+12839&t=&z=13&ie=UTF8&iwloc=&output=embed";
+
 export default function ContactUsPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    state: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log("Contact form submitted:", formData);
-  };
-
   return (
-    <div className="bg-[#DDD]">
-      {/* Contact Main */}
-      <div className="wrapper border-t-[5px] border-[#00567a] max-w-[1100px] mx-auto px-[20px] py-[40px]">
-        <h1 className="!text-left !pt-0">Contact Us</h1>
+    <div style={{ background: "#f7f5f2" }}>
+      <PageHero
+        title="Contact Us"
+        subtitle="Visit us in Hudson Falls, NY — we'd love to help you find the perfect building for your needs."
+        variant="navy"
+      />
 
-        {/* Two Column Layout */}
-        <div className="flex flex-col md:flex-row items-start gap-[40px]">
-          {/* Left Column - Contact Info */}
-          <div className="w-full md:max-w-[70%]">
-            <div>
-              <strong className="text-[19px]">Legacy Structures</strong>
-              <ul className="list-none p-0 m-0 mt-[10px] text-[19px] leading-[30px]">
-                <li>3570 US 4</li>
-                <li>Hudson Falls, NY 12839</li>
-                <li>
-                  Main:{" "}
-                  <a href="tel:518-544-2889" target="_blank" rel="noopener noreferrer">
-                    518-544-2889
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mt-[30px]">
-              <strong className="text-[19px]">BUSINESS HOURS</strong>
-              <ul className="list-none p-0 m-0 mt-[10px] text-[19px] leading-[30px]">
-                {businessHours.map((row) => (
-                  <li key={row.day}>
-                    {row.day}: {row.hours}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Right Column - Contact Form */}
-          <div className="w-full">
-            <h2 className="!pb-[10px]">Email Us</h2>
-            <p className="text-[16px] leading-[24px] pb-[15px]">
-              Please fill out the below form and we will get back to you as quickly as possible. Please allow up to 2 business days for our reply. Please also review our Frequently Asked Questions below to find a quick answer to your question!
-            </p>
-
-            <form onSubmit={handleSubmit}>
-              {/* Row: First + Last Name */}
-              <div className="flex flex-col sm:flex-row gap-[10px] mb-[10px]">
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-[10px] border border-[#ccc] rounded text-black"
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-[10px] border border-[#ccc] rounded text-black"
-                />
-              </div>
-
-              {/* Row: Email + Phone */}
-              <div className="flex flex-col sm:flex-row gap-[10px] mb-[10px]">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-[10px] border border-[#ccc] rounded text-black"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full p-[10px] border border-[#ccc] rounded text-black"
-                />
-              </div>
-
-              {/* State/Province */}
-              <select
-                name="state"
-                value={formData.state}
-                onChange={handleChange}
-                className="w-full p-[10px] border border-[#ccc] rounded text-black bg-white mb-[10px]"
-              >
-                <option value="">State/Province</option>
-                {STATES_PROVINCES.map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
-
-              {/* Message */}
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={5}
-                className="w-full p-[10px] border border-[#ccc] rounded text-black mb-[10px]"
-              />
-
-              {/* Submit */}
+      {/* Info + Map */}
+      <section style={{ padding: "64px 20px" }}>
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
+            gap: 40,
+            alignItems: "stretch",
+          }}
+          className="contact-grid"
+        >
+          <FadeIn>
+            <div
+              style={{
+                background: "#ffffff",
+                borderRadius: 12,
+                padding: 32,
+                boxShadow: "0 4px 20px rgba(26, 58, 92, 0.08)",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                gap: 24,
+              }}
+            >
               <div>
-                <button
-                  type="submit"
-                  className="bg-[#af1919] text-white font-bold uppercase py-[12px] px-[30px] rounded-md text-[18px] cursor-pointer hover:opacity-90 transition-opacity"
+                <h2
+                  style={{
+                    color: "#1a3a5c",
+                    fontSize: 24,
+                    fontWeight: 700,
+                    margin: 0,
+                    marginBottom: 4,
+                  }}
                 >
-                  Submit
-                </button>
+                  Legacy Structures
+                </h2>
+                <div
+                  style={{
+                    width: 48,
+                    height: 3,
+                    background: "#c0392b",
+                    borderRadius: 2,
+                  }}
+                />
               </div>
-            </form>
-          </div>
+
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 6 }}>
+                  Address
+                </div>
+                <address style={{ fontStyle: "normal", color: "#1a3a5c", fontSize: 16, lineHeight: 1.6 }}>
+                  3570 US 4
+                  <br />
+                  Hudson Falls, NY 12839
+                </address>
+              </div>
+
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 6 }}>
+                  Phone
+                </div>
+                <a
+                  href="tel:518-544-2889"
+                  style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
+                >
+                  518-544-2889
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 6 }}>
+                  Email
+                </div>
+                <a
+                  href="mailto:info@legacystructuresusa.com"
+                  style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
+                >
+                  info@legacystructuresusa.com
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 8 }}>
+                  Business Hours
+                </div>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {businessHours.map((row) => (
+                    <li
+                      key={row.day}
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        padding: "6px 0",
+                        borderBottom: "1px solid #f0ece6",
+                        color: "#1a3a5c",
+                        fontSize: 15,
+                      }}
+                    >
+                      <span style={{ fontWeight: 600 }}>{row.day}</span>
+                      <span style={{ color: "#5a6c7e" }}>{row.hours}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <div
+              style={{
+                borderRadius: 12,
+                overflow: "hidden",
+                boxShadow: "0 4px 20px rgba(26, 58, 92, 0.08)",
+                height: "100%",
+                minHeight: 400,
+                background: "#ffffff",
+              }}
+            >
+              <iframe
+                src={MAP_SRC}
+                title="Map to Legacy Structures, 3570 US 4, Hudson Falls, NY 12839"
+                width="100%"
+                height="100%"
+                style={{ border: 0, display: "block", minHeight: 400 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </FadeIn>
         </div>
-      </div>
+      </section>
+
+      {/* Contact Form */}
+      <section style={{ padding: "24px 20px 80px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <FadeIn>
+            <div
+              style={{
+                background: "#ffffff",
+                borderRadius: 12,
+                padding: 40,
+                boxShadow: "0 4px 20px rgba(26, 58, 92, 0.08)",
+              }}
+            >
+              <h2
+                style={{
+                  color: "#1a3a5c",
+                  fontSize: 28,
+                  fontWeight: 700,
+                  margin: 0,
+                  marginBottom: 8,
+                }}
+              >
+                Email Us
+              </h2>
+              <div
+                style={{
+                  width: 48,
+                  height: 3,
+                  background: "#c0392b",
+                  borderRadius: 2,
+                  marginBottom: 20,
+                }}
+              />
+              <ContactForm />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .contact-grid {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

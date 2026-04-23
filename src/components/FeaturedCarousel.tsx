@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface FeaturedShed {
   name: string;
@@ -74,48 +75,113 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
       {/* Items */}
       <div className="grid grid-cols-3 gap-4">
         {visible.map((shed, i) => (
-          <Link key={`${shed.href}-${startIdx + i}`} href={shed.href} className="block group">
-            <div
-              style={{
-                borderRadius: "8px",
-                overflow: "hidden",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
-              }}
-            >
-              <div
-                className="bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(${shed.image})`,
-                  height: "250px",
-                }}
-              />
+          <motion.div
+            key={`${shed.href}-${startIdx + i}`}
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+            variants={{
+              rest: { scale: 1, y: 0, boxShadow: "0 2px 8px rgba(0,0,0,0.1)" },
+              hover: {
+                scale: 1.02,
+                y: -4,
+                boxShadow: "0 12px 32px rgba(0,0,0,0.2)",
+              },
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            style={{ borderRadius: "8px" }}
+          >
+            <Link href={shed.href} className="block group">
               <div
                 style={{
-                  backgroundColor: "#fff",
-                  color: "#222",
-                  textAlign: "center",
-                  padding: "20px",
-                  fontSize: "16px",
-                  borderTop: "3px solid #00567a",
+                  borderRadius: "8px",
+                  overflow: "hidden",
                 }}
               >
-                <div style={{ fontWeight: 600 }}>{shed.name}</div>
-                <div style={{ color: "#999", fontSize: "12px", marginTop: "6px" }}>Starting at</div>
-                <div style={{ color: "#e8573a", fontWeight: 800, fontSize: "18px", marginTop: "2px" }}>
-                  {formatPrice(shed.price)}
+                {/* Image container with zoom-on-hover */}
+                <div
+                  style={{
+                    position: "relative",
+                    height: "280px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <motion.div
+                    className="bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(${shed.image})`,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    variants={{
+                      rest: { scale: 1 },
+                      hover: { scale: 1.05 },
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  />
+                  {/* Hover overlay */}
+                  <motion.div
+                    variants={{
+                      rest: { opacity: 0 },
+                      hover: { opacity: 1 },
+                    }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%)",
+                      display: "flex",
+                      alignItems: "flex-end",
+                      justifyContent: "center",
+                      padding: "16px",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#fff",
+                        fontWeight: 600,
+                        fontSize: "15px",
+                        letterSpacing: "0.3px",
+                      }}
+                    >
+                      View Details →
+                    </span>
+                  </motion.div>
                 </div>
+                <motion.div
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#222",
+                    textAlign: "center",
+                    padding: "20px",
+                    fontSize: "16px",
+                    borderTop: "3px solid #00567a",
+                  }}
+                >
+                  <div style={{ fontWeight: 600 }}>{shed.name}</div>
+                  <div style={{ color: "#999", fontSize: "12px", marginTop: "6px" }}>Starting at</div>
+                  <motion.div
+                    variants={{
+                      rest: { scale: 1 },
+                      hover: { scale: 1.08 },
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    style={{
+                      color: "#e8573a",
+                      fontWeight: 800,
+                      fontSize: "18px",
+                      marginTop: "2px",
+                      transformOrigin: "center",
+                    }}
+                  >
+                    {formatPrice(shed.price)}
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </motion.div>
         ))}
       </div>
 
