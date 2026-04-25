@@ -60,7 +60,7 @@ export default function Header() {
         .header-top {
           background: #fff;
           max-width: 100%;
-          padding: 8px 24px;
+          padding: 14px 24px;
           border-bottom: 1px solid #e8e4df;
         }
         .header-top-inner {
@@ -197,7 +197,7 @@ export default function Header() {
                 alt="Legacy Structures"
                 width={280}
                 height={90}
-                style={{ maxHeight: "56px", width: "auto", height: "auto" }}
+                style={{ maxHeight: "90px", width: "auto", height: "auto" }}
                 priority
               />
             </Link>
