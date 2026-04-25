@@ -17,9 +17,9 @@ const item = {
   },
 };
 
-// Clean shed photo - has sky/landscape negative space, no baked-in text
+// Wide shed lineup shot - clean negative space, no baked-in text
 const HERO_IMAGE =
-  "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8862-1741119998306-scaled.jpeg";
+  "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/byo-hero-slider-3.jpg";
 
 export default function HeroWithOverlay() {
   return (
@@ -40,8 +40,9 @@ export default function HeroWithOverlay() {
           inset: 0,
           backgroundImage: `url(${HERO_IMAGE})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center bottom",
           backgroundRepeat: "no-repeat",
+          backgroundColor: "#0f2440",
         }}
       />
 

@@ -39,10 +39,8 @@ export default function Home() {
       {/* Two-Column CTA */}
       <FadeIn>
         <section style={{ background: "#c0392b", padding: "48px 24px" }}>
-          <StaggerChildren
-            className="two-col-cta-grid"
-          >
-            <div style={{ maxWidth: 1150, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+          <StaggerChildren className="two-col-cta-grid">
+            <div style={{ maxWidth: 1150, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "stretch" }}>
               {[
                 {
                   title: "Try Our 3D Shed Builder",
@@ -61,26 +59,29 @@ export default function Home() {
                   external: false,
                 },
               ].map((card) => (
-                <StaggerItem key={card.title}>
-                  <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: 12, padding: 32, textAlign: "center", border: "1px solid rgba(255,255,255,0.15)" }}>
+                <StaggerItem key={card.title} className="cta-card-wrap">
+                  <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: 12, padding: 32, textAlign: "center", border: "1px solid rgba(255,255,255,0.15)", display: "flex", flexDirection: "column", height: "100%" }}>
                     <h2 style={{ color: "#fff", fontSize: 24, fontWeight: 700, paddingBottom: 8, fontFamily: "var(--font-bricolage)", letterSpacing: "-0.02em" }}>{card.title}</h2>
                     <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, paddingBottom: 20 }}>{card.desc}</p>
-                    <div style={{ marginBottom: 20 }}>
-                      <img src={card.img} alt={card.title} style={{ maxWidth: "100%", borderRadius: 8 }} />
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24, minHeight: 240 }}>
+                      <img src={card.img} alt={card.title} style={{ maxWidth: "100%", maxHeight: 240, objectFit: "contain", borderRadius: 8 }} />
                     </div>
-                    {card.external ? (
-                      <a href={card.href} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 32px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase", letterSpacing: 0.5, transition: "all 0.2s" }}>
-                        {card.btn}
-                      </a>
-                    ) : (
-                      <Link href={card.href} style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 32px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase", letterSpacing: 0.5, transition: "all 0.2s" }}>
-                        {card.btn}
-                      </Link>
-                    )}
+                    <div>
+                      {card.external ? (
+                        <a href={card.href} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 32px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase", letterSpacing: 0.5, transition: "all 0.2s" }}>
+                          {card.btn}
+                        </a>
+                      ) : (
+                        <Link href={card.href} style={{ display: "inline-block", background: "#d4a017", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 32px", borderRadius: 6, textDecoration: "none", textTransform: "uppercase", letterSpacing: 0.5, transition: "all 0.2s" }}>
+                          {card.btn}
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </StaggerItem>
               ))}
             </div>
+            <style>{`.cta-card-wrap { height: 100%; }`}</style>
           </StaggerChildren>
         </section>
       </FadeIn>
