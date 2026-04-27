@@ -22,6 +22,7 @@ export default function StorageShedsPage() {
       <PageHero
         title="Storage Sheds"
         subtitle="High-quality storage sheds built to last. Customizable siding, roofing, and sizes."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/shed-slider-1.png"
         variant="navy"
       />
 

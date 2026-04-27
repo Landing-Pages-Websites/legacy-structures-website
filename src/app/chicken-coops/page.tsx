@@ -22,6 +22,7 @@ export default function ChickenCoopsPage() {
       <PageHero
         title="Chicken Coops"
         subtitle="Safe, practical, and affordable backyard chicken coops."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-ChickenCoops.png"
         variant="navy"
       />
 

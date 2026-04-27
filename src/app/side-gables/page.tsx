@@ -22,6 +22,7 @@ export default function SideGablesPage() {
       <PageHero
         title="Side Gable Buildings"
         subtitle="A smart alternative to traditional side-entry utility sheds."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-SideGables.png"
         variant="navy"
       />
 

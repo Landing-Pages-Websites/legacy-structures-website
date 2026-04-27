@@ -22,6 +22,7 @@ export default function GreenhousesPage() {
       <PageHero
         title="Greenhouses"
         subtitle="Grow year-round in a climate-controlled, hassle-free greenhouse."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-Greenhouses.png"
         variant="navy"
       />
 

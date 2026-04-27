@@ -36,6 +36,7 @@ export default function PortableCabinsPage() {
       <PageHero
         title="Portable Cabins"
         subtitle="Home office, hunting cabin, she-shed, or tiny home — our cabins are a blank canvas."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utilty-side-slider1.png"
         variant="navy"
       />
 

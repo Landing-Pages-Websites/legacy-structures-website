@@ -22,6 +22,7 @@ export default function DoubleWideGaragesPage() {
       <PageHero
         title="Double Wide Garages"
         subtitle="Serious space for vehicles, tools, and projects — delivered in two halves."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-DoubleWideGarages.png"
         variant="navy"
       />
 

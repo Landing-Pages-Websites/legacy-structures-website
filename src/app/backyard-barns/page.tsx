@@ -22,6 +22,7 @@ export default function BackyardBarnsPage() {
       <PageHero
         title="Backyard Barns"
         subtitle="Classic barn-style storage with lofted or mini options. Built in Hudson Falls, NY."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/Lofted-Barn-1.png"
         variant="navy"
       />
 

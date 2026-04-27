@@ -29,6 +29,7 @@ export default function PortableGaragesPage() {
       <PageHero
         title="Portable Garages"
         subtitle="Protect your vehicles and equipment with a custom-built portable garage."
+        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/garage-slider-1.png"
         variant="navy"
       />
 
