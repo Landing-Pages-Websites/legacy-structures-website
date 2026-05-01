@@ -30,7 +30,11 @@ export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
   const progressRef = useRef<number | null>(null);
-  const startTimeRef = useRef(Date.now());
+  const startTimeRef = useRef<number>(0);
+
+  useEffect(() => {
+    startTimeRef.current = Date.now();
+  }, []);
 
   const prev = useCallback(() => {
     setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));

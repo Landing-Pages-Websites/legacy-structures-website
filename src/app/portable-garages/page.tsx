@@ -8,7 +8,7 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Portable Garages | Legacy Structures",
+  title: "Portable Garages",
   description:
     "Whether you need to store an antique car or want to have space to work on your vehicle, one of these portable garages might just be the solution you are looking for.",
 };
@@ -61,20 +61,20 @@ export default function PortableGaragesPage() {
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
         <FadeIn>
-          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+          <h2 className="page-content-heading">
             Protect Your Investment With A Portable Garage&hellip;
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          </h2>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Often times adding a garage onto an existing home or having a free-standing garage built can be cost-prohibitive. By the time you&apos;ve hired an architect and priced out the materials, the dream of owning a garage can seem out of reach. This is where a portable garage from Backyard Outfitters comes in! Whether you need to store an antique car or want to have space to work on your vehicle, one of these portable garages might just be the solution you are looking for. Our buildings are built to exacting standards, in the spirit of Mennonite craftsmanship, and with the highest quality materials. One unique feature of our portable garages is that&hellip;well&hellip;they are portable.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Our garages start out as small as 8ft x 10ft and come as big as 16ft x 40ft (depending on location.) We offer two basic styles of garages: a Utility Garage and a Lofted Garage. Each building has its own unique advantages. After construction, they are delivered to your location and set up where you&apos;d like them to sit. **Some placement restrictions might apply depending on a number of factors. In the event you ever moved to a new home or needed to relocate one of these structures, you can contact your dealer to obtain the delivery company&apos;s contact information. They can assist you in helping get your structure moved.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            We have seen many different uses when customers purchase our portable garages&hellip;including car storage, home office, homeschool room, crafting room, and so much more! If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href="tel:518-544-2889" className="text-[#00567a] underline">518-544-2889</a>.
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            We have seen many different uses when customers purchase our portable garages&hellip;including car storage, home office, homeschool room, crafting room, and so much more! If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href="tel:518-544-2889" className="text-[#c0392b] underline">518-544-2889</a>.
           </p>
           <p className="mb-8">
-            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+            <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
               Download Our FREE Shed Buying Guide - Click Here
             </a>
           </p>
@@ -82,7 +82,7 @@ export default function PortableGaragesPage() {
 
         {/* Utility Garages */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR PORTABLE UTILITY GARAGES"
             description="Our Utility Garages are ideal for customers who have Zero-Turn mowers, motorcycles, and smaller vehicles they need to park or store for an extended period. The 2' x 3' window adds additional airflow to the structure. The solid house-style door offers another way to access the structure as well. This package includes 8ft sidewalls. The Utility Garage comes in the following sizes:"
@@ -95,7 +95,7 @@ export default function PortableGaragesPage() {
 
         {/* Lofted Garages */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR PORTABLE LOFTED GARAGES"
             description="Our Lofted Garages are a great alternative to our Utility Garages. In lieu of 8ft sidewalls, the Lofted Garage comes with overhead loft offering plenty of storage space. The 2' x 3' window adds additional airflow to the structure. The solid house-style door offers another way to access the structure as well. The Lofted Garage comes in the following sizes:"

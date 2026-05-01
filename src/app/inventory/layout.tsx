@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Building Inventory | Legacy Structures",
+  title: "Building Inventory",
   description:
     "Browse our current inventory of storage sheds, lofted barns, utility sheds, garages, cabins, and chicken coops available for sale and rent-to-own in Hudson Falls, NY.",
   openGraph: {

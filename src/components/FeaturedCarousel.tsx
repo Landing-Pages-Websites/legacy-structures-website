@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 interface FeaturedShed {
   name: string;
@@ -52,7 +51,7 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
   };
 
   return (
-    <div style={{ position: "relative", padding: "0 56px" }}>
+    <div style={{ position: "relative", padding: "0 50px 28px" }}>
       {/* Prev Arrow */}
       <button
         onClick={() => scrollByCard("left")}
@@ -64,21 +63,20 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 10,
-          background: canScrollLeft ? "#1a3a5c" : "rgba(26,58,92,0.3)",
-          color: "#fff",
+          background: "transparent",
+          color: canScrollLeft ? "#777" : "rgba(119,119,119,0.35)",
           border: "none",
-          width: 48,
-          height: 48,
-          borderRadius: "50%",
+          width: 54,
+          height: 70,
+          borderRadius: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           cursor: canScrollLeft ? "pointer" : "not-allowed",
-          boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-          transition: "all 0.2s ease",
+          transition: "color 0.2s ease",
         }}
       >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
         </svg>
       </button>
@@ -94,21 +92,20 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 10,
-          background: canScrollRight ? "#1a3a5c" : "rgba(26,58,92,0.3)",
-          color: "#fff",
+          background: "transparent",
+          color: canScrollRight ? "#777" : "rgba(119,119,119,0.35)",
           border: "none",
-          width: 48,
-          height: 48,
-          borderRadius: "50%",
+          width: 54,
+          height: 70,
+          borderRadius: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           cursor: canScrollRight ? "pointer" : "not-allowed",
-          boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-          transition: "all 0.2s ease",
+          transition: "color 0.2s ease",
         }}
       >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 6 15 12 9 18" />
         </svg>
       </button>
@@ -118,7 +115,7 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
         ref={scrollRef}
         style={{
           display: "flex",
-          gap: 24,
+          gap: 34,
           overflowX: "auto",
           overflowY: "hidden",
           scrollSnapType: "x mandatory",
@@ -134,32 +131,21 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
         `}</style>
 
         {sheds.map((shed) => (
-          <motion.div
+          <div
             key={shed.href}
             data-card
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-            variants={{
-              rest: { y: 0, boxShadow: "0 2px 8px rgba(0,0,0,0.08)" },
-              hover: { y: -6, boxShadow: "0 16px 36px rgba(0,0,0,0.18)" },
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 22 }}
             style={{
-              flex: "0 0 calc(33.333% - 16px)",
+              flex: "0 0 calc(33.333% - 23px)",
               minWidth: 280,
-              borderRadius: 12,
-              background: "#fff",
+              background: "transparent",
               scrollSnapAlign: "start",
               overflow: "hidden",
             }}
           >
             <Link href={shed.href} style={{ display: "block", textDecoration: "none", color: "inherit" }}>
               {/* Image */}
-              <div style={{ position: "relative", height: 240, overflow: "hidden" }}>
-                <motion.div
-                  variants={{ rest: { scale: 1 }, hover: { scale: 1.06 } }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+              <div style={{ position: "relative", height: 245, overflow: "hidden", background: "#fff" }}>
+                <div
                   style={{
                     backgroundImage: `url(${shed.image})`,
                     backgroundSize: "cover",
@@ -168,39 +154,42 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
                     height: "100%",
                   }}
                 />
-                <motion.div
-                  variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}
-                  transition={{ duration: 0.25 }}
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(to top, rgba(15,36,64,0.85) 0%, rgba(0,0,0,0) 60%)",
-                    display: "flex",
-                    alignItems: "flex-end",
-                    padding: 18,
-                    pointerEvents: "none",
-                  }}
-                >
-                  <span style={{ color: "#fff", fontWeight: 600, fontSize: 14, letterSpacing: 0.5, fontFamily: "var(--font-poppins)" }}>
-                    View Details →
-                  </span>
-                </motion.div>
               </div>
 
               {/* Info */}
-              <div style={{ padding: 20, borderTop: "3px solid #1a3a5c" }}>
-                <div style={{ fontWeight: 700, fontSize: 17, color: "#1a3a5c", fontFamily: "var(--font-poppins)" }}>
+              <div style={{ padding: "15px 12px 17px", background: "#006580", textAlign: "center" }}>
+                <div style={{ fontWeight: 700, fontSize: 16, color: "#fff", fontFamily: "Arial, sans-serif", lineHeight: 1.08 }}>
                   {shed.name}
                 </div>
-                <div style={{ color: "#8899aa", fontSize: 12, marginTop: 6, textTransform: "uppercase", letterSpacing: 1 }}>
-                  Starting at
-                </div>
-                <div style={{ color: "#c0392b", fontWeight: 800, fontSize: 22, marginTop: 2, fontFamily: "var(--font-poppins)" }}>
+                <div style={{ color: "#fff", fontWeight: 700, fontSize: 16, fontFamily: "Arial, sans-serif", lineHeight: 1.08 }}>
                   {formatPrice(shed.price)}
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </div>
+        ))}
+      </div>
+      <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 14 }}>
+        {sheds.slice(0, 10).map((shed, idx) => (
+          <button
+            key={shed.href}
+            onClick={() => {
+              const el = scrollRef.current;
+              const card = el?.querySelector("[data-card]") as HTMLElement | null;
+              if (!el || !card) return;
+              el.scrollTo({ left: idx * (card.offsetWidth + 34), behavior: "smooth" });
+            }}
+            aria-label={`Go to featured shed ${idx + 1}`}
+            style={{
+              width: 13,
+              height: 13,
+              borderRadius: "50%",
+              border: "none",
+              background: idx === 2 ? "#000" : "#777",
+              cursor: "pointer",
+              padding: 0,
+            }}
+          />
         ))}
       </div>
     </div>

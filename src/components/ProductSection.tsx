@@ -24,7 +24,6 @@ export default function ProductSection({
   sizes,
   sizeGroups,
 }: ProductSectionProps) {
-  // Support both prop shapes: Record-based `sizes` and array-based `sizeGroups`
   const resolvedSizeEntries: [string, string[]][] = sizes
     ? Object.entries(sizes)
     : sizeGroups
@@ -34,44 +33,43 @@ export default function ProductSection({
   const resolvedImage = imageSrc || image || "";
 
   return (
-    <div className="border-b-[3px] border-[#00465e] pb-[40px] mb-[40px]">
-      <div className="flex flex-col md:flex-row gap-[30px]">
-        {/* Image on left */}
-        <div className="w-full md:max-w-[30%] shrink-0">
-          <Image
-            src={resolvedImage}
-            alt={imageAlt}
-            width={400}
-            height={300}
-            className="w-full h-auto"
-          />
-        </div>
+    <div className="flex flex-col md:flex-row gap-8 items-start">
+      {/* Image */}
+      <div className="w-full md:w-[28%] shrink-0">
+        <Image
+          src={resolvedImage}
+          alt={imageAlt}
+          width={400}
+          height={300}
+          className="w-full h-auto rounded-md"
+          style={{ maxHeight: 280, objectFit: "contain" }}
+        />
+      </div>
 
-        {/* Text on right */}
-        <div className="flex-1">
-          <h2 className="text-heading-blue font-bold text-[50px] font-heading tracking-[1.5px] pb-[15px]">
-            {title}
-          </h2>
-          <p>{description}</p>
+      {/* Text */}
+      <div className="flex-1">
+        <h3 className="product-section-title">{title}</h3>
+        <p className="text-[15px] text-[#5a6c7e] leading-relaxed mb-4">{description}</p>
 
-          <h3 className="text-heading-blue font-bold text-[24px] mt-[10px] mb-[10px]">
-            AVAILABLE SIZES
-          </h3>
-
-          {/* Size columns */}
-          <div className="flex flex-wrap justify-between gap-[10px]">
-            {resolvedSizeEntries.map(([label, sizeList]) => (
-              <div key={label} className="min-w-[120px]">
-                <h4 className="font-bold text-heading-blue mb-[5px]">{label}</h4>
-                <ul className="list-none p-0 m-0">
-                  {sizeList.map((size) => (
-                    <li key={size} className="leading-[28px]">{size}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+        {resolvedSizeEntries.length > 0 && (
+          <>
+            <p className="text-[12px] font-bold text-[#1a3a5c] uppercase tracking-[1.5px] mt-4 mb-3 pb-0">
+              Available Sizes
+            </p>
+            <div className="flex flex-wrap gap-6">
+              {resolvedSizeEntries.map(([label, sizeList]) => (
+                <div key={label} className="min-w-[90px]">
+                  <div className="text-[11px] font-bold text-[#c0392b] uppercase tracking-[1px] mb-1">{label}</div>
+                  <ul className="list-none p-0 m-0">
+                    {sizeList.map((size) => (
+                      <li key={size} className="text-[14px] text-[#5a6c7e] leading-7">{size}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

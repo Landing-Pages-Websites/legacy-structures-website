@@ -8,7 +8,7 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Chicken Coops | Legacy Structures",
+  title: "Chicken Coops",
   description:
     "Looking for a safe, practical, and affordable way to raise chickens? Our Chicken Coops at Legacy Structures are designed to make backyard chicken keeping easy and enjoyable.",
 };
@@ -54,17 +54,17 @@ export default function ChickenCoopsPage() {
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
         <FadeIn>
-          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+          <h2 className="page-content-heading">
             Chicken Coops for Sale in Hudson Falls, NY
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          </h2>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Looking for a safe, practical, and affordable way to raise chickens? Our Chicken Coops at Legacy Structures are designed to make backyard chicken keeping easy and enjoyable. Whether you&apos;re starting with a few hens or expanding your flock, these coops offer everything you need to keep your birds happy and protected.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Each Chicken Coop includes a 3ft barn door on the end for easy access, two 24&quot; x 27&quot; single-pane windows for fresh air and ventilation, a roosting ladder, and raised nesting boxes with an exterior hatch so you can easily collect eggs. There&apos;s even a small chicken door to give your flock access to roam the yard or a fenced-in area. Coops are available in either 6ft or 8ft widths with several length options depending on your needs.
           </p>
           <p className="mb-8">
-            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+            <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
               Download Our FREE Shed Buying Guide - Click Here
             </a>
           </p>
@@ -72,7 +72,7 @@ export default function ChickenCoopsPage() {
 
         {/* Chicken Coops */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="More About Our Chicken Coops..."
             description="Our Chicken Coops offer a practical, low-maintenance solution for anyone looking to raise chickens in a safe and secure backyard setup. These buildings are designed to protect your flock from predators while offering great airflow and easy access for cleaning and egg gathering. Each coop features a gable-style roof, a 3ft wooden barn door on the end, two 24&quot; x 27&quot; single-pane windows, a roosting ladder, and six nesting boxes with exterior hatch access for convenient egg collection. A small chicken door gives your flock access to roam in a fenced yard or run. These coops are available in both T1-11 siding and LP Smart Panel&#8482; siding and come in the following sizes:"

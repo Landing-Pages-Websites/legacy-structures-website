@@ -423,7 +423,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  background: "#00567a",
+                  background: "#1a3a5c",
                   color: "#ffc800",
                   textDecoration: "none",
                   padding: "10px 20px",
@@ -440,7 +440,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
               <Link
                 href={`/building/${item.slug}`}
                 style={{
-                  background: "#00567a",
+                  background: "#1a3a5c",
                   color: "#ffc800",
                   textDecoration: "none",
                   padding: "10px 20px",
@@ -499,8 +499,8 @@ export default function InventoryPage() {
     return result;
   }, [filterWidth, filterLength, filterType, filterColor, filterCondition, sortBy]);
 
-  // Reset to page 1 when filters change
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentPage(1);
   }, [filterWidth, filterLength, filterType, filterColor, filterCondition, sortBy]);
 
@@ -522,13 +522,13 @@ export default function InventoryPage() {
   return (
     <div style={{ background: "#fff", minHeight: "100vh" }}>
       {/* wrapper blue-top */}
-      <div style={{ borderTop: "5px solid #00567a" }}>
+      <div style={{ borderTop: "5px solid #1a3a5c" }}>
         {/* Page Heading */}
         <h1
           style={{
             textAlign: "center",
-            color: "#00567a",
-            fontFamily: "var(--font-oswald), 'Oswald', 'Oswald', sans-serif",
+            color: "#1a3a5c",
+            fontFamily: "var(--font-bricolage)",
             fontSize: "40px",
             fontWeight: 600,
             margin: "30px auto 20px",
@@ -749,7 +749,7 @@ export default function InventoryPage() {
                 <button
                   onClick={() => setFiltersOpen(false)}
                   style={{
-                    background: "#00567a",
+                    background: "#1a3a5c",
                     color: "#fff",
                     fontWeight: "bold",
                     padding: "8px 20px",
@@ -764,7 +764,7 @@ export default function InventoryPage() {
                 <button
                   onClick={clearFilters}
                   style={{
-                    color: "#00567a",
+                    color: "#1a3a5c",
                     fontSize: "14px",
                     cursor: "pointer",
                     textDecoration: "underline",
@@ -801,7 +801,7 @@ export default function InventoryPage() {
             <button
               onClick={clearFilters}
               style={{
-                color: "#00567a",
+                color: "#1a3a5c",
                 textDecoration: "underline",
                 marginTop: "10px",
                 background: "transparent",

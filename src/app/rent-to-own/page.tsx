@@ -154,7 +154,7 @@ export default function RentToOwnPage() {
             <span className="text-[#b11f29] font-bold">2. NO STRINGS:</span> The flexibility to turn in the building at any time for any reason.
           </p>
           <p>
-            <span className="text-[#b11f29] font-bold">3. INSTANT APPROVAL:</span> Everyone is approved. Come on in!!!
+            <span className="text-[#b11f29] font-bold">3. INSTANT APPROVAL:</span> Everyone is approved.
           </p>
         </div>
       </div>

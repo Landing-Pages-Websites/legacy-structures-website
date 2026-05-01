@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+/* eslint-disable @next/next/no-img-element */
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 // Marketing slider images from the original WP site - they have baked-in CTAs already
@@ -25,12 +26,8 @@ const slides = [
   },
 ];
 
-const SLIDE_DURATION = 7000;
-
 export default function HeroWithOverlay() {
   const [current, setCurrent] = useState(0);
-
-  const goTo = useCallback((idx: number) => setCurrent(idx), []);
 
   const prev = useCallback(
     () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1)),
@@ -41,11 +38,6 @@ export default function HeroWithOverlay() {
     []
   );
 
-  useEffect(() => {
-    const timer = setInterval(next, SLIDE_DURATION);
-    return () => clearInterval(timer);
-  }, [next]);
-
   return (
     <section
       style={{
@@ -55,7 +47,7 @@ export default function HeroWithOverlay() {
         overflow: "hidden",
       }}
     >
-      <div style={{ position: "relative", width: "100%", aspectRatio: "16/6.5" }}>
+      <div style={{ position: "relative", width: "100%", height: "clamp(230px, 24.5vw, 470px)" }}>
         {slides.map((slide, idx) => {
           const isActive = idx === current;
           const ImageEl = (
@@ -118,27 +110,26 @@ export default function HeroWithOverlay() {
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 5,
-            background: "rgba(0,0,0,0.4)",
-            backdropFilter: "blur(8px)",
-            color: "#fff",
+            background: "transparent",
+            color: "#777",
             border: "none",
-            width: 44,
-            height: 44,
-            borderRadius: "50%",
+            width: 54,
+            height: 80,
+            borderRadius: 0,
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition: "background 0.2s",
+            transition: "color 0.2s",
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.6)";
+            (e.currentTarget as HTMLButtonElement).style.color = "#555";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.4)";
+            (e.currentTarget as HTMLButtonElement).style.color = "#777";
           }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
@@ -153,61 +144,30 @@ export default function HeroWithOverlay() {
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 5,
-            background: "rgba(0,0,0,0.4)",
-            backdropFilter: "blur(8px)",
-            color: "#fff",
+            background: "transparent",
+            color: "#777",
             border: "none",
-            width: 44,
-            height: 44,
-            borderRadius: "50%",
+            width: 54,
+            height: 80,
+            borderRadius: 0,
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition: "background 0.2s",
+            transition: "color 0.2s",
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.6)";
+            (e.currentTarget as HTMLButtonElement).style.color = "#555";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.4)";
+            (e.currentTarget as HTMLButtonElement).style.color = "#777";
           }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 6 15 12 9 18" />
           </svg>
         </button>
 
-        {/* Dots */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 20,
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 5,
-            display: "flex",
-            gap: 10,
-          }}
-        >
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => goTo(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              style={{
-                width: idx === current ? 36 : 12,
-                height: 12,
-                borderRadius: 999,
-                border: "none",
-                background: idx === current ? "#d4a017" : "rgba(255,255,255,0.55)",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                padding: 0,
-              }}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

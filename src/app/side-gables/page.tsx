@@ -8,7 +8,7 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Side Gables | Legacy Structures",
+  title: "Side Gables",
   description:
     "Side Gable Buildings by Legacy Structures — a smart alternative to traditional side-entry utility sheds with the roof gable running along the length of the building.",
 };
@@ -54,17 +54,17 @@ export default function SideGablesPage() {
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
         <FadeIn>
-          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+          <h2 className="page-content-heading">
             Side Gable Buildings for Sale in Hudson Falls, NY
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          </h2>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Our Side Gable Buildings at Legacy Structures are a smart alternative to traditional side-entry utility sheds. Designed with the roof gable running along the length of the building, these sheds are ideal when placing the long side of the structure toward your yard, driveway, or property line&mdash;especially when you want the roofline to match the visual flow of your space. Not only are they functional, but the center height provides extra headroom and storage flexibility.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Available in multiple widths and lengths, Side Gables can be customized with your choice of siding, roof style, and paint or stain color. Each one includes either a single or double barn door depending on the size, and comes built to last using quality materials. Whether you&apos;re storing lawn equipment, tools, or just need more space, these sheds are a stylish and durable solution.
           </p>
           <p className="mb-8">
-            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+            <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
               Download Our FREE Shed Buying Guide - Click Here
             </a>
           </p>
@@ -72,7 +72,7 @@ export default function SideGablesPage() {
 
         {/* Side Gable Buildings */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR SIDE GABLE BUILDINGS"
             description={"Side Gable Buildings are a great choice for customers who prefer to face the long side of their building toward the yard or driveway while keeping a clean roofline and center height. These sheds offer excellent storage capacity, improved interior headroom, and a look that blends seamlessly into many backyard setups. Each Side Gable comes with either single or double barn doors (depending on width), and can be ordered with T1-11 or LP Smart Panel\u2122 siding, metal or shingle roofing, and treated or tongue-and-groove flooring. With customizable finishes and functional space, they're a perfect fit for just about any use case."}

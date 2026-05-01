@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -29,14 +29,6 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSubOpen, setMobileSubOpen] = useState(false);
   const pathname = usePathname();
-  const headerRef = useRef<HTMLElement>(null);
-  const [headerHeight, setHeaderHeight] = useState(130);
-
-  useEffect(() => {
-    if (headerRef.current) {
-      setHeaderHeight(headerRef.current.offsetHeight);
-    }
-  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -47,85 +39,77 @@ export default function Header() {
     <>
       <style>{`
         .header-bar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 100;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        .header-spacer {
-          height: var(--header-height, 130px);
+          position: relative;
+          z-index: 50;
         }
         .header-top {
-          background: #fff;
+          background: #e9e6e1;
           max-width: 100%;
-          padding: 14px 24px;
-          border-bottom: 1px solid #e8e4df;
+          padding: 30px 24px 26px;
         }
         .header-top-inner {
-          max-width: 1200px;
+          max-width: 1612px;
           margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 16px;
+          gap: 24px;
+          padding-left: 130px;
         }
         .header-cta-group {
           display: flex;
+          flex-direction: column;
           align-items: center;
-          gap: 10px;
+          gap: 0;
+          min-width: 280px;
+          padding-right: 140px;
         }
         .header-quote-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          background: #d4a017;
+          display: block;
+          background: #bf1b22;
           color: #fff !important;
           font-weight: 700;
-          font-size: 13px;
-          font-family: var(--font-poppins), Poppins, sans-serif;
-          padding: 10px 18px;
-          border-radius: 6px;
+          font-size: 26px;
+          line-height: 1;
+          font-family: Georgia, "Times New Roman", serif;
+          width: 300px;
+          height: 44px;
+          padding: 0 18px;
+          border-radius: 5px;
           text-decoration: none;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
-          transition: all 0.2s ease;
+          letter-spacing: 0;
           white-space: nowrap;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .header-quote-btn:hover {
-          background: #b8881a;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(212,160,23,0.4);
+          background: #a9181e;
+          color: #fff !important;
         }
         .header-phone {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          background: #c0392b;
-          color: #fff !important;
+          display: block;
+          background: transparent;
+          color: #075f81 !important;
           text-decoration: none;
           font-weight: 700;
-          font-size: 14px;
-          font-family: var(--font-poppins), Poppins, sans-serif;
-          padding: 10px 18px;
-          border-radius: 6px;
-          letter-spacing: 0.5px;
-          transition: all 0.2s ease;
+          font-size: 27px;
+          line-height: 1.05;
+          font-family: Georgia, "Times New Roman", serif;
+          padding-top: 4px;
           white-space: nowrap;
         }
         .header-phone:hover {
-          background: #a52f23;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(192,57,43,0.45);
+          color: #075f81 !important;
         }
 
         .nav-wrap-outer {
-          background: #1a3a5c;
+          background: #bd171f;
           width: 100%;
         }
         .nav-bar {
-          max-width: 1200px;
+          max-width: 1500px;
           margin: 0 auto;
         }
         .nav-toggle { display: none; padding: 10px 24px; }
@@ -138,20 +122,21 @@ export default function Header() {
         }
         .nav-list {
           display: flex; justify-content: center; list-style: none;
+          gap: clamp(44px, 6vw, 120px);
           margin: 0; padding: 0;
         }
-        .nav-item { position: relative; }
+        .nav-item { position: relative; flex: 0 0 auto; }
         .nav-link {
-          display: block; padding: 16px 28px;
-          color: rgba(255,255,255,0.8) !important;
-          font-family: var(--font-poppins), Poppins, sans-serif;
-          font-size: 15px; font-weight: 600;
-          text-transform: uppercase; letter-spacing: 1px;
+          display: block; padding: 13px 18px 15px;
+          color: #fff !important;
+          font-family: var(--font-oswald), Impact, sans-serif;
+          font-size: 19px; font-weight: 700;
+          text-transform: uppercase; letter-spacing: 0;
           text-decoration: none; text-align: center;
-          background: transparent; transition: all 0.2s ease;
+          background: transparent;
         }
-        .nav-link:hover { color: #fff !important; background: rgba(255,255,255,0.08); }
-        .nav-link.active { color: #fff !important; border-bottom: 3px solid #d4a017; }
+        .nav-link:hover { color: #fff !important; background: #a9151b; }
+        .nav-link.active { color: #fff !important; }
 
         .dropdown-menu {
           display: none; position: absolute; top: 100%; left: 50%;
@@ -164,30 +149,29 @@ export default function Header() {
         .dropdown-link {
           display: block; padding: 11px 22px;
           color: #2c3e50 !important;
-          font-family: var(--font-poppins), Poppins, sans-serif;
+          font-family: var(--font-oswald), Impact, sans-serif;
           font-size: 14px; font-weight: 500;
           text-decoration: none; transition: all 0.15s ease;
         }
         .dropdown-link:hover { background: #f7f5f2; color: #c0392b !important; padding-left: 26px; }
 
         @media (max-width: 768px) {
-          .header-top { padding: 8px 12px; }
+          .header-top { padding: 18px 12px; }
           .header-top-inner { flex-direction: row; gap: 8px; flex-wrap: wrap; justify-content: center; }
-          .header-cta-group { gap: 6px; }
-          .header-quote-btn { font-size: 12px; padding: 8px 12px; }
-          .header-phone { font-size: 12px; padding: 8px 12px; }
+          .header-cta-group { min-width: 0; width: 100%; }
+          .header-quote-btn { width: auto; height: auto; font-size: 22px; padding: 8px 16px; }
+          .header-phone { font-size: 23px; }
           .nav-toggle { display: block; text-align: right; }
-          .nav-list { display: none; flex-direction: column; background: #1a3a5c; }
+          .nav-list { display: none; flex-direction: column; background: #bd171f; }
           .nav-list.open { display: flex !important; }
-          .nav-link { text-align: left; padding: 14px 20px; font-size: 14px; }
+          .nav-link { text-align: left; padding: 12px 20px; font-size: 18px; }
           .dropdown-menu { position: static; box-shadow: none; transform: none; border-radius: 0; }
           .dropdown-parent:hover > .dropdown-menu { display: none; }
           .dropdown-menu.mobile-open { display: block !important; }
           .dropdown-link { padding-left: 40px; font-size: 13px; }
         }
       `}</style>
-      <div className="header-spacer" style={{ height: headerHeight }} />
-      <header className="header-bar" ref={headerRef}>
+      <header className="header-bar">
         {/* Top row: logo + phone */}
         <div className="header-top">
           <div className="header-top-inner">
@@ -195,19 +179,17 @@ export default function Header() {
               <Image
                 src="https://legacystructuresusa.com/wp-content/uploads/2025/07/LEGECY-STRUCTURES-dark-blue-1.png"
                 alt="Legacy Structures"
-                width={280}
+                width={170}
                 height={90}
-                style={{ maxHeight: "90px", width: "auto", height: "auto" }}
+                style={{ maxHeight: "132px", width: "auto", height: "auto" }}
                 priority
               />
             </Link>
             <div className="header-cta-group">
-              <Link href="/inventory" className="header-quote-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                Get a Quote
+              <Link href="/contact-us" className="header-quote-btn">
+                Call Us Today!
               </Link>
               <a href="tel:518-544-2889" className="header-phone">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 518-544-2889
               </a>
             </div>

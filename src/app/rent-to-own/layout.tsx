@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rent to Own Storage Sheds | Legacy Structures",
+  title: "Rent to Own Storage Sheds",
   description:
     "Get your building today with our convenient rent-to-own program. Instant approval with no credit checks. No strings, month-to-month agreement.",
   openGraph: {

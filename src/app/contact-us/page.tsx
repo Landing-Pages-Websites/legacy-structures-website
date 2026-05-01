@@ -100,10 +100,10 @@ export default function ContactUsPage() {
                   Email
                 </div>
                 <a
-                  href="mailto:info@legacystructuresusa.com"
+                  href="mailto:legacystructures25@gmail.com"
                   style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
                 >
-                  info@legacystructuresusa.com
+                  legacystructures25@gmail.com
                 </a>
               </div>
 

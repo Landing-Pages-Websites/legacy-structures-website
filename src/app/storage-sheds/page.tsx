@@ -8,7 +8,7 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Storage Sheds | Legacy Structures",
+  title: "Storage Sheds",
   description:
     "Our storage sheds are a great option for adding much-needed storage space around your home.",
 };
@@ -54,23 +54,23 @@ export default function StorageShedsPage() {
       {/* Main Content */}
       <div className="bg-white max-w-7xl mx-auto px-4 py-10">
         <FadeIn>
-          <h1 className="text-center font-bold text-[#00567a] mb-4" style={{ fontFamily: "var(--font-oswald), 'Oswald', sans-serif", fontSize: '40px' }}>
+          <h2 className="page-content-heading">
             We have a large variety of storage sheds&hellip;
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Our storage sheds are a great option for adding much-needed storage space around your home. Rather than spending money at a local mini-storage facility, why not purchase one of our storage sheds or use our helpful Rent-To-Own option with easy monthly payments? To learn more about our Rent-To-Own sheds <a href="/rent-to-own" className="text-[#00567a] underline">click here</a>.
+          </h2>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            Our storage sheds are a great option for adding much-needed storage space around your home. Rather than spending money at a local mini-storage facility, why not purchase one of our storage sheds or use our helpful Rent-To-Own option with easy monthly payments? To learn more about our Rent-To-Own sheds <a href="/rent-to-own" className="text-[#c0392b] underline">click here</a>.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Our storage sheds are built using the best quality materials and exacting standards resulting in a quality building that will last for years to come. We offer three basic versions of our storage sheds: Utility Sheds, Metal Utility Sheds, and our Utility Dormer sheds. Each shed has its own unique value:
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Our basic Utility Shed comes with the option to have either T1-11 pressure-treated siding or LP Smart&#8482; Panel siding. You can choose either option at no additional charge. The Metal Shed uses the same construction process but with 29 gauge metal siding instead of wood. The Utility Dormer Shed is also made with T1-11 pressure-treated siding or LP Smart&#8482; Panel siding but it includes a dormer which brings in a significant amount of natural light to the structure.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Our Utility Shed can be built with 8ft sidewalls, while the Utility Dormer Shed comes with 7ft sidewalls. Our Metal Sheds are built on 6ft sidewalls. Whatever storage needs you have, one of our storage sheds is sure to fit the bill. If you are looking for a storage shed in or around Hudson Falls, NY then give us a call at <a href="tel:518-544-2889" className="text-[#00567a] underline">518-544-2889</a>.
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            Our Utility Shed can be built with 8ft sidewalls, while the Utility Dormer Shed comes with 7ft sidewalls. Our Metal Sheds are built on 6ft sidewalls. Whatever storage needs you have, one of our storage sheds is sure to fit the bill. If you are looking for a storage shed in or around Hudson Falls, NY then give us a call at <a href="tel:518-544-2889" className="text-[#c0392b] underline">518-544-2889</a>.
           </p>
           <p className="mb-8">
-            <a href="/rent-to-own" className="text-[#00567a] font-bold underline">
+            <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
               Download Our FREE Shed Buying Guide - Click Here
             </a>
           </p>
@@ -78,7 +78,7 @@ export default function StorageShedsPage() {
 
         {/* Utility Sheds */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR UTILITY SHEDS"
             description="Our Utility Sheds are a great partner to our Lofted Barns. These two building styles are the two most popular storage buildings that we offer. The utility shed's distinct difference over the Lofted Barn is the ability to upgrade the side walls up to 8'. This makes this building ideal for a home office, man cave or she shed. 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Utility Shed comes in the following sizes:"
@@ -97,7 +97,7 @@ export default function StorageShedsPage() {
 
         {/* Metal Sheds */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR METAL SHEDS"
             description="Our Metals Sheds are a great partner to our Metal Lofted Barns. These two building styles are the two most popular storage buildings that we offer. This model offers a great storage solution while not breaking the bank. 36in on-center studs and trusses are standard. Standard sidewall color is Light Stone and standard roof color is Burnished Slate. Other colors are available (at an additional charge.) 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Metal Shed comes in the following sizes:"
@@ -114,7 +114,7 @@ export default function StorageShedsPage() {
 
         {/* Single Slope Sheds */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR SINGLE SLOPE SHEDS"
             description="The Single Slope Shed boasts a lean-to-roof design that allows it to blend seamlessly into your outdoor surroundings. By positioning the shed with its back against a tree line or property boundary, it can become an organic part of your landscape. The front of the shed is elevated and can feature horizontal windows that allow plenty of natural light to flood the interior. Single Slope Sheds are ENGINEER CERTIFIED for your peace of mind. The Single Slope Shed comes in the following sizes:"
@@ -132,7 +132,7 @@ export default function StorageShedsPage() {
 
         {/* Utility Dormer Sheds */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR UTILITY DORMER SHEDS"
             description="Our Utility Dormer is one of the newest additions to the Backyard Outfitter family of buildings. It is built on our Utility Shed style building and allows tons of extra natural light in. If you are looking for your next craft room or a place for all of your gardening supplies, the Utility Dormer might just be the perfect solution for you. Comes standard with 7/12 pitch roof. Three 10in x 29 horizontal windows. Treated buildings have 81in inside walls. Painted/Urethane buildings have 82.5in interior walls. 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Utility Dormer Shed comes in the following sizes:"
@@ -149,7 +149,7 @@ export default function StorageShedsPage() {
 
         {/* Gable Dormer Sheds */}
         <FadeIn>
-        <div className="border-b-[3px] border-[#00465e] pb-10 mb-10">
+        <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR GABLE DORMER SHEDS"
             description="Our Gable Dormer is one of the newest additions to the Backyard Outfitter family of buildings. It is built on our Utility Shed style building and offers a touch of class on your building. If you are looking for your next craft room or spot to place all of your gardening supplies, the Gable Dormer might just be the perfect solution for you."
