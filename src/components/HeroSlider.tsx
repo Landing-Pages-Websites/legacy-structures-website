@@ -105,12 +105,12 @@ export default function HeroSlider() {
           );
         })}
 
-        {/* Bottom gradient overlay */}
+        {/* Bottom gradient overlay (reduced so image shows more) */}
         <div
           className="absolute bottom-0 left-0 right-0 pointer-events-none"
           style={{
-            height: "120px",
-            background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.3))",
+            height: "72px",
+            background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.16))",
             zIndex: 2,
           }}
         />
