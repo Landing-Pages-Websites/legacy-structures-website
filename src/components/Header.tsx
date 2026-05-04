@@ -227,47 +227,32 @@ export default function Header() {
           flex: 0 0 auto;
           display: flex;
           align-items: center;
-          gap: 14px;
         }
-        .hdr-phone {
-          display: flex;
-          align-items: center;
-          gap: 7px;
-          color: #fff !important;
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 18px;
-          font-weight: 700;
-          letter-spacing: 0.3px;
-          text-decoration: none;
-          white-space: nowrap;
-          transition: opacity 0.16s ease;
-        }
-        .hdr-phone:hover { opacity: 0.78; }
-        .hdr-phone-icon { opacity: 0.85; flex-shrink: 0; }
-        .hdr-quote-btn {
+        .hdr-call-btn {
           display: inline-flex;
           align-items: center;
-          justify-content: center;
-          background: #ffc400;
-          color: #111 !important;
+          gap: 8px;
+          background: #fff;
+          color: #bd171f !important;
           font-family: var(--font-oswald), Impact, sans-serif;
-          font-size: 15px;
+          font-size: 16px;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 1.1px;
+          letter-spacing: 1px;
           text-decoration: none;
-          padding: 9px 18px;
+          padding: 11px 22px;
           border-radius: 4px;
           white-space: nowrap;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
-          transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
         }
-        .hdr-quote-btn:hover {
-          background: #e6b000;
+        .hdr-call-btn:hover {
+          background: #ffc400;
           color: #111 !important;
-          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
           transform: translateY(-1px);
         }
+        .hdr-call-icon { flex-shrink: 0; }
 
         /* ── Hamburger ── */
         .hdr-hamburger {
@@ -371,46 +356,30 @@ export default function Header() {
         .hdr-mobile-cta {
           margin-top: auto;
           padding: 20px 24px 32px;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
           border-top: 1px solid rgba(255, 255, 255, 0.12);
         }
-        .hdr-mobile-quote {
+        .hdr-mobile-call {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #ffc400;
-          color: #111 !important;
+          gap: 10px;
+          background: #fff;
+          color: #bd171f !important;
           font-family: var(--font-oswald), Impact, sans-serif;
-          font-size: 15px;
+          font-size: 17px;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 1.1px;
+          letter-spacing: 1px;
           text-decoration: none;
-          padding: 14px 24px;
+          padding: 15px 24px;
           border-radius: 4px;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
-        }
-        .hdr-mobile-phone {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          color: #fff !important;
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 19px;
-          font-weight: 700;
-          text-decoration: none;
-          padding: 10px;
-          letter-spacing: 0.4px;
         }
 
         /* ── Responsive breakpoints ── */
         @media (max-width: 960px) {
-          .hdr-nav  { display: none; }
-          .hdr-phone { display: none; }
-          .hdr-quote-btn { display: none; }
+          .hdr-nav { display: none; }
+          .hdr-cta { display: none; }
           .hdr-hamburger { display: flex; }
         }
 
@@ -480,17 +449,14 @@ export default function Header() {
           <div className="hdr-cta">
             <a
               href="tel:5185442889"
-              className="hdr-phone"
-              aria-label="Call us at 518-544-2889"
+              className="hdr-call-btn"
+              aria-label="Call us now at 518-544-2889"
             >
-              <svg className="hdr-phone-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg className="hdr-call-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
               </svg>
-              518-544-2889
+              Call Us Now
             </a>
-            <Link href="/contact-us" className="hdr-quote-btn">
-              Get A Free Quote
-            </Link>
           </div>
 
           {/* Hamburger */}
@@ -567,18 +533,16 @@ export default function Header() {
         </ul>
 
         <div className="hdr-mobile-cta">
-          <Link
-            href="/contact-us"
-            className="hdr-mobile-quote"
+          <a
+            href="tel:5185442889"
+            className="hdr-mobile-call"
+            aria-label="Call us now at 518-544-2889"
             onClick={() => setMobileOpen(false)}
           >
-            Get A Free Quote
-          </Link>
-          <a href="tel:5185442889" className="hdr-mobile-phone">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
             </svg>
-            518-544-2889
+            Call Us Now
           </a>
         </div>
       </nav>
