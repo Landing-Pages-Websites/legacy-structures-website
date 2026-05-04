@@ -22,7 +22,6 @@ const navLinks = [
   { label: "Inventory", href: "/inventory" },
   { label: "Rent To Own", href: "/rent-to-own" },
   { label: "About Us", href: "/about-us" },
-  { label: "Contact", href: "/contact-us" },
 ];
 
 export default function Header() {
@@ -226,11 +225,13 @@ export default function Header() {
         .hdr-cta {
           flex: 0 0 auto;
           display: flex;
-          align-items: center;
+          align-items: stretch;
+          gap: 10px;
         }
-        .hdr-call-btn {
+        .hdr-contact-btn {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 8px;
           background: #fff;
           color: #bd171f !important;
@@ -240,7 +241,26 @@ export default function Header() {
           text-transform: uppercase;
           letter-spacing: 1px;
           text-decoration: none;
-          padding: 11px 22px;
+          padding: 10px 22px;
+          border-radius: 4px;
+          white-space: nowrap;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+        }
+        .hdr-contact-btn:hover {
+          background: #ffc400;
+          color: #111 !important;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+          transform: translateY(-1px);
+        }
+        .hdr-call-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: #fff;
+          color: #bd171f !important;
+          text-decoration: none;
+          padding: 10px 20px;
           border-radius: 4px;
           white-space: nowrap;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -253,6 +273,26 @@ export default function Header() {
           transform: translateY(-1px);
         }
         .hdr-call-icon { flex-shrink: 0; }
+        .hdr-call-text {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          line-height: 1.15;
+        }
+        .hdr-call-label {
+          font-family: var(--font-oswald), Impact, sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1.2px;
+          opacity: 0.7;
+        }
+        .hdr-call-number {
+          font-family: var(--font-oswald), Impact, sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+        }
 
         /* ── Hamburger ── */
         .hdr-hamburger {
@@ -357,12 +397,14 @@ export default function Header() {
           margin-top: auto;
           padding: 20px 24px 32px;
           border-top: 1px solid rgba(255, 255, 255, 0.12);
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
-        .hdr-mobile-call {
+        .hdr-mobile-contact {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 10px;
           background: #fff;
           color: #bd171f !important;
           font-family: var(--font-oswald), Impact, sans-serif;
@@ -374,6 +416,35 @@ export default function Header() {
           padding: 15px 24px;
           border-radius: 4px;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+        }
+        .hdr-mobile-call {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          background: #fff;
+          color: #bd171f !important;
+          font-family: var(--font-oswald), Impact, sans-serif;
+          text-decoration: none;
+          padding: 15px 24px;
+          border-radius: 4px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+        }
+        .hdr-mobile-call-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          line-height: 1.2;
+        }
+        .hdr-mobile-call-label {
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          opacity: 0.75;
+        }
+        .hdr-mobile-call-number {
+          font-size: 20px;
+          font-weight: 700;
         }
 
         /* ── Responsive breakpoints ── */
@@ -447,15 +518,21 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hdr-cta">
+            <Link href="/contact-us" className="hdr-contact-btn">
+              Contact Us
+            </Link>
             <a
               href="tel:5185442889"
               className="hdr-call-btn"
               aria-label="Call us now at 518-544-2889"
             >
-              <svg className="hdr-call-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg className="hdr-call-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
               </svg>
-              Call Us Now
+              <span className="hdr-call-text">
+                <span className="hdr-call-label">Call Us Now</span>
+                <span className="hdr-call-number">518-544-2889</span>
+              </span>
             </a>
           </div>
 
@@ -465,7 +542,7 @@ export default function Header() {
             className={`hdr-hamburger${mobileOpen ? " is-open" : ""}`}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen ? "true" : "false"}
+            aria-expanded={mobileOpen}
             aria-controls="hdr-mobile-menu"
           >
             <span className="hdr-bar" />
@@ -481,7 +558,7 @@ export default function Header() {
         id="hdr-mobile-menu"
         className={`hdr-mobile${mobileOpen ? " is-open" : ""}`}
         aria-label="Mobile navigation"
-        aria-hidden={!mobileOpen ? "true" : "false"}
+        aria-hidden={!mobileOpen}
       >
         <ul className="hdr-mobile-list">
           {navLinks.map((item) => (
@@ -492,7 +569,7 @@ export default function Header() {
                     type="button"
                     className="hdr-mobile-link"
                     onClick={() => setMobileSubOpen((v) => !v)}
-                    aria-expanded={mobileSubOpen ? "true" : "false"}
+                    aria-expanded={mobileSubOpen}
                   >
                     {item.label}
                     <svg
@@ -533,16 +610,22 @@ export default function Header() {
         </ul>
 
         <div className="hdr-mobile-cta">
+          <Link href="/contact-us" className="hdr-mobile-contact" onClick={() => setMobileOpen(false)}>
+            Contact Us
+          </Link>
           <a
             href="tel:5185442889"
             className="hdr-mobile-call"
             aria-label="Call us now at 518-544-2889"
             onClick={() => setMobileOpen(false)}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
             </svg>
-            Call Us Now
+            <span className="hdr-mobile-call-text">
+              <span className="hdr-mobile-call-label">Call Us Now</span>
+              <span className="hdr-mobile-call-number">518-544-2889</span>
+            </span>
           </a>
         </div>
       </nav>
