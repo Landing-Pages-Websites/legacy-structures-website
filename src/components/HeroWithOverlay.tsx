@@ -108,10 +108,9 @@ export default function HeroWithOverlay() {
         .hero-slide-img {
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          object-position: center;
+          object-fit: cover;
+          object-position: center top;
           display: block;
-          background: #0f2440;
         }
         .hero-arrow-btn {
           position: absolute;
@@ -149,12 +148,12 @@ export default function HeroWithOverlay() {
       `}</style>
 
       <section
-        style={{ position: "relative", width: "100%", background: "#0f2440", overflow: "hidden" }}
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         aria-label="Hero image carousel"
       >
-        <div style={{ position: "relative", width: "100%", height: "clamp(230px, 24.5vw, 470px)" }}>
+        <div style={{ position: "relative", width: "100%", height: "clamp(480px, 55vw, 700px)" }}>
 
           {/* Slides */}
           {slides.map((slide, idx) => {
