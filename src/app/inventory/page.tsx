@@ -193,6 +193,7 @@ function PriceBox({
         width: "auto",
         flex: 1,
         minWidth: 0,
+        overflow: "hidden",
         marginBottom: "15px",
       }}
     >
@@ -211,9 +212,12 @@ function PriceBox({
       </div>
       <div
         style={{
-          padding: "15px 10px",
+          padding: "15px 6px",
           textAlign: "center",
-          fontSize: "13px",
+          fontSize: "clamp(11px, 1.6vw, 13px)",
+          wordBreak: "break-word",
+          overflowWrap: "anywhere",
+          lineHeight: 1.3,
         }}
       >
         {children}
