@@ -86,7 +86,7 @@ export default function Header() {
           line-height: 1;
         }
         .hdr-logo-img {
-          width: clamp(112px, 10vw, 163px);
+          width: clamp(85px, 7.5vw, 120px);
           height: auto;
           display: block;
           transition: opacity 0.2s ease;
@@ -463,7 +463,7 @@ export default function Header() {
         @media (max-width: 480px) {
           .hdr-inner { height: 110px; }
           .hdr-mobile { inset-block-start: 110px; }
-          .hdr-logo-img { width: 93px; }
+          .hdr-logo-img { width: 72px; }
         }
       `}</style>
 
