@@ -69,7 +69,12 @@ export default function HeroSlider() {
 
   return (
     <section className="home-hero relative w-full overflow-hidden">
-      <div className="relative w-full" style={{ aspectRatio: "16/6" }}>
+      <style>{`
+        .hero-slide-wrap { aspect-ratio: 16/6; }
+        @media (max-width: 960px) { .hero-slide-wrap { aspect-ratio: 16/8; } }
+        @media (max-width: 640px) { .hero-slide-wrap { aspect-ratio: 4/3; } }
+      `}</style>
+      <div className="hero-slide-wrap relative w-full">
         {/* All slides stacked for crossfade */}
         {slides.map((slide, idx) => {
           const isActive = idx === current;
@@ -78,6 +83,7 @@ export default function HeroSlider() {
               src={slide.src}
               alt={slide.alt}
               className="w-full h-full object-cover"
+              style={{ objectPosition: "center 35%" }}
               draggable={false}
             />
           );

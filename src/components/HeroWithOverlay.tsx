@@ -68,7 +68,18 @@ export default function HeroWithOverlay() {
         }
         .hero-slide-img {
           object-fit: cover;
-          object-position: center top;
+          object-position: center 30%;
+        }
+        .hero-slide-wrap {
+          position: relative;
+          width: 100%;
+          height: clamp(480px, 55vw, 700px);
+        }
+        @media (max-width: 960px) {
+          .hero-slide-wrap { height: clamp(320px, 48vw, 480px); }
+        }
+        @media (max-width: 600px) {
+          .hero-slide-wrap { height: clamp(180px, 58vw, 320px); }
         }
         .hero-arrow-btn {
           position: absolute;
@@ -125,7 +136,7 @@ export default function HeroWithOverlay() {
         onMouseLeave={() => setPaused(false)}
         aria-label="Hero image carousel"
       >
-        <div style={{ position: "relative", width: "100%", height: "clamp(480px, 55vw, 700px)" }}>
+        <div className="hero-slide-wrap">
           {slides.map((slide, idx) => {
             const isActive = idx === current;
             const image = (
