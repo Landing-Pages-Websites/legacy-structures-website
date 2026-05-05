@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
+import { siteAssets } from "@/lib/site-assets";
 
 const highlights = [
   "No Credit Check!",
@@ -41,11 +43,13 @@ export default function RentToOwnPage() {
           {/* Left Column */}
           <div className="w-full md:w-1/2">
             <h1 className="!text-left !pb-[15px]">Rent To Own Sheds For Any Budget!</h1>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/rent-to-own-hdr.jpg"
+            <Image
+              src={siteAssets.rentToOwn.hero.src}
               alt="Rent to Own Storage Sheds"
+              width={siteAssets.rentToOwn.hero.width}
+              height={siteAssets.rentToOwn.hero.height}
               className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
 

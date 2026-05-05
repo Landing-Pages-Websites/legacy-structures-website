@@ -1,37 +1,37 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import HeroWithOverlay from "@/components/HeroWithOverlay";
 import PricingGuideSection from "@/components/PricingGuideSection";
-
-const BASE = "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
+import { siteAssets } from "@/lib/site-assets";
 
 /* ── Featured sheds ────────────────────────────────────────────────── */
 const featuredSheds = [
-  { name: "Lofted Barn Playhouse", price: 7818.50, image: "https://legacystructuresusa.com/wp-content/uploads/2025/07/IMG_0101-1753234196232-scaled.jpeg", href: "/building/lofted-barn-playhouse" },
-  { name: "Utility Shed", price: 5576.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_9707-1741118469914-scaled.jpeg", href: "/building/utility-shed-10" },
-  { name: "Lofted Barn", price: 6133.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_9767-1741118736711-scaled.jpeg", href: "/building/lofted-barn-7" },
-  { name: "Utility Shed", price: 4585.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_9653-1741118822925-scaled.jpeg", href: "/building/utility-shed-8" },
-  { name: "Garage", price: 11002.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_9649-1741118897376-scaled.jpeg", href: "/building/garage" },
-  { name: "Utility Dormer", price: 6277.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8890-1741119409701-scaled.jpeg", href: "/building/utility-dormer" },
-  { name: "Single Slope", price: 4403.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8877-1741119643511-scaled.jpeg", href: "/building/single-slope" },
-  { name: "Lofted Barn", price: 5095.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8862-1741119998306-scaled.jpeg", href: "/building/lofted-barn-3" },
-  { name: "Utility Shed", price: 5652.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8856-1741114718259-scaled.jpeg", href: "/building/utility-shed-4" },
-  { name: "Double Wide Garage", price: 18567.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8847-1741114633956-scaled.jpeg", href: "/building/double-wide-garage" },
-  { name: "Utility Gable Dormer", price: 7231.00, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8819-1741047721560-scaled.jpeg", href: "/building/utility-gable-dormer" },
-  { name: "Lofted Barn Playhouse", price: 9409.65, image: "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8800-1741046752851-scaled.jpeg", href: "/building/lofted-barn-playhouse-2" },
+  { name: "Lofted Barn Playhouse", price: 7818.50, image: "/images/optimized-assets/featured/lofted-barn-playhouse.webp", href: "/building/lofted-barn-playhouse" },
+  { name: "Utility Shed", price: 5576.00, image: "/images/optimized-assets/featured/utility-shed-10.webp", href: "/building/utility-shed-10" },
+  { name: "Lofted Barn", price: 6133.00, image: "/images/optimized-assets/featured/lofted-barn-7.webp", href: "/building/lofted-barn-7" },
+  { name: "Utility Shed", price: 4585.00, image: "/images/optimized-assets/featured/utility-shed-8.webp", href: "/building/utility-shed-8" },
+  { name: "Garage", price: 11002.00, image: "/images/optimized-assets/featured/garage.webp", href: "/building/garage" },
+  { name: "Utility Dormer", price: 6277.00, image: "/images/optimized-assets/featured/utility-dormer.webp", href: "/building/utility-dormer" },
+  { name: "Single Slope", price: 4403.00, image: "/images/optimized-assets/featured/single-slope.webp", href: "/building/single-slope" },
+  { name: "Lofted Barn", price: 5095.00, image: "/images/optimized-assets/featured/lofted-barn-3.webp", href: "/building/lofted-barn-3" },
+  { name: "Utility Shed", price: 5652.00, image: "/images/optimized-assets/featured/utility-shed-4.webp", href: "/building/utility-shed-4" },
+  { name: "Double Wide Garage", price: 18567.00, image: "/images/optimized-assets/featured/double-wide-garage.webp", href: "/building/double-wide-garage" },
+  { name: "Utility Gable Dormer", price: 7231.00, image: "/images/optimized-assets/featured/utility-gable-dormer.webp", href: "/building/utility-gable-dormer" },
+  { name: "Lofted Barn Playhouse", price: 9409.65, image: "/images/optimized-assets/featured/lofted-barn-playhouse-2.webp", href: "/building/lofted-barn-playhouse-2" },
 ];
 
 /* ── Product categories ─────────────────────────────────────────────── */
 const categories = [
-  { label: "Backyard Barns", desc: "Lofted, mini & metal barn styles", href: "/backyard-barns", img: `${BASE}/Lofted-Barn-1.png` },
-  { label: "Storage Sheds", desc: "Utility, dormer & single-slope sheds", href: "/storage-sheds", img: `${BASE}/shed-slider-1.png` },
-  { label: "Portable Cabins", desc: "Hunting cabins, home offices & tiny homes", href: "/portable-cabins", img: `${BASE}/utilty-side-slider1.png` },
-  { label: "Portable Garages", desc: "Single & tandem-car garage options", href: "/portable-garages", img: `${BASE}/garage-slider-1.png` },
-  { label: "Double Wide Garages", desc: "Delivered in halves, joined on-site", href: "/double-wide-garages", img: `${BASE}/BYO-DoubleWideGarages.png` },
-  { label: "Chicken Coops", desc: "Safe, practical backyard coops", href: "/chicken-coops", img: `${BASE}/BYO-ChickenCoops.png` },
-  { label: "Greenhouses", desc: "Grow year-round with full assembly", href: "/greenhouses", img: `${BASE}/BYO-Greenhouses.png` },
-  { label: "Side Gables", desc: "Side-entry utility shed alternative", href: "/side-gables", img: `${BASE}/BYO-SideGables.png` },
+  { label: "Backyard Barns", desc: "Lofted, mini & metal barn styles", href: "/backyard-barns", img: siteAssets.categoryCards.backyardBarns },
+  { label: "Storage Sheds", desc: "Utility, dormer & single-slope sheds", href: "/storage-sheds", img: siteAssets.categoryCards.storageSheds },
+  { label: "Portable Cabins", desc: "Hunting cabins, home offices & tiny homes", href: "/portable-cabins", img: siteAssets.categoryCards.portableCabins },
+  { label: "Portable Garages", desc: "Single & tandem-car garage options", href: "/portable-garages", img: siteAssets.categoryCards.portableGarages },
+  { label: "Double Wide Garages", desc: "Delivered in halves, joined on-site", href: "/double-wide-garages", img: siteAssets.categoryCards.doubleWideGarages },
+  { label: "Chicken Coops", desc: "Safe, practical backyard coops", href: "/chicken-coops", img: siteAssets.categoryCards.chickenCoops },
+  { label: "Greenhouses", desc: "Grow year-round with full assembly", href: "/greenhouses", img: siteAssets.categoryCards.greenhouses },
+  { label: "Side Gables", desc: "Side-entry utility shed alternative", href: "/side-gables", img: siteAssets.categoryCards.sideGables },
 ];
 
 /* ── Quality materials list ─────────────────────────────────────────── */
@@ -117,7 +117,13 @@ export default function Home() {
           <h2>Try Our 3D Shed Builder</h2>
           <p>Have a specific plan in mind? Use our interactive 3D designer to customize your perfect shed — choose your size, siding, roof, and colors before you buy.</p>
           <div className="split-img-wrap">
-            <img src={`${BASE}/3d-shed-builder-screen.png`} alt="Preview of the Legacy Structures 3D shed builder tool" loading="lazy" />
+            <Image
+              src={siteAssets.splitCta.shedBuilder.src}
+              alt="Preview of the Legacy Structures 3D shed builder tool"
+              width={siteAssets.splitCta.shedBuilder.width}
+              height={siteAssets.splitCta.shedBuilder.height}
+              loading="lazy"
+            />
           </div>
           <a
             className="yellow-btn"
@@ -132,7 +138,13 @@ export default function Home() {
           <h2>View Our Inventory</h2>
           <p>Browse our lot in Hudson Falls, NY. We&apos;re always receiving new sheds, barns, garages, and structures ready for immediate delivery.</p>
           <div className="split-img-wrap">
-            <img src={`${BASE}/view-inventory-sheds.png`} alt="Current inventory of storage sheds and barns for sale at Legacy Structures" loading="lazy" />
+            <Image
+              src={siteAssets.splitCta.inventory.src}
+              alt="Current inventory of storage sheds and barns for sale at Legacy Structures"
+              width={siteAssets.splitCta.inventory.width}
+              height={siteAssets.splitCta.inventory.height}
+              loading="lazy"
+            />
           </div>
           <Link className="yellow-btn" href="/inventory">
             View Our Inventory
@@ -167,10 +179,15 @@ export default function Home() {
         <div className="category-grid">
           {categories.map((cat) => (
             <Link key={cat.href} href={cat.href} className="category-card" aria-label={cat.label}>
-              <div
-                className="category-card-img"
-                style={{ backgroundImage: `url(${cat.img})` }}
-              >
+              <div className="category-card-img">
+                <Image
+                  src={cat.img.src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 600px) 46vw, (max-width: 1100px) 30vw, 22vw"
+                  loading="lazy"
+                  className="category-card-image"
+                />
                 <div className="category-card-overlay" aria-hidden="true" />
                 <div className="category-card-content">
                   <strong>{cat.label}</strong>
@@ -214,9 +231,11 @@ export default function Home() {
             ))}
           </ul>
           <div className="materials-img-wrap">
-            <img
-              src={`${BASE}/barn-interior-img.png`}
+            <Image
+              src={siteAssets.materials.barnInterior.src}
               alt="Diagram showing the quality construction materials used in Legacy Structures sheds and barns"
+              width={siteAssets.materials.barnInterior.width}
+              height={siteAssets.materials.barnInterior.height}
               loading="lazy"
             />
           </div>
@@ -487,14 +506,15 @@ export default function Home() {
         .category-card-img {
           position: relative;
           height: 210px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
           background-color: #f5f3f0;
-          transition: background-size 0.5s ease;
         }
-        .category-card:hover .category-card-img {
-          background-size: 108%;
+        .category-card-image {
+          object-fit: contain;
+          object-position: center;
+          transition: transform 0.5s ease;
+        }
+        .category-card:hover .category-card-image {
+          transform: scale(1.08);
         }
         .category-card-overlay {
           position: absolute;

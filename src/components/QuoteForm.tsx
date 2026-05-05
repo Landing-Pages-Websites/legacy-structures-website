@@ -71,36 +71,47 @@ export default function QuoteForm({
 
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-          <input type="text" name="firstName" placeholder="First Name *" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
-          <input type="text" name="lastName" placeholder="Last Name *" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
+          <label className="sr-only" htmlFor="quote-first-name">First Name</label>
+          <input id="quote-first-name" type="text" name="firstName" placeholder="First Name *" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
+          <label className="sr-only" htmlFor="quote-last-name">Last Name</label>
+          <input id="quote-last-name" type="text" name="lastName" placeholder="Last Name *" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-          <input type="email" name="email" placeholder="Email *" value={formData.email} onChange={handleChange} required className={inputClasses} />
-          <input type="tel" name="phone" placeholder="Phone *" value={formData.phone} onChange={handleChange} required className={inputClasses} />
+          <label className="sr-only" htmlFor="quote-email">Email</label>
+          <input id="quote-email" type="email" name="email" placeholder="Email *" value={formData.email} onChange={handleChange} required className={inputClasses} />
+          <label className="sr-only" htmlFor="quote-phone">Phone</label>
+          <input id="quote-phone" type="tel" name="phone" placeholder="Phone *" value={formData.phone} onChange={handleChange} required className={inputClasses} />
         </div>
 
-        <select name="buildingType" value={formData.buildingType} onChange={handleChange} className={selectClasses}>
+        <label className="sr-only" htmlFor="quote-building-type">Building Type</label>
+        <select id="quote-building-type" name="buildingType" value={formData.buildingType} onChange={handleChange} className={selectClasses} aria-label="Building Type">
           <option value="">Building Type</option>
           {BUILDING_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
-        <select name="buildingSize" value={formData.buildingSize} onChange={handleChange} className={selectClasses}>
+        <label className="sr-only" htmlFor="quote-building-size">Building Size</label>
+        <select id="quote-building-size" name="buildingSize" value={formData.buildingSize} onChange={handleChange} className={selectClasses} aria-label="Building Size">
           <option value="">Building Size</option>
           {BUILDING_SIZES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
-        <select name="sidingOption" value={formData.sidingOption} onChange={handleChange} className={selectClasses}>
+        <label className="sr-only" htmlFor="quote-siding-option">Siding Option</label>
+        <select id="quote-siding-option" name="sidingOption" value={formData.sidingOption} onChange={handleChange} className={selectClasses} aria-label="Siding Option">
           <option value="">Siding Option</option>
           {SIDING_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
-        <select name="roofOption" value={formData.roofOption} onChange={handleChange} className={selectClasses}>
+        <label className="sr-only" htmlFor="quote-roof-option">Roof Option</label>
+        <select id="quote-roof-option" name="roofOption" value={formData.roofOption} onChange={handleChange} className={selectClasses} aria-label="Roof Option">
           <option value="">Roof Option</option>
           {ROOF_OPTIONS.map((r) => <option key={r} value={r}>{r}</option>)}
         </select>
-        <input type="text" name="zipCode" placeholder="Zip Code *" value={formData.zipCode} onChange={handleChange} required className={inputClasses} />
-        <select name="state" value={formData.state} onChange={handleChange} required className={selectClasses}>
+        <label className="sr-only" htmlFor="quote-zip-code">Zip Code</label>
+        <input id="quote-zip-code" type="text" name="zipCode" placeholder="Zip Code *" value={formData.zipCode} onChange={handleChange} required className={inputClasses} />
+        <label className="sr-only" htmlFor="quote-state">State</label>
+        <select id="quote-state" name="state" value={formData.state} onChange={handleChange} required className={selectClasses} aria-label="State">
           <option value="">State *</option>
           {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
-        <textarea name="message" placeholder="Message" value={formData.message} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
+        <label className="sr-only" htmlFor="quote-message">Message</label>
+        <textarea id="quote-message" name="message" placeholder="Message" value={formData.message} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
 
         <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", width: "100%", transition: "background 0.2s" }}>
           Get My Free Quote

@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState, FormEvent } from "react";
+import { siteAssets } from "@/lib/site-assets";
 
 const STATES_PROVINCES = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -45,7 +47,14 @@ export default function PricingGuideSection() {
       </div>
 
       <div style={{ maxWidth: 800, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, flexWrap: "wrap", marginBottom: 40 }}>
-        <img src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/homepage-devices.png" alt="Pricing Guide" style={{ maxWidth: 360, width: "100%" }} />
+        <Image
+          src={siteAssets.pricingGuide.devices.src}
+          alt="Pricing Guide"
+          width={siteAssets.pricingGuide.devices.width}
+          height={siteAssets.pricingGuide.devices.height}
+          loading="lazy"
+          style={{ maxWidth: 360, width: "100%", height: "auto" }}
+        />
         <div style={{ textAlign: "center" }}>
           <p style={{ fontWeight: 700, fontSize: 28, color: "#bd171f", paddingBottom: 12, fontFamily: "var(--font-oswald), Impact, sans-serif", textTransform: "uppercase" }}>Free Pricing Guide!</p>
           <a href="#pricing-form" style={{ display: "inline-block", background: "#ffc400", color: "#050505", fontWeight: 700, fontSize: 17, padding: "13px 34px", borderRadius: 4, textDecoration: "none", textTransform: "uppercase" }}>
@@ -59,18 +68,24 @@ export default function PricingGuideSection() {
         <h3 style={{ textAlign: "center", fontSize: 22, fontWeight: 700, color: "#006580", marginBottom: 20, fontFamily: "var(--font-oswald), Impact, sans-serif", textTransform: "uppercase" }}>Request Your Pricing Guide</h3>
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
-            <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
+            <label className="sr-only" htmlFor="pricing-guide-first-name">First Name</label>
+            <input id="pricing-guide-first-name" type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
+            <label className="sr-only" htmlFor="pricing-guide-last-name">Last Name</label>
+            <input id="pricing-guide-last-name" type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required className={inputClasses} />
-            <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className={inputClasses} />
+            <label className="sr-only" htmlFor="pricing-guide-email">Email</label>
+            <input id="pricing-guide-email" type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required className={inputClasses} />
+            <label className="sr-only" htmlFor="pricing-guide-phone">Phone</label>
+            <input id="pricing-guide-phone" type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className={inputClasses} />
           </div>
-          <select name="state" value={formData.state} onChange={handleChange} required className={selectClasses}>
+          <label className="sr-only" htmlFor="pricing-guide-state">State or Province</label>
+          <select id="pricing-guide-state" name="state" value={formData.state} onChange={handleChange} required className={selectClasses} aria-label="State or Province">
             <option value="">State / Province</option>
             {STATES_PROVINCES.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
-          <textarea name="comments" placeholder="Comments" value={formData.comments} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
+          <label className="sr-only" htmlFor="pricing-guide-comments">Comments</label>
+          <textarea id="pricing-guide-comments" name="comments" placeholder="Comments" value={formData.comments} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
           <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", width: "100%" }}>
             Download Our Pricing
           </button>

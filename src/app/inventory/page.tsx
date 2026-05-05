@@ -775,8 +775,9 @@ export default function InventoryPage() {
 
               {/* Sort By Price */}
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                <strong style={{ fontSize: "14px" }}>Sort By Price</strong>
+                <label htmlFor="inventory-sort" style={{ fontSize: "14px", fontWeight: "bold" }}>Sort By Price</label>
                 <select
+                  id="inventory-sort"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   style={{
@@ -785,6 +786,7 @@ export default function InventoryPage() {
                     padding: "5px 15px",
                     fontSize: "14px",
                   }}
+                  aria-label="Sort inventory by price"
                 >
                   <option value="ASC">Low to High</option>
                   <option value="DESC">High to Low</option>

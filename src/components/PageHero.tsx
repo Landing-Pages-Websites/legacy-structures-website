@@ -1,5 +1,4 @@
-"use client";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface PageHeroProps {
   title: string;
@@ -41,21 +40,26 @@ export default function PageHero({
     >
       {/* Ken Burns background image */}
       {hasImage && (
-        <motion.div
-          initial={{ scale: 1 }}
-          animate={{ scale: 1.1 }}
-          transition={{ duration: 10, ease: "easeOut" }}
+        <div
           aria-hidden="true"
           style={{
             position: "absolute",
             inset: "-8%",
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: "contain",
-            backgroundPosition: "center right",
-            backgroundRepeat: "no-repeat",
             zIndex: 0,
           }}
-        />
+        >
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            sizes="100vw"
+            loading="eager"
+            style={{
+              objectFit: "contain",
+              objectPosition: "center right",
+            }}
+          />
+        </div>
       )}
 
       {/* Gradient overlay when image present */}
@@ -82,10 +86,7 @@ export default function PageHero({
           width: "100%",
         }}
       >
-        <motion.h1
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        <h1
           style={{
             color: textColor,
             fontFamily: "var(--font-oswald), Impact, sans-serif",
@@ -100,13 +101,10 @@ export default function PageHero({
           }}
         >
           {title}
-        </motion.h1>
+        </h1>
 
         {subtitle && (
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+          <p
             style={{
               color: subtitleColor,
               fontFamily: "Georgia, 'Times New Roman', serif",
@@ -122,16 +120,20 @@ export default function PageHero({
             }}
           >
             {subtitle}
-          </motion.p>
+          </p>
         )}
 
-        {/* Gold accent underline */}
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: 72 }}
-          transition={{ duration: 0.75, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+        <div
           aria-hidden="true"
-          style={{ height: 4, background: "#ffc400", margin: "16px auto 0", borderRadius: 2 }}
+          style={{
+            height: 4,
+            width: 72,
+            background: "#ffc400",
+            margin: "16px auto 0",
+            borderRadius: 2,
+            transform: "scaleX(1)",
+            transformOrigin: "center",
+          }}
         />
       </div>
     </section>

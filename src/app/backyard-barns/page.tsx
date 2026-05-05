@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import QuoteForm from "@/components/QuoteForm";
 import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
@@ -6,6 +7,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
+import { siteAssets } from "@/lib/site-assets";
 
 export const metadata: Metadata = {
   title: "Backyard Barns & Lofted Barns for Sale | Hudson Falls, NY",
@@ -22,7 +24,7 @@ export default function BackyardBarnsPage() {
       <PageHero
         title="Backyard Barns"
         subtitle="Classic barn-style storage with lofted or mini options. Built in Hudson Falls, NY."
-        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/Lofted-Barn-1.png"
+        backgroundImage={siteAssets.categoryPage.backyardBarns.src}
         variant="navy"
       />
 
@@ -31,16 +33,23 @@ export default function BackyardBarnsPage() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
           {/* Left - Hero Image + 3D Designer CTA */}
           <div className="lg:w-[67%]">
-            <img
-              src={`${BASE_URL}/Lofted-Barn-1.png`}
+            <Image
+              src={siteAssets.categoryPage.backyardBarns.src}
               alt="Backyard Barns by Legacy Structures"
+              width={siteAssets.categoryPage.backyardBarns.width}
+              height={siteAssets.categoryPage.backyardBarns.height}
               className="w-full h-auto"
+              sizes="(max-width: 1024px) 100vw, 67vw"
             />
             <a href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1" target="_blank" rel="noopener noreferrer" className="block">
-              <img
-                src={`${BASE_URL}/3d-designer-models-cta.png`}
+              <Image
+                src={siteAssets.categoryPage.designerCta.src}
                 alt="3D Designer - Design Your Own Building"
+                width={siteAssets.categoryPage.designerCta.width}
+                height={siteAssets.categoryPage.designerCta.height}
                 className="w-full h-auto"
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 67vw"
               />
             </a>
           </div>

@@ -37,18 +37,24 @@ export default function ContactForm() {
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-        <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
-        <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
+        <label className="sr-only" htmlFor="contact-first-name">First Name</label>
+        <input id="contact-first-name" type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
+        <label className="sr-only" htmlFor="contact-last-name">Last Name</label>
+        <input id="contact-last-name" type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required className={inputClasses} />
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required className={inputClasses} />
-        <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className={inputClasses} />
+        <label className="sr-only" htmlFor="contact-email">Email</label>
+        <input id="contact-email" type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required className={inputClasses} />
+        <label className="sr-only" htmlFor="contact-phone">Phone Number</label>
+        <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className={inputClasses} />
       </div>
-      <select name="state" value={formData.state} onChange={handleChange} required className={selectClasses}>
+      <label className="sr-only" htmlFor="contact-state">State or Province</label>
+      <select id="contact-state" name="state" value={formData.state} onChange={handleChange} required className={selectClasses} aria-label="State or Province">
         <option value="">State/Province</option>
         {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
       </select>
-      <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required className={inputClasses} style={{ height: 120, resize: "none" }} />
+      <label className="sr-only" htmlFor="contact-message">Your Message</label>
+      <textarea id="contact-message" name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required className={inputClasses} style={{ height: 120, resize: "none" }} />
       <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", alignSelf: "flex-start" }}>
         Submit
       </button>

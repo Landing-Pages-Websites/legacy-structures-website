@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import QuoteForm from "@/components/QuoteForm";
 import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
@@ -6,6 +7,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
+import { siteAssets } from "@/lib/site-assets";
 
 export const metadata: Metadata = {
   title: "Greenhouses for Sale | Hudson Falls, NY | Legacy Structures",
@@ -22,7 +24,7 @@ export default function GreenhousesPage() {
       <PageHero
         title="Greenhouses"
         subtitle="Grow year-round in a climate-controlled, hassle-free greenhouse."
-        backgroundImage="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-Greenhouses.png"
+        backgroundImage={siteAssets.categoryPage.greenhouses.src}
         variant="navy"
       />
 
@@ -31,16 +33,23 @@ export default function GreenhousesPage() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
           {/* Left - Hero Image + 3D Designer CTA */}
           <div className="lg:w-[67%]">
-            <img
-              src={`${BASE_URL}/BYO-Greenhouses.png`}
+            <Image
+              src={siteAssets.categoryPage.greenhouses.src}
               alt="Greenhouses by Legacy Structures"
+              width={siteAssets.categoryPage.greenhouses.width}
+              height={siteAssets.categoryPage.greenhouses.height}
               className="w-full h-auto"
+              sizes="(max-width: 1024px) 100vw, 67vw"
             />
             <a href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=53" target="_blank" rel="noopener noreferrer" className="block">
-              <img
-                src={`${BASE_URL}/3d-designer-models-cta.png`}
+              <Image
+                src={siteAssets.categoryPage.designerCta.src}
                 alt="3D Designer - Design Your Own Building"
+                width={siteAssets.categoryPage.designerCta.width}
+                height={siteAssets.categoryPage.designerCta.height}
                 className="w-full h-auto"
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 67vw"
               />
             </a>
           </div>

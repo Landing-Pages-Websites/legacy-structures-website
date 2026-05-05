@@ -1,8 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+import { siteAssets } from "@/lib/site-assets";
+
 const socialLinks = [
-  { href: "https://www.facebook.com/BackyardOutfittersEnterprisesLLC/", img: "icon-fb.png", alt: "Facebook" },
-  { href: "https://www.instagram.com/backyardoutfittersusa", img: "icon-ig.png", alt: "Instagram" },
-  { href: "mailto:legacystructures25@gmail.com", img: "icon-email.png", alt: "Email" },
+  { href: "https://www.facebook.com/BackyardOutfittersEnterprisesLLC/", img: siteAssets.footer.facebook, alt: "Facebook" },
+  { href: "https://www.instagram.com/backyardoutfittersusa", img: siteAssets.footer.instagram, alt: "Instagram" },
+  { href: "mailto:legacystructures25@gmail.com", img: siteAssets.footer.email, alt: "Email" },
 ];
 
 const hours = [
@@ -34,14 +36,19 @@ export default function Footer() {
           <div className="footer-socials">
             {socialLinks.map((s) => (
               <a key={s.alt} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}>
-                <img src={`https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/${s.img}`} alt={s.alt} />
+                <Image src={s.img.src} alt={s.alt} width={s.img.width} height={s.img.height} />
               </a>
             ))}
           </div>
         </div>
 
         <div className="footer-logo">
-          <img src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/backyardoutfitters-logo-1.png" alt="Backyard Outfitters Authorized Dealer" />
+          <Image
+            src={siteAssets.footer.dealerLogo.src}
+            alt="Backyard Outfitters Authorized Dealer"
+            width={siteAssets.footer.dealerLogo.width}
+            height={siteAssets.footer.dealerLogo.height}
+          />
         </div>
 
         <div className="footer-col hours">

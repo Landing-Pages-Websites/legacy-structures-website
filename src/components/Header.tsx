@@ -1,9 +1,10 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { siteAssets } from "@/lib/site-assets";
 
 const modelLinks = [
   { label: "Backyard Barns", href: "/backyard-barns" },
@@ -85,8 +86,8 @@ export default function Header() {
           line-height: 1;
         }
         .hdr-logo-img {
-          height: 122px;
-          width: auto;
+          width: clamp(112px, 10vw, 163px);
+          height: auto;
           display: block;
           transition: opacity 0.2s ease;
         }
@@ -246,6 +247,7 @@ export default function Header() {
           white-space: nowrap;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
           transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+          min-height: 46px;
         }
         .hdr-contact-btn:hover {
           background: #ffc400;
@@ -265,6 +267,7 @@ export default function Header() {
           white-space: nowrap;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
           transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+          min-height: 46px;
         }
         .hdr-call-btn:hover {
           background: #ffc400;
@@ -318,11 +321,11 @@ export default function Header() {
           height: 2px;
           background: #fff;
           border-radius: 2px;
-          transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+          transition: transform 0.25s ease, opacity 0.25s ease;
           transform-origin: center;
         }
         .hdr-hamburger.is-open .hdr-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hdr-hamburger.is-open .hdr-bar:nth-child(2) { opacity: 0; width: 0; }
+        .hdr-hamburger.is-open .hdr-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
         .hdr-hamburger.is-open .hdr-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* ── Mobile menu ── */
@@ -363,6 +366,7 @@ export default function Header() {
           cursor: pointer;
           text-align: left;
           transition: background 0.13s ease;
+          min-height: 48px;
         }
         .hdr-mobile-link:hover,
         .hdr-mobile-link.hdr-nav-active { background: rgba(0, 0, 0, 0.18); }
@@ -416,6 +420,7 @@ export default function Header() {
           padding: 15px 24px;
           border-radius: 4px;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+          min-height: 48px;
         }
         .hdr-mobile-call {
           display: flex;
@@ -429,6 +434,7 @@ export default function Header() {
           padding: 15px 24px;
           border-radius: 4px;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+          min-height: 48px;
         }
         .hdr-mobile-call-text {
           display: flex;
@@ -457,7 +463,7 @@ export default function Header() {
         @media (max-width: 480px) {
           .hdr-inner { height: 110px; }
           .hdr-mobile { inset-block-start: 110px; }
-          .hdr-logo-img { height: 88px; }
+          .hdr-logo-img { width: 93px; }
         }
       `}</style>
 
@@ -466,12 +472,13 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" aria-label="Legacy Structures — Home" className="hdr-logo-link">
-            <img
-              src="/logo.png"
+            <Image
+              src={siteAssets.logo.src}
               alt="Legacy Structures"
               className="hdr-logo-img"
-              width={160}
-              height={46}
+              width={siteAssets.logo.width}
+              height={siteAssets.logo.height}
+              priority
             />
           </Link>
 
@@ -554,11 +561,11 @@ export default function Header() {
       </header>
 
       {/* Mobile slide-in menu — rendered outside <header> so it can fill the viewport */}
+      {mobileOpen && (
       <nav
         id="hdr-mobile-menu"
         className={`hdr-mobile${mobileOpen ? " is-open" : ""}`}
         aria-label="Mobile navigation"
-        aria-hidden={!mobileOpen}
       >
         <ul className="hdr-mobile-list">
           {navLinks.map((item) => (
@@ -629,6 +636,7 @@ export default function Header() {
           </a>
         </div>
       </nav>
+      )}
     </>
   );
 }

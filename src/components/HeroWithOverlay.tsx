@@ -1,116 +1,74 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
+import { siteAssets } from "@/lib/site-assets";
 
 const slides = [
   {
-    src: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/territory3-slider.jpg",
+    ...siteAssets.heroSlides[0],
     alt: "Buildings As Low As $103/mo - Get Our Pricing",
     href: "/rent-to-own",
     external: false,
   },
   {
-    src: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/byo-hero-slider-2.jpg",
+    ...siteAssets.heroSlides[1],
     alt: "See Our Inventory - Storage Sheds",
     href: "/inventory",
     external: false,
   },
   {
-    src: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/byo-hero-slider-3.jpg",
+    ...siteAssets.heroSlides[2],
     alt: "Design Your Own Shed in 3D",
     href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
     external: true,
   },
-];
+] as const;
 
 const INTERVAL = 6000;
 
 export default function HeroWithOverlay() {
   const [current, setCurrent] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [paused, setPaused] = useState(false);
-  const startTimeRef = useRef<number>(Date.now());
-  const pausedAtRef = useRef<number>(0);
-  const rafRef = useRef<number | null>(null);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = useCallback((idx: number) => {
     setCurrent(idx);
-    setProgress(0);
-    startTimeRef.current = Date.now();
   }, []);
 
   const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % slides.length);
-    setProgress(0);
-    startTimeRef.current = Date.now();
+    setCurrent((value) => (value + 1) % slides.length);
   }, []);
 
   const prev = useCallback(() => {
-    setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
-    setProgress(0);
-    startTimeRef.current = Date.now();
+    setCurrent((value) => (value === 0 ? slides.length - 1 : value - 1));
   }, []);
 
-  /* Auto-advance */
   useEffect(() => {
     if (paused) return;
-    intervalRef.current = setInterval(next, INTERVAL);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [next, paused]);
+    const timeoutId = window.setTimeout(next, INTERVAL);
+    return () => window.clearTimeout(timeoutId);
+  }, [current, paused, next]);
 
-  /* Progress bar RAF */
   useEffect(() => {
-    startTimeRef.current = Date.now();
-    setProgress(0);
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") prev();
+      if (event.key === "ArrowRight") next();
+    };
 
-    const tick = () => {
-      if (!paused) {
-        const elapsed = Date.now() - startTimeRef.current;
-        setProgress(Math.min(elapsed / INTERVAL, 1));
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [current, paused]);
-
-  /* Keyboard navigation */
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [prev, next]);
-
-  /* Pause on hover handlers */
-  const handleMouseEnter = useCallback(() => {
-    setPaused(true);
-    pausedAtRef.current = Date.now();
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setPaused(false);
-    startTimeRef.current = Date.now() - (pausedAtRef.current - startTimeRef.current);
-  }, []);
+  }, [next, prev]);
 
   return (
     <>
       <style>{`
+        @keyframes hero-progress-fill {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
         .hero-slide-img {
-          width: 100%;
-          height: 100%;
           object-fit: cover;
           object-position: center top;
-          display: block;
         }
         .hero-arrow-btn {
           position: absolute;
@@ -122,8 +80,8 @@ export default function HeroWithOverlay() {
           -webkit-backdrop-filter: blur(8px);
           color: #fff;
           border: 1.5px solid rgba(255,255,255,0.35);
-          width: 46px;
-          height: 46px;
+          width: 48px;
+          height: 48px;
           border-radius: 50%;
           cursor: pointer;
           display: flex;
@@ -135,42 +93,57 @@ export default function HeroWithOverlay() {
         .hero-arrow-btn:hover {
           background: rgba(255,255,255,0.32);
           border-color: rgba(255,255,255,0.6);
-          transform: translateY(-50%) scale(1.1);
+          transform: translateY(-50%) scale(1.08);
         }
         .hero-dot-btn {
           border: none;
           cursor: pointer;
-          padding: 0;
-          transition: width 0.35s ease, background 0.35s ease;
-          border-radius: 4px;
+          padding: 12px 8px;
+          width: 24px;
+          height: 32px;
+          background: transparent;
+        }
+        .hero-dot-pill {
+          display: block;
+          width: 100%;
           height: 8px;
+          border-radius: 4px;
+          transition: transform 0.35s ease, background 0.35s ease;
+          transform-origin: center;
+        }
+        .hero-progress-fill {
+          height: 100%;
+          background: #ffc400;
+          transform-origin: left center;
+          animation: hero-progress-fill 6000ms linear forwards;
         }
       `}</style>
 
       <section
         style={{ position: "relative", width: "100%", overflow: "hidden" }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
         aria-label="Hero image carousel"
       >
         <div style={{ position: "relative", width: "100%", height: "clamp(480px, 55vw, 700px)" }}>
-
-          {/* Slides */}
           {slides.map((slide, idx) => {
             const isActive = idx === current;
-            const imgEl = (
-              <img
+            const image = (
+              <Image
                 src={slide.src}
                 alt={slide.alt}
-                draggable={false}
+                fill
                 className="hero-slide-img"
+                sizes="100vw"
+                preload={idx === 0}
+                fetchPriority={idx === 0 ? "high" : "auto"}
+                loading={idx === 0 ? "eager" : "lazy"}
               />
             );
 
             return (
               <div
-                key={idx}
-                className={isActive ? "hero-slide-active" : "hero-slide-inactive"}
+                key={slide.href}
                 style={{
                   position: "absolute",
                   inset: 0,
@@ -190,7 +163,7 @@ export default function HeroWithOverlay() {
                     aria-label={slide.alt}
                     tabIndex={isActive ? 0 : -1}
                   >
-                    {imgEl}
+                    {image}
                   </a>
                 ) : (
                   <a
@@ -199,14 +172,13 @@ export default function HeroWithOverlay() {
                     aria-label={slide.alt}
                     tabIndex={isActive ? 0 : -1}
                   >
-                    {imgEl}
+                    {image}
                   </a>
                 )}
               </div>
             );
           })}
 
-          {/* Subtle bottom vignette */}
           <div
             aria-hidden="true"
             style={{
@@ -221,7 +193,6 @@ export default function HeroWithOverlay() {
             }}
           />
 
-          {/* Prev Arrow */}
           <button
             type="button"
             onClick={prev}
@@ -234,7 +205,6 @@ export default function HeroWithOverlay() {
             </svg>
           </button>
 
-          {/* Next Arrow */}
           <button
             type="button"
             onClick={next}
@@ -247,7 +217,6 @@ export default function HeroWithOverlay() {
             </svg>
           </button>
 
-          {/* Dot indicators */}
           <div
             aria-label="Slide indicators"
             style={{
@@ -261,23 +230,26 @@ export default function HeroWithOverlay() {
               alignItems: "center",
             }}
           >
-            {slides.map((_, idx) => (
+            {slides.map((slide, idx) => (
               <button
-                key={idx}
+                key={slide.href}
                 type="button"
                 onClick={() => goTo(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 aria-current={idx === current ? "true" : undefined}
                 className="hero-dot-btn"
-                style={{
-                  width: idx === current ? 26 : 8,
-                  background: idx === current ? "#ffc400" : "rgba(255,255,255,0.55)",
-                }}
-              />
+              >
+                <span
+                  className="hero-dot-pill"
+                  style={{
+                    background: idx === current ? "#ffc400" : "rgba(255,255,255,0.55)",
+                    transform: `scaleX(${idx === current ? 1 : 0.33})`,
+                  }}
+                />
+              </button>
             ))}
           </div>
 
-          {/* Progress bar */}
           <div
             aria-hidden="true"
             style={{
@@ -291,12 +263,9 @@ export default function HeroWithOverlay() {
             }}
           >
             <div
-              style={{
-                height: "100%",
-                width: `${progress * 100}%`,
-                background: "#ffc400",
-                transition: progress === 0 ? "none" : "width 0.1s linear",
-              }}
+              key={`${current}-${paused ? "paused" : "running"}`}
+              className="hero-progress-fill"
+              style={{ animationPlayState: paused ? "paused" : "running" }}
             />
           </div>
         </div>

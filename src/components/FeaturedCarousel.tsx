@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
@@ -100,10 +101,10 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
         }
 
         .carousel-img {
-          background-size: cover;
-          background-position: center;
           width: 100%;
           height: 100%;
+          object-fit: cover;
+          object-position: center;
           transition: transform 0.55s ease;
         }
         .carousel-card-wrap:hover .carousel-img {
@@ -184,10 +185,19 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
         .carousel-dot {
           border: none;
           cursor: pointer;
-          padding: 0;
+          padding: 10px 0;
+          width: 24px;
           height: 9px;
           border-radius: 5px;
-          transition: width 0.32s ease, background 0.32s ease;
+          background: transparent;
+        }
+        .carousel-dot-pill {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          transition: transform 0.32s ease, background 0.32s ease;
+          transform-origin: center;
         }
       `}</style>
 
@@ -246,11 +256,13 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
             <div key={shed.href} data-card className="carousel-card-wrap">
               <Link href={shed.href} className="carousel-card-link">
                 <div className="carousel-img-wrapper">
-                  <div
+                  <Image
+                    src={shed.image}
+                    alt={shed.name}
+                    fill
                     className="carousel-img"
-                    role="img"
-                    aria-label={shed.name}
-                    style={{ backgroundImage: `url(${shed.image})` }}
+                    sizes="(max-width: 768px) 84vw, (max-width: 1200px) 34vw, 25vw"
+                    loading="lazy"
                   />
                   <div className="carousel-overlay">
                     <span className="carousel-view-tag">View Details</span>
@@ -288,11 +300,15 @@ export default function FeaturedCarousel({ sheds }: { sheds: FeaturedShed[] }) {
               aria-label={`Go to featured shed ${idx + 1}`}
               aria-selected={idx === activeIdx}
               className="carousel-dot"
-              style={{
-                width: idx === activeIdx ? 24 : 9,
-                background: idx === activeIdx ? "#006580" : "#c8c4be",
-              }}
-            />
+            >
+              <span
+                className="carousel-dot-pill"
+                style={{
+                  background: idx === activeIdx ? "#006580" : "#c8c4be",
+                  transform: `scaleX(${idx === activeIdx ? 1 : 0.375})`,
+                }}
+              />
+            </button>
           ))}
         </div>
       </div>
