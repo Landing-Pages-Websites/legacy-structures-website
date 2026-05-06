@@ -1,23 +1,25 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { siteAssets } from "@/lib/site-assets";
 
 const slides = [
   {
-    src: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/territory3-slider.jpg",
+    ...siteAssets.heroSlides[0],
     alt: "Get pricing on your dream shed",
     href: "#pricing-form",
     external: false,
   },
   {
-    src: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/byo-hero-slider-2.jpg",
+    ...siteAssets.heroSlides[1],
     alt: "View our inventory",
     href: "/inventory",
     external: false,
   },
   {
-    src: "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/byo-hero-slider-3.jpg",
+    ...siteAssets.heroSlides[2],
     alt: "Build your own shed in 3D",
     href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
     external: true,
@@ -79,10 +81,15 @@ export default function HeroSlider() {
         {slides.map((slide, idx) => {
           const isActive = idx === current;
           const inner = (
-            <img
+            <Image
               src={slide.src}
               alt={slide.alt}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              preload={idx === 0}
+              fetchPriority={idx === 0 ? "high" : "auto"}
+              loading={idx === 0 ? "eager" : "lazy"}
               style={{ objectPosition: "center 35%" }}
               draggable={false}
             />

@@ -43,8 +43,10 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
-    setMobileSubOpen(false);
+    queueMicrotask(() => {
+      setMobileOpen(false);
+      setMobileSubOpen(false);
+    });
   }, [pathname]);
 
   /* Lock body scroll when mobile menu is open */

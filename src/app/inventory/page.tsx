@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { buildings } from "@/data/buildings";
+import { siteAssets } from "@/lib/site-assets";
 
 const parsePrice = (s: string | undefined): number => {
   if (!s) return 0;
@@ -141,9 +143,11 @@ function PricingGuideCTA() {
           flexWrap: "wrap",
         }}
       >
-        <img
-          src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/pricing-guide-cta-img.png"
+        <Image
+          src={siteAssets.pricingGuide.cta.src}
           alt="Pricing Guide"
+          width={siteAssets.pricingGuide.cta.width}
+          height={siteAssets.pricingGuide.cta.height}
           style={{ height: "80px", width: "auto" }}
         />
         <span

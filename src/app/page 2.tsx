@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import FadeIn from "@/components/FadeIn";
 import { StaggerChildren, StaggerItem } from "@/components/StaggerChildren";
@@ -63,8 +64,8 @@ export default function Home() {
                   <div style={{ background: "rgba(255,255,255,0.08)", borderRadius: 12, padding: 32, textAlign: "center", border: "1px solid rgba(255,255,255,0.15)", display: "flex", flexDirection: "column", height: "100%" }}>
                     <h2 style={{ color: "#fff", fontSize: 24, fontWeight: 700, paddingBottom: 8, fontFamily: "var(--font-bricolage)", letterSpacing: "-0.02em" }}>{card.title}</h2>
                     <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, paddingBottom: 20 }}>{card.desc}</p>
-                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24, minHeight: 240 }}>
-                      <img src={card.img} alt={card.title} style={{ maxWidth: "100%", maxHeight: 240, objectFit: "contain", borderRadius: 8 }} />
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24, minHeight: 240, position: "relative" }}>
+                      <Image src={card.img} alt={card.title} fill sizes="(max-width: 768px) 90vw, 45vw" style={{ objectFit: "contain", borderRadius: 8 }} />
                     </div>
                     <div>
                       {card.external ? (
@@ -137,7 +138,7 @@ export default function Home() {
             </p>
           </div>
           <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 40, flexWrap: "wrap" }}>
-            <img src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/homepage-devices.png" alt="Pricing Guide" style={{ maxWidth: 400, width: "100%" }} />
+            <Image src="/images/optimized-assets/homepage-devices.webp" alt="Pricing Guide" width={400} height={190} style={{ maxWidth: 400, width: "100%", height: "auto" }} />
             <div style={{ textAlign: "center" }}>
               <p style={{ fontWeight: 700, fontSize: 20, color: "#1a3a5c", paddingBottom: 12, fontFamily: "var(--font-bricolage)", letterSpacing: "-0.02em" }}>Free Pricing Guide!</p>
               <a
@@ -181,7 +182,7 @@ export default function Home() {
               </div>
             </StaggerChildren>
             <div style={{ flex: 1 }}>
-              <img src="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/barn-interior-img.png" alt="Barn interior" style={{ width: "100%", borderRadius: 8 }} />
+              <Image src="/images/optimized-assets/barn-interior.webp" alt="Barn interior" width={726} height={605} style={{ width: "100%", height: "auto", borderRadius: 8 }} />
             </div>
           </div>
         </section>
