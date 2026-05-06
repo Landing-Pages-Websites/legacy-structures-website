@@ -106,11 +106,11 @@ export default function HeroSlider() {
               }}
             >
               {slide.external ? (
-                <a href={slide.href} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                <a href={slide.href} target="_blank" rel="noopener noreferrer" className="relative block w-full h-full">
                   {inner}
                 </a>
               ) : (
-                <Link href={slide.href} className="block w-full h-full">
+                <Link href={slide.href} className="relative block w-full h-full">
                   {inner}
                 </Link>
               )}

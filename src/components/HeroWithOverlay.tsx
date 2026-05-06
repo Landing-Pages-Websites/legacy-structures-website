@@ -170,7 +170,7 @@ export default function HeroWithOverlay() {
                     href={slide.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ display: "block", width: "100%", height: "100%" }}
+                    style={{ display: "block", position: "relative", width: "100%", height: "100%" }}
                     aria-label={slide.alt}
                     tabIndex={isActive ? 0 : -1}
                   >
@@ -179,7 +179,7 @@ export default function HeroWithOverlay() {
                 ) : (
                   <a
                     href={slide.href}
-                    style={{ display: "block", width: "100%", height: "100%" }}
+                    style={{ display: "block", position: "relative", width: "100%", height: "100%" }}
                     aria-label={slide.alt}
                     tabIndex={isActive ? 0 : -1}
                   >
