@@ -7,22 +7,16 @@ import { siteAssets } from "@/lib/site-assets";
 
 const slides = [
   {
-    ...siteAssets.heroSlides[0],
-    alt: "Get pricing on your dream shed",
-    href: "#pricing-form",
-    external: false,
-  },
-  {
     ...siteAssets.heroSlides[1],
-    alt: "View our inventory",
-    href: "/inventory",
-    external: false,
+    alt: "Design your dream shed today",
+    href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
+    external: true,
   },
   {
     ...siteAssets.heroSlides[2],
-    alt: "Build your own shed in 3D",
-    href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
-    external: true,
+    alt: "View our inventory",
+    href: "/inventory",
+    external: false,
   },
 ];
 
@@ -73,10 +67,21 @@ export default function HeroSlider() {
     <section className="home-hero relative w-full overflow-hidden">
       <style>{`
         .hero-slide-wrap { aspect-ratio: 16/6; }
+        .hero-slide-img {
+          object-fit: cover;
+          object-position: center 40%;
+        }
+        .hero-slide-img--1 {
+          object-position: center 45%;
+        }
         @media (max-width: 960px) { .hero-slide-wrap { aspect-ratio: 16/8; } }
-        @media (max-width: 640px) { .hero-slide-wrap { aspect-ratio: 3/2; } }
-        .hero-img { object-position: center 35%; }
-        @media (max-width: 640px) { .hero-img { object-position: left 35%; } }
+        @media (max-width: 640px) {
+          .hero-slide-wrap { aspect-ratio: 2/1; }
+          .hero-slide-img,
+          .hero-slide-img--1 {
+            object-position: center center;
+          }
+        }
       `}</style>
       <div className="hero-slide-wrap relative w-full">
         {/* All slides stacked for crossfade */}
@@ -87,7 +92,7 @@ export default function HeroSlider() {
               src={slide.src}
               alt={slide.alt}
               fill
-              className="object-cover hero-img"
+              className={`hero-slide-img hero-slide-img--${idx}`}
               sizes="100vw"
               preload={idx === 0}
               fetchPriority={idx === 0 ? "high" : "auto"}

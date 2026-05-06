@@ -6,22 +6,16 @@ import { siteAssets } from "@/lib/site-assets";
 
 const slides = [
   {
-    ...siteAssets.heroSlides[0],
-    alt: "Buildings As Low As $103/mo - Get Our Pricing",
-    href: "/rent-to-own",
-    external: false,
-  },
-  {
     ...siteAssets.heroSlides[1],
-    alt: "See Our Inventory - Storage Sheds",
-    href: "/inventory",
-    external: false,
+    alt: "Design Your Dream Shed Today",
+    href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
+    external: true,
   },
   {
     ...siteAssets.heroSlides[2],
-    alt: "Design Your Own Shed in 3D",
-    href: "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1",
-    external: true,
+    alt: "See Our Inventory - Storage Sheds",
+    href: "/inventory",
+    external: false,
   },
 ] as const;
 
@@ -68,7 +62,10 @@ export default function HeroWithOverlay() {
         }
         .hero-slide-img {
           object-fit: cover;
-          object-position: center 30%;
+          object-position: center 40%;
+        }
+        .hero-slide-img--1 {
+          object-position: center 45%;
         }
         .hero-slide-wrap {
           position: relative;
@@ -78,8 +75,19 @@ export default function HeroWithOverlay() {
         @media (max-width: 960px) {
           .hero-slide-wrap { height: clamp(320px, 48vw, 480px); }
         }
-        @media (max-width: 600px) {
-          .hero-slide-wrap { height: clamp(180px, 58vw, 320px); }
+        @media (max-width: 640px) {
+          .hero-slide-wrap {
+            height: auto;
+            aspect-ratio: 2/1;
+          }
+          .hero-slide-img,
+          .hero-slide-img--1 {
+            object-position: center center;
+          }
+          .hero-arrow-btn {
+            width: 42px;
+            height: 42px;
+          }
         }
         .hero-arrow-btn {
           position: absolute;
@@ -144,7 +152,7 @@ export default function HeroWithOverlay() {
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className="hero-slide-img"
+                className={`hero-slide-img hero-slide-img--${idx}`}
                 sizes="100vw"
                 preload={idx === 0}
                 fetchPriority={idx === 0 ? "high" : "auto"}
