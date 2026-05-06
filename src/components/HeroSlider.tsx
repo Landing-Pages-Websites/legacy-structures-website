@@ -74,7 +74,9 @@ export default function HeroSlider() {
       <style>{`
         .hero-slide-wrap { aspect-ratio: 16/6; }
         @media (max-width: 960px) { .hero-slide-wrap { aspect-ratio: 16/8; } }
-        @media (max-width: 640px) { .hero-slide-wrap { aspect-ratio: 4/3; } }
+        @media (max-width: 640px) { .hero-slide-wrap { aspect-ratio: 3/2; } }
+        .hero-img { object-position: center 35%; }
+        @media (max-width: 640px) { .hero-img { object-position: left 35%; } }
       `}</style>
       <div className="hero-slide-wrap relative w-full">
         {/* All slides stacked for crossfade */}
@@ -85,12 +87,11 @@ export default function HeroSlider() {
               src={slide.src}
               alt={slide.alt}
               fill
-              className="object-cover"
+              className="object-cover hero-img"
               sizes="100vw"
               preload={idx === 0}
               fetchPriority={idx === 0 ? "high" : "auto"}
               loading={idx === 0 ? "eager" : "lazy"}
-              style={{ objectPosition: "center 35%" }}
               draggable={false}
             />
           );
