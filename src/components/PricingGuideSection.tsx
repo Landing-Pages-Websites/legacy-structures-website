@@ -25,14 +25,21 @@ const selectClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white tex
 
 export default function PricingGuideSection() {
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "", state: "", comments: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Pricing guide form submitted:", formData);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/pricing-guide", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -86,9 +93,11 @@ export default function PricingGuideSection() {
           </select>
           <label className="sr-only" htmlFor="pricing-guide-comments">Comments</label>
           <textarea id="pricing-guide-comments" name="comments" placeholder="Comments" value={formData.comments} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
-          <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", width: "100%" }}>
-            Download Our Pricing
+          <button type="submit" disabled={status === "loading" || status === "success"} style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: status === "loading" || status === "success" ? "not-allowed" : "pointer", width: "100%", opacity: status === "loading" ? 0.7 : 1 }}>
+            {status === "loading" ? "Sending..." : "Download Our Pricing"}
           </button>
+          {status === "success" && <p style={{ color: "#2e7d32", fontWeight: 600, textAlign: "center", marginTop: 8 }}>Thank you! Check your email for the pricing guide.</p>}
+          {status === "error" && <p style={{ color: "#c0392b", fontWeight: 600, textAlign: "center", marginTop: 8 }}>Something went wrong. Please try again or call us directly.</p>}
         </form>
       </div>
     </section>

@@ -23,6 +23,7 @@ export default function RentToOwnPage() {
     phone: "",
     comment: "",
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,9 +31,15 @@ export default function RentToOwnPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("RTO form submitted:", formData);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/rent-to-own", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -109,11 +116,14 @@ export default function RentToOwnPage() {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-[#af1919] text-white font-bold uppercase py-[12px] px-[40px] rounded-md text-[18px] cursor-pointer hover:opacity-90 transition-opacity"
+                    disabled={status === "loading" || status === "success"}
+                    className="bg-[#af1919] text-white font-bold uppercase py-[12px] px-[40px] rounded-md text-[18px] cursor-pointer hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Download
+                    {status === "loading" ? "Sending..." : "Download"}
                   </button>
                 </div>
+                {status === "success" && <p className="text-green-800 font-semibold text-center mt-2">Thank you! We&apos;ll send you the brochure shortly.</p>}
+                {status === "error" && <p className="text-red-700 font-semibold text-center mt-2">Something went wrong. Please try again or call us.</p>}
               </form>
             </div>
           </div>

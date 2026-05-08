@@ -17,10 +17,23 @@ const states = [
 
 export default function CouponForm() {
   const [selectedState, setSelectedState] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedState) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/coupon", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ selectedState }) });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <form
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={handleSubmit}
       className="flex flex-col sm:flex-row items-center justify-center gap-4"
     >
       <label htmlFor="coupon-state" className="sr-only">
@@ -42,10 +55,13 @@ export default function CouponForm() {
       </select>
       <button
         type="submit"
-        className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded transition-colors"
+        disabled={status === "loading" || status === "success" || !selectedState}
+        className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        Get Your Coupon!!
+        {status === "loading" ? "Sending..." : "Get Your Coupon!!"}
       </button>
+      {status === "success" && <p className="text-green-700 font-semibold text-center w-full">Request received! We&apos;ll send your coupon shortly.</p>}
+      {status === "error" && <p className="text-red-600 font-semibold text-center w-full">Something went wrong. Please try again.</p>}
     </form>
   );
 }

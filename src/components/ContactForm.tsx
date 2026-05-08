@@ -20,14 +20,21 @@ const selectClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white tex
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "", state: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -55,9 +62,11 @@ export default function ContactForm() {
       </select>
       <label className="sr-only" htmlFor="contact-message">Your Message</label>
       <textarea id="contact-message" name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required className={inputClasses} style={{ height: 120, resize: "none" }} />
-      <button type="submit" style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: "pointer", alignSelf: "flex-start" }}>
-        Submit
+      <button type="submit" disabled={status === "loading" || status === "success"} style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: status === "loading" || status === "success" ? "not-allowed" : "pointer", alignSelf: "flex-start", opacity: status === "loading" ? 0.7 : 1 }}>
+        {status === "loading" ? "Sending..." : "Submit"}
       </button>
+      {status === "success" && <p style={{ color: "#2e7d32", fontWeight: 600 }}>Thank you! We&apos;ll get back to you within 2 business days.</p>}
+      {status === "error" && <p style={{ color: "#c0392b", fontWeight: 600 }}>Something went wrong. Please try again or call us directly.</p>}
     </form>
   );
 }
