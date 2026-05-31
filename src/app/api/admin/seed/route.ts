@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
@@ -45,6 +46,8 @@ export async function POST() {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  revalidatePath("/inventory");
+  revalidatePath("/api/inventory");
   return NextResponse.json({
     success: true,
     seeded: data?.length ?? items.length,

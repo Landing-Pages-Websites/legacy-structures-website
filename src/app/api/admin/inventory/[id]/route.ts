@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
@@ -23,6 +24,8 @@ export async function PUT(
     .select()
     .single();
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  revalidatePath("/inventory");
+  revalidatePath("/api/inventory");
   return NextResponse.json(data);
 }
 
@@ -38,5 +41,7 @@ export async function DELETE(
   const supabase = createClient(cookieStore);
   const { error } = await supabase.from(TABLE).delete().eq("id", id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  revalidatePath("/inventory");
+  revalidatePath("/api/inventory");
   return NextResponse.json({ success: true });
 }
