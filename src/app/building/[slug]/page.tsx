@@ -422,7 +422,7 @@ export default async function BuildingPage({
               Try Our 3D Shed Builder
             </a>
             <a
-              href="/contact-us"
+              href={`/contact-us?model=${encodeURIComponent(building.modelType)}&size=${encodeURIComponent(building.size)}&inv=${encodeURIComponent(building.inventoryNumber)}`}
               style={{
                 display: "block",
                 backgroundColor: NAVY,
@@ -436,7 +436,7 @@ export default async function BuildingPage({
                 fontSize: "15px",
               }}
             >
-              Want This Shed?
+              Want This Building?
             </a>
           </aside>
         </div>

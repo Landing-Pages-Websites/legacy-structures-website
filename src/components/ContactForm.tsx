@@ -60,16 +60,26 @@ const inputClasses =
 const selectClasses =
   "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#1a3a5c] focus:border-transparent transition appearance-none";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  prefilledModel?: string;
+  prefilledSize?: string;
+  prefilledMessage?: string;
+}
+
+export default function ContactForm({
+  prefilledModel = "",
+  prefilledSize = "",
+  prefilledMessage = "",
+}: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
     state: "",
-    model: "",
-    size: "",
-    message: "",
+    model: prefilledModel,
+    size: prefilledSize,
+    message: prefilledMessage,
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 

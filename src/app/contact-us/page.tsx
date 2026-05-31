@@ -23,7 +23,18 @@ const businessHours = [
 const MAP_SRC =
   "https://maps.google.com/maps?q=3570+US+4,+Hudson+Falls,+NY+12839&t=&z=13&ie=UTF8&iwloc=&output=embed";
 
-export default function ContactUsPage() {
+export default async function ContactUsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const sp: Record<string, string | string[] | undefined> = await (searchParams ?? Promise.resolve({}));
+  const prefilledModel = typeof sp.model === "string" ? sp.model : "";
+  const prefilledSize = typeof sp.size === "string" ? sp.size : "";
+  const prefilledInv = typeof sp.inv === "string" ? sp.inv : "";
+  const prefilledMessage = prefilledModel
+    ? `I'm interested in this building:\n\nModel: ${prefilledModel}\nSize: ${prefilledSize}${prefilledInv ? `\nInventory #: ${prefilledInv}` : ""}\n\nPlease contact me with more information.`
+    : "";
   return (
     <div style={{ background: "#f7f5f2" }}>
       <PageHero
@@ -247,7 +258,11 @@ export default function ContactUsPage() {
                   marginBottom: 20,
                 }}
               />
-              <ContactForm />
+              <ContactForm
+                prefilledModel={prefilledModel}
+                prefilledSize={prefilledSize}
+                prefilledMessage={prefilledMessage}
+              />
             </div>
           </FadeIn>
         </div>
