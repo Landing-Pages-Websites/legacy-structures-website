@@ -29,6 +29,7 @@ export async function POST() {
       image_url: b.image,
       designer_template: b.designerTemplate,
       sort_order: i,
+      notes: "",
     }));
 
   const cookieStore = await cookies();

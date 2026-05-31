@@ -6,6 +6,7 @@ import { getModelDescription } from "@/data/model-descriptions";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
+import { createAnonClient } from "@/utils/supabase/server";
 
 export async function generateStaticParams() {
   return buildings.map((b) => ({ slug: b.slug }));
@@ -71,6 +72,18 @@ export default async function BuildingPage({
   const { slug } = await params;
   const building = buildings.find((b) => b.slug === slug);
   if (!building) notFound();
+
+  // Fetch live notes from Supabase (falls back to empty string if not seeded yet)
+  let notes = "";
+  try {
+    const supabase = createAnonClient();
+    const { data } = await supabase
+      .from("inventory_items")
+      .select("notes")
+      .eq("slug", slug)
+      .maybeSingle();
+    notes = data?.notes ?? "";
+  } catch { /* keep notes empty */ }
 
   const description = getModelDescription(building.modelType);
   const hasSale = Boolean(building.salePrice);
@@ -287,6 +300,25 @@ export default async function BuildingPage({
                 </div>
               ))}
             </div>
+
+            {/* Notes / Description (set from admin panel) */}
+            {notes && (
+              <div
+                style={{
+                  background: "#f0f9ff",
+                  border: "1px solid #bae6fd",
+                  borderRadius: 8,
+                  padding: "12px 14px",
+                  marginBottom: "20px",
+                  fontSize: "14px",
+                  color: "#1a3a5c",
+                  lineHeight: 1.6,
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {notes}
+              </div>
+            )}
 
             {/* CTA buttons */}
             <a

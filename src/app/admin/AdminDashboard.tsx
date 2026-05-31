@@ -25,6 +25,7 @@ interface InventoryItem {
   image_url: string;
   designer_template: number;
   sort_order: number;
+  notes: string;
 }
 
 type FormState = Omit<InventoryItem, "id">;
@@ -47,6 +48,7 @@ const EMPTY_FORM: FormState = {
   image_url: "",
   designer_template: 25,
   sort_order: 0,
+  notes: "",
 };
 
 /* ── Style helpers ── */
@@ -561,6 +563,20 @@ export default function AdminDashboard() {
                     </button>
                   </div>
                 )}
+              </div>
+
+              {/* Description / Notes */}
+              <div>
+                <label htmlFor="f-notes" style={labelStyle}>Description / Notes</label>
+                <textarea
+                  id="f-notes"
+                  name="notes"
+                  value={form.notes}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="Optional — shown on the public listing and building detail page. e.g. 'On display at our lot. Ready for immediate delivery.'"
+                  style={{ ...inputStyle, resize: "vertical", lineHeight: 1.5 }}
+                />
               </div>
 
               {/* Auto-linked model route preview */}

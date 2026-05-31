@@ -34,6 +34,7 @@ const STATIC_INVENTORY: InventoryItem[] = buildings
     condition: "New",
     image: b.image,
     designTemplate: String(b.designerTemplate),
+    notes: "",
   }));
 
 /* ------------------------------------------------------------------ */
@@ -59,6 +60,7 @@ interface InventoryItem {
   condition: string;
   image: string;
   designTemplate: string;
+  notes: string;
 }
 
 // inventoryItems is now state — starts from static data, replaced by Supabase on load
@@ -373,6 +375,23 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
                 {item.inventoryNumber}
               </li>
             </ul>
+            {item.notes && (
+              <p
+                style={{
+                  margin: "10px 0 0",
+                  fontSize: "14px",
+                  color: "#1a3a5c",
+                  background: "#f0f9ff",
+                  border: "1px solid #bae6fd",
+                  borderRadius: 6,
+                  padding: "8px 12px",
+                  lineHeight: 1.5,
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {item.notes}
+              </p>
+            )}
           </div>
 
           {/* price-info */}
@@ -504,6 +523,7 @@ export default function InventoryPage() {
             condition: "New",
             image: String(item.image_url ?? ""),
             designTemplate: String(item.designer_template ?? "25"),
+            notes: String(item.notes ?? ""),
           };
         });
         setInventoryItems(mapped);
