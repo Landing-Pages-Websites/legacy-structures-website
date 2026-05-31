@@ -126,6 +126,41 @@ export default function AdminDashboard() {
 
   const [tab, setTab] = useState<"inventory" | "descriptions">("inventory");
 
+  /* ── Inactivity auto-logout (30 min) ── */
+  const IDLE_TIMEOUT = 30 * 60 * 1000;   // 30 minutes
+  const WARN_BEFORE  =  5 * 60 * 1000;   //  5 minutes warning
+  const lastActivityRef = useRef(Date.now());
+  const [idleWarning, setIdleWarning] = useState(false);
+  const [idleMinsLeft, setIdleMinsLeft] = useState(5);
+
+  useEffect(() => {
+    const resetIdle = () => { lastActivityRef.current = Date.now(); setIdleWarning(false); };
+    const events = ["mousemove", "mousedown", "keydown", "touchstart", "scroll"];
+    events.forEach((e) => window.addEventListener(e, resetIdle, { passive: true }));
+
+    const tick = setInterval(() => {
+      const idle = Date.now() - lastActivityRef.current;
+      const remaining = IDLE_TIMEOUT - idle;
+      if (remaining <= 0) {
+        clearInterval(tick);
+        fetch("/api/admin/auth", { method: "DELETE" }).finally(() => {
+          router.push("/admin/login");
+        });
+      } else if (remaining <= WARN_BEFORE) {
+        setIdleWarning(true);
+        setIdleMinsLeft(Math.ceil(remaining / 60_000));
+      } else {
+        setIdleWarning(false);
+      }
+    }, 15_000); // check every 15 seconds
+
+    return () => {
+      clearInterval(tick);
+      events.forEach((e) => window.removeEventListener(e, resetIdle));
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   /* ── Inventory state ── */
   const [items, setItems] = useState<InventoryItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -293,15 +328,16 @@ export default function AdminDashboard() {
     }
   };
 
-  const fetchDescs = useCallback(async () => {
+  const fetchDescs = useCallback(async (): Promise<Record<string, DescRow>> => {
     setDescLoading(true);
     try {
       const res = await fetch("/api/admin/model-descriptions");
-      if (!res.ok) return;
+      if (!res.ok) return {};
       const rows: DescRow[] = await res.json();
       const map: Record<string, DescRow> = {};
       rows.forEach((r) => { map[r.model_type] = r; });
       setDescs(map);
+      return map;
     } finally {
       setDescLoading(false);
     }
@@ -310,13 +346,11 @@ export default function AdminDashboard() {
   useEffect(() => { if (tab === "descriptions") fetchDescs(); }, [tab, fetchDescs]);
 
   const openEditDesc = (modelType: string) => {
-    const existing = descs[modelType];
-    setDescForm(existing ? {
-      heading: existing.heading,
-      body: existing.body,
-      bullets: existing.bullets,
-      sizes_image_url: existing.sizes_image_url,
-    } : { ...EMPTY_DESC });
+    const r = descs[modelType];
+    setDescForm(r
+      ? { heading: r.heading, body: r.body, bullets: r.bullets, sizes_image_url: r.sizes_image_url }
+      : { ...EMPTY_DESC }
+    );
     setEditingType(modelType);
     setDescMsg("");
   };
@@ -329,8 +363,13 @@ export default function AdminDashboard() {
       const res = await fetch("/api/admin/seed-descriptions", { method: "POST" });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error ?? "Seed failed");
-      setDescMsg(`✓ Imported ${body.seeded} model descriptions. You can now edit them.`);
-      fetchDescs();
+      setDescMsg(`✓ Imported ${body.seeded} model descriptions. Click any model on the left to edit it.`);
+      const freshMap = await fetchDescs();
+      // If editor is already open, refresh its form with the imported data
+      if (editingType && freshMap[editingType]) {
+        const r = freshMap[editingType];
+        setDescForm({ heading: r.heading, body: r.body, bullets: r.bullets, sizes_image_url: r.sizes_image_url });
+      }
     } catch (e) {
       setDescMsg((e as Error).message);
     } finally {
@@ -412,6 +451,22 @@ export default function AdminDashboard() {
           </button>
         ))}
       </div>
+
+      {/* Idle-timeout warning banner */}
+      {idleWarning && (
+        <div style={{ background: "#7f1d1d", color: "#fff", padding: "12px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+          <span style={{ fontSize: 14, fontWeight: 600 }}>
+            ⚠ You&apos;ve been inactive — you will be automatically logged out in <strong>{idleMinsLeft} minute{idleMinsLeft !== 1 ? "s" : ""}</strong>. Move your mouse or press any key to stay logged in.
+          </span>
+          <button
+            type="button"
+            onClick={() => { lastActivityRef.current = Date.now(); setIdleWarning(false); }}
+            style={{ background: "#fff", color: "#7f1d1d", border: "none", borderRadius: 6, padding: "6px 14px", fontWeight: 700, fontSize: 13, cursor: "pointer", whiteSpace: "nowrap" }}
+          >
+            Stay Logged In
+          </button>
+        </div>
+      )}
 
       {/* ── Model Descriptions Tab ── */}
       {tab === "descriptions" && (
