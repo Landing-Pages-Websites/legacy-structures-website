@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { createServiceClient } from "@/utils/supabase/server";
+import { createAnonClient } from "@/utils/supabase/server";
 import { buildings } from "@/data/buildings";
 
 export const revalidate = 30; // ISR: refresh every 30 seconds
 
 export async function GET() {
   try {
-    const supabase = createServiceClient();
+    const supabase = createAnonClient();
     const { data, error } = await supabase
       .from("inventory_items")
       .select("*")
@@ -19,7 +19,7 @@ export async function GET() {
     // Fall through to static fallback
   }
 
-  // Fallback: static buildings.ts data (active until Supabase is populated)
+  // Fallback: static buildings.ts data (active until Supabase is seeded)
   const staticItems = buildings
     .filter((b) => !b.inventoryNumber.includes("DEMO"))
     .map((b) => ({

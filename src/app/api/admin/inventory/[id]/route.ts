@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { createServiceClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 
 const TABLE = "inventory_items";
 
@@ -13,7 +14,8 @@ export async function PUT(
   }
   const { id } = await params;
   const body = await request.json();
-  const supabase = createServiceClient();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
   const { data, error } = await supabase
     .from(TABLE)
     .update({ ...body, updated_at: new Date().toISOString() })
@@ -32,7 +34,8 @@ export async function DELETE(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const { id } = await params;
-  const supabase = createServiceClient();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
   const { error } = await supabase.from(TABLE).delete().eq("id", id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ success: true });

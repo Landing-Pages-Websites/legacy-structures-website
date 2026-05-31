@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.empireshedsales.com",
       },
+      {
+        protocol: "https",
+        hostname: "yfjpgzqxabrafsllxjvz.supabase.co",
+      },
     ],
   },
 };

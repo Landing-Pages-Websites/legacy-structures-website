@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { createServiceClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 
 const BUCKET = "inventory-images";
 
@@ -23,7 +24,8 @@ export async function POST(request: NextRequest) {
   const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
   const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
-  const supabase = createServiceClient();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
   const bytes = await file.arrayBuffer();
 
   const { error: uploadError } = await supabase.storage

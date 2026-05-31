@@ -117,6 +117,8 @@ export default function AdminDashboard() {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [imageUploading, setImageUploading] = useState(false);
+  const [seeding, setSeeding] = useState(false);
+  const [seedMsg, setSeedMsg] = useState("");
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -244,6 +246,24 @@ export default function AdminDashboard() {
     router.push("/admin/login");
   };
 
+  const handleSeed = async () => {
+    if (!confirm("This will import all inventory from the static buildings list into Supabase. Existing items with the same slug will be updated. Continue?")) return;
+    setSeeding(true);
+    setSeedMsg("");
+    setError("");
+    try {
+      const res = await fetch("/api/admin/seed", { method: "POST" });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error ?? "Seed failed");
+      setSeedMsg(`✓ Imported ${body.seeded} items into Supabase.`);
+      fetchItems();
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setSeeding(false);
+    }
+  };
+
   const filtered = items.filter((i) =>
     search
       ? [i.model_type, i.size, i.inventory_number, i.wall_color]
@@ -283,7 +303,7 @@ export default function AdminDashboard() {
               {items.length} item{items.length !== 1 ? "s" : ""} total
             </p>
           </div>
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+          <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
             <input
               type="search"
               placeholder="Search inventory…"
@@ -291,11 +311,25 @@ export default function AdminDashboard() {
               onChange={(e) => setSearch(e.target.value)}
               style={{ ...inputStyle, width: 220 }}
             />
+            <button
+              onClick={handleSeed}
+              disabled={seeding}
+              title="Import all inventory from buildings.ts into Supabase"
+              style={{ ...btnGhost, background: "#f0fdf4", borderColor: "#86efac", color: "#15803d", whiteSpace: "nowrap", opacity: seeding ? 0.6 : 1, cursor: seeding ? "not-allowed" : "pointer" }}
+            >
+              {seeding ? "Importing…" : "⬇ Import from Static"}
+            </button>
             <button onClick={openAdd} style={{ ...btnPrimary, whiteSpace: "nowrap" }}>
               + Add Item
             </button>
           </div>
         </div>
+
+        {seedMsg && (
+          <div style={{ background: "#f0fdf4", border: "1px solid #86efac", borderRadius: 8, padding: "12px 16px", color: "#15803d", fontSize: 14, marginBottom: 12 }}>
+            {seedMsg}
+          </div>
+        )}
 
         {error && (
           <div style={{ background: "#fef2f2", border: "1px solid #fca5a5", borderRadius: 8, padding: "12px 16px", color: "#c0392b", fontSize: 14, marginBottom: 20 }}>

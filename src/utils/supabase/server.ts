@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
 
+// Session-aware client for authenticated routes (reads session from cookies).
 export const createClient = (cookieStore: Awaited<ReturnType<typeof cookies>>) => {
   return createServerClient(supabaseUrl, supabaseKey, {
     cookies: {
@@ -23,9 +24,15 @@ export const createClient = (cookieStore: Awaited<ReturnType<typeof cookies>>) =
   });
 };
 
+// Anon client for public reads (no session, no auth, subject to RLS SELECT policies).
+export const createAnonClient = () =>
+  createServerClient(supabaseUrl, supabaseKey, {
+    cookies: { getAll: () => [], setAll: () => {} },
+  });
+
 // Service-role client — server-side Route Handlers only.
-// Uses SUPABASE_SERVICE_ROLE_KEY which must NOT have the NEXT_PUBLIC_ prefix.
-// This key bypasses RLS and must never be sent to the browser.
+// Uses SUPABASE_SERVICE_ROLE_KEY (no NEXT_PUBLIC_ prefix — never sent to browser).
+// Bypasses RLS entirely. Only needed if session-authenticated client is insufficient.
 export const createServiceClient = () =>
   createServerClient(
     supabaseUrl,

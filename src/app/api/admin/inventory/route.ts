@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { createServiceClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 
 const TABLE = "inventory_items";
 
@@ -8,7 +9,8 @@ export async function GET() {
   if (!(await isAdminAuthenticated())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const supabase = createServiceClient();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
   const { data, error } = await supabase
     .from(TABLE)
     .select("*")
@@ -22,7 +24,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const body = await request.json();
-  const supabase = createServiceClient();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
   const { data, error } = await supabase
     .from(TABLE)
     .insert([body])

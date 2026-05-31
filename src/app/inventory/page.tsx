@@ -12,8 +12,8 @@ const parsePrice = (s: string | undefined): number => {
   return parseFloat(m) || 0;
 };
 
-// Inventory items built from shared buildings data (excludes demo-only records without real inv numbers)
-const SHARED_INVENTORY: InventoryItem[] = buildings
+// Static fallback — used until Supabase responds
+const STATIC_INVENTORY: InventoryItem[] = buildings
   .filter((b) => !b.inventoryNumber.includes("DEMO"))
   .map((b) => ({
     model: b.modelType,
@@ -61,7 +61,7 @@ interface InventoryItem {
   designTemplate: string;
 }
 
-const inventoryItems: InventoryItem[] = SHARED_INVENTORY;
+// inventoryItems is now state — starts from static data, replaced by Supabase on load
 
 /* ------------------------------------------------------------------ */
 /*  Filter options                                                     */
@@ -255,9 +255,10 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
             }}
           >
             <Image
-              src={item.image}
+              src={item.image || "/logo.png"}
               alt={`${item.model} ${item.size}`}
               fill
+              unoptimized={item.image.startsWith("http")}
               sizes="(max-width: 980px) 100vw, 30vw"
               style={{ objectFit: "contain", objectPosition: "center" }}
             />
@@ -465,6 +466,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
 /* ------------------------------------------------------------------ */
 
 export default function InventoryPage() {
+  const [inventoryItems, setInventoryItems] = useState<InventoryItem[]>(STATIC_INVENTORY);
   const [filterWidth, setFilterWidth] = useState<number | null>(null);
   const [filterLength, setFilterLength] = useState<number | null>(null);
   const [filterType, setFilterType] = useState<string>("");
@@ -474,6 +476,42 @@ export default function InventoryPage() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 9;
+
+  // Load live inventory from Supabase via the API (falls back to static data if Supabase is empty)
+  useEffect(() => {
+    fetch("/api/inventory")
+      .then((r) => r.json())
+      .then((data: Array<Record<string, unknown>>) => {
+        if (!Array.isArray(data) || data.length === 0) return;
+        const mapped: InventoryItem[] = data.map((item) => {
+          const roofRaw = String(item.roof_color ?? "");
+          return {
+            model: String(item.model_type ?? ""),
+            slug: String(item.slug ?? ""),
+            width: Number(item.width ?? 0),
+            length: Number(item.length ?? 0),
+            size: String(item.size ?? ""),
+            wallsColor: String(item.wall_color ?? ""),
+            trimColor: String(item.trim_color ?? ""),
+            roofColor: roofRaw.includes("-") ? roofRaw : roofRaw.replace(" Metal", "") + " - Metal",
+            inventoryNumber: String(item.inventory_number ?? ""),
+            cashPrice: parsePrice(String(item.cash_price ?? "")),
+            salePrice: item.is_on_sale && item.sale_price ? parsePrice(String(item.sale_price)) : null,
+            rto36: parsePrice(String(item.rto_36 ?? "")),
+            rto48: parsePrice(String(item.rto_48 ?? "")),
+            buildingType: String(item.model_type ?? ""),
+            sidingColor: String(item.wall_color ?? ""),
+            condition: "New",
+            image: String(item.image_url ?? ""),
+            designTemplate: String(item.designer_template ?? "25"),
+          };
+        });
+        setInventoryItems(mapped);
+      })
+      .catch(() => {
+        // keep static fallback on network error
+      });
+  }, []);
 
   const filtered = useMemo(() => {
     let result = [...inventoryItems];
@@ -492,7 +530,7 @@ export default function InventoryPage() {
     });
 
     return result;
-  }, [filterWidth, filterLength, filterType, filterColor, filterCondition, sortBy]);
+  }, [inventoryItems, filterWidth, filterLength, filterType, filterColor, filterCondition, sortBy]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
