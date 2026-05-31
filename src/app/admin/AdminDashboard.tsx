@@ -5,6 +5,21 @@ import { useState, useEffect, useCallback, useRef, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ALL_MODEL_TYPES, getModelRoute } from "@/lib/model-routes";
 
+/* ── Model Description Types ── */
+interface DescRow {
+  model_type: string;
+  heading: string;
+  body: string;
+  bullets: string;       // newline-separated list stored as plain text
+  sizes_image_url: string;
+}
+const EMPTY_DESC: Omit<DescRow, "model_type"> = {
+  heading: "",
+  body: "",
+  bullets: "",
+  sizes_image_url: "",
+};
+
 /* ── Types ── */
 interface InventoryItem {
   id: string;
@@ -109,6 +124,9 @@ export default function AdminDashboard() {
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const [tab, setTab] = useState<"inventory" | "descriptions">("inventory");
+
+  /* ── Inventory state ── */
   const [items, setItems] = useState<InventoryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -121,6 +139,14 @@ export default function AdminDashboard() {
   const [imageUploading, setImageUploading] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState("");
+
+  /* ── Model Descriptions state ── */
+  const [descs, setDescs] = useState<Record<string, DescRow>>({});
+  const [descLoading, setDescLoading] = useState(false);
+  const [editingType, setEditingType] = useState<string | null>(null);
+  const [descForm, setDescForm] = useState<Omit<DescRow, "model_type">>(EMPTY_DESC);
+  const [descSaving, setDescSaving] = useState(false);
+  const [descMsg, setDescMsg] = useState("");
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -266,6 +292,55 @@ export default function AdminDashboard() {
     }
   };
 
+  const fetchDescs = useCallback(async () => {
+    setDescLoading(true);
+    try {
+      const res = await fetch("/api/admin/model-descriptions");
+      if (!res.ok) return;
+      const rows: DescRow[] = await res.json();
+      const map: Record<string, DescRow> = {};
+      rows.forEach((r) => { map[r.model_type] = r; });
+      setDescs(map);
+    } finally {
+      setDescLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { if (tab === "descriptions") fetchDescs(); }, [tab, fetchDescs]);
+
+  const openEditDesc = (modelType: string) => {
+    const existing = descs[modelType];
+    setDescForm(existing ? {
+      heading: existing.heading,
+      body: existing.body,
+      bullets: existing.bullets,
+      sizes_image_url: existing.sizes_image_url,
+    } : { ...EMPTY_DESC });
+    setEditingType(modelType);
+    setDescMsg("");
+  };
+
+  const handleSaveDesc = async () => {
+    if (!editingType) return;
+    setDescSaving(true);
+    setDescMsg("");
+    try {
+      const res = await fetch("/api/admin/model-descriptions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model_type: editingType, ...descForm }),
+      });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error ?? "Save failed");
+      setDescs((d) => ({ ...d, [editingType]: { model_type: editingType, ...descForm } }));
+      setDescMsg("✓ Saved. Building pages will update within 60 seconds.");
+    } catch (e) {
+      setDescMsg((e as Error).message);
+    } finally {
+      setDescSaving(false);
+    }
+  };
+
   const filtered = items.filter((i) =>
     search
       ? [i.model_type, i.size, i.inventory_number, i.wall_color]
@@ -296,7 +371,156 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
+      {/* Tab nav */}
+      <div style={{ background: "#132d47", borderBottom: "1px solid rgba(255,255,255,0.1)", display: "flex", gap: 0 }}>
+        {(["inventory", "descriptions"] as const).map((t) => (
+          <button
+            key={t}
+            onClick={() => setTab(t)}
+            style={{
+              padding: "12px 24px",
+              background: "none",
+              border: "none",
+              borderBottom: tab === t ? "3px solid #ffc400" : "3px solid transparent",
+              color: tab === t ? "#fff" : "rgba(255,255,255,0.55)",
+              fontWeight: tab === t ? 700 : 500,
+              fontSize: 13,
+              cursor: "pointer",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+            }}
+          >
+            {t === "inventory" ? "Inventory" : "Model Descriptions"}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Model Descriptions Tab ── */}
+      {tab === "descriptions" && (
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
+          <div style={{ marginBottom: 24 }}>
+            <h1 style={{ color: "#1a3a5c", fontSize: 24, fontWeight: 700, margin: 0 }}>Model Descriptions</h1>
+            <p style={{ color: "#5a6c7e", fontSize: 14, margin: "4px 0 0" }}>
+              Edit the heading, body text, and bullet points shown on every building detail page for each model type.
+            </p>
+          </div>
+
+          {descLoading && <div style={{ color: "#5a6c7e", padding: 40, textAlign: "center" }}>Loading…</div>}
+
+          {descMsg && (
+            <div style={{ background: descMsg.startsWith("✓") ? "#f0fdf4" : "#fef2f2", border: `1px solid ${descMsg.startsWith("✓") ? "#86efac" : "#fca5a5"}`, borderRadius: 8, padding: "12px 16px", color: descMsg.startsWith("✓") ? "#15803d" : "#c0392b", fontSize: 14, marginBottom: 16 }}>
+              {descMsg}
+            </div>
+          )}
+
+          {/* Two-column layout: model list on left, editor on right */}
+          <div style={{ display: "grid", gridTemplateColumns: "260px 1fr", gap: 24, alignItems: "flex-start" }}>
+            {/* Model type list */}
+            <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, overflow: "hidden" }}>
+              {ALL_MODEL_TYPES.map((t) => (
+                <button
+                  key={t}
+                  onClick={() => openEditDesc(t)}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    padding: "12px 16px",
+                    textAlign: "left",
+                    background: editingType === t ? "#f0f9ff" : "transparent",
+                    border: "none",
+                    borderBottom: "1px solid #f3f4f6",
+                    borderLeft: editingType === t ? "3px solid #1a3a5c" : "3px solid transparent",
+                    cursor: "pointer",
+                    fontSize: 13,
+                    fontWeight: editingType === t ? 700 : 500,
+                    color: "#1a3a5c",
+                  }}
+                >
+                  {t}
+                  {descs[t] ? (
+                    <span style={{ float: "right", fontSize: 10, background: "#dcfce7", color: "#15803d", borderRadius: 4, padding: "2px 6px" }}>saved</span>
+                  ) : (
+                    <span style={{ float: "right", fontSize: 10, color: "#9ca3af" }}>default</span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Editor panel */}
+            {editingType ? (
+              <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, padding: "24px 28px" }}>
+                <h2 style={{ color: "#1a3a5c", fontSize: 18, fontWeight: 700, margin: "0 0 20px" }}>
+                  Editing: {editingType}
+                </h2>
+
+                <div style={{ display: "grid", gap: 16 }}>
+                  <div>
+                    <label style={labelStyle}>Section Heading</label>
+                    <input
+                      value={descForm.heading}
+                      onChange={(e) => setDescForm((f) => ({ ...f, heading: e.target.value }))}
+                      placeholder={`THE BASICS OF OUR ${editingType.toUpperCase()} BUILDINGS`}
+                      style={inputStyle}
+                    />
+                    <p style={{ fontSize: 11, color: "#9ca3af", margin: "4px 0 0" }}>Leave blank to use the default heading.</p>
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>Body Text</label>
+                    <textarea
+                      value={descForm.body}
+                      onChange={(e) => setDescForm((f) => ({ ...f, body: e.target.value }))}
+                      rows={4}
+                      placeholder="Describe this building type…"
+                      style={{ ...inputStyle, resize: "vertical", lineHeight: 1.5 }}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>Bullet Points</label>
+                    <textarea
+                      value={descForm.bullets}
+                      onChange={(e) => setDescForm((f) => ({ ...f, bullets: e.target.value }))}
+                      rows={5}
+                      placeholder={"One bullet per line:\nClassic gable-style roof\nUpgradeable sidewalls up to 8' tall"}
+                      style={{ ...inputStyle, resize: "vertical", lineHeight: 1.5, fontFamily: "monospace" }}
+                    />
+                    <p style={{ fontSize: 11, color: "#9ca3af", margin: "4px 0 0" }}>Enter each bullet on its own line.</p>
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>Section Image URL <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>(optional — the illustration beside the text)</span></label>
+                    <input
+                      value={descForm.sizes_image_url}
+                      onChange={(e) => setDescForm((f) => ({ ...f, sizes_image_url: e.target.value }))}
+                      placeholder="https://…"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", paddingTop: 8 }}>
+                    <button onClick={() => setEditingType(null)} style={btnGhost}>Cancel</button>
+                    <button
+                      onClick={handleSaveDesc}
+                      disabled={descSaving}
+                      style={{ ...btnPrimary, opacity: descSaving ? 0.7 : 1, cursor: descSaving ? "not-allowed" : "pointer" }}
+                    >
+                      {descSaving ? "Saving…" : "Save Changes"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div style={{ background: "#f7f5f2", border: "1px solid #e5e7eb", borderRadius: 10, padding: 40, textAlign: "center", color: "#9ca3af" }}>
+                ← Select a model type from the list to edit its description
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ── Inventory Tab ── */}
+      {tab === "inventory" && <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
         {/* Top bar */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
           <div>
@@ -407,7 +631,7 @@ export default function AdminDashboard() {
             ))}
           </div>
         )}
-      </div>
+      </div>}
 
       {/* Add / Edit Form Modal */}
       {showForm && (

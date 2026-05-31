@@ -164,7 +164,30 @@ export default async function BuildingPage({
   if (!building) notFound();
 
   const { notes } = building;
-  const description = getModelDescription(building.modelType);
+
+  // Fetch editable model description from Supabase (admin "Model Descriptions" tab).
+  // Falls back to the static model-descriptions.ts data if nothing saved yet.
+  const staticDesc = getModelDescription(building.modelType);
+  let description = staticDesc;
+  try {
+    const supabase = createAnonClient();
+    const { data: dbDesc } = await supabase
+      .from("model_descriptions")
+      .select("heading, body, bullets, sizes_image_url")
+      .eq("model_type", building.modelType)
+      .maybeSingle();
+    if (dbDesc) {
+      description = {
+        heading: dbDesc.heading || staticDesc.heading,
+        body: dbDesc.body || staticDesc.body,
+        bullets: dbDesc.bullets
+          ? dbDesc.bullets.split("\n").map((s: string) => s.trim()).filter(Boolean)
+          : staticDesc.bullets,
+        sizesImage: dbDesc.sizes_image_url || staticDesc.sizesImage,
+        sizeGroups: staticDesc.sizeGroups,
+      };
+    }
+  } catch { /* keep static fallback */ }
   const hasSale = Boolean(building.salePrice);
   const designerUrl = `${DESIGNER_BASE}${building.designerTemplate}`;
 
