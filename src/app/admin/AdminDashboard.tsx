@@ -147,6 +147,7 @@ export default function AdminDashboard() {
   const [descForm, setDescForm] = useState<Omit<DescRow, "model_type">>(EMPTY_DESC);
   const [descSaving, setDescSaving] = useState(false);
   const [descMsg, setDescMsg] = useState("");
+  const [descSeeding, setDescSeeding] = useState(false);
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -320,6 +321,23 @@ export default function AdminDashboard() {
     setDescMsg("");
   };
 
+  const handleSeedDescs = async () => {
+    if (!confirm("Import all default descriptions from the static data? This will fill in any empty fields but won't overwrite descriptions you've already saved.")) return;
+    setDescSeeding(true);
+    setDescMsg("");
+    try {
+      const res = await fetch("/api/admin/seed-descriptions", { method: "POST" });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error ?? "Seed failed");
+      setDescMsg(`✓ Imported ${body.seeded} model descriptions. You can now edit them.`);
+      fetchDescs();
+    } catch (e) {
+      setDescMsg((e as Error).message);
+    } finally {
+      setDescSeeding(false);
+    }
+  };
+
   const handleSaveDesc = async () => {
     if (!editingType) return;
     setDescSaving(true);
@@ -398,11 +416,20 @@ export default function AdminDashboard() {
       {/* ── Model Descriptions Tab ── */}
       {tab === "descriptions" && (
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
-          <div style={{ marginBottom: 24 }}>
-            <h1 style={{ color: "#1a3a5c", fontSize: 24, fontWeight: 700, margin: 0 }}>Model Descriptions</h1>
-            <p style={{ color: "#5a6c7e", fontSize: 14, margin: "4px 0 0" }}>
-              Edit the heading, body text, and bullet points shown on every building detail page for each model type.
-            </p>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
+            <div>
+              <h1 style={{ color: "#1a3a5c", fontSize: 24, fontWeight: 700, margin: 0 }}>Model Descriptions</h1>
+              <p style={{ color: "#5a6c7e", fontSize: 14, margin: "4px 0 0" }}>
+                Edit the heading, body text, and bullet points shown on every building detail page for each model type.
+              </p>
+            </div>
+            <button
+              onClick={handleSeedDescs}
+              disabled={descSeeding}
+              style={{ ...btnGhost, background: "#f0fdf4", borderColor: "#86efac", color: "#15803d", whiteSpace: "nowrap", opacity: descSeeding ? 0.6 : 1, cursor: descSeeding ? "not-allowed" : "pointer" }}
+            >
+              {descSeeding ? "Importing…" : "⬇ Import Defaults"}
+            </button>
           </div>
 
           {descLoading && <div style={{ color: "#5a6c7e", padding: 40, textAlign: "center" }}>Loading…</div>}
