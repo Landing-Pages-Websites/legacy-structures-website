@@ -53,6 +53,16 @@ export const siteAssets = {
       width: 815,
       height: 529,
     },
+    aFrames: {
+      src: "https://www.empireshedsales.com/wp-content/uploads/2023/09/Summit-Peaks-hero-1.jpg",
+      width: 815,
+      height: 529,
+    },
+    logCabins: {
+      src: "https://www.empireshedsales.com/wp-content/uploads/2022/11/BearLake-1-scaled.jpg",
+      width: 815,
+      height: 529,
+    },
     chickenCoops: {
       src: "/images/optimized-assets/chicken-coops.webp",
       width: 815,
@@ -150,6 +160,16 @@ export const siteAssets = {
     },
     doubleWideGarages: {
       src: "/images/optimized-assets/double-wide-garages.webp",
+      width: 815,
+      height: 529,
+    },
+    aFrames: {
+      src: "https://www.empireshedsales.com/wp-content/uploads/2023/09/Summit-Peaks-hero-1.jpg",
+      width: 815,
+      height: 529,
+    },
+    logCabins: {
+      src: "https://www.empireshedsales.com/wp-content/uploads/2022/11/BearLake-1-scaled.jpg",
       width: 815,
       height: 529,
     },

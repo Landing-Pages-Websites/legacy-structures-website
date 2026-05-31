@@ -4,6 +4,7 @@ import FeaturedCarousel from "@/components/FeaturedCarousel";
 import HeroWithOverlay from "@/components/HeroWithOverlay";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import { siteAssets } from "@/lib/site-assets";
+import { BRAND } from "@/lib/constants";
 
 /* ── Featured sheds ────────────────────────────────────────────────── */
 const featuredSheds = [
@@ -28,6 +29,8 @@ const categories = [
   { label: "Portable Cabins", desc: "Hunting cabins, home offices & tiny homes", href: "/portable-cabins", img: siteAssets.categoryCards.portableCabins },
   { label: "Portable Garages", desc: "Single & tandem-car garage options", href: "/portable-garages", img: siteAssets.categoryCards.portableGarages },
   { label: "Double Wide Garages", desc: "Delivered in halves, joined on-site", href: "/double-wide-garages", img: siteAssets.categoryCards.doubleWideGarages },
+  { label: "A-Frames", desc: "Pre-built A-frame retreats, shells & turnkey", href: "/a-frames", img: siteAssets.categoryCards.aFrames },
+  { label: "Log Cabins", desc: "Masterfully built log cabin series", href: "/log-cabins", img: siteAssets.categoryCards.logCabins },
   { label: "Chicken Coops", desc: "Safe, practical backyard coops", href: "/chicken-coops", img: siteAssets.categoryCards.chickenCoops },
   { label: "Greenhouses", desc: "Grow year-round with full assembly", href: "/greenhouses", img: siteAssets.categoryCards.greenhouses },
   { label: "Side Gables", desc: "Side-entry utility shed alternative", href: "/side-gables", img: siteAssets.categoryCards.sideGables },
@@ -81,7 +84,7 @@ const trustItems = [
   },
   {
     label: "Local Craftsmanship",
-    sub: "Built by local families in Hudson Falls, NY",
+    sub: `Built by local families in ${BRAND.craftsmanshipLocation}`,
     svg: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -112,42 +115,63 @@ export default function Home() {
 
       {/* ── Split CTA ──────────────────────────────────────────────── */}
       <section className="split-cta" aria-label="Design or browse our buildings">
-        <div className="split-panel">
-          <h2>Try Our 3D Shed Builder</h2>
-          <p>Have a specific plan in mind? Use our interactive 3D designer to customize your perfect shed — choose your size, siding, roof, and colors before you buy.</p>
-          <div className="split-img-wrap">
-            <Image
-              src={siteAssets.splitCta.shedBuilder.src}
-              alt="Preview of the Legacy Structures 3D shed builder tool"
-              width={siteAssets.splitCta.shedBuilder.width}
-              height={siteAssets.splitCta.shedBuilder.height}
-              loading="lazy"
-            />
+        <div className="split-cta-inner">
+          <div className="split-panel split-panel-builder">
+            <div className="split-copy">
+              <span className="split-eyebrow">Plan it your way</span>
+              <h2>Design Your Shed in 3D</h2>
+              <p>Choose the size, style, roof, siding, doors, windows, and colors before you request a quote.</p>
+              <ul className="split-points" aria-label="3D builder benefits">
+                <li>Customize options live</li>
+                <li>Preview colors before buying</li>
+                <li>Send your build for pricing</li>
+              </ul>
+              <a
+                className="yellow-btn split-primary-btn"
+                href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start Designing
+              </a>
+            </div>
+            <div className="split-img-wrap">
+              <Image
+                src={siteAssets.splitCta.shedBuilder.src}
+                alt="Preview of the Legacy Structures 3D shed builder tool"
+                width={siteAssets.splitCta.shedBuilder.width}
+                height={siteAssets.splitCta.shedBuilder.height}
+                loading="lazy"
+                sizes="(max-width: 900px) 80vw, 34vw"
+              />
+            </div>
           </div>
-          <a
-            className="yellow-btn"
-            href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Design Your Shed
-          </a>
-        </div>
-        <div className="split-panel">
-          <h2>View Our Inventory</h2>
-          <p>Browse our lot in Hudson Falls, NY. We&apos;re always receiving new sheds, barns, garages, and structures ready for immediate delivery.</p>
-          <div className="split-img-wrap">
-            <Image
-              src={siteAssets.splitCta.inventory.src}
-              alt="Current inventory of storage sheds and barns for sale at Legacy Structures"
-              width={siteAssets.splitCta.inventory.width}
-              height={siteAssets.splitCta.inventory.height}
-              loading="lazy"
-            />
+
+          <div className="split-panel split-panel-inventory">
+            <div className="split-copy">
+              <span className="split-eyebrow">Ready for delivery</span>
+              <h2>Shop Current Inventory</h2>
+              <p>Browse sheds, barns, garages, and structures currently available from our Hudson Falls, NY lot.</p>
+              <ul className="split-points" aria-label="Inventory benefits">
+                <li>See available buildings</li>
+                <li>Compare styles and pricing</li>
+                <li>Fast local delivery options</li>
+              </ul>
+              <Link className="yellow-btn split-primary-btn" href="/inventory">
+                View Inventory
+              </Link>
+            </div>
+            <div className="split-img-wrap">
+              <Image
+                src={siteAssets.splitCta.inventory.src}
+                alt="Current inventory of storage sheds and barns for sale at Legacy Structures"
+                width={siteAssets.splitCta.inventory.width}
+                height={siteAssets.splitCta.inventory.height}
+                loading="lazy"
+                sizes="(max-width: 900px) 84vw, 36vw"
+              />
+            </div>
           </div>
-          <Link className="yellow-btn" href="/inventory">
-            View Our Inventory
-          </Link>
         </div>
       </section>
 
@@ -249,11 +273,11 @@ export default function Home() {
             <span>Call us or request a free quote — we&apos;re local, family-owned, and ready to help.</span>
           </div>
           <div className="bottom-cta-actions">
-            <a href="tel:518-544-2889" className="cta-phone-btn">
+            <a href={`tel:${BRAND.phoneTel}`} className="cta-phone-btn" aria-label={`Call or text us at ${BRAND.phone}`}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.35 6.35l.91-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              518-544-2889
+              Call or Text: {BRAND.phone}
             </a>
             <Link href="/contact-us" className="cta-quote-btn">
               Request a Free Quote
@@ -327,51 +351,147 @@ export default function Home() {
 
         /* ── Split CTA ──────────────────────────────────────────────── */
         .split-cta {
+          background: linear-gradient(180deg, #fff 0%, #f7f3ed 100%);
+          padding: 54px 24px 62px;
+          color: #111;
+        }
+        .split-cta-inner {
+          max-width: 1380px;
+          margin: 0 auto;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          background: var(--red);
-          color: #fff;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
         }
         .split-panel {
-          min-height: 400px;
-          padding: 36px 38px 32px;
-          text-align: center;
-          border-right: 4px solid #fff;
-          display: flex;
-          flex-direction: column;
+          position: relative;
+          isolation: isolate;
+          min-height: 420px;
+          padding: 34px;
+          overflow: hidden;
+          border-radius: 8px;
+          display: grid;
+          grid-template-columns: minmax(0, 0.9fr) minmax(260px, 1.1fr);
           align-items: center;
+          gap: 24px;
+          background: #fff;
+          border: 1px solid rgba(0,0,0,0.08);
+          box-shadow: 0 16px 50px rgba(16, 24, 40, 0.12);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .split-panel:last-child { border-right: 0; }
+        .split-panel::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -2;
+          background: linear-gradient(135deg, var(--red) 0%, #9f1118 48%, #761017 100%);
+        }
+        .split-panel::after {
+          content: "";
+          position: absolute;
+          right: -18%;
+          bottom: -38%;
+          z-index: -1;
+          width: 58%;
+          aspect-ratio: 1;
+          border-radius: 999px;
+          background: rgba(255,196,0,0.18);
+        }
+        .split-panel:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 24px 70px rgba(16, 24, 40, 0.18);
+        }
+        .split-panel:last-child { border-right: 1px solid rgba(0,0,0,0.08); }
+        .split-panel-inventory::before {
+          background: linear-gradient(135deg, #006580 0%, #004d63 52%, #073643 100%);
+        }
+        .split-copy {
+          max-width: 360px;
+          color: #fff;
+          text-align: left;
+        }
         .split-panel h2 {
           color: #fff;
-          font-size: clamp(28px, 2.3vw, 40px);
-          padding: 0 0 18px;
+          font-size: clamp(30px, 3vw, 48px);
+          padding: 0 0 12px;
+          text-transform: uppercase;
+          overflow-wrap: anywhere;
         }
         .split-panel p {
-          max-width: 580px;
-          margin: 0 auto 20px;
+          margin: 0;
           padding: 0;
+          color: rgba(255,255,255,0.88);
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.55;
+        }
+        .split-eyebrow {
+          display: inline-flex;
+          width: fit-content;
+          margin-bottom: 12px;
+          padding: 7px 10px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.14);
+          color: #fff;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          line-height: 1;
+          text-transform: uppercase;
+        }
+        .split-points {
+          display: grid;
+          gap: 9px;
+          margin: 20px 0 24px;
+          padding: 0;
+          list-style: none;
+        }
+        .split-points li {
+          position: relative;
+          padding-left: 26px;
           color: rgba(255,255,255,0.92);
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 17px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
           font-weight: 700;
-          line-height: 1.6;
-          flex: 1;
+          line-height: 1.35;
+        }
+        .split-points li::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 1px;
+          width: 17px;
+          height: 17px;
+          border-radius: 999px;
+          background: var(--yellow);
+          box-shadow: inset 0 0 0 5px rgba(255,255,255,0.35);
         }
         .split-img-wrap {
-          overflow: hidden;
-          margin: 0 auto 24px;
-          width: min(500px, 78%);
+          width: 100%;
+          min-height: 255px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: visible;
+          border-radius: 8px;
+          background: rgba(255,255,255,0.1);
         }
         .split-img-wrap img {
           display: block;
-          width: 100%;
-          height: 210px;
+          width: min(100%, 520px);
+          height: auto;
+          max-height: 270px;
           object-fit: contain;
+          filter: drop-shadow(0 18px 18px rgba(0,0,0,0.28));
           transition: transform 0.5s ease;
         }
         .split-panel:hover .split-img-wrap img {
-          transform: scale(1.04);
+          transform: scale(1.035);
+        }
+        .split-primary-btn {
+          min-width: 190px;
+          text-align: center;
         }
         .yellow-btn,
         .download-btn {
@@ -604,17 +724,19 @@ export default function Home() {
 
         /* ── Warranty Band ──────────────────────────────────────────── */
         .warranty-band {
-          background: var(--red);
+          background: #f5f1eb;
+          border-top: 3px solid #1a3a5c;
+          border-bottom: 3px solid #1a3a5c;
           text-align: center;
           padding: 22px 20px 26px;
         }
         .warranty-band a {
-          color: #fff !important;
+          color: #1a3a5c !important;
           text-decoration: none;
           text-transform: uppercase;
           font-size: clamp(22px, 2.3vw, 40px);
         }
-        .warranty-band span { color: var(--yellow); }
+        .warranty-band span { color: var(--red); }
 
         /* ── Materials ──────────────────────────────────────────────── */
         .materials-section {
@@ -764,26 +886,66 @@ export default function Home() {
           .trust-item { border-right: none; }
         }
         @media (max-width: 900px) {
-          .split-cta,
           .pricing-row,
           .materials-grid { grid-template-columns: 1fr; }
+          .split-cta { padding: 36px 16px 44px; }
+          .split-cta-inner { grid-template-columns: 1fr; }
           .split-panel {
-            border-right: 0;
-            border-bottom: 4px solid #fff;
+            grid-template-columns: 1fr;
             min-height: 0;
+            padding: 28px;
+            gap: 22px;
           }
-          .split-panel:last-child { border-bottom: 0; }
+          .split-copy {
+            max-width: none;
+            text-align: center;
+          }
+          .split-eyebrow {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .split-points {
+            max-width: 330px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+          }
           .split-panel p { font-size: 17px; }
-          .split-img-wrap img { height: 220px; }
+          .split-img-wrap {
+            min-height: 210px;
+            order: -1;
+          }
+          .split-img-wrap img { max-height: 230px; }
           .download-btn { min-width: 0; width: 100%; font-size: 22px; }
           .category-grid { grid-template-columns: repeat(2, 1fr); }
           .bottom-cta-inner { flex-direction: column; text-align: center; align-items: center; }
         }
         @media (max-width: 600px) {
+          .split-cta {
+            overflow: hidden;
+          }
+          .split-panel {
+            padding: 22px 18px 24px;
+          }
+          .split-panel h2 {
+            font-size: 27px;
+          }
+          .split-panel p {
+            font-size: 15px;
+          }
+          .split-img-wrap {
+            min-height: 170px;
+          }
+          .split-img-wrap img {
+            max-height: 190px;
+          }
+          .split-primary-btn {
+            width: 100%;
+          }
           .trust-bar-inner { grid-template-columns: 1fr 1fr; padding: 16px; gap: 12px; }
-          .trust-item { padding: 8px 4px; }
+          .trust-item { min-width: 0; padding: 8px 4px; }
           .trust-item strong { font-size: 13px; }
-          .trust-item span { font-size: 11px; }
+          .trust-item span { max-width: 100%; font-size: 11px; overflow-wrap: anywhere; }
           .category-grid { gap: 12px; }
           .category-card-img { height: 170px; }
           .featured-cta-row { flex-direction: column; }

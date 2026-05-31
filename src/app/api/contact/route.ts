@@ -1,15 +1,16 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { BRAND } from "@/lib/constants";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-  const { firstName, lastName, email, phone, state, message } = await request.json();
+  const { firstName, lastName, email, phone, state, model, size, message } = await request.json();
 
   try {
     await resend.emails.send({
       from: "Legacy Structures <onboarding@resend.dev>",
-      to: "stephen@legacystructuresusa.com",
+      to: BRAND.email,
       replyTo: email,
       subject: `New Contact Form Submission – ${firstName} ${lastName}`,
       html: `
@@ -18,6 +19,8 @@ export async function POST(request: Request) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
         <p><strong>State:</strong> ${state}</p>
+        <p><strong>Model Interest:</strong> ${model || "Not specified"}</p>
+        <p><strong>Size Interest:</strong> ${size || "Not specified"}</p>
         <hr />
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br />")}</p>

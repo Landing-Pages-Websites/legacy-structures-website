@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { siteAssets } from "@/lib/site-assets";
+import { BRAND } from "@/lib/constants";
 
 const socialLinks = [
   { href: "https://www.facebook.com/BackyardOutfittersEnterprisesLLC/", img: siteAssets.footer.facebook, alt: "Facebook" },
   { href: "https://www.instagram.com/backyardoutfittersusa", img: siteAssets.footer.instagram, alt: "Instagram" },
-  { href: "mailto:legacystructures25@gmail.com", img: siteAssets.footer.email, alt: "Email" },
+  { href: `mailto:${BRAND.email}`, img: siteAssets.footer.email, alt: "Email" },
 ];
 
 const hours = [
@@ -21,21 +22,21 @@ export default function Footer() {
   return (
     <footer className="legacy-footer">
       <div className="footer-call">
-        <a href="tel:518-544-2889">
-          Speak With a Shed Expert Today! <span>518-544-2889</span>
+        <a href={`tel:${BRAND.phoneTel}`}>
+          Call or Text a Shed Expert Today! <span>{BRAND.phone}</span>
         </a>
       </div>
 
       <div className="footer-main">
         <div className="footer-col contact">
-          <strong>Legacy Structures</strong>
-          <div>3570 US 4</div>
-          <div>Hudson Falls, NY 12839</div>
-          <div>Main: <a href="tel:518-544-2889">518-544-2889</a></div>
-          <div>Email: <a href="mailto:legacystructures25@gmail.com">legacystructures25@gmail.com</a></div>
+          <strong>{BRAND.name}</strong>
+          <div>{BRAND.addressStreet}</div>
+          <div>{BRAND.addressCity}, {BRAND.addressState} {BRAND.addressZip}</div>
+          <div>Call or Text: <a href={`tel:${BRAND.phoneTel}`}>{BRAND.phone}</a></div>
+          <div>Email: <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a></div>
           <div className="footer-socials">
             {socialLinks.map((s) => (
-              <a key={s.alt} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+              <a key={s.alt} href={s.href} aria-label={s.alt} target={s.href.startsWith("http") ? "_blank" : undefined} rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}>
                 <Image src={s.img.src} alt={s.alt} width={s.img.width} height={s.img.height} />
               </a>
             ))}

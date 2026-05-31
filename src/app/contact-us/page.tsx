@@ -1,10 +1,18 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import ContactForm from "@/components/ContactForm";
+import { BRAND } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Legacy Structures – Hudson Falls, NY",
+  description:
+    "Visit Legacy Structures in Hudson Falls, NY — our lot is open 24/7. Call or text Stephen at 518-544-2889 or fill out our contact form to request a quote.",
+};
 
 const businessHours = [
   { day: "Monday", hours: "By Appointment" },
-  { day: "Tuesday", hours: "9:00 to 5:00" },
+  { day: "Tuesday", hours: "9:00 am – 5:00 pm" },
   { day: "Wednesday", hours: "By Appointment" },
   { day: "Thursday", hours: "By Appointment" },
   { day: "Friday", hours: "By Appointment" },
@@ -23,6 +31,51 @@ export default function ContactUsPage() {
         subtitle="Visit us in Hudson Falls, NY — we'd love to help you find the perfect building for your needs."
         variant="navy"
       />
+
+      {/* ── Lot-Hours Disclaimer ── */}
+      <div
+        style={{
+          background: "#1a3a5c",
+          padding: "20px 24px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            display: "flex",
+            gap: 14,
+            alignItems: "flex-start",
+          }}
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffc400"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ flexShrink: 0, marginTop: 2 }}
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <div style={{ color: "#fff", fontSize: 15, lineHeight: 1.6 }}>
+            <strong style={{ display: "block", color: "#ffc400", marginBottom: 4, fontSize: 16 }}>
+              Good news — our lot is open 24 hours a day, 7 days a week, 365 days a year.
+            </strong>
+            You are welcome to walk through and browse our sheds and buildings any time, day or night —
+            no appointment needed.{" "}
+            <strong>Stephen is physically on-site Tuesday 9:00 am – 5:00 pm</strong> for in-person
+            help. Outside of Tuesday, he&apos;s available by phone or text. Don&apos;t hesitate to
+            call or text if you have questions!
+          </div>
+        </div>
+      </div>
 
       {/* Info + Map */}
       <section style={{ padding: "64px 20px" }}>
@@ -60,7 +113,7 @@ export default function ContactUsPage() {
                     marginBottom: 4,
                   }}
                 >
-                  Legacy Structures
+                  {BRAND.name}
                 </h2>
                 <div
                   style={{
@@ -77,21 +130,21 @@ export default function ContactUsPage() {
                   Address
                 </div>
                 <address style={{ fontStyle: "normal", color: "#1a3a5c", fontSize: 16, lineHeight: 1.6 }}>
-                  3570 US 4
+                  {BRAND.addressStreet}
                   <br />
-                  Hudson Falls, NY 12839
+                  {BRAND.addressCity}, {BRAND.addressState} {BRAND.addressZip}
                 </address>
               </div>
 
               <div>
                 <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 6 }}>
-                  Phone
+                  Call or Text
                 </div>
                 <a
-                  href="tel:518-544-2889"
+                  href={`tel:${BRAND.phoneTel}`}
                   style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
                 >
-                  518-544-2889
+                  {BRAND.phone}
                 </a>
               </div>
 
@@ -100,16 +153,16 @@ export default function ContactUsPage() {
                   Email
                 </div>
                 <a
-                  href="mailto:legacystructures25@gmail.com"
+                  href={`mailto:${BRAND.email}`}
                   style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
                 >
-                  legacystructures25@gmail.com
+                  {BRAND.email}
                 </a>
               </div>
 
               <div>
                 <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 8 }}>
-                  Business Hours
+                  Stephen&apos;s On-Site Hours
                 </div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {businessHours.map((row) => (
@@ -129,6 +182,9 @@ export default function ContactUsPage() {
                     </li>
                   ))}
                 </ul>
+                <p style={{ fontSize: 13, color: "#5a6c7e", marginTop: 10, lineHeight: 1.5 }}>
+                  The lot itself is open <strong>24/7, 365 days a year</strong> — walk through any time.
+                </p>
               </div>
             </div>
           </FadeIn>
@@ -146,7 +202,7 @@ export default function ContactUsPage() {
             >
               <iframe
                 src={MAP_SRC}
-                title="Map to Legacy Structures, 3570 US 4, Hudson Falls, NY 12839"
+                title={`Map to ${BRAND.name}, ${BRAND.address}`}
                 width="100%"
                 height="100%"
                 style={{ border: 0, display: "block", minHeight: 400 }}
@@ -180,7 +236,7 @@ export default function ContactUsPage() {
                   marginBottom: 8,
                 }}
               >
-                Email Us
+                Send Us a Message
               </h2>
               <div
                 style={{

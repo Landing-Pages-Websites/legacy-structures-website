@@ -66,17 +66,17 @@ export default function HeroSlider() {
   return (
     <section className="home-hero relative w-full overflow-hidden">
       <style>{`
-        .hero-slide-wrap { aspect-ratio: 16/6; }
+        .hero-slide-wrap { aspect-ratio: 16/5; }
         .hero-slide-img {
           object-fit: cover;
-          object-position: center 40%;
+          object-position: center center;
         }
         .hero-slide-img--1 {
-          object-position: center 45%;
+          object-position: center center;
         }
-        @media (max-width: 960px) { .hero-slide-wrap { aspect-ratio: 16/8; } }
+        @media (max-width: 960px) { .hero-slide-wrap { aspect-ratio: 16/6; } }
         @media (max-width: 640px) {
-          .hero-slide-wrap { aspect-ratio: 2/1; }
+          .hero-slide-wrap { aspect-ratio: 16/8; }
           .hero-slide-img,
           .hero-slide-img--1 {
             object-position: center center;

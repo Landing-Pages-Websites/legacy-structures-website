@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteAssets } from "@/lib/site-assets";
+import { BRAND } from "@/lib/constants";
 
 const modelLinks = [
   { label: "Backyard Barns", href: "/backyard-barns" },
@@ -12,6 +13,8 @@ const modelLinks = [
   { label: "Portable Cabins", href: "/portable-cabins" },
   { label: "Portable Garages", href: "/portable-garages" },
   { label: "Double Wide Garages", href: "/double-wide-garages" },
+  { label: "A-Frames", href: "/a-frames" },
+  { label: "Log Cabins", href: "/log-cabins" },
   { label: "Chicken Coops", href: "/chicken-coops" },
   { label: "Greenhouses", href: "/greenhouses" },
   { label: "Side Gables", href: "/side-gables" },
@@ -286,15 +289,15 @@ export default function Header() {
         }
         .hdr-call-label {
           font-family: var(--font-oswald), Impact, sans-serif;
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 1.2px;
+          letter-spacing: 1px;
           opacity: 0.7;
         }
         .hdr-call-number {
           font-family: var(--font-oswald), Impact, sans-serif;
-          font-size: 20px;
+          font-size: 19px;
           font-weight: 700;
           letter-spacing: 0.5px;
         }
@@ -531,16 +534,16 @@ export default function Header() {
               Contact Us
             </Link>
             <a
-              href="tel:5185442889"
+              href={`tel:${BRAND.phoneTel}`}
               className="hdr-call-btn"
-              aria-label="Call us now at 518-544-2889"
+              aria-label={`Call or text us at ${BRAND.phone}`}
             >
               <svg className="hdr-call-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
               </svg>
               <span className="hdr-call-text">
-                <span className="hdr-call-label">Call Us Now</span>
-                <span className="hdr-call-number">518-544-2889</span>
+                <span className="hdr-call-label">Call or Text</span>
+                <span className="hdr-call-number">{BRAND.phone}</span>
               </span>
             </a>
           </div>
@@ -551,7 +554,7 @@ export default function Header() {
             className={`hdr-hamburger${mobileOpen ? " is-open" : ""}`}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
+            aria-expanded={mobileOpen ? "true" : "false"}
             aria-controls="hdr-mobile-menu"
           >
             <span className="hdr-bar" />
@@ -578,7 +581,7 @@ export default function Header() {
                     type="button"
                     className="hdr-mobile-link"
                     onClick={() => setMobileSubOpen((v) => !v)}
-                    aria-expanded={mobileSubOpen}
+                    aria-expanded={mobileSubOpen ? "true" : "false"}
                   >
                     {item.label}
                     <svg
@@ -623,17 +626,17 @@ export default function Header() {
             Contact Us
           </Link>
           <a
-            href="tel:5185442889"
+            href={`tel:${BRAND.phoneTel}`}
             className="hdr-mobile-call"
-            aria-label="Call us now at 518-544-2889"
+            aria-label={`Call or text us at ${BRAND.phone}`}
             onClick={() => setMobileOpen(false)}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
             </svg>
             <span className="hdr-mobile-call-text">
-              <span className="hdr-mobile-call-label">Call Us Now</span>
-              <span className="hdr-mobile-call-number">518-544-2889</span>
+              <span className="hdr-mobile-call-label">Call or Text</span>
+              <span className="hdr-mobile-call-number">{BRAND.phone}</span>
             </span>
           </a>
         </div>

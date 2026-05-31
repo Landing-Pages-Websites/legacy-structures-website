@@ -62,10 +62,10 @@ export default function RentToOwnPage() {
 
           {/* Right Column: Brochure Form */}
           <div className="w-full md:w-1/2">
-            <div className="bg-[#e9bb52] rounded-md p-[20px]">
+            <div style={{ background: "#1a3a5c", borderRadius: 8, padding: 24 }}>
               <div className="text-center">
-                <h2 className="!text-black !text-[30px] !pb-[10px]">
-                  Get a Brochure with <span className="text-[#b11f29]">Rent-To-Own Pricing</span>
+                <h2 style={{ color: "#fff", fontSize: 26, paddingBottom: 8, fontFamily: "var(--font-oswald), Impact, sans-serif", fontWeight: 700, textTransform: "uppercase", margin: 0 }}>
+                  Get a Brochure with <span style={{ color: "#ffc400" }}>Rent-To-Own Pricing</span>
                 </h2>
               </div>
               <form onSubmit={handleSubmit} className="space-y-[10px]">

@@ -243,16 +243,25 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
     >
       {/* img-wrapper */}
       <div className="inventory-image-col">
-        <Link href={`/building/${item.slug}`}>
+        <Link href={`/building/${item.slug}`} style={{ display: "block" }}>
           <div
             style={{
-              backgroundImage: `url('${item.image}')`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center center",
-              backgroundSize: "contain",
-              height: "250px",
+              position: "relative",
+              width: "100%",
+              aspectRatio: "4/3",
+              overflow: "hidden",
+              borderRadius: 6,
+              background: "#f5f3f0",
             }}
-          />
+          >
+            <Image
+              src={item.image}
+              alt={`${item.model} ${item.size}`}
+              fill
+              sizes="(max-width: 980px) 100vw, 30vw"
+              style={{ objectFit: "contain", objectPosition: "center" }}
+            />
+          </div>
         </Link>
       </div>
 
