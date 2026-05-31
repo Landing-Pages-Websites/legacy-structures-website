@@ -453,7 +453,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
                 Design Your Own!
               </a>
               <Link
-                href={`/contact-us?model=${encodeURIComponent(item.model)}&size=${encodeURIComponent(item.size)}&inv=${encodeURIComponent(item.inventoryNumber)}`}
+                href={`/building/${item.slug}`}
                 style={{
                   background: "#1a3a5c",
                   color: "#ffc800",
