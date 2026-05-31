@@ -26,6 +26,7 @@ export async function PUT(
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   revalidatePath("/inventory");
   revalidatePath("/api/inventory");
+  if (data?.slug) revalidatePath(`/building/${data.slug}`);
   return NextResponse.json(data);
 }
 

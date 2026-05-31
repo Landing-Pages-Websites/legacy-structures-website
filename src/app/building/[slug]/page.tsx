@@ -8,8 +8,93 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import { createAnonClient } from "@/utils/supabase/server";
 
+// Static params for items already in buildings.ts (pre-rendered at build time).
+// dynamicParams = true (default) means admin-created slugs render on first request.
 export async function generateStaticParams() {
   return buildings.map((b) => ({ slug: b.slug }));
+}
+
+// Normalized shape used by the page — same field names as buildings.ts for zero template changes.
+interface BuildingData {
+  slug: string;
+  modelType: string;
+  inventoryNumber: string;
+  size: string;
+  width: number;
+  length: number;
+  wallColor: string;
+  trimColor: string;
+  roofColor: string;
+  cashPrice: string;
+  salePrice?: string;
+  rto36: string;
+  rto48: string;
+  image: string;
+  designerTemplate: number;
+  notes: string;
+}
+
+// Try buildings.ts first; fall back to Supabase for admin-created items.
+// Supabase values always win for editable fields (pricing, colors, image).
+async function getBuildingData(slug: string): Promise<BuildingData | null> {
+  const supabase = createAnonClient();
+  let db: Record<string, unknown> | null = null;
+  try {
+    const { data } = await supabase
+      .from("inventory_items")
+      .select("*")
+      .eq("slug", slug)
+      .maybeSingle();
+    db = data ?? null;
+  } catch { /* ignore */ }
+
+  const s = buildings.find((b) => b.slug === slug);
+
+  if (s) {
+    return {
+      slug: s.slug,
+      modelType: s.modelType,
+      inventoryNumber: s.inventoryNumber,
+      size: s.size,
+      width: s.width,
+      length: s.length,
+      wallColor: String(db?.wall_color ?? s.wallColor),
+      trimColor: String(db?.trim_color ?? s.trimColor),
+      roofColor: String(db?.roof_color ?? s.roofColor),
+      cashPrice: String(db?.cash_price ?? s.cashPrice),
+      salePrice: db
+        ? (db.is_on_sale && db.sale_price ? String(db.sale_price) : undefined)
+        : s.salePrice,
+      rto36: String(db?.rto_36 ?? s.rto36),
+      rto48: String(db?.rto_48 ?? s.rto48),
+      image: (db?.image_url ? String(db.image_url) : "") || s.image,
+      designerTemplate: Number(db?.designer_template ?? s.designerTemplate),
+      notes: String(db?.notes ?? ""),
+    };
+  }
+
+  if (db) {
+    return {
+      slug: String(db.slug),
+      modelType: String(db.model_type),
+      inventoryNumber: String(db.inventory_number ?? ""),
+      size: String(db.size),
+      width: Number(db.width ?? 0),
+      length: Number(db.length ?? 0),
+      wallColor: String(db.wall_color ?? ""),
+      trimColor: String(db.trim_color ?? ""),
+      roofColor: String(db.roof_color ?? ""),
+      cashPrice: String(db.cash_price),
+      salePrice: db.is_on_sale && db.sale_price ? String(db.sale_price) : undefined,
+      rto36: String(db.rto_36 ?? ""),
+      rto48: String(db.rto_48 ?? ""),
+      image: String(db.image_url ?? "") || "/logo.png",
+      designerTemplate: Number(db.designer_template ?? 25),
+      notes: String(db.notes ?? ""),
+    };
+  }
+
+  return null;
 }
 
 export async function generateMetadata({
@@ -19,12 +104,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const building = buildings.find((b) => b.slug === slug);
-  if (!building) {
-    return { title: "Building Not Found | Legacy Structures" };
+  if (building) {
+    return {
+      title: `${building.modelType} ${building.size} | Legacy Structures`,
+      description: `${building.modelType} available in ${building.size}. Inventory # ${building.inventoryNumber}.`,
+    };
   }
+  const data = await getBuildingData(slug);
+  if (!data) return { title: "Building Not Found | Legacy Structures" };
   return {
-    title: `${building.modelType} ${building.size} | Legacy Structures`,
-    description: `${building.modelType} available in ${building.size}. Inventory # ${building.inventoryNumber}.`,
+    title: `${data.modelType} ${data.size} | Legacy Structures`,
+    description: `${data.modelType} available in ${data.size}. Inventory # ${data.inventoryNumber}.`,
   };
 }
 
@@ -70,21 +160,10 @@ export default async function BuildingPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const building = buildings.find((b) => b.slug === slug);
+  const building = await getBuildingData(slug);
   if (!building) notFound();
 
-  // Fetch live notes from Supabase (falls back to empty string if not seeded yet)
-  let notes = "";
-  try {
-    const supabase = createAnonClient();
-    const { data } = await supabase
-      .from("inventory_items")
-      .select("notes")
-      .eq("slug", slug)
-      .maybeSingle();
-    notes = data?.notes ?? "";
-  } catch { /* keep notes empty */ }
-
+  const { notes } = building;
   const description = getModelDescription(building.modelType);
   const hasSale = Boolean(building.salePrice);
   const designerUrl = `${DESIGNER_BASE}${building.designerTemplate}`;
@@ -152,9 +231,10 @@ export default async function BuildingPage({
             }}
           >
             <Image
-              src={building.image}
+              src={building.image || "/logo.png"}
               alt={`${building.modelType} ${building.size}`}
               fill
+              unoptimized={building.image.startsWith("http")}
               sizes="(max-width: 768px) 100vw, 60vw"
               style={{ objectFit: "contain" }}
               priority
