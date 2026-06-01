@@ -23,7 +23,7 @@ export default function AboutUsPage() {
 
       {/* About copy */}
       <FadeIn>
-        <section style={{ background: "#fff", padding: "0 24px 64px" }}>
+        <section style={{ background: "#fff", padding: "32px 24px 64px" }}>
           <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
             <p style={{ fontSize: 18, lineHeight: 1.85, color: "#5a6c7e" }}>
               Legacy Structures is a family-owned business located at 3570 US 4,
