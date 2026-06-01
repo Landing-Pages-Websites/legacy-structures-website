@@ -18,41 +18,40 @@ export const metadata: Metadata = createPageMetadata({
   path: "/a-frames",
 });
 
-const EMPIRE_BASE =
-  "https://www.empireshedsales.com/wp-content/uploads";
+const A_FRAME_IMAGE_BASE = "/images/optimized-assets/a-frames";
 
-const heroImage = `${EMPIRE_BASE}/2023/09/Summit-Peaks-hero-1.jpg`;
+const heroImage = `${A_FRAME_IMAGE_BASE}/hero.webp`;
 
 const packages = [
   {
     title: "Reverse Dormer Package",
     desc: "A dramatic reverse-dormer roofline that opens up interior headroom and adds curb appeal. Available in multiple sizes.",
-    image: `${EMPIRE_BASE}/2023/09/ReverseDormer-Package.jpg`,
+    image: `${A_FRAME_IMAGE_BASE}/reverse-dormer.webp`,
   },
   {
     title: "12′ × 12′ A-Frame",
     desc: "The compact classic — perfect starter A-frame for a weekend retreat, backyard studio, or reading escape.",
-    image: `${EMPIRE_BASE}/2023/09/12x12-AFrame.jpg`,
+    image: `${A_FRAME_IMAGE_BASE}/12x12.webp`,
   },
   {
     title: "12′ × 12′ A-Frame with 2′ Knee Wall",
     desc: "A 2-foot knee wall extension on this 12×12 adds usable wall storage and headroom near the floor.",
-    image: `${EMPIRE_BASE}/2023/09/12x12-KneeWall.jpg`,
+    image: `${A_FRAME_IMAGE_BASE}/12x12-knee-wall.webp`,
   },
   {
     title: "12′ × 16′ Reverse Dormer A-Frame",
     desc: "More space and the reverse-dormer silhouette in a 12×16 footprint — an ideal cabin-size getaway.",
-    image: `${EMPIRE_BASE}/2023/09/12x16-ReverseDormer.jpg`,
+    image: `${A_FRAME_IMAGE_BASE}/12x16-reverse-dormer.webp`,
   },
   {
     title: "12′ × 16′ A-Frame with Porch Package",
     desc: "A full front porch on this 12×16 creates an outdoor living room — sip your morning coffee in the trees.",
-    image: `${EMPIRE_BASE}/2023/09/12x16-Porch.jpg`,
+    image: `${A_FRAME_IMAGE_BASE}/12x16-porch.webp`,
   },
   {
     title: "12′ × 20′ A-Frame with Porch Package and Side Dormer",
     desc: "The most feature-rich package — 12×20 footprint, wraparound porch, and a side dormer for extra natural light.",
-    image: `${EMPIRE_BASE}/2023/09/12x20-SideDormer.jpg`,
+    image: `${A_FRAME_IMAGE_BASE}/12x20-side-dormer.webp`,
   },
 ];
 
@@ -87,7 +86,6 @@ export default function AFramesPage() {
               alt="Summit Peaks A-Frame cabin by Legacy Structures"
               width={815}
               height={529}
-              unoptimized
               className="w-full h-auto"
               sizes="(max-width: 1024px) 100vw, 67vw"
               priority
