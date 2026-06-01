@@ -7,6 +7,7 @@ import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import { createAnonClient } from "@/utils/supabase/server";
+import { createPageMetadata } from "@/lib/metadata";
 
 // Static params for items already in buildings.ts (pre-rendered at build time).
 // dynamicParams = true (default) means admin-created slugs render on first request.
@@ -105,17 +106,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const building = buildings.find((b) => b.slug === slug);
   if (building) {
-    return {
-      title: `${building.modelType} ${building.size} | Legacy Structures`,
+    return createPageMetadata({
+      title: `${building.modelType} ${building.size}`,
       description: `${building.modelType} available in ${building.size}. Inventory # ${building.inventoryNumber}.`,
-    };
+      path: `/building/${slug}`,
+    });
   }
   const data = await getBuildingData(slug);
-  if (!data) return { title: "Building Not Found | Legacy Structures" };
-  return {
-    title: `${data.modelType} ${data.size} | Legacy Structures`,
+  if (!data) return { title: "Building Not Found" };
+  return createPageMetadata({
+    title: `${data.modelType} ${data.size}`,
     description: `${data.modelType} available in ${data.size}. Inventory # ${data.inventoryNumber}.`,
-  };
+    path: `/building/${slug}`,
+  });
 }
 
 const DESIGNER_BASE =

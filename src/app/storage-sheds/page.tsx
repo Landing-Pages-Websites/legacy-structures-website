@@ -8,12 +8,15 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
+import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Storage Sheds for Sale in Hudson Falls, NY",
   description:
     "Shop utility sheds, metal sheds, single-slope sheds, and dormer sheds at Legacy Structures in Hudson Falls, NY. Quality construction, multiple sizes, rent-to-own available.",
-};
+  path: "/storage-sheds",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -76,11 +79,11 @@ export default function StorageShedsPage() {
             Our basic Utility Shed comes with the option to have either T1-11 pressure-treated siding or LP Smart&#8482; Panel siding. You can choose either option at no additional charge. The Metal Shed uses the same construction process but with 29 gauge metal siding instead of wood. The Utility Dormer Shed is also made with T1-11 pressure-treated siding or LP Smart&#8482; Panel siding but it includes a dormer which brings in a significant amount of natural light to the structure.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
-            Our Utility Shed can be built with 8ft sidewalls, while the Utility Dormer Shed comes with 7ft sidewalls. Our Metal Sheds are built on 6ft sidewalls. Whatever storage needs you have, one of our storage sheds is sure to fit the bill. If you are looking for a storage shed in or around Hudson Falls, NY then give us a call at <a href="tel:518-544-2889" className="text-[#c0392b] underline">518-544-2889</a>.
+            Our Utility Shed can be built with 8ft sidewalls, while the Utility Dormer Shed comes with 7ft sidewalls. Our Metal Sheds are built on 6ft sidewalls. Whatever storage needs you have, one of our storage sheds is sure to fit the bill. If you are looking for a storage shed in or around Hudson Falls, NY then give us a call at <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>
@@ -109,7 +112,7 @@ export default function StorageShedsPage() {
         <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
           <ProductSection
             title="ABOUT OUR METAL SHEDS"
-            description="Our Metals Sheds are a great partner to our Metal Lofted Barns. These two building styles are the two most popular storage buildings that we offer. This model offers a great storage solution while not breaking the bank. 36in on-center studs and trusses are standard. Standard sidewall color is Light Stone and standard roof color is Burnished Slate. Other colors are available (at an additional charge.) 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Metal Shed comes in the following sizes:"
+            description="Our Metal Sheds are a great partner to our Metal Lofted Barns. These two building styles are the two most popular storage buildings that we offer. This model offers a great storage solution while not breaking the bank. 36in on-center studs and trusses are standard. Standard sidewall color is Light Stone and standard roof color is Burnished Slate. Other colors are available (at an additional charge). 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Metal Shed comes in the following sizes:"
             image={`${BASE_URL}/metal-sheds.png`}
             imageAlt="Metal Shed"
             sizeGroups={[

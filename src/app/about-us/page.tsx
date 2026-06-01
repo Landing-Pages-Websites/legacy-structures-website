@@ -3,18 +3,14 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import FadeIn from "@/components/FadeIn";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About Us",
   description:
     "Legacy Structures is a family-owned business in Hudson Falls, NY, crafting high-quality sheds and outdoor storage solutions built to last. We have succeeded by providing our customers with dependable storage solutions and a quality buying experience.",
-  openGraph: {
-    title: "About Us | Legacy Structures",
-    description:
-      "Family-owned shed builder in Hudson Falls, NY — quality craftsmanship, dependable storage solutions, and friendly personalized service.",
-    type: "website",
-  },
-};
+  path: "/about-us",
+});
 
 export default function AboutUsPage() {
   return (
@@ -49,12 +45,11 @@ export default function AboutUsPage() {
         <section style={{ background: "#f7f5f2", padding: "40px 24px" }}>
           <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, textAlign: "center" }} className="about-trust-grid">
             {[
-              { icon: "🏗️", label: "Family Owned", sub: "Serving Hudson Falls, NY" },
-              { icon: "🛡️", label: "5-Year Warranty", sub: "On all our buildings" },
-              { icon: "🚚", label: "Free Delivery", sub: "Within 30 miles" },
+              { label: "Family Owned", sub: "Serving Hudson Falls, NY" },
+              { label: "5-Year Warranty", sub: "On all our buildings" },
+              { label: "Free Delivery", sub: "Within 30 miles" },
             ].map((item) => (
               <div key={item.label} style={{ background: "#fff", borderRadius: 12, padding: "28px 20px", border: "1px solid #e8e4df", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                <div style={{ fontSize: 32, marginBottom: 10 }}>{item.icon}</div>
                 <div style={{ fontWeight: 700, fontSize: 16, color: "#1a3a5c", fontFamily: "var(--font-poppins)", marginBottom: 4 }}>{item.label}</div>
                 <div style={{ fontSize: 14, color: "#8899aa" }}>{item.sub}</div>
               </div>
@@ -73,13 +68,6 @@ export default function AboutUsPage() {
             Ask about our<br />
             <span style={{ color: "#b11f29" }}>rent-to-own</span> options
           </Link>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://legacystructuresusa.com/wp-content/themes/barndealer/_/inc/images/dollar-signs-cta.svg"
-            alt="Dollar signs"
-            width={280}
-            height={140}
-          />
         </div>
       </div>
 

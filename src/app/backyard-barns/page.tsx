@@ -8,12 +8,15 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
+import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Backyard Barns & Lofted Barns for Sale | Hudson Falls, NY",
   description:
     "Shop mini barns, lofted barns, and metal lofted barns at Legacy Structures in Hudson Falls, NY. Multiple sizes and finishes, rent-to-own available. Family-owned and locally built.",
-};
+  path: "/backyard-barns",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -70,11 +73,11 @@ export default function BackyardBarnsPage() {
             Backyard barns, also commonly referred to as storage barns, are one of the most effective ways to add storage space for your valuable belongings. Backyard barns have been around for thousands of years, literally. Our backyard barns are made with exacting standards and are constructed by local families not far from our lot in Hudson Falls, NY.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
-            These prefab storage barns come in three basic styles: a backyard mini barn or a backyard lofted barn and our metal lofted barns. The primary difference in the buildings is the height of the sidewalls on the barns. The Lofted Barns have 6&prime; 3&Prime; sidewalls, the Metal Lofted Barns have 6ft sidewalls, and the Mini Barns have a side wall height of 4ft. Each has great value for certain applications and either barn can be customized to your specific needs. Our wooden backyard barns come in three basic finishes: pressure-treated T1-11 siding, painted LP&#8482; Smart Panel, or polyurethane siding. Our metal backyard barns are built with 29 gauge metal siding. If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href="tel:518-544-2889" className="text-[#c0392b] underline">518-544-2889</a>.
+            These prefab storage barns come in three basic styles: a backyard mini barn or a backyard lofted barn and our metal lofted barns. The primary difference in the buildings is the height of the sidewalls on the barns. The Lofted Barns have 6&prime; 3&Prime; sidewalls, the Metal Lofted Barns have 6ft sidewalls, and the Mini Barns have a side wall height of 4ft. Each has great value for certain applications and either barn can be customized to your specific needs. Our wooden backyard barns come in three basic finishes: pressure-treated T1-11 siding, painted LP&#8482; Smart Panel, or polyurethane siding. Our metal backyard barns are built with 29 gauge metal siding. If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>

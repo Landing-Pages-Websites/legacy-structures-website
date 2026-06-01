@@ -2,23 +2,15 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import ContactForm from "@/components/ContactForm";
-import { BRAND } from "@/lib/constants";
+import { BRAND, BUSINESS_HOURS } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Legacy Structures – Hudson Falls, NY",
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact Us | Hudson Falls, NY",
   description:
     "Visit Legacy Structures in Hudson Falls, NY — our lot is open 24/7. Call or text Stephen at 518-544-2889 or fill out our contact form to request a quote.",
-};
-
-const businessHours = [
-  { day: "Monday", hours: "By Appointment" },
-  { day: "Tuesday", hours: "9:00 am – 5:00 pm" },
-  { day: "Wednesday", hours: "By Appointment" },
-  { day: "Thursday", hours: "By Appointment" },
-  { day: "Friday", hours: "By Appointment" },
-  { day: "Saturday", hours: "By Appointment" },
-  { day: "Sunday", hours: "Closed" },
-];
+  path: "/contact-us",
+});
 
 const MAP_SRC =
   "https://maps.google.com/maps?q=3570+US+4,+Hudson+Falls,+NY+12839&t=&z=13&ie=UTF8&iwloc=&output=embed";
@@ -176,9 +168,9 @@ export default async function ContactUsPage({
                   Stephen&apos;s On-Site Hours
                 </div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                  {businessHours.map((row) => (
+                  {BUSINESS_HOURS.map(([day, hours]) => (
                     <li
-                      key={row.day}
+                      key={day}
                       style={{
                         display: "flex",
                         justifyContent: "space-between",
@@ -188,8 +180,8 @@ export default async function ContactUsPage({
                         fontSize: 15,
                       }}
                     >
-                      <span style={{ fontWeight: 600 }}>{row.day}</span>
-                      <span style={{ color: "#5a6c7e" }}>{row.hours}</span>
+                      <span style={{ fontWeight: 600 }}>{day}</span>
+                      <span style={{ color: "#5a6c7e" }}>{hours}</span>
                     </li>
                   ))}
                 </ul>

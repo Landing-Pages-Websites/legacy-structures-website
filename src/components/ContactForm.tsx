@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { BRAND } from "@/lib/constants";
 
 const NE_STATES = [
   "New York",
@@ -114,7 +115,7 @@ export default function ContactForm({
         <p style={{ color: "#2e7d32", fontWeight: 700, fontSize: 18, marginBottom: 8 }}>Message sent!</p>
         <p style={{ color: "#5a6c7e", fontSize: 15 }}>
           We&apos;ll get back to you within 2 business days. You can also call or text us at{" "}
-          <a href="tel:5185442889" style={{ color: "#c0392b", fontWeight: 600 }}>518-544-2889</a>.
+          <a href={`tel:${BRAND.phoneTel}`} style={{ color: "#c0392b", fontWeight: 600 }}>{BRAND.phone}</a>.
         </p>
       </div>
     );
@@ -125,7 +126,7 @@ export default function ContactForm({
       <p style={{ color: "#5a6c7e", fontSize: 14, paddingBottom: 8 }}>
         Fill out the form below and we&apos;ll get back to you within 2 business days.
         Need a faster reply? Call or text us at{" "}
-        <a href="tel:5185442889" style={{ color: "#c0392b", fontWeight: 600 }}>518-544-2889</a>.
+        <a href={`tel:${BRAND.phoneTel}`} style={{ color: "#c0392b", fontWeight: 600 }}>{BRAND.phone}</a>.
       </p>
 
       {/* Name row */}
@@ -284,7 +285,7 @@ export default function ContactForm({
 
       {status === "error" && (
         <p style={{ color: "#c0392b", fontWeight: 600 }}>
-          Something went wrong. Please try again or call us at 518-544-2889.
+          Something went wrong. Please try again or call us at {BRAND.phone}.
         </p>
       )}
     </form>

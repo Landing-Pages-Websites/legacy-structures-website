@@ -5,6 +5,14 @@ import HeroWithOverlay from "@/components/HeroWithOverlay";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import { siteAssets } from "@/lib/site-assets";
 import { BRAND } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Storage Sheds for Sale in Hudson Falls, NY",
+  description:
+    "Shop storage sheds, barns, cabins, garages, greenhouses, and more at Legacy Structures in Hudson Falls, NY. Explore current inventory, rent-to-own options, and custom designs.",
+  path: "/",
+});
 
 /* ── Featured sheds ────────────────────────────────────────────────── */
 const featuredSheds = [
@@ -40,7 +48,7 @@ const categories = [
 const materials = [
   { label: "A", text: "Standard Metal Or Shingle Roof" },
   { label: "B", text: "Exposed nails are ring-shanked and galvanized for rust prevention" },
-  { label: "C", text: "Treating buildings have water-sealed, T1-11 siding" },
+  { label: "C", text: "Treated buildings have water-sealed T1-11 siding" },
   { label: "D", text: "Painted buildings LP Smartside Panel siding with 5/50-year limited warranty" },
   { label: "E", text: "All siding comes with a Manufacturer's warranty" },
   { label: "F", text: '2x4 studs set 16" OC on painted buildings & 24" OC on treated buildings' },
@@ -97,6 +105,7 @@ const trustItems = [
 export default function Home() {
   return (
     <div className="legacy-home">
+      <h1 className="sr-only">Storage Sheds and Portable Buildings for Sale in Hudson Falls, NY</h1>
       {/* ── Hero Slider ────────────────────────────────────────────── */}
       <HeroWithOverlay />
 

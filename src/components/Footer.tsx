@@ -1,21 +1,11 @@
 import Image from "next/image";
 import { siteAssets } from "@/lib/site-assets";
-import { BRAND } from "@/lib/constants";
+import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const socialLinks = [
-  { href: "https://www.facebook.com/BackyardOutfittersEnterprisesLLC/", img: siteAssets.footer.facebook, alt: "Facebook" },
-  { href: "https://www.instagram.com/backyardoutfittersusa", img: siteAssets.footer.instagram, alt: "Instagram" },
+  { href: SOCIAL_LINKS.facebook, img: siteAssets.footer.facebook, alt: "Facebook" },
+  { href: SOCIAL_LINKS.instagram, img: siteAssets.footer.instagram, alt: "Instagram" },
   { href: `mailto:${BRAND.email}`, img: siteAssets.footer.email, alt: "Email" },
-];
-
-const hours = [
-  ["Monday", "By Appointment"],
-  ["Tuesday", "9:00 to 5:00"],
-  ["Wednesday", "By Appointment"],
-  ["Thursday", "By Appointment"],
-  ["Friday", "By Appointment"],
-  ["Saturday", "By Appointment"],
-  ["Sunday", "Closed"],
 ];
 
 export default function Footer() {
@@ -54,7 +44,7 @@ export default function Footer() {
 
         <div className="footer-col hours">
           <strong>Business Hours</strong>
-          {hours.map(([day, time]) => (
+          {BUSINESS_HOURS.map(([day, time]) => (
             <div key={day}>{day}: {time}</div>
           ))}
         </div>

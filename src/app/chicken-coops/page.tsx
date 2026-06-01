@@ -8,12 +8,14 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Chicken Coops for Sale | Hudson Falls, NY | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Chicken Coops for Sale | Hudson Falls, NY",
   description:
     "Safe, practical, and affordable chicken coops for backyard poultry keeping. Delivered fully assembled to Hudson Falls, NY and surrounding areas. Multiple sizes available.",
-};
+  path: "/chicken-coops",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -74,7 +76,7 @@ export default function ChickenCoopsPage() {
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>

@@ -238,6 +238,7 @@ function PriceBox({
 
 function InventoryItemRow({ item }: { item: InventoryItem }) {
   const hasSale = item.salePrice !== null;
+  const inquiryUrl = `/contact-us?model=${encodeURIComponent(item.model)}&size=${encodeURIComponent(item.size)}&inv=${encodeURIComponent(item.inventoryNumber)}`;
 
   return (
     <div
@@ -453,7 +454,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
                 Design Your Own!
               </a>
               <Link
-                href={`/building/${item.slug}`}
+                href={inquiryUrl}
                 style={{
                   background: "#1a3a5c",
                   color: "#ffc800",
@@ -665,6 +666,8 @@ export default function InventoryPage() {
         <div style={{ maxWidth: "1150px", margin: "0 auto", padding: "0 20px" }}>
           <button
             onClick={() => setFiltersOpen(!filtersOpen)}
+            aria-expanded={filtersOpen}
+            aria-controls="inventory-filters"
             style={{
               display: "flex",
               alignItems: "center",
@@ -699,6 +702,7 @@ export default function InventoryPage() {
           {/* Filter Panel */}
           {filtersOpen && (
             <div
+              id="inventory-filters"
               style={{
                 background: "#fff",
                 border: "1px solid #ccc",

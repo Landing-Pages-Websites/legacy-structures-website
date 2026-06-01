@@ -8,12 +8,15 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
+import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Portable Garages for Sale | Hudson Falls, NY | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Portable Garages for Sale | Hudson Falls, NY",
   description:
     "Shop single and tandem portable garages in Hudson Falls, NY. Perfect for vehicles, equipment, and workshop space. Multiple sizes, finishes, and rent-to-own options available.",
-};
+  path: "/portable-garages",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -80,11 +83,11 @@ export default function PortableGaragesPage() {
             Our garages start out as small as 8ft x 10ft and come as big as 16ft x 40ft (depending on location.) We offer two basic styles of garages: a Utility Garage and a Lofted Garage. Each building has its own unique advantages. After construction, they are delivered to your location and set up where you&apos;d like them to sit. **Some placement restrictions might apply depending on a number of factors. In the event you ever moved to a new home or needed to relocate one of these structures, you can contact your dealer to obtain the delivery company&apos;s contact information. They can assist you in helping get your structure moved.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
-            We have seen many different uses when customers purchase our portable garages&hellip;including car storage, home office, homeschool room, crafting room, and so much more! If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href="tel:518-544-2889" className="text-[#c0392b] underline">518-544-2889</a>.
+            We have seen many different uses when customers purchase our portable garages&hellip;including car storage, home office, homeschool room, crafting room, and so much more! If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>

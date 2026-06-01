@@ -8,12 +8,15 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
+import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Portable Cabins for Sale | Hudson Falls, NY | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Portable Cabins for Sale | Hudson Falls, NY",
   description:
     "Prefab portable cabins perfect for hunting cabins, home offices, she-sheds, man-caves, or tiny homes. Built locally in Hudson Falls, NY. Multiple sizes and finishes available.",
-};
+  path: "/portable-cabins",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -90,11 +93,11 @@ export default function PortableCabinsPage() {
             The Side Porch Cabin is what some refer to as a &ldquo;his &amp; hers&rdquo; cabin since it has a work area to be used for gardening or other uses as well as a large storage area. The Playhouse Cabin comes with 4ft of porch as well a house-style walk-in door and three 2ft x 3ft windows. Our Deluxe Cabin comes with up to 8ft of porch as well as three bay windows and a house-style walk-in door. All three of our cabins come in either a Utility version or a Lofted version.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
-            The benefit of the Utility version is the ability to have 8ft sidewalls while the benefit of the Lofted version is the built-in overhead lofted storage. If you are in the market for a prefab cabin in or around Hudson Falls, NY give us a call at <a href="tel:518-544-2889" className="text-[#c0392b] underline">518-544-2889</a>.
+            The benefit of the Utility version is the ability to have 8ft sidewalls while the benefit of the Lofted version is the built-in overhead lofted storage. If you are in the market for a prefab cabin in or around Hudson Falls, NY give us a call at <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>

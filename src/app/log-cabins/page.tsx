@@ -8,12 +8,14 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import ProductSection from "@/components/ProductSection";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Log Cabins | Masterfully Designed, Skillfully Built | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Log Cabins | Masterfully Designed, Skillfully Built",
   description:
     "Legacy Structures offers premium log cabin series for home offices, 3-season retreats, hunting camps, and campgrounds. Butt-and-pass corners, full hand-hewn options. Delivered to NY, VT, NH, CT and more.",
-};
+  path: "/log-cabins",
+});
 
 const EMPIRE_BASE = "https://www.empireshedsales.com/wp-content/uploads";
 

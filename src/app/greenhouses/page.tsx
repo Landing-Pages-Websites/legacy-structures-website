@@ -8,12 +8,14 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Greenhouses for Sale | Hudson Falls, NY | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Greenhouses for Sale | Hudson Falls, NY",
   description:
     "Grow herbs, vegetables, and flowers year-round in a fully assembled, climate-controlled greenhouse. Delivered and leveled on-site in Hudson Falls, NY. 8x12 and 8x16 sizes available.",
-};
+  path: "/greenhouses",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -74,7 +76,7 @@ export default function GreenhousesPage() {
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>

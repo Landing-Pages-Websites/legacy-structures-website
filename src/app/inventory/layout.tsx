@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Storage Buildings for Sale | Current Inventory | Legacy Structures Hudson Falls",
+export const metadata: Metadata = createPageMetadata({
+  title: "Storage Buildings for Sale | Current Inventory | Hudson Falls, NY",
   description:
     "Browse in-stock storage sheds, lofted barns, utility sheds, portable garages, cabins, and more at Legacy Structures in Hudson Falls, NY. Cash price and rent-to-own options listed.",
-  openGraph: {
-    title: "Building Inventory | Legacy Structures",
-    description:
-      "Our sales lot in Hudson Falls, NY has a wide variety of buildings and sheds for sale, including lofted barns, utility sheds, and more.",
-    type: "website",
-  },
-};
+  path: "/inventory",
+});
 
 export default function InventoryLayout({
   children,

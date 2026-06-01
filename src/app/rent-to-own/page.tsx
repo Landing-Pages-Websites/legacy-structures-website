@@ -69,7 +69,9 @@ export default function RentToOwnPage() {
                 </h2>
               </div>
               <form onSubmit={handleSubmit} className="space-y-[10px]">
+                <label className="sr-only" htmlFor="rto-first-name">First Name</label>
                 <input
+                  id="rto-first-name"
                   type="text"
                   name="firstName"
                   placeholder="First Name"
@@ -78,7 +80,9 @@ export default function RentToOwnPage() {
                   required
                   className="w-full p-[10px] border border-[#ccc] rounded text-black"
                 />
+                <label className="sr-only" htmlFor="rto-last-name">Last Name</label>
                 <input
+                  id="rto-last-name"
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
@@ -87,7 +91,9 @@ export default function RentToOwnPage() {
                   required
                   className="w-full p-[10px] border border-[#ccc] rounded text-black"
                 />
+                <label className="sr-only" htmlFor="rto-email">Email</label>
                 <input
+                  id="rto-email"
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -96,7 +102,9 @@ export default function RentToOwnPage() {
                   required
                   className="w-full p-[10px] border border-[#ccc] rounded text-black"
                 />
+                <label className="sr-only" htmlFor="rto-phone">Phone Number</label>
                 <input
+                  id="rto-phone"
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
@@ -105,7 +113,9 @@ export default function RentToOwnPage() {
                   required
                   className="w-full p-[10px] border border-[#ccc] rounded text-black"
                 />
+                <label className="sr-only" htmlFor="rto-comment">Comment</label>
                 <textarea
+                  id="rto-comment"
                   name="comment"
                   placeholder="Comment"
                   value={formData.comment}

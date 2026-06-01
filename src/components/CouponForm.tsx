@@ -58,7 +58,7 @@ export default function CouponForm() {
         disabled={status === "loading" || status === "success" || !selectedState}
         className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {status === "loading" ? "Sending..." : "Get Your Coupon!!"}
+        {status === "loading" ? "Sending..." : "Get Your Coupon"}
       </button>
       {status === "success" && <p className="text-green-700 font-semibold text-center w-full">Request received! We&apos;ll send your coupon shortly.</p>}
       {status === "error" && <p className="text-red-600 font-semibold text-center w-full">Something went wrong. Please try again.</p>}

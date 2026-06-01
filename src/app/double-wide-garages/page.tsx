@@ -8,12 +8,14 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { siteAssets } from "@/lib/site-assets";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Double Wide Garages | Hudson Falls, NY | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Double Wide Garages | Hudson Falls, NY",
   description:
     "Double wide garages delivered in two halves and joined on-site — ideal for serious vehicle storage, workshops, and equipment. Serving Hudson Falls, NY and surrounding areas.",
-};
+  path: "/double-wide-garages",
+});
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
@@ -74,7 +76,7 @@ export default function DoubleWideGaragesPage() {
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
-              Download Our FREE Shed Buying Guide - Click Here
+              Download Our FREE Pricing Guide
             </a>
           </p>
         </FadeIn>

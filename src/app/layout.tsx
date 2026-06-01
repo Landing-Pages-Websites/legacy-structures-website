@@ -3,6 +3,7 @@ import { Inter, Poppins, Bricolage_Grotesque, Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export const metadata: Metadata = {
   },
   description:
     "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation. Rent to own options available.",
+  alternates: { canonical: "/" },
   keywords: [
     "storage sheds",
     "Hudson Falls NY",
@@ -80,6 +82,29 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: BRAND.name,
+  url: BRAND.siteUrl,
+  telephone: BRAND.phone,
+  email: BRAND.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: BRAND.addressStreet,
+    addressLocality: BRAND.addressCity,
+    addressRegion: BRAND.addressState,
+    postalCode: BRAND.addressZip,
+    addressCountry: "US",
+  },
+  openingHoursSpecification: BUSINESS_HOURS.map(([day, hours]) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: day,
+    description: hours,
+  })),
+  sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,6 +113,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${bricolage.variable} ${oswald.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />

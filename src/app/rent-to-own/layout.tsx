@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Rent to Own Sheds, Barns & Garages | No Credit Check | Hudson Falls, NY",
   description:
     "Rent-to-own sheds, barns, garages, and cabins in Hudson Falls, NY. No credit check required, instant approval, month-to-month agreement. Buildings as low as $103/mo.",
-  openGraph: {
-    title: "Rent to Own Storage Sheds | No Credit Check | Legacy Structures",
-    description:
-      "No credit check, instant approval, month-to-month terms. Own your building with low monthly payments. Serving Hudson Falls, NY and surrounding areas.",
-    type: "website",
-  },
-};
+  path: "/rent-to-own",
+});
 
 export default function RentToOwnLayout({
   children,

@@ -8,12 +8,14 @@ import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import ProductSection from "@/components/ProductSection";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Summit Peaks A-Frames | Pre-Built A-Frame Cabins | Legacy Structures",
+export const metadata: Metadata = createPageMetadata({
+  title: "Summit Peaks A-Frames | Pre-Built A-Frame Cabins",
   description:
     "Build your dream getaway with Legacy Structures' Summit Peaks A-Frames. Pre-built shells or fully finished turnkey units with electrical, plumbing, and climate control. Delivered to NY, VT, NH, CT and surrounding areas.",
-};
+  path: "/a-frames",
+});
 
 const EMPIRE_BASE =
   "https://www.empireshedsales.com/wp-content/uploads";

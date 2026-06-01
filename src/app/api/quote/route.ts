@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { BRAND } from "@/lib/constants";
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -12,7 +13,7 @@ export async function POST(request: Request) {
   try {
     await resend.emails.send({
       from: "Legacy Structures <onboarding@resend.dev>",
-      to: "stephen@legacystructuresusa.com",
+      to: BRAND.email,
       replyTo: email,
       subject: `New Quote Request – ${firstName} ${lastName}`,
       html: `

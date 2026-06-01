@@ -5,28 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteAssets } from "@/lib/site-assets";
-import { BRAND } from "@/lib/constants";
-
-const modelLinks = [
-  { label: "Backyard Barns", href: "/backyard-barns" },
-  { label: "Storage Sheds", href: "/storage-sheds" },
-  { label: "Portable Cabins", href: "/portable-cabins" },
-  { label: "Portable Garages", href: "/portable-garages" },
-  { label: "Double Wide Garages", href: "/double-wide-garages" },
-  { label: "A-Frames", href: "/a-frames" },
-  { label: "Log Cabins", href: "/log-cabins" },
-  { label: "Chicken Coops", href: "/chicken-coops" },
-  { label: "Greenhouses", href: "/greenhouses" },
-  { label: "Side Gables", href: "/side-gables" },
-];
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Our Models", href: "#", hasDropdown: true },
-  { label: "Inventory", href: "/inventory" },
-  { label: "Rent To Own", href: "/rent-to-own" },
-  { label: "About Us", href: "/about-us" },
-];
+import { BRAND, MODEL_LINKS, NAV_LINKS } from "@/lib/constants";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -148,6 +127,10 @@ export default function Header() {
           white-space: nowrap;
           transition: background 0.16s ease, color 0.16s ease;
           position: relative;
+        }
+        button.hdr-nav-link {
+          border: 0;
+          cursor: pointer;
         }
         .hdr-nav-link::after {
           content: '';
@@ -490,17 +473,14 @@ export default function Header() {
           {/* Desktop navigation */}
           <nav className="hdr-nav" aria-label="Main navigation">
             <ul className="hdr-nav-list">
-              {navLinks.map((item) => (
+              {NAV_LINKS.map((item) => (
                 <li
                   key={item.label}
                   className="hdr-nav-item"
                 >
-                  <Link
-                    href={item.href}
-                    className={`hdr-nav-link${!item.hasDropdown && isActive(item.href) ? " hdr-nav-active" : ""}`}
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
+                  {item.hasDropdown ? (
+                    <button type="button" className="hdr-nav-link" aria-haspopup="true">
+                      {item.label}
                       <svg
                         className="hdr-nav-chevron"
                         width="10" height="6" viewBox="0 0 10 6"
@@ -510,11 +490,18 @@ export default function Header() {
                       >
                         <polyline points="1 1 5 5 9 1" />
                       </svg>
-                    )}
-                  </Link>
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`hdr-nav-link${isActive(item.href) ? " hdr-nav-active" : ""}`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                   {item.hasDropdown && (
                     <ul className="hdr-dropdown" aria-label="Our Models">
-                      {modelLinks.map((sub) => (
+                      {MODEL_LINKS.map((sub) => (
                         <li key={sub.href}>
                           <Link href={sub.href} className="hdr-dropdown-link">
                             {sub.label}
@@ -573,7 +560,7 @@ export default function Header() {
         aria-label="Mobile navigation"
       >
         <ul className="hdr-mobile-list">
-          {navLinks.map((item) => (
+          {NAV_LINKS.map((item) => (
             <li key={item.label}>
               {item.hasDropdown ? (
                 <>
@@ -595,7 +582,7 @@ export default function Header() {
                     </svg>
                   </button>
                   <ul className={`hdr-mobile-sub${mobileSubOpen ? " is-open" : ""}`}>
-                    {modelLinks.map((sub) => (
+                    {MODEL_LINKS.map((sub) => (
                       <li key={sub.href}>
                         <Link
                           href={sub.href}
