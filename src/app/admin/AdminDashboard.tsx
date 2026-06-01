@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useCallback, useRef, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ALL_MODEL_TYPES, getModelRoute } from "@/lib/model-routes";
+import styles from "./AdminDashboard.module.css";
 
 /* ── Model Description Types ── */
 interface DescRow {
@@ -66,58 +67,8 @@ const EMPTY_FORM: FormState = {
   notes: "",
 };
 
-/* ── Style helpers ── */
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "9px 12px",
-  border: "1.5px solid #d1d5db",
-  borderRadius: 6,
-  fontSize: 14,
-  color: "#1a1a1a",
-  boxSizing: "border-box",
-  background: "#fff",
-};
-const labelStyle: React.CSSProperties = {
-  display: "block",
-  fontSize: 12,
-  fontWeight: 700,
-  color: "#1a3a5c",
-  marginBottom: 4,
-  textTransform: "uppercase",
-  letterSpacing: "0.04em",
-};
-const btnPrimary: React.CSSProperties = {
-  background: "#1a3a5c",
-  color: "#fff",
-  border: "none",
-  borderRadius: 6,
-  padding: "10px 20px",
-  fontWeight: 700,
-  fontSize: 13,
-  cursor: "pointer",
-  textTransform: "uppercase",
-  letterSpacing: "0.05em",
-};
-const btnDanger: React.CSSProperties = {
-  background: "#c0392b",
-  color: "#fff",
-  border: "none",
-  borderRadius: 6,
-  padding: "8px 14px",
-  fontWeight: 700,
-  fontSize: 12,
-  cursor: "pointer",
-};
-const btnGhost: React.CSSProperties = {
-  background: "transparent",
-  color: "#5a6c7e",
-  border: "1.5px solid #d1d5db",
-  borderRadius: 6,
-  padding: "8px 14px",
-  fontWeight: 600,
-  fontSize: 12,
-  cursor: "pointer",
-};
+const cx = (...classes: Array<string | false | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 /* ── Main Component ── */
 export default function AdminDashboard() {
@@ -129,17 +80,18 @@ export default function AdminDashboard() {
   /* ── Inactivity auto-logout (30 min) ── */
   const IDLE_TIMEOUT = 30 * 60 * 1000;   // 30 minutes
   const WARN_BEFORE  =  5 * 60 * 1000;   //  5 minutes warning
-  const lastActivityRef = useRef(Date.now());
+  const lastActivityRef = useRef<number | null>(null);
   const [idleWarning, setIdleWarning] = useState(false);
   const [idleMinsLeft, setIdleMinsLeft] = useState(5);
 
   useEffect(() => {
     const resetIdle = () => { lastActivityRef.current = Date.now(); setIdleWarning(false); };
+    resetIdle();
     const events = ["mousemove", "mousedown", "keydown", "touchstart", "scroll"];
     events.forEach((e) => window.addEventListener(e, resetIdle, { passive: true }));
 
     const tick = setInterval(() => {
-      const idle = Date.now() - lastActivityRef.current;
+      const idle = Date.now() - (lastActivityRef.current ?? Date.now());
       const remaining = IDLE_TIMEOUT - idle;
       if (remaining <= 0) {
         clearInterval(tick);
@@ -343,7 +295,10 @@ export default function AdminDashboard() {
     }
   }, []);
 
-  useEffect(() => { if (tab === "descriptions") fetchDescs(); }, [tab, fetchDescs]);
+  const handleTabChange = (nextTab: "inventory" | "descriptions") => {
+    setTab(nextTab);
+    if (nextTab === "descriptions") void fetchDescs();
+  };
 
   const openEditDesc = (modelType: string) => {
     const r = descs[modelType];
@@ -408,44 +363,33 @@ export default function AdminDashboard() {
   );
 
   return (
-    <div style={{ minHeight: "100vh", background: "#f7f5f2", fontFamily: "Arial, Helvetica, sans-serif" }}>
+    <div className={styles.dashboard}>
       {/* Header */}
-      <div style={{ background: "#1a3a5c", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+      <div className={styles.header}>
+        <div className={styles.headerBrand}>
           <Image src="/logo.png" alt="Legacy Structures" width={44} height={42} />
           <div>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: 17 }}>Legacy Structures</div>
-            <div style={{ color: "rgba(255,255,255,0.65)", fontSize: 12 }}>Inventory Admin</div>
+            <div className={styles.brandName}>Legacy Structures</div>
+            <div className={styles.brandSubtitle}>Inventory Admin</div>
           </div>
         </div>
-        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          <a href="/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.75)", fontSize: 13, textDecoration: "none" }}>
+        <div className={styles.headerActions}>
+          <a href="/" target="_blank" rel="noopener noreferrer" className={styles.viewSite}>
             View Site ↗
           </a>
-          <button onClick={handleLogout} style={{ ...btnGhost, color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>
+          <button onClick={handleLogout} className={cx(styles.button, styles.buttonHeader)}>
             Log Out
           </button>
         </div>
       </div>
 
       {/* Tab nav */}
-      <div style={{ background: "#132d47", borderBottom: "1px solid rgba(255,255,255,0.1)", display: "flex", gap: 0 }}>
+      <div className={styles.tabs}>
         {(["inventory", "descriptions"] as const).map((t) => (
           <button
             key={t}
-            onClick={() => setTab(t)}
-            style={{
-              padding: "12px 24px",
-              background: "none",
-              border: "none",
-              borderBottom: tab === t ? "3px solid #ffc400" : "3px solid transparent",
-              color: tab === t ? "#fff" : "rgba(255,255,255,0.55)",
-              fontWeight: tab === t ? 700 : 500,
-              fontSize: 13,
-              cursor: "pointer",
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-            }}
+            onClick={() => handleTabChange(t)}
+            className={cx(styles.tab, tab === t && styles.tabActive)}
           >
             {t === "inventory" ? "Inventory" : "Model Descriptions"}
           </button>
@@ -454,14 +398,14 @@ export default function AdminDashboard() {
 
       {/* Idle-timeout warning banner */}
       {idleWarning && (
-        <div style={{ background: "#7f1d1d", color: "#fff", padding: "12px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
-          <span style={{ fontSize: 14, fontWeight: 600 }}>
+        <div className={styles.idleWarning}>
+          <span className={styles.idleText}>
             ⚠ You&apos;ve been inactive — you will be automatically logged out in <strong>{idleMinsLeft} minute{idleMinsLeft !== 1 ? "s" : ""}</strong>. Move your mouse or press any key to stay logged in.
           </span>
           <button
             type="button"
             onClick={() => { lastActivityRef.current = Date.now(); setIdleWarning(false); }}
-            style={{ background: "#fff", color: "#7f1d1d", border: "none", borderRadius: 6, padding: "6px 14px", fontWeight: 700, fontSize: 13, cursor: "pointer", whiteSpace: "nowrap" }}
+            className={styles.buttonStayLoggedIn}
           >
             Stay Logged In
           </button>
@@ -470,59 +414,46 @@ export default function AdminDashboard() {
 
       {/* ── Model Descriptions Tab ── */}
       {tab === "descriptions" && (
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
+        <div className={styles.page}>
+          <div className={styles.sectionHeader}>
             <div>
-              <h1 style={{ color: "#1a3a5c", fontSize: 24, fontWeight: 700, margin: 0 }}>Model Descriptions</h1>
-              <p style={{ color: "#5a6c7e", fontSize: 14, margin: "4px 0 0" }}>
+              <h1 className={styles.pageTitle}>Model Descriptions</h1>
+              <p className={styles.pageSubtitle}>
                 Edit the heading, body text, and bullet points shown on every building detail page for each model type.
               </p>
             </div>
             <button
               onClick={handleSeedDescs}
               disabled={descSeeding}
-              style={{ ...btnGhost, background: "#f0fdf4", borderColor: "#86efac", color: "#15803d", whiteSpace: "nowrap", opacity: descSeeding ? 0.6 : 1, cursor: descSeeding ? "not-allowed" : "pointer" }}
+              className={cx(styles.button, styles.buttonImport)}
             >
               {descSeeding ? "Importing…" : "⬇ Import Defaults"}
             </button>
           </div>
 
-          {descLoading && <div style={{ color: "#5a6c7e", padding: 40, textAlign: "center" }}>Loading…</div>}
+          {descLoading && <div className={cx(styles.loading, styles.descriptionLoading)}>Loading…</div>}
 
           {descMsg && (
-            <div style={{ background: descMsg.startsWith("✓") ? "#f0fdf4" : "#fef2f2", border: `1px solid ${descMsg.startsWith("✓") ? "#86efac" : "#fca5a5"}`, borderRadius: 8, padding: "12px 16px", color: descMsg.startsWith("✓") ? "#15803d" : "#c0392b", fontSize: 14, marginBottom: 16 }}>
+            <div className={cx(styles.message, styles.descriptionMessage, descMsg.startsWith("✓") ? styles.messageSuccess : styles.messageError)}>
               {descMsg}
             </div>
           )}
 
           {/* Two-column layout: model list on left, editor on right */}
-          <div style={{ display: "grid", gridTemplateColumns: "260px 1fr", gap: 24, alignItems: "flex-start" }}>
+          <div className={styles.descriptionLayout}>
             {/* Model type list */}
-            <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, overflow: "hidden" }}>
+            <div className={styles.modelList}>
               {ALL_MODEL_TYPES.map((t) => (
                 <button
                   key={t}
                   onClick={() => openEditDesc(t)}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    background: editingType === t ? "#f0f9ff" : "transparent",
-                    border: "none",
-                    borderBottom: "1px solid #f3f4f6",
-                    borderLeft: editingType === t ? "3px solid #1a3a5c" : "3px solid transparent",
-                    cursor: "pointer",
-                    fontSize: 13,
-                    fontWeight: editingType === t ? 700 : 500,
-                    color: "#1a3a5c",
-                  }}
+                  className={cx(styles.modelButton, editingType === t && styles.modelButtonActive)}
                 >
                   {t}
                   {descs[t] ? (
-                    <span style={{ float: "right", fontSize: 10, background: "#dcfce7", color: "#15803d", borderRadius: 4, padding: "2px 6px" }}>saved</span>
+                    <span className={cx(styles.status, styles.statusSaved)}>saved</span>
                   ) : (
-                    <span style={{ float: "right", fontSize: 10, color: "#9ca3af" }}>default</span>
+                    <span className={cx(styles.status, styles.statusDefault)}>default</span>
                   )}
                 </button>
               ))}
@@ -530,62 +461,66 @@ export default function AdminDashboard() {
 
             {/* Editor panel */}
             {editingType ? (
-              <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, padding: "24px 28px" }}>
-                <h2 style={{ color: "#1a3a5c", fontSize: 18, fontWeight: 700, margin: "0 0 20px" }}>
+              <div className={styles.editor}>
+                <h2 className={styles.editorTitle}>
                   Editing: {editingType}
                 </h2>
 
-                <div style={{ display: "grid", gap: 16 }}>
+                <div className={styles.editorForm}>
                   <div>
-                    <label style={labelStyle}>Section Heading</label>
+                    <label htmlFor="d-heading" className={styles.label}>Section Heading</label>
                     <input
+                      id="d-heading"
                       value={descForm.heading}
                       onChange={(e) => setDescForm((f) => ({ ...f, heading: e.target.value }))}
                       placeholder={`THE BASICS OF OUR ${editingType.toUpperCase()} BUILDINGS`}
-                      style={inputStyle}
+                      className={styles.input}
                     />
-                    <p style={{ fontSize: 11, color: "#9ca3af", margin: "4px 0 0" }}>Leave blank to use the default heading.</p>
+                    <p className={styles.helpText}>Leave blank to use the default heading.</p>
                   </div>
 
                   <div>
-                    <label style={labelStyle}>Body Text</label>
+                    <label htmlFor="d-body" className={styles.label}>Body Text</label>
                     <textarea
+                      id="d-body"
                       value={descForm.body}
                       onChange={(e) => setDescForm((f) => ({ ...f, body: e.target.value }))}
                       rows={4}
                       placeholder="Describe this building type…"
-                      style={{ ...inputStyle, resize: "vertical", lineHeight: 1.5 }}
+                      className={cx(styles.input, styles.textarea)}
                     />
                   </div>
 
                   <div>
-                    <label style={labelStyle}>Bullet Points</label>
+                    <label htmlFor="d-bullets" className={styles.label}>Bullet Points</label>
                     <textarea
+                      id="d-bullets"
                       value={descForm.bullets}
                       onChange={(e) => setDescForm((f) => ({ ...f, bullets: e.target.value }))}
                       rows={5}
                       placeholder={"One bullet per line:\nClassic gable-style roof\nUpgradeable sidewalls up to 8' tall"}
-                      style={{ ...inputStyle, resize: "vertical", lineHeight: 1.5, fontFamily: "monospace" }}
+                      className={cx(styles.input, styles.textarea, styles.textareaCode)}
                     />
-                    <p style={{ fontSize: 11, color: "#9ca3af", margin: "4px 0 0" }}>Enter each bullet on its own line.</p>
+                    <p className={styles.helpText}>Enter each bullet on its own line.</p>
                   </div>
 
                   <div>
-                    <label style={labelStyle}>Section Image URL <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>(optional — the illustration beside the text)</span></label>
+                    <label htmlFor="d-image" className={styles.label}>Section Image URL <span className={styles.labelNote}>(optional — the illustration beside the text)</span></label>
                     <input
+                      id="d-image"
                       value={descForm.sizes_image_url}
                       onChange={(e) => setDescForm((f) => ({ ...f, sizes_image_url: e.target.value }))}
                       placeholder="https://…"
-                      style={inputStyle}
+                      className={styles.input}
                     />
                   </div>
 
-                  <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", paddingTop: 8 }}>
-                    <button onClick={() => setEditingType(null)} style={btnGhost}>Cancel</button>
+                  <div className={styles.buttonRow}>
+                    <button onClick={() => setEditingType(null)} className={styles.button}>Cancel</button>
                     <button
                       onClick={handleSaveDesc}
                       disabled={descSaving}
-                      style={{ ...btnPrimary, opacity: descSaving ? 0.7 : 1, cursor: descSaving ? "not-allowed" : "pointer" }}
+                      className={styles.buttonPrimary}
                     >
                       {descSaving ? "Saving…" : "Save Changes"}
                     </button>
@@ -593,7 +528,7 @@ export default function AdminDashboard() {
                 </div>
               </div>
             ) : (
-              <div style={{ background: "#f7f5f2", border: "1px solid #e5e7eb", borderRadius: 10, padding: 40, textAlign: "center", color: "#9ca3af" }}>
+              <div className={styles.editorEmpty}>
                 ← Select a model type from the list to edit its description
               </div>
             )}
@@ -602,111 +537,114 @@ export default function AdminDashboard() {
       )}
 
       {/* ── Inventory Tab ── */}
-      {tab === "inventory" && <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
+      {tab === "inventory" && <div className={styles.page}>
         {/* Top bar */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
+        <div className={styles.sectionHeader}>
           <div>
-            <h1 style={{ color: "#1a3a5c", fontSize: 24, fontWeight: 700, margin: 0 }}>Inventory Management</h1>
-            <p style={{ color: "#5a6c7e", fontSize: 14, margin: "4px 0 0" }}>
+            <h1 className={styles.pageTitle}>Inventory Management</h1>
+            <p className={styles.pageSubtitle}>
               {items.length} item{items.length !== 1 ? "s" : ""} total
             </p>
           </div>
-          <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+          <div className={styles.toolbar}>
             <input
               type="search"
+              aria-label="Search inventory"
               placeholder="Search inventory…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              style={{ ...inputStyle, width: 220 }}
+              className={cx(styles.input, styles.search)}
             />
             <button
               onClick={handleSeed}
               disabled={seeding}
               title="Import all inventory from buildings.ts into Supabase"
-              style={{ ...btnGhost, background: "#f0fdf4", borderColor: "#86efac", color: "#15803d", whiteSpace: "nowrap", opacity: seeding ? 0.6 : 1, cursor: seeding ? "not-allowed" : "pointer" }}
+              className={cx(styles.button, styles.buttonImport)}
             >
               {seeding ? "Importing…" : "⬇ Import from Static"}
             </button>
-            <button onClick={openAdd} style={{ ...btnPrimary, whiteSpace: "nowrap" }}>
+            <button onClick={openAdd} className={cx(styles.buttonPrimary, styles.buttonNowrap)}>
               + Add Item
             </button>
           </div>
         </div>
 
         {seedMsg && (
-          <div style={{ background: "#f0fdf4", border: "1px solid #86efac", borderRadius: 8, padding: "12px 16px", color: "#15803d", fontSize: 14, marginBottom: 12 }}>
+          <div className={cx(styles.message, styles.messageSuccess, styles.inventoryMessage)}>
             {seedMsg}
           </div>
         )}
 
         {error && (
-          <div style={{ background: "#fef2f2", border: "1px solid #fca5a5", borderRadius: 8, padding: "12px 16px", color: "#c0392b", fontSize: 14, marginBottom: 20 }}>
+          <div className={cx(styles.message, styles.messageError, styles.inventoryError)}>
             {error}
           </div>
         )}
 
         {/* Inventory Table */}
         {loading ? (
-          <div style={{ textAlign: "center", padding: 80, color: "#5a6c7e" }}>Loading inventory…</div>
+          <div className={styles.loading}>Loading inventory…</div>
         ) : filtered.length === 0 ? (
-          <div style={{ textAlign: "center", padding: 80, color: "#9ca3af" }}>
+          <div className={styles.empty}>
             {search ? "No items match your search." : "No inventory items yet. Click \"+ Add Item\" to get started."}
           </div>
         ) : (
-          <div style={{ display: "grid", gap: 12 }}>
+          <div className={styles.itemList}>
             {filtered.map((item) => (
-              <div key={item.id} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, padding: "18px 20px", display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
+              <div key={item.id} className={styles.item}>
                 {/* Thumbnail */}
-                <div style={{ width: 80, height: 68, borderRadius: 6, overflow: "hidden", background: "#f3f4f6", flexShrink: 0, position: "relative" }}>
+                <div className={styles.thumbnail}>
                   {item.image_url ? (
+                    // Admin inventory may contain user-entered image hosts that are not in next.config.ts.
+                    // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={item.image_url}
                       alt={item.model_type}
-                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                      className={styles.thumbnailImage}
                     />
                   ) : (
-                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "#9ca3af", fontSize: 11 }}>No image</div>
+                    <div className={styles.noImage}>No image</div>
                   )}
                 </div>
 
                 {/* Details */}
-                <div style={{ flex: 1, minWidth: 180 }}>
-                  <div style={{ fontWeight: 700, fontSize: 15, color: "#1a3a5c" }}>{item.model_type}</div>
-                  <div style={{ fontSize: 13, color: "#5a6c7e", marginTop: 2 }}>
+                <div className={styles.itemDetails}>
+                  <div className={styles.itemType}>{item.model_type}</div>
+                  <div className={styles.itemMeta}>
                     {item.size} &bull; {item.wall_color} / {item.trim_color} / {item.roof_color}
                   </div>
-                  <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>#{item.inventory_number}</div>
+                  <div className={styles.itemNumber}>#{item.inventory_number}</div>
                 </div>
 
                 {/* Pricing */}
-                <div style={{ textAlign: "right", minWidth: 130 }}>
+                <div className={styles.pricing}>
                   {item.is_on_sale && item.sale_price ? (
                     <>
-                      <div style={{ fontSize: 12, color: "#9ca3af", textDecoration: "line-through" }}>{item.cash_price}</div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: "#c0392b" }}>{item.sale_price}</div>
-                      <div style={{ fontSize: 11, background: "#fef2f2", color: "#c0392b", borderRadius: 4, padding: "2px 6px", display: "inline-block", marginTop: 2 }}>SALE</div>
+                      <div className={styles.oldPrice}>{item.cash_price}</div>
+                      <div className={styles.salePrice}>{item.sale_price}</div>
+                      <div className={styles.saleTag}>SALE</div>
                     </>
                   ) : (
-                    <div style={{ fontSize: 15, fontWeight: 700, color: "#1a3a5c" }}>{item.cash_price}</div>
+                    <div className={styles.price}>{item.cash_price}</div>
                   )}
-                  <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 2 }}>
-                    <a href={getModelRoute(item.model_type)} target="_blank" rel="noopener noreferrer" style={{ color: "#006580" }}>
+                  <div className={styles.itemLink}>
+                    <a href={getModelRoute(item.model_type)} target="_blank" rel="noopener noreferrer" className={styles.link}>
                       {getModelRoute(item.model_type)} ↗
                     </a>
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                  <button onClick={() => openEdit(item)} style={btnGhost}>Edit</button>
+                <div className={styles.actions}>
+                  <button onClick={() => openEdit(item)} className={styles.button}>Edit</button>
                   {deleteConfirm === item.id ? (
-                    <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                      <span style={{ fontSize: 12, color: "#c0392b" }}>Delete?</span>
-                      <button onClick={() => handleDelete(item.id)} style={btnDanger}>Yes</button>
-                      <button onClick={() => setDeleteConfirm(null)} style={btnGhost}>No</button>
+                    <div className={styles.deleteConfirm}>
+                      <span className={styles.deleteText}>Delete?</span>
+                      <button onClick={() => handleDelete(item.id)} className={styles.buttonDanger}>Yes</button>
+                      <button onClick={() => setDeleteConfirm(null)} className={styles.button}>No</button>
                     </div>
                   ) : (
-                    <button onClick={() => setDeleteConfirm(item.id)} style={btnDanger}>Delete</button>
+                    <button onClick={() => setDeleteConfirm(item.id)} className={styles.buttonDanger}>Delete</button>
                   )}
                 </div>
               </div>
@@ -718,152 +656,148 @@ export default function AdminDashboard() {
       {/* Add / Edit Form Modal */}
       {showForm && (
         <div
-          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1000, display: "flex", alignItems: "flex-start", justifyContent: "center", padding: "24px 16px", overflowY: "auto" }}
+          className={styles.modalBackdrop}
           onClick={(e) => { if (e.target === e.currentTarget) setShowForm(false); }}
         >
-          <div style={{ background: "#fff", borderRadius: 12, padding: "32px 28px", maxWidth: 700, width: "100%", boxShadow: "0 20px 60px rgba(0,0,0,0.25)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
-              <h2 style={{ color: "#1a3a5c", fontSize: 20, fontWeight: 700, margin: 0 }}>
+          <div className={styles.modal}>
+            <div className={styles.modalHeader}>
+              <h2 className={styles.modalTitle}>
                 {editItem ? "Edit Inventory Item" : "Add New Inventory Item"}
               </h2>
-              <button onClick={() => setShowForm(false)} style={{ ...btnGhost, padding: "6px 10px", fontSize: 16 }}>✕</button>
+              <button onClick={() => setShowForm(false)} className={cx(styles.button, styles.buttonClose)} aria-label="Close form">✕</button>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ display: "grid", gap: 16 }}>
+            <form onSubmit={handleSubmit} className={styles.form}>
               {/* Row 1: Model + Size */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div className={styles.gridTwo}>
                 <div>
-                  <label htmlFor="f-model" style={labelStyle}>Building Type *</label>
-                  <select id="f-model" name="model_type" value={form.model_type} onChange={handleChange} required style={inputStyle}>
+                  <label htmlFor="f-model" className={styles.label}>Building Type *</label>
+                  <select id="f-model" name="model_type" value={form.model_type} onChange={handleChange} required className={styles.input}>
                     <option value="">Select type…</option>
                     {ALL_MODEL_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="f-size" style={labelStyle}>Size *</label>
-                  <input id="f-size" name="size" value={form.size} onChange={handleChange} required placeholder="e.g. 12 x 20" style={inputStyle} />
+                  <label htmlFor="f-size" className={styles.label}>Size *</label>
+                  <input id="f-size" name="size" value={form.size} onChange={handleChange} required placeholder="e.g. 12 x 20" className={styles.input} />
                 </div>
               </div>
 
               {/* Row 2: Width + Length + Designer Template */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+              <div className={styles.gridThree}>
                 <div>
-                  <label htmlFor="f-width" style={labelStyle}>Width (ft)</label>
-                  <input id="f-width" name="width" type="number" value={form.width} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-width" className={styles.label}>Width (ft)</label>
+                  <input id="f-width" name="width" type="number" value={form.width} onChange={handleChange} className={styles.input} />
                 </div>
                 <div>
-                  <label htmlFor="f-length" style={labelStyle}>Length (ft)</label>
-                  <input id="f-length" name="length" type="number" value={form.length} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-length" className={styles.label}>Length (ft)</label>
+                  <input id="f-length" name="length" type="number" value={form.length} onChange={handleChange} className={styles.input} />
                 </div>
                 <div>
-                  <label htmlFor="f-designer" style={labelStyle}>Designer Template #</label>
-                  <input id="f-designer" name="designer_template" type="number" value={form.designer_template} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-designer" className={styles.label}>Designer Template #</label>
+                  <input id="f-designer" name="designer_template" type="number" value={form.designer_template} onChange={handleChange} className={styles.input} />
                 </div>
               </div>
 
               {/* Row 3: Colors */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+              <div className={styles.gridThree}>
                 <div>
-                  <label htmlFor="f-wall" style={labelStyle}>Wall Color</label>
-                  <input id="f-wall" name="wall_color" value={form.wall_color} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-wall" className={styles.label}>Wall Color</label>
+                  <input id="f-wall" name="wall_color" value={form.wall_color} onChange={handleChange} className={styles.input} />
                 </div>
                 <div>
-                  <label htmlFor="f-trim" style={labelStyle}>Trim Color</label>
-                  <input id="f-trim" name="trim_color" value={form.trim_color} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-trim" className={styles.label}>Trim Color</label>
+                  <input id="f-trim" name="trim_color" value={form.trim_color} onChange={handleChange} className={styles.input} />
                 </div>
                 <div>
-                  <label htmlFor="f-roof" style={labelStyle}>Roof Color</label>
-                  <input id="f-roof" name="roof_color" value={form.roof_color} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-roof" className={styles.label}>Roof Color</label>
+                  <input id="f-roof" name="roof_color" value={form.roof_color} onChange={handleChange} className={styles.input} />
                 </div>
               </div>
 
               {/* Row 4: Pricing + Inventory # */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div className={styles.gridTwo}>
                 <div>
-                  <label htmlFor="f-cash" style={labelStyle}>Cash Price *</label>
-                  <input id="f-cash" name="cash_price" value={form.cash_price} onChange={handleChange} required placeholder="e.g. $5,500.00 +tax" style={inputStyle} />
+                  <label htmlFor="f-cash" className={styles.label}>Cash Price *</label>
+                  <input id="f-cash" name="cash_price" value={form.cash_price} onChange={handleChange} required placeholder="e.g. $5,500.00 +tax" className={styles.input} />
                 </div>
                 <div>
-                  <label htmlFor="f-inv" style={labelStyle}>Inventory Number</label>
-                  <input id="f-inv" name="inventory_number" value={form.inventory_number} onChange={handleChange} style={inputStyle} />
+                  <label htmlFor="f-inv" className={styles.label}>Inventory Number</label>
+                  <input id="f-inv" name="inventory_number" value={form.inventory_number} onChange={handleChange} className={styles.input} />
                 </div>
               </div>
 
               {/* Sale Toggle */}
-              <div style={{ background: "#f7f5f2", borderRadius: 8, padding: "14px 16px" }}>
-                <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
-                  <input type="checkbox" name="is_on_sale" checked={form.is_on_sale} onChange={handleChange} style={{ width: 16, height: 16, cursor: "pointer" }} />
-                  <span style={{ fontWeight: 700, fontSize: 14, color: "#1a3a5c" }}>This item is on sale</span>
+              <div className={styles.saleBox}>
+                <label className={styles.saleLabel}>
+                  <input type="checkbox" name="is_on_sale" checked={form.is_on_sale} onChange={handleChange} className={styles.checkbox} />
+                  <span className={styles.saleLabelText}>This item is on sale</span>
                 </label>
                 {form.is_on_sale && (
-                  <div style={{ marginTop: 12 }}>
-                    <label htmlFor="f-sale" style={labelStyle}>Sale Price</label>
-                    <input id="f-sale" name="sale_price" value={form.sale_price ?? ""} onChange={(e) => setForm((f) => ({ ...f, sale_price: e.target.value }))} placeholder="e.g. $4,950.00 +tax" style={inputStyle} />
+                  <div className={styles.salePriceField}>
+                    <label htmlFor="f-sale" className={styles.label}>Sale Price</label>
+                    <input id="f-sale" name="sale_price" value={form.sale_price ?? ""} onChange={(e) => setForm((f) => ({ ...f, sale_price: e.target.value }))} placeholder="e.g. $4,950.00 +tax" className={styles.input} />
                   </div>
                 )}
               </div>
 
               {/* Row 5: RTO */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div className={styles.gridTwo}>
                 <div>
-                  <label htmlFor="f-rto36" style={labelStyle}>36-Mo RTO</label>
-                  <input id="f-rto36" name="rto_36" value={form.rto_36} onChange={handleChange} placeholder="e.g. $229.17 +tax" style={inputStyle} />
+                  <label htmlFor="f-rto36" className={styles.label}>36-Mo RTO</label>
+                  <input id="f-rto36" name="rto_36" value={form.rto_36} onChange={handleChange} placeholder="e.g. $229.17 +tax" className={styles.input} />
                 </div>
                 <div>
-                  <label htmlFor="f-rto48" style={labelStyle}>48-Mo RTO</label>
-                  <input id="f-rto48" name="rto_48" value={form.rto_48} onChange={handleChange} placeholder="e.g. $206.25 +tax" style={inputStyle} />
+                  <label htmlFor="f-rto48" className={styles.label}>48-Mo RTO</label>
+                  <input id="f-rto48" name="rto_48" value={form.rto_48} onChange={handleChange} placeholder="e.g. $206.25 +tax" className={styles.input} />
                 </div>
               </div>
 
               {/* Image — upload or paste URL */}
               <div>
-                <label style={labelStyle}>Photo</label>
-                <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                <label htmlFor="f-image" className={styles.label}>Photo</label>
+                <div className={styles.photoRow}>
                   {/* Hidden file input */}
                   <input
+                    id="f-file"
                     ref={fileInputRef}
                     type="file"
                     accept="image/jpeg,image/png,image/webp,image/gif"
                     onChange={handleImageUpload}
-                    style={{ display: "none" }}
+                    className={styles.fileInput}
+                    aria-label="Upload inventory photo"
                   />
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={imageUploading}
-                    style={{
-                      ...btnGhost,
-                      background: "#f0f9ff",
-                      borderColor: "#7dd3fc",
-                      color: "#0369a1",
-                      opacity: imageUploading ? 0.6 : 1,
-                      cursor: imageUploading ? "not-allowed" : "pointer",
-                      whiteSpace: "nowrap",
-                    }}
+                    className={cx(styles.button, styles.buttonUpload)}
                   >
                     {imageUploading ? "Uploading…" : "⬆ Upload Photo"}
                   </button>
-                  <span style={{ color: "#9ca3af", fontSize: 12 }}>or paste a URL:</span>
+                  <span className={styles.photoHint}>or paste a URL:</span>
                   <input
                     id="f-image"
                     name="image_url"
                     value={form.image_url}
                     onChange={handleChange}
                     placeholder="https://…"
-                    style={{ ...inputStyle, flex: 1, minWidth: 160 }}
+                    className={cx(styles.input, styles.imageUrl)}
                   />
                 </div>
                 {form.image_url && (
-                  <div style={{ marginTop: 10, display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <div className={styles.previewRow}>
+                    {/* Admin inventory may contain user-entered image hosts that are not in next.config.ts. */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={form.image_url}
-                      alt="preview"
-                      style={{ height: 80, objectFit: "contain", borderRadius: 6, border: "1px solid #e5e7eb", background: "#f9fafb" }}
+                      alt="Inventory photo preview"
+                      className={styles.previewImage}
                     />
                     <button
                       type="button"
                       onClick={() => setForm((f) => ({ ...f, image_url: "" }))}
-                      style={{ ...btnGhost, padding: "4px 8px", fontSize: 11, color: "#c0392b", borderColor: "#fca5a5" }}
+                      className={cx(styles.button, styles.buttonRemove)}
                     >
                       Remove
                     </button>
@@ -873,7 +807,7 @@ export default function AdminDashboard() {
 
               {/* Description / Notes */}
               <div>
-                <label htmlFor="f-notes" style={labelStyle}>Description / Notes</label>
+                <label htmlFor="f-notes" className={styles.label}>Description / Notes</label>
                 <textarea
                   id="f-notes"
                   name="notes"
@@ -881,27 +815,27 @@ export default function AdminDashboard() {
                   onChange={handleChange}
                   rows={3}
                   placeholder="Optional — shown on the public listing and building detail page. e.g. 'On display at our lot. Ready for immediate delivery.'"
-                  style={{ ...inputStyle, resize: "vertical", lineHeight: 1.5 }}
+                  className={cx(styles.input, styles.textarea)}
                 />
               </div>
 
               {/* Auto-linked model route preview */}
               {form.model_type && (
-                <div style={{ fontSize: 13, color: "#5a6c7e", background: "#f0f9ff", borderRadius: 6, padding: "10px 14px" }}>
+                <div className={styles.routePreview}>
                   <strong>Auto-link:</strong> This item will link to{" "}
-                  <a href={getModelRoute(form.model_type)} target="_blank" rel="noopener noreferrer" style={{ color: "#006580" }}>
+                  <a href={getModelRoute(form.model_type)} target="_blank" rel="noopener noreferrer" className={styles.link}>
                     {getModelRoute(form.model_type)}
                   </a>
                 </div>
               )}
 
               {error && (
-                <p style={{ color: "#c0392b", fontSize: 14, margin: 0 }}>{error}</p>
+                <p className={styles.inlineError}>{error}</p>
               )}
 
-              <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", paddingTop: 8 }}>
-                <button type="button" onClick={() => setShowForm(false)} style={btnGhost}>Cancel</button>
-                <button type="submit" disabled={saving || imageUploading} style={{ ...btnPrimary, opacity: (saving || imageUploading) ? 0.7 : 1, cursor: (saving || imageUploading) ? "not-allowed" : "pointer" }}>
+              <div className={styles.buttonRow}>
+                <button type="button" onClick={() => setShowForm(false)} className={styles.button}>Cancel</button>
+                <button type="submit" disabled={saving || imageUploading} className={styles.buttonPrimary}>
                   {saving ? "Saving…" : editItem ? "Save Changes" : "Add Item"}
                 </button>
               </div>

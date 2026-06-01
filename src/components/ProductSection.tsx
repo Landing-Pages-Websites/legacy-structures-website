@@ -71,6 +71,7 @@ export default function ProductSection({
             alt={imageAlt}
             width={400}
             height={300}
+            unoptimized={resolvedImage.startsWith("http")}
             className="product-img-el"
             style={{ maxHeight: 280, objectFit: "contain" }}
           />

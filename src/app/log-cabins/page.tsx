@@ -93,6 +93,7 @@ export default function LogCabinsPage() {
               alt="Log Cabin by Legacy Structures"
               width={815}
               height={529}
+              unoptimized
               className="w-full h-auto"
               sizes="(max-width: 1024px) 100vw, 67vw"
               priority

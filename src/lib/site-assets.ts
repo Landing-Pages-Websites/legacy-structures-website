@@ -13,13 +13,13 @@ export const siteAssets = {
   heroSlides: [
     {
       src: "/images/optimized-assets/territory3-slider.webp",
-      width: 1600,
-      height: 500,
+      width: 1920,
+      height: 600,
     },
     {
       src: "/images/optimized-assets/byo-hero-slider-2.webp",
-      width: 1600,
-      height: 499,
+      width: 1920,
+      height: 599,
     },
     {
       src: "/images/optimized-assets/byo-hero-slider-3.webp",

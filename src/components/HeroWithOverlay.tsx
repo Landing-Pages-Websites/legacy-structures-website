@@ -62,28 +62,14 @@ export default function HeroWithOverlay() {
         }
         .hero-slide-img {
           object-fit: cover;
-          object-position: center 40%;
-        }
-        .hero-slide-img--1 {
-          object-position: center 45%;
+          object-position: center center;
         }
         .hero-slide-wrap {
           position: relative;
           width: 100%;
-          height: clamp(480px, 55vw, 700px);
-        }
-        @media (max-width: 960px) {
-          .hero-slide-wrap { height: clamp(320px, 48vw, 480px); }
+          aspect-ratio: 16 / 5;
         }
         @media (max-width: 640px) {
-          .hero-slide-wrap {
-            height: auto;
-            aspect-ratio: 2/1;
-          }
-          .hero-slide-img,
-          .hero-slide-img--1 {
-            object-position: center center;
-          }
           .hero-arrow-btn {
             width: 42px;
             height: 42px;

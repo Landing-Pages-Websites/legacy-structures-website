@@ -54,6 +54,7 @@ export default function PageHero({
             fill
             sizes="100vw"
             loading="eager"
+            unoptimized={backgroundImage?.startsWith("http")}
             style={{
               objectFit: "contain",
               objectPosition: "center right",

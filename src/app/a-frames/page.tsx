@@ -84,6 +84,7 @@ export default function AFramesPage() {
               alt="Summit Peaks A-Frame cabin by Legacy Structures"
               width={815}
               height={529}
+              unoptimized
               className="w-full h-auto"
               sizes="(max-width: 1024px) 100vw, 67vw"
               priority
