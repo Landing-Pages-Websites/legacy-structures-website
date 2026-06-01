@@ -9,6 +9,7 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import ProductSection from "@/components/ProductSection";
 import { createPageMetadata } from "@/lib/metadata";
+import styles from "./AFramesPage.module.css";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Summit Peaks A-Frames | Pre-Built A-Frame Cabins",
@@ -96,6 +97,7 @@ export default function AFramesPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="block"
+              aria-label="Open the 3D Designer to design your own A-Frame building"
             >
               <Image
                 src="/images/optimized-assets/3d-designer-models-cta.webp"
@@ -141,27 +143,15 @@ export default function AFramesPage() {
 
         {/* Brochure Download */}
         <FadeIn>
-          <div
-            style={{
-              background: "#1a3a5c",
-              borderRadius: 10,
-              padding: "28px 32px",
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 20,
-              marginBottom: 48,
-            }}
-          >
+          <div className={styles.catalog}>
             <div>
-              <p style={{ color: "#ffc400", fontFamily: "var(--font-oswald), Impact, sans-serif", fontSize: 14, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 6px" }}>
+              <p className={styles.catalogEyebrow}>
                 Free Download
               </p>
-              <h3 style={{ color: "#fff", fontFamily: "var(--font-oswald), Impact, sans-serif", fontSize: 26, fontWeight: 700, margin: 0, lineHeight: 1.1 }}>
+              <h3 className={styles.catalogTitle}>
                 Summit Peaks A-Frame Catalog
               </h3>
-              <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 14, marginTop: 8, marginBottom: 0 }}>
+              <p className={styles.catalogDescription}>
                 Full pricing, sizes, packages, and finish options — all in one PDF.
               </p>
             </div>
@@ -169,22 +159,7 @@ export default function AFramesPage() {
               href="https://www.empireshedsales.com/download/?id=5247"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                background: "#ffc400",
-                color: "#111",
-                fontFamily: "var(--font-oswald), Impact, sans-serif",
-                fontSize: 18,
-                fontWeight: 700,
-                textTransform: "uppercase",
-                textDecoration: "none",
-                padding: "14px 28px",
-                borderRadius: 5,
-                whiteSpace: "nowrap",
-                transition: "background 0.2s ease",
-              }}
+              className={styles.catalogButton}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -200,37 +175,13 @@ export default function AFramesPage() {
         <FadeIn>
           <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
             <h2 className="page-content-heading">A-Frame Specifications</h2>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-                gap: 16,
-              }}
-            >
+            <div className={styles.specGrid}>
               {specs.map((s) => (
-                <div
-                  key={s.label}
-                  style={{
-                    background: "#f7f5f2",
-                    borderLeft: "4px solid #1a3a5c",
-                    padding: "14px 18px",
-                    borderRadius: "0 6px 6px 0",
-                  }}
-                >
-                  <span
-                    style={{
-                      display: "block",
-                      fontSize: 11,
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      color: "#bd171f",
-                      letterSpacing: "0.08em",
-                      marginBottom: 4,
-                    }}
-                  >
+                <div key={s.label} className={styles.specCard}>
+                  <span className={styles.specLabel}>
                     {s.label}
                   </span>
-                  <span style={{ color: "#1a3a5c", fontSize: 15, fontWeight: 600 }}>
+                  <span className={styles.specValue}>
                     {s.value}
                   </span>
                 </div>
@@ -266,26 +217,12 @@ export default function AFramesPage() {
         <FadeIn>
           <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
             <h2 className="page-content-heading">Shell or Turnkey — Your Choice</h2>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 24,
-              }}
-              className="af-delivery-grid"
-            >
-              <div
-                style={{
-                  background: "#f7f5f2",
-                  borderRadius: 10,
-                  padding: 28,
-                  borderTop: "4px solid #1a3a5c",
-                }}
-              >
-                <h3 style={{ color: "#1a3a5c", fontSize: 20, fontWeight: 700, marginBottom: 12, fontFamily: "var(--font-oswald), Impact, sans-serif", textTransform: "uppercase" }}>
+            <div className={styles.optionGrid}>
+              <div className={`${styles.optionCard} ${styles.optionShell}`}>
+                <h3 className={styles.optionTitle}>
                   Unfinished Shell
                 </h3>
-                <ul style={{ color: "#5a6c7e", fontSize: 15, lineHeight: 1.7, paddingLeft: 20, margin: 0 }}>
+                <ul className={styles.optionList}>
                   <li>Structure, roof, windows &amp; doors</li>
                   <li>Premium white pine exterior</li>
                   <li>Ready for your interior finishing</li>
@@ -293,18 +230,11 @@ export default function AFramesPage() {
                   <li>Perfect for DIY enthusiasts</li>
                 </ul>
               </div>
-              <div
-                style={{
-                  background: "#1a3a5c",
-                  borderRadius: 10,
-                  padding: 28,
-                  borderTop: "4px solid #ffc400",
-                }}
-              >
-                <h3 style={{ color: "#ffc400", fontSize: 20, fontWeight: 700, marginBottom: 12, fontFamily: "var(--font-oswald), Impact, sans-serif", textTransform: "uppercase" }}>
+              <div className={`${styles.optionCard} ${styles.optionTurnkey}`}>
+                <h3 className={styles.optionTitle}>
                   Fully Finished Turnkey
                 </h3>
-                <ul style={{ color: "rgba(255,255,255,0.88)", fontSize: 15, lineHeight: 1.7, paddingLeft: 20, margin: 0 }}>
+                <ul className={styles.optionList}>
                   <li>Everything in the shell, plus…</li>
                   <li>Full interior insulation package</li>
                   <li>Tongue &amp; groove pine interior walls</li>
@@ -322,14 +252,6 @@ export default function AFramesPage() {
         <DesignerCTA />
         <PricingGuideSection />
       </div>
-
-      <style>{`
-        @media (max-width: 640px) {
-          .af-delivery-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

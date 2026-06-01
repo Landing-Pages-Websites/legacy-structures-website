@@ -17,15 +17,15 @@ export const metadata: Metadata = createPageMetadata({
   path: "/log-cabins",
 });
 
-const EMPIRE_BASE = "https://www.empireshedsales.com/wp-content/uploads";
+const CABIN_IMAGE_BASE = "/images/optimized-assets/log-cabins";
 
-const heroImage = `${EMPIRE_BASE}/2022/11/BearLake-1-scaled.jpg`;
+const heroImage = `${CABIN_IMAGE_BASE}/bear-lake.webp`;
 
 const series = [
   {
     title: "Redwood Series",
     desc: "An entry-level log cabin with the authentic look and durability of the full series. The Redwood is perfect for a backyard office, cozy retreat, or seasonal studio. Built with the same butt-and-pass corner construction found throughout the line.",
-    image: `${EMPIRE_BASE}/2022/11/Redwood-Series.jpg`,
+    image: `${CABIN_IMAGE_BASE}/redwood.webp`,
     sizeGroups: [
       { label: "12′ WIDE", sizes: ["12x16", "12x20", "12x24"] },
       { label: "14′ WIDE", sizes: ["14x24", "14x28", "14x32"] },
@@ -34,7 +34,7 @@ const series = [
   {
     title: "Bear Lake Series",
     desc: "One of the most popular cabin lines, the Bear Lake brings classic log-cabin character to any property. Ideal as a 3-season cabin, home office, or guest quarters. Butt-and-pass log corners and LP siding options available.",
-    image: `${EMPIRE_BASE}/2022/11/BearLake-1-scaled.jpg`,
+    image: `${CABIN_IMAGE_BASE}/bear-lake.webp`,
     sizeGroups: [
       { label: "12′ WIDE", sizes: ["12x20", "12x24", "12x28"] },
       { label: "14′ WIDE", sizes: ["14x24", "14x28", "14x32", "14x36"] },
@@ -43,7 +43,7 @@ const series = [
   {
     title: "Timber Trail Series",
     desc: "Designed for those who want more space without compromising the rustic look. The Timber Trail is built for hunting camps and campground cabins — roomy enough for a real getaway, rugged enough for serious outdoor use.",
-    image: `${EMPIRE_BASE}/2022/11/TimberTrail-scaled.jpg`,
+    image: `${CABIN_IMAGE_BASE}/timber-trail.webp`,
     sizeGroups: [
       { label: "14′ WIDE", sizes: ["14x32", "14x36", "14x40", "14x48"] },
     ],
@@ -51,7 +51,7 @@ const series = [
   {
     title: "Appalachian Series",
     desc: "The Appalachian Series offers a full hand-hewn cabin experience — thick, textured logs and a deep mountain aesthetic. Perfect for a campground centerpiece or an upscale hunting lodge. Available in multiple widths and lengths.",
-    image: `${EMPIRE_BASE}/2022/11/Appalachian-scaled.jpg`,
+    image: `${CABIN_IMAGE_BASE}/appalachian.webp`,
     sizeGroups: [
       { label: "12′ WIDE", sizes: ["12x24", "12x28", "12x32"] },
       { label: "14′ WIDE", sizes: ["14x28", "14x32", "14x36", "14x40"] },
@@ -60,7 +60,7 @@ const series = [
   {
     title: "Doublewide Cabin",
     desc: "When you need a real cabin footprint, the Doublewide delivers. Delivered in two halves and joined on-site, this cabin can accommodate full-time living, a large hunting retreat, or a premium campground rental cabin.",
-    image: `${EMPIRE_BASE}/2022/11/Doublewide-cabin-scaled.jpg`,
+    image: `${CABIN_IMAGE_BASE}/doublewide.webp`,
     sizeGroups: [
       { label: "24′ WIDE", sizes: ["24x24", "24x28", "24x32", "24x36", "24x40"] },
     ],
@@ -95,7 +95,6 @@ export default function LogCabinsPage() {
               alt="Log Cabin by Legacy Structures"
               width={815}
               height={529}
-              unoptimized
               className="w-full h-auto"
               sizes="(max-width: 1024px) 100vw, 67vw"
               priority
