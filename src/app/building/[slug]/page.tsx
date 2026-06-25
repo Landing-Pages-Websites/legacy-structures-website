@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { buildings } from "@/data/buildings";
+import { buildings, isGenericProductImage, resolveBuildingImage } from "@/data/buildings";
 import { getModelDescription } from "@/data/model-descriptions";
 import DisclaimerText from "@/components/DisclaimerText";
 import DesignerCTA from "@/components/DesignerCTA";
@@ -68,7 +68,10 @@ async function getBuildingData(slug: string): Promise<BuildingData | null> {
         : s.salePrice,
       rto36: String(db?.rto_36 ?? s.rto36),
       rto48: String(db?.rto_48 ?? s.rto48),
-      image: (db?.image_url ? String(db.image_url) : "") || s.image,
+      image: resolveBuildingImage(
+        db?.image_url ? String(db.image_url) : "",
+        s.image
+      ),
       designerTemplate: Number(db?.designer_template ?? s.designerTemplate),
       notes: String(db?.notes ?? ""),
     };
@@ -186,7 +189,10 @@ export default async function BuildingPage({
         bullets: dbDesc.bullets
           ? dbDesc.bullets.split("\n").map((s: string) => s.trim()).filter(Boolean)
           : staticDesc.bullets,
-        sizesImage: dbDesc.sizes_image_url || staticDesc.sizesImage,
+        sizesImage:
+          dbDesc.sizes_image_url && !isGenericProductImage(dbDesc.sizes_image_url)
+            ? dbDesc.sizes_image_url
+            : staticDesc.sizesImage,
         sizeGroups: staticDesc.sizeGroups,
       };
     }

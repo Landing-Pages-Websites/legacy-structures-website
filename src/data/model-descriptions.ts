@@ -20,7 +20,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "8' wide buildings include single barn door (excluding packages)",
       "10' and wider include double barn doors (excluding packages)",
     ],
-    sizesImage: `${THEME_BASE}/lofted-barn-product-pg.png`,
+    sizesImage: "/images/optimized-assets/featured/lofted-barn-7.webp",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x8", "8x10", "8x12", "8x16"] },
       { label: "10' WIDE", sizes: ["10x10", "10x12", "10x14", "10x16", "10x20"] },
@@ -38,7 +38,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "8' wide buildings include single barn door",
       "10' and wider include double barn doors",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage: "/images/optimized-assets/featured/utility-shed-10.webp",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x8", "8x10", "8x12", "8x16"] },
       { label: "10' WIDE", sizes: ["10x10", "10x12", "10x14", "10x16", "10x20"] },
@@ -56,7 +56,8 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Single-door entry",
       "T1-11 or LP Smart\u2122 Panel siding",
     ],
-    sizesImage: `${THEME_BASE}/lofted-barn-product.png`,
+    sizesImage:
+      "https://legacystructuresusa.com/wp-content/uploads/2025/10/IMG_0353-1760801572551-scaled.jpeg",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x8", "8x10", "8x12"] },
       { label: "10' WIDE", sizes: ["10x10", "10x12", "10x16"] },
@@ -71,7 +72,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Engineer-certified construction",
       "Blends into landscape",
     ],
-    sizesImage: `${THEME_BASE}/single-slope.png`,
+    sizesImage: "/images/optimized-assets/featured/single-slope.webp",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x12", "8x16"] },
       { label: "10' WIDE", sizes: ["10x10", "10x12", "10x14", "10x16", "10x20"] },
@@ -88,7 +89,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Treated buildings: 81in inside walls",
       "Painted/Urethane: 82.5in interior walls",
     ],
-    sizesImage: `${THEME_BASE}/utility-dormer.png`,
+    sizesImage: "/images/optimized-assets/featured/utility-dormer.webp",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x12", "8x16"] },
       { label: "10' WIDE", sizes: ["10x10", "10x12", "10x14", "10x16", "10x20"] },
@@ -134,7 +135,8 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Pressure-treated flooring option",
       "Multiple size options",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage:
+      "https://legacystructuresusa.com/wp-content/uploads/2025/03/IMG_8905-1741119267018-scaled.jpeg",
     sizeGroups: [
       { label: "10' WIDE", sizes: ["10x12", "10x16", "10x20", "10x24"] },
       { label: "12' WIDE", sizes: ["12x16", "12x20", "12x24", "12x32"] },
@@ -149,7 +151,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Kid-friendly window placements",
       "Customizable door styles",
     ],
-    sizesImage: `${THEME_BASE}/lofted-barn-product.png`,
+    sizesImage: "/images/optimized-assets/featured/lofted-barn-playhouse.webp",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x10", "8x12"] },
       { label: "10' WIDE", sizes: ["10x12", "10x16", "10x20"] },
@@ -165,7 +167,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Service door standard",
       "Heavy-duty floor joists",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage: "/images/optimized-assets/featured/garage.webp",
     sizeGroups: [
       { label: "12' WIDE", sizes: ["12x20", "12x24", "12x28", "12x32"] },
       { label: "14' WIDE", sizes: ["14x24", "14x28", "14x32", "14x40"] },
@@ -180,7 +182,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Service door standard",
       "Heavy-duty floor joists",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage: "/images/optimized-assets/featured/garage.webp",
     sizeGroups: [
       { label: "12' WIDE", sizes: ["12x20", "12x24", "12x28", "12x32"] },
       { label: "14' WIDE", sizes: ["14x24", "14x28", "14x32", "14x40"] },
@@ -195,7 +197,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Service door standard",
       "Multiple size options",
     ],
-    sizesImage: `${THEME_BASE}/lofted-barn-product.png`,
+    sizesImage: "/images/optimized-assets/featured/garage.webp",
     sizeGroups: [
       { label: "12' WIDE", sizes: ["12x20", "12x24", "12x28", "12x32"] },
       { label: "14' WIDE", sizes: ["14x24", "14x28", "14x32", "14x40"] },
@@ -210,7 +212,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Service door standard",
       "Heavy-duty construction",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage: "/images/optimized-assets/featured/double-wide-garage.webp",
     sizeGroups: [
       { label: "24' WIDE", sizes: ["24x24", "24x28", "24x32", "24x40"] },
     ],
@@ -224,7 +226,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Great for offices or retreats",
       "Customizable interiors",
     ],
-    sizesImage: `${THEME_BASE}/utility-dormer.png`,
+    sizesImage: "/images/optimized-assets/a-frames/12x12.webp",
     sizeGroups: [
       { label: "12' WIDE", sizes: ["12x16", "12x20", "12x24", "12x32"] },
       { label: "14' WIDE", sizes: ["14x24", "14x28", "14x32", "14x40"] },
@@ -239,7 +241,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "More interior wall space",
       "Steep A-frame pitch",
     ],
-    sizesImage: `${THEME_BASE}/utility-dormer.png`,
+    sizesImage: "/images/optimized-assets/a-frames/reverse-dormer.webp",
     sizeGroups: [
       { label: "12' WIDE", sizes: ["12x16", "12x20", "12x24", "12x32"] },
       { label: "14' WIDE", sizes: ["14x24", "14x28", "14x32", "14x40"] },
@@ -254,7 +256,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Natural light from dormer",
       "Great for cabin use",
     ],
-    sizesImage: `${THEME_BASE}/utility-dormer.png`,
+    sizesImage: "/images/optimized-assets/a-frames/12x20-side-dormer.webp",
     sizeGroups: [
       { label: "14' WIDE", sizes: ["14x24", "14x28", "14x32", "14x40"] },
     ],
@@ -268,7 +270,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Rustic cabin look",
       "Multiple length options",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage: "/images/optimized-assets/log-cabins/appalachian.webp",
     sizeGroups: [
       { label: "12' WIDE", sizes: ["12x20", "12x24", "12x32", "12x40"] },
       { label: "14' WIDE", sizes: ["14x24", "14x32", "14x40"] },
@@ -283,7 +285,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Spacious floor plan",
       "Rustic cabin look",
     ],
-    sizesImage: `${THEME_BASE}/utility-shed.png`,
+    sizesImage: "/images/optimized-assets/log-cabins/timber-trail.webp",
     sizeGroups: [
       { label: "14' WIDE", sizes: ["14x32", "14x40", "14x48"] },
     ],
@@ -297,7 +299,7 @@ export const modelDescriptions: Record<string, ModelDescription> = {
       "Ventilation options",
       "Solid shelving options",
     ],
-    sizesImage: `${THEME_BASE}/BYO-Greenhouses.png`,
+    sizesImage: "/images/optimized-assets/greenhouses.webp",
     sizeGroups: [
       { label: "8' WIDE", sizes: ["8x8", "8x10", "8x12"] },
       { label: "10' WIDE", sizes: ["10x12", "10x16"] },
@@ -316,7 +318,7 @@ export function getModelDescription(modelType: string): ModelDescription {
         "Customizable options",
         "Expert installation",
       ],
-      sizesImage: `${THEME_BASE}/utility-shed.png`,
+      sizesImage: "/images/optimized-assets/featured/utility-shed-10.webp",
       sizeGroups: [
         { label: "STANDARD", sizes: ["8x12", "10x16", "12x20", "12x24"] },
       ],

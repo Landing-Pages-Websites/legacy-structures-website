@@ -105,7 +105,7 @@ export default function BackyardBarnsPage() {
           <ProductSection
             title="About Our Lofted Barns"
             description="Our lofted barns are the ideal solution for those who want to store their stuff. Unlike our Mini Barns which can have slightly lower side walls, our Lofted Barns come with overhead &quot;lofted&quot; storage built into the structure. These buildings are perfect for storing holiday decorations, gardening supplies, or anything that you'd like to keep up off the floor. Up to 8ft of lofted is included. The 8ft wide model comes with a single door while the 10ft wide model comes with double doors. This model is available in T1-11 siding or LP Smart Panel&#8482; siding. The Lofted Barn comes in the following sizes:"
-            image={`${BASE_URL}/lofted-barn-product.png`}
+            image="/images/optimized-assets/featured/lofted-barn-7.webp"
             imageAlt="Lofted Barn"
             sizeGroups={[
               { label: "8' WIDE", sizes: ["8x8", "8x10", "8x12", "8x16"] },

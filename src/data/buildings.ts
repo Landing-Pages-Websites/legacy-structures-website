@@ -21,6 +21,30 @@ const LS_BASE = "https://legacystructuresusa.com";
 const withBase = (path: string): string =>
   path.startsWith("/wp-content") ? `${LS_BASE}${path}` : path;
 
+const GENERIC_PRODUCT_IMAGE_NAMES = [
+  "lofted-barn-product.png",
+  "lofted-barn-product-pg.png",
+  "utility-shed.png",
+  "utility-dormer.png",
+  "BYO-Greenhouses.png",
+];
+
+export const isGenericProductImage = (imageUrl?: string | null): boolean => {
+  if (!imageUrl) return false;
+  return GENERIC_PRODUCT_IMAGE_NAMES.some((name) => imageUrl.includes(name));
+};
+
+export const resolveBuildingImage = (
+  candidateImage: string | null | undefined,
+  fallbackImage: string
+): string => {
+  if (!candidateImage || isGenericProductImage(candidateImage)) {
+    return fallbackImage;
+  }
+
+  return candidateImage;
+};
+
 const rawBuildings: Building[] = [
   // Page 1
   {
@@ -203,8 +227,7 @@ const rawBuildings: Building[] = [
     salePrice: "$5,000.00 +tax",
     rto36: "$231.48 +tax",
     rto48: "$208.33 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: "/images/optimized-assets/featured/lofted-barn-3.webp",
     designerTemplate: 23,
   },
   {
@@ -220,8 +243,7 @@ const rawBuildings: Building[] = [
     cashPrice: "$5,075.00 +tax",
     rto36: "$234.95 +tax",
     rto48: "$211.46 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: "/images/optimized-assets/featured/lofted-barn-7.webp",
     designerTemplate: 23,
   },
   {
@@ -238,8 +260,9 @@ const rawBuildings: Building[] = [
     salePrice: "$5,077.50 +tax",
     rto36: "$235.07 +tax",
     rto48: "$211.56 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-shed.png",
+    image: withBase(
+      "/wp-content/uploads/2025/03/IMG_8905-1741119267018-scaled.jpeg"
+    ),
     designerTemplate: 33,
   },
   {
@@ -273,8 +296,7 @@ const rawBuildings: Building[] = [
     cashPrice: "$5,145.00 +tax",
     rto36: "$238.19 +tax",
     rto48: "$214.38 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: "/images/optimized-assets/lofted-barn-1.webp",
     designerTemplate: 23,
   },
   {
@@ -328,8 +350,9 @@ const rawBuildings: Building[] = [
     salePrice: "$5,952.00 +tax",
     rto36: "$275.56 +tax",
     rto48: "$248.00 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: withBase(
+      "/wp-content/uploads/2025/07/IMG_0214-1753236385941-scaled.jpeg"
+    ),
     designerTemplate: 23,
   },
   {
@@ -384,8 +407,9 @@ const rawBuildings: Building[] = [
     cashPrice: "$6,335.00 +tax",
     rto36: "$293.29 +tax",
     rto48: "$263.96 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: withBase(
+      "/wp-content/uploads/2026/03/IMG_3333-1773795992010-scaled.jpeg"
+    ),
     designerTemplate: 23,
   },
   {
@@ -402,8 +426,9 @@ const rawBuildings: Building[] = [
     salePrice: "$7,096.40 +tax",
     rto36: "$328.54 +tax",
     rto48: "$295.68 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-shed.png",
+    image: withBase(
+      "/wp-content/uploads/2025/07/IMG_0132-1753235605494-scaled.jpeg"
+    ),
     designerTemplate: 25,
   },
   {
@@ -458,8 +483,9 @@ const rawBuildings: Building[] = [
     salePrice: "$8,266.00 +tax",
     rto36: "$382.69 +tax",
     rto48: "$344.42 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-dormer.png",
+    image: withBase(
+      "/wp-content/uploads/2025/10/IMG_0291-1759631629537-scaled.jpeg"
+    ),
     designerTemplate: 34,
   },
   {
@@ -475,8 +501,9 @@ const rawBuildings: Building[] = [
     cashPrice: "$9,107.80 +tax",
     rto36: "$421.66 +tax",
     rto48: "$379.49 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-shed.png",
+    image: withBase(
+      "/wp-content/uploads/2026/03/IMG_3318-1773795264294-scaled.jpeg"
+    ),
     designerTemplate: 31,
   },
   {
@@ -492,8 +519,9 @@ const rawBuildings: Building[] = [
     cashPrice: "$9,305.00 +tax",
     rto36: "$430.79 +tax",
     rto48: "$387.71 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-dormer.png",
+    image: withBase(
+      "/wp-content/uploads/2025/10/IMG_0277-1759631573150-scaled.jpeg"
+    ),
     designerTemplate: 27,
   },
   {
@@ -528,8 +556,7 @@ const rawBuildings: Building[] = [
     cashPrice: "$10,587.89 +tax",
     rto36: "$490.18 +tax",
     rto48: "$441.16 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: "/images/optimized-assets/featured/garage.webp",
     designerTemplate: 32,
   },
   // Page 4
@@ -565,8 +592,9 @@ const rawBuildings: Building[] = [
     cashPrice: "$12,259.00 +tax",
     rto36: "$567.55 +tax",
     rto48: "$510.79 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-dormer.png",
+    image: withBase(
+      "/wp-content/uploads/2025/10/IMG_0283-1759631513036-scaled.jpeg"
+    ),
     designerTemplate: 27,
   },
   {
@@ -582,8 +610,9 @@ const rawBuildings: Building[] = [
     cashPrice: "$18,408.00 +tax",
     rto36: "$852.22 +tax",
     rto48: "$767.00 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-shed.png",
+    image: withBase(
+      "/wp-content/uploads/2025/07/IMG_0098-1753234269505-scaled.jpeg"
+    ),
     designerTemplate: 34,
   },
   {
@@ -619,8 +648,7 @@ const rawBuildings: Building[] = [
     salePrice: "$33,032.00 +tax",
     rto36: "$1.00 +tax",
     rto48: "$1.00 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-shed.png",
+    image: "/images/optimized-assets/log-cabins/timber-trail.webp",
     designerTemplate: 25,
   },
   {
@@ -637,8 +665,9 @@ const rawBuildings: Building[] = [
     salePrice: "$59,990.00 +tax",
     rto36: "$2.00 +tax",
     rto48: "$2.00 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-dormer.png",
+    image: withBase(
+      "/wp-content/uploads/2025/10/IMG_0302-1759631379796-scaled.jpeg"
+    ),
     designerTemplate: 27,
   },
   // Extras (linked from nav but not in inventory)
@@ -655,8 +684,7 @@ const rawBuildings: Building[] = [
     cashPrice: "$8,500.00 +tax",
     rto36: "$393.51 +tax",
     rto48: "$354.17 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-Greenhouses.png",
+    image: "/images/optimized-assets/greenhouses.webp",
     designerTemplate: 53,
   },
   {
@@ -672,8 +700,7 @@ const rawBuildings: Building[] = [
     cashPrice: "$5,500.00 +tax",
     rto36: "$254.63 +tax",
     rto48: "$229.17 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/utility-shed.png",
+    image: "/images/optimized-assets/featured/utility-shed-10.webp",
     designerTemplate: 25,
   },
   {
@@ -689,8 +716,7 @@ const rawBuildings: Building[] = [
     cashPrice: "$5,895.00 +tax",
     rto36: "$272.92 +tax",
     rto48: "$245.63 +tax",
-    image:
-      "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/lofted-barn-product.png",
+    image: "/images/optimized-assets/featured/lofted-barn-7.webp",
     designerTemplate: 23,
   },
 ];

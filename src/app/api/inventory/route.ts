@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createAnonClient } from "@/utils/supabase/server";
-import { buildings } from "@/data/buildings";
+import { buildings, resolveBuildingImage } from "@/data/buildings";
 
 export const revalidate = 30; // ISR: refresh every 30 seconds
 
@@ -13,7 +13,22 @@ export async function GET() {
       .order("sort_order", { ascending: true });
 
     if (!error && data && data.length > 0) {
-      return NextResponse.json(data);
+      const items = data.map((item) => {
+        const staticBuilding = buildings.find(
+          (building) =>
+            building.slug === item.slug ||
+            building.inventoryNumber === item.inventory_number
+        );
+
+        return {
+          ...item,
+          image_url: staticBuilding
+            ? resolveBuildingImage(item.image_url, staticBuilding.image)
+            : item.image_url,
+        };
+      });
+
+      return NextResponse.json(items);
     }
   } catch {
     // Fall through to static fallback

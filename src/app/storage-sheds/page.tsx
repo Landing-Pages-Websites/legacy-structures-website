@@ -94,7 +94,7 @@ export default function StorageShedsPage() {
           <ProductSection
             title="ABOUT OUR UTILITY SHEDS"
             description="Our Utility Sheds are a great partner to our Lofted Barns. These two building styles are the two most popular storage buildings that we offer. The utility shed's distinct difference over the Lofted Barn is the ability to upgrade the side walls up to 8'. This makes this building ideal for a home office, man cave or she shed. 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Utility Shed comes in the following sizes:"
-            image={`${BASE_URL}/utility-shed.png`}
+            image="/images/optimized-assets/featured/utility-shed-10.webp"
             imageAlt="Utility Shed"
             sizeGroups={[
               { label: "8' WIDE", sizes: ["8x8", "8x10", "8x12", "8x16"] },
@@ -148,7 +148,7 @@ export default function StorageShedsPage() {
           <ProductSection
             title="ABOUT OUR UTILITY DORMER SHEDS"
             description="Our Utility Dormer is one of the newest additions to the Backyard Outfitter family of buildings. It is built on our Utility Shed style building and allows tons of extra natural light in. If you are looking for your next craft room or a place for all of your gardening supplies, the Utility Dormer might just be the perfect solution for you. Comes standard with 7/12 pitch roof. Three 10in x 29 horizontal windows. Treated buildings have 81in inside walls. Painted/Urethane buildings have 82.5in interior walls. 8ft wide versions come with a single barn door while the 10ft wide versions come with double barn doors. The Utility Dormer Shed comes in the following sizes:"
-            image={`${BASE_URL}/utility-dormer.png`}
+            image="/images/optimized-assets/featured/utility-dormer.webp"
             imageAlt="Utility Dormer Shed"
             sizeGroups={[
               { label: "8' WIDE", sizes: ["8x12", "8x16"] },
