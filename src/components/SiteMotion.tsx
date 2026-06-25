@@ -42,7 +42,14 @@ export default function SiteMotion() {
     elements.forEach((element, index) => {
       element.classList.add("motion-reveal");
       element.style.setProperty("--motion-delay", `${Math.min(index * 35, 180)}ms`);
+
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.88) {
+        element.classList.add("is-visible");
+      }
     });
+
+    document.documentElement.classList.add("has-js");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,7 +65,9 @@ export default function SiteMotion() {
 
     elements.forEach((element) => observer.observe(element));
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return null;

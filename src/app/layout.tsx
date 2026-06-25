@@ -140,12 +140,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${bricolage.variable} ${oswald.variable}`}>
       <body>
         <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "document.documentElement.classList.add('has-js')",
-          }}
-        />
-        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
