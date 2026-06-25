@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import CookieConsent from "@/components/CookieConsent";
+import SiteMotion from "@/components/SiteMotion";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const inter = Inter({
@@ -139,6 +140,12 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${bricolage.variable} ${oswald.variable}`}>
       <body>
         <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('has-js')",
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
@@ -146,6 +153,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <SiteMotion />
         <CookieConsent />
       </body>
     </html>

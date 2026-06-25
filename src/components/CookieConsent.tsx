@@ -29,12 +29,14 @@ export default function CookieConsent() {
       className="cookie-consent"
       role="region"
     >
+      <div className="cookie-consent-icon" aria-hidden="true">
+        i
+      </div>
       <div className="cookie-consent-copy">
-        <strong>Cookies on Legacy Structures</strong>
+        <strong>Cookie preferences</strong>
         <span>
-          We use essential cookies to keep the site working and basic analytics
-          to understand what visitors need. Read our{" "}
-          <Link href="/privacy-policy">Privacy Policy</Link>.
+          We use essential cookies and optional analytics to improve the site.{" "}
+          <Link href="/privacy-policy">Privacy</Link>
         </span>
       </div>
       <div className="cookie-consent-actions">
@@ -53,33 +55,50 @@ export default function CookieConsent() {
       <style>{`
         .cookie-consent {
           position: fixed;
-          right: 18px;
+          left: 18px;
           bottom: 18px;
           z-index: 80;
-          width: min(560px, calc(100vw - 36px));
+          width: min(520px, calc(100vw - 36px));
           display: flex;
-          gap: 18px;
+          gap: 12px;
           align-items: center;
-          justify-content: space-between;
-          background: #ffffff;
+          background: rgba(255, 255, 255, 0.98);
           color: #1a3a5c;
-          border: 1px solid #d9e0e5;
+          border: 1px solid rgba(26, 58, 92, 0.18);
           border-radius: 8px;
-          box-shadow: 0 18px 42px rgba(15, 35, 52, 0.18);
-          padding: 16px;
+          box-shadow: 0 14px 34px rgba(15, 35, 52, 0.2);
+          padding: 12px;
+        }
+
+        .cookie-consent-icon {
+          width: 28px;
+          height: 28px;
+          flex: 0 0 28px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: #1a3a5c;
+          color: #ffc400;
+          font-family: Georgia, serif;
+          font-size: 17px;
+          font-weight: 700;
         }
 
         .cookie-consent-copy {
           display: flex;
           flex-direction: column;
-          gap: 4px;
-          font-size: 13px;
-          line-height: 1.45;
+          gap: 2px;
+          font-size: 12px;
+          line-height: 1.4;
+          min-width: 0;
+          flex: 1 1 auto;
         }
 
         .cookie-consent-copy strong {
           font-family: var(--font-poppins), sans-serif;
-          font-size: 15px;
+          font-size: 14px;
+          line-height: 1.2;
         }
 
         .cookie-consent-copy a {
@@ -100,9 +119,12 @@ export default function CookieConsent() {
           color: #1a3a5c;
           border-radius: 5px;
           cursor: pointer;
+          font-size: 12px;
           font-weight: 700;
-          min-height: 42px;
-          padding: 10px 12px;
+          line-height: 1;
+          min-height: 34px;
+          padding: 9px 11px;
+          white-space: nowrap;
         }
 
         .cookie-consent button:focus-visible {
@@ -122,12 +144,20 @@ export default function CookieConsent() {
             right: 12px;
             bottom: 12px;
             width: auto;
-            flex-direction: column;
-            align-items: stretch;
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            align-items: start;
           }
 
           .cookie-consent-actions {
+            grid-column: 1 / -1;
             display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .cookie-consent-actions {
             grid-template-columns: 1fr;
           }
         }
