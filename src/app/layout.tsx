@@ -3,6 +3,8 @@ import { Inter, Poppins, Bricolage_Grotesque, Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import CookieConsent from "@/components/CookieConsent";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const inter = Inter({
@@ -33,14 +35,14 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://legacystructuresusa.com"),
+  metadataBase: new URL(BRAND.siteUrl),
   title: {
-    default: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+    default: "Legacy Structures | Storage Sheds for Sale in Hudson Falls, NY",
     template: "%s | Legacy Structures",
   },
   description:
     "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation. Rent to own options available.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: BRAND.siteUrl },
   keywords: [
     "storage sheds",
     "Hudson Falls NY",
@@ -56,9 +58,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://legacystructuresusa.com",
+    url: BRAND.siteUrl,
     siteName: "Legacy Structures",
-    title: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+    title: "Legacy Structures | Storage Sheds for Sale in Hudson Falls, NY",
     description:
       "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation. Rent to own options available.",
     images: [
@@ -72,37 +74,60 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Storage Sheds for Sale Hudson Falls, NY | Legacy Structures",
+    title: "Legacy Structures | Storage Sheds for Sale in Hudson Falls, NY",
     description:
       "High-quality storage sheds for sale in Hudson Falls, NY. Customizable options and expert installation.",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: process.env.VERCEL_ENV !== "preview",
+    follow: process.env.VERCEL_ENV !== "preview",
   },
 };
 
-const localBusinessJsonLd = {
+const siteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BRAND.name,
-  url: BRAND.siteUrl,
-  telephone: BRAND.phone,
-  email: BRAND.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: BRAND.addressStreet,
-    addressLocality: BRAND.addressCity,
-    addressRegion: BRAND.addressState,
-    postalCode: BRAND.addressZip,
-    addressCountry: "US",
-  },
-  openingHoursSpecification: BUSINESS_HOURS.map(([day, hours]) => ({
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: day,
-    description: hours,
-  })),
-  sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${BRAND.siteUrl}/#organization`,
+      name: BRAND.name,
+      url: BRAND.siteUrl,
+      telephone: BRAND.phone,
+      email: BRAND.email,
+      sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${BRAND.siteUrl}/#localbusiness`,
+      name: BRAND.name,
+      url: BRAND.siteUrl,
+      telephone: BRAND.phone,
+      email: BRAND.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: BRAND.addressStreet,
+        addressLocality: BRAND.addressCity,
+        addressRegion: BRAND.addressState,
+        postalCode: BRAND.addressZip,
+        addressCountry: "US",
+      },
+      openingHoursSpecification: BUSINESS_HOURS.map(([day, hours]) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: day,
+        description: hours,
+      })),
+      parentOrganization: { "@id": `${BRAND.siteUrl}/#organization` },
+      sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${BRAND.siteUrl}/#website`,
+      name: BRAND.name,
+      url: BRAND.siteUrl,
+      publisher: { "@id": `${BRAND.siteUrl}/#organization` },
+      inLanguage: "en-US",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -115,11 +140,13 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
+        <BreadcrumbSchema />
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

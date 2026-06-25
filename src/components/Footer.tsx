@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { siteAssets } from "@/lib/site-assets";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
@@ -50,7 +51,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="footer-copy">©2026 Legacy Structures All Rights Reserved.</div>
+      <div className="footer-copy">
+        ©2026 Legacy Structures All Rights Reserved.{" "}
+        <Link href="/privacy-policy">Privacy Policy</Link>
+      </div>
 
       <style>{`
         .legacy-footer {
@@ -129,6 +133,10 @@ export default function Footer() {
           text-align: center;
           font-size: 16px;
           padding: 5px 20px 26px;
+        }
+        .footer-copy a {
+          color: #006580 !important;
+          font-weight: 700;
         }
         @media (max-width: 900px) {
           .footer-main {

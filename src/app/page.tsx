@@ -8,7 +8,7 @@ import { BRAND } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Storage Sheds for Sale in Hudson Falls, NY",
+  title: "Legacy Structures | Storage Sheds for Sale in Hudson Falls, NY",
   description:
     "Shop storage sheds, barns, cabins, garages, greenhouses, and more at Legacy Structures in Hudson Falls, NY. Explore current inventory, rent-to-own options, and custom designs.",
   path: "/",

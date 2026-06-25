@@ -6,7 +6,7 @@ import FadeIn from "@/components/FadeIn";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "About Us",
+  title: "About Legacy Structures | Hudson Falls Shed Builder",
   description:
     "Legacy Structures is a family-owned business in Hudson Falls, NY, crafting high-quality sheds and outdoor storage solutions built to last. We have succeeded by providing our customers with dependable storage solutions and a quality buying experience.",
   path: "/about-us",

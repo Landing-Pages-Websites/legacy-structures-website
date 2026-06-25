@@ -8,6 +8,15 @@ const SOCIAL_IMAGE = {
   alt: "Legacy Structures",
 };
 
+export const absoluteUrl = (path = "/"): string => {
+  if (path.startsWith("http")) return path;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${BRAND.siteUrl}${normalizedPath === "/" ? "" : normalizedPath}`;
+};
+
+const withBrand = (title: string): string =>
+  title.includes(BRAND.name) ? title : `${title} | ${BRAND.name}`;
+
 export function createPageMetadata({
   title,
   description,
@@ -17,21 +26,24 @@ export function createPageMetadata({
   description: string;
   path: string;
 }): Metadata {
+  const url = absoluteUrl(path);
+  const fullTitle = withBrand(title);
+
   return {
-    title,
+    title: { absolute: fullTitle },
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: url },
     openGraph: {
       type: "website",
-      url: path,
+      url,
       siteName: BRAND.name,
-      title: `${title} | ${BRAND.name}`,
+      title: fullTitle,
       description,
       images: [SOCIAL_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${BRAND.name}`,
+      title: fullTitle,
       description,
       images: [SOCIAL_IMAGE.url],
     },
