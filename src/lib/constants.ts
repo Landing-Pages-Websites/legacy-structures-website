@@ -31,6 +31,7 @@ export const NAV_LINKS = [
   { label: "Inventory", href: "/inventory", hasDropdown: false },
   { label: "Rent To Own", href: "/rent-to-own", hasDropdown: false },
   { label: "About Us", href: "/about-us", hasDropdown: false },
+  { label: "Blog", href: "/blog", hasDropdown: false },
 ] as const;
 
 export const BUSINESS_HOURS = [
