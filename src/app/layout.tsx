@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import CookieConsent from "@/components/CookieConsent";
 import SiteMotion from "@/components/SiteMotion";
+import MegaTag from "@/components/analytics/MegaTag";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import PostHogScript from "@/components/analytics/PostHogScript";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const inter = Inter({
@@ -138,6 +141,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${bricolage.variable} ${oswald.variable}`}>
+      <head>
+        <MegaTag />
+        <GoogleAnalytics />
+        <PostHogScript />
+      </head>
       <body>
         <script
           type="application/ld+json"

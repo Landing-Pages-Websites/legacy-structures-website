@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { BRAND } from "@/lib/constants";
+import { sendMegaLead } from "@/lib/megaLead";
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -30,6 +31,11 @@ export async function POST(request: Request) {
         <p><strong>State:</strong> ${state}</p>
         ${message ? `<hr /><p><strong>Message:</strong></p><p>${message.replace(/\n/g, "<br />")}</p>` : ""}
       `,
+    });
+    // Forward to MEGA Keystone lead store (website lead). Non-blocking.
+    await sendMegaLead({
+      firstName, lastName, email, phone,
+      buildingType, buildingSize, sidingOption, roofOption, zipCode, state, message,
     });
     return NextResponse.json({ success: true });
   } catch {
