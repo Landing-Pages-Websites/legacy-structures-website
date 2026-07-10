@@ -8,7 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import SiteMotion from "@/components/SiteMotion";
 import MegaTag from "@/components/analytics/MegaTag";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import PostHogScript from "@/components/analytics/PostHogScript";
+import PostHogProvider from "@/components/analytics/PostHogProvider";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const inter = Inter({
@@ -144,19 +144,20 @@ export default function RootLayout({
       <head>
         <MegaTag />
         <GoogleAnalytics />
-        <PostHogScript />
       </head>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <BreadcrumbSchema />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <SiteMotion />
-        <CookieConsent />
+        <PostHogProvider>
+          <BreadcrumbSchema />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <SiteMotion />
+          <CookieConsent />
+        </PostHogProvider>
       </body>
     </html>
   );
