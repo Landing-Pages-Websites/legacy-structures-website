@@ -3,6 +3,10 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback, useRef, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import {
+  getInventoryFallbackImage,
+  resolveBuildingImage,
+} from "@/data/buildings";
 import { ALL_MODEL_TYPES, getModelRoute } from "@/lib/model-routes";
 import styles from "./AdminDashboard.module.css";
 
@@ -69,6 +73,41 @@ const EMPTY_FORM: FormState = {
 
 const cx = (...classes: Array<string | false | undefined>) =>
   classes.filter(Boolean).join(" ");
+
+function AdminInventoryPhoto({
+  source,
+  slug,
+  modelType,
+  alt,
+  className,
+}: {
+  source: string;
+  slug: string;
+  modelType: string;
+  alt: string;
+  className: string;
+}) {
+  const fallbackImage = getInventoryFallbackImage(slug, modelType);
+  const [imageSrc, setImageSrc] = useState(() =>
+    resolveBuildingImage(source, fallbackImage)
+  );
+
+  return (
+    // Admin inventory may contain user-entered image hosts that are not in next.config.ts.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={imageSrc}
+      alt={alt}
+      className={className}
+      loading="lazy"
+      onError={() => {
+        setImageSrc((current) =>
+          current === fallbackImage ? "/logo.png" : fallbackImage
+        );
+      }}
+    />
+  );
+}
 
 /* ── Main Component ── */
 export default function AdminDashboard() {
@@ -594,17 +633,14 @@ export default function AdminDashboard() {
               <div key={item.id} className={styles.item}>
                 {/* Thumbnail */}
                 <div className={styles.thumbnail}>
-                  {item.image_url ? (
-                    // Admin inventory may contain user-entered image hosts that are not in next.config.ts.
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={item.image_url}
-                      alt={item.model_type}
-                      className={styles.thumbnailImage}
-                    />
-                  ) : (
-                    <div className={styles.noImage}>No image</div>
-                  )}
+                  <AdminInventoryPhoto
+                    key={`${item.id}-${item.image_url}`}
+                    source={item.image_url}
+                    slug={item.slug}
+                    modelType={item.model_type}
+                    alt={`${item.model_type} ${item.size}`}
+                    className={styles.thumbnailImage}
+                  />
                 </div>
 
                 {/* Details */}
@@ -787,10 +823,11 @@ export default function AdminDashboard() {
                 </div>
                 {form.image_url && (
                   <div className={styles.previewRow}>
-                    {/* Admin inventory may contain user-entered image hosts that are not in next.config.ts. */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={form.image_url}
+                    <AdminInventoryPhoto
+                      key={`${form.slug}-${form.image_url}`}
+                      source={form.image_url}
+                      slug={form.slug}
+                      modelType={form.model_type}
                       alt="Inventory photo preview"
                       className={styles.previewImage}
                     />
