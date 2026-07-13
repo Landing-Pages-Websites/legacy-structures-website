@@ -98,7 +98,7 @@ const blogPosts: BlogPost[] = [
       ],
     },
   },
-,
+
   {
     slug: "utility-shed-sizing-guide",
     title: "Utility Shed Sizing Guide: How to Choose Your Perfect Storage Shed",
