@@ -29,6 +29,65 @@ const GENERIC_PRODUCT_IMAGE_NAMES = [
   "BYO-Greenhouses.png",
 ];
 
+const LOCAL_INVENTORY_IMAGES: Record<string, string> = {
+  "single-slope": "/images/optimized-assets/featured/single-slope.webp",
+  "lofted-barn-3": "/images/optimized-assets/featured/lofted-barn-3.webp",
+  "lofted-barn-7": "/images/optimized-assets/featured/lofted-barn-7.webp",
+  "utility-shed-4": "/images/optimized-assets/featured/utility-shed-4.webp",
+  "utility-shed-8": "/images/optimized-assets/featured/utility-shed-8.webp",
+  "utility-shed-10": "/images/optimized-assets/featured/utility-shed-10.webp",
+  "utility-gable-dormer":
+    "/images/optimized-assets/featured/utility-gable-dormer.webp",
+  "lofted-barn-playhouse":
+    "/images/optimized-assets/featured/lofted-barn-playhouse.webp",
+  "lofted-barn-playhouse-2":
+    "/images/optimized-assets/featured/lofted-barn-playhouse-2.webp",
+  "a-frame": "/images/optimized-assets/a-frames/12x16-porch.webp",
+  "reverse-gable-a-frame":
+    "/images/optimized-assets/a-frames/reverse-dormer.webp",
+  "side-dormer-a-frame":
+    "/images/optimized-assets/a-frames/12x20-side-dormer.webp",
+};
+
+const MODEL_INVENTORY_IMAGES: Array<[string, string]> = [
+  ["chicken coop", "/images/optimized-assets/chicken-coops.webp"],
+  ["a frame", "/images/optimized-assets/a-frames/hero.webp"],
+  ["garage", "/images/optimized-assets/featured/garage.webp"],
+  ["cabin", "/images/optimized-assets/log-cabins/appalachian.webp"],
+  ["dormer", "/images/optimized-assets/featured/utility-dormer.webp"],
+  ["single slope", "/images/optimized-assets/featured/single-slope.webp"],
+  ["barn", "/images/optimized-assets/lofted-barn-1.webp"],
+  ["shed", "/images/optimized-assets/shed-slider-1.webp"],
+];
+
+export const getInventoryFallbackImage = (
+  slug: string,
+  modelType: string
+): string => {
+  const exactImage = LOCAL_INVENTORY_IMAGES[slug];
+  if (exactImage) return exactImage;
+
+  const normalizedModel = modelType.toLowerCase();
+  return (
+    MODEL_INVENTORY_IMAGES.find(([model]) =>
+      normalizedModel.includes(model)
+    )?.[1] ?? "/images/optimized-assets/view-inventory-sheds.webp"
+  );
+};
+
+const isRetiredWordPressImage = (imageUrl: string): boolean => {
+  try {
+    const url = new URL(imageUrl);
+    return (
+      (url.hostname === "legacystructuresusa.com" ||
+        url.hostname === "www.legacystructuresusa.com") &&
+      url.pathname.startsWith("/wp-content/uploads/")
+    );
+  } catch {
+    return false;
+  }
+};
+
 export const isGenericProductImage = (imageUrl?: string | null): boolean => {
   if (!imageUrl) return false;
   return GENERIC_PRODUCT_IMAGE_NAMES.some((name) => imageUrl.includes(name));
@@ -38,7 +97,11 @@ export const resolveBuildingImage = (
   candidateImage: string | null | undefined,
   fallbackImage: string
 ): string => {
-  if (!candidateImage || isGenericProductImage(candidateImage)) {
+  if (
+    !candidateImage ||
+    isGenericProductImage(candidateImage) ||
+    isRetiredWordPressImage(candidateImage)
+  ) {
     return fallbackImage;
   }
 
@@ -721,4 +784,9 @@ const rawBuildings: Building[] = [
   },
 ];
 
-export const buildings: Building[] = rawBuildings;
+export const buildings: Building[] = rawBuildings.map((building) => ({
+  ...building,
+  image: isRetiredWordPressImage(building.image)
+    ? getInventoryFallbackImage(building.slug, building.modelType)
+    : building.image,
+}));

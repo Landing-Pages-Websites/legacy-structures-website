@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { buildings } from "@/data/buildings";
+import { buildings, getInventoryFallbackImage } from "@/data/buildings";
 import { siteAssets } from "@/lib/site-assets";
 
 const parsePrice = (s: string | undefined): number => {
@@ -236,6 +236,27 @@ function PriceBox({
 /*  Inventory Item Component                                           */
 /* ------------------------------------------------------------------ */
 
+function InventoryPhoto({ item }: { item: InventoryItem }) {
+  const fallbackImage = getInventoryFallbackImage(item.slug, item.model);
+  const [imageSrc, setImageSrc] = useState(item.image || fallbackImage);
+
+  return (
+    <Image
+      src={imageSrc}
+      alt={`${item.model} ${item.size}`}
+      fill
+      unoptimized={imageSrc.startsWith("http")}
+      sizes="(max-width: 980px) calc(100vw - 40px), 345px"
+      onError={() => {
+        setImageSrc((current) =>
+          current === fallbackImage ? "/logo.png" : fallbackImage
+        );
+      }}
+      style={{ objectFit: "contain", objectPosition: "center" }}
+    />
+  );
+}
+
 function InventoryItemRow({ item }: { item: InventoryItem }) {
   const hasSale = item.salePrice !== null;
   const inquiryUrl = `/contact-us?model=${encodeURIComponent(item.model)}&size=${encodeURIComponent(item.size)}&inv=${encodeURIComponent(item.inventoryNumber)}`;
@@ -257,14 +278,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
               background: "#f5f3f0",
             }}
           >
-            <Image
-              src={item.image || "/logo.png"}
-              alt={`${item.model} ${item.size}`}
-              fill
-              unoptimized={item.image.startsWith("http")}
-              sizes="(max-width: 980px) 100vw, 30vw"
-              style={{ objectFit: "contain", objectPosition: "center" }}
-            />
+            <InventoryPhoto item={item} />
           </div>
         </Link>
       </div>
