@@ -9,7 +9,7 @@ values (
   'inventory-images',
   'inventory-images',
   true,
-  15728640,
+  4194304,
   array['image/jpeg', 'image/png', 'image/webp', 'image/gif']
 )
 on conflict (id) do update

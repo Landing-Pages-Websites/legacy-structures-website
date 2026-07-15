@@ -74,6 +74,7 @@ const EMPTY_FORM: FormState = {
 };
 
 const MATERIAL_OPTIONS = ["Metal", "Wood", "Vinyl"] as const;
+const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 
 const parseCurrency = (value: string | null): number => {
   if (!value) return 0;
@@ -96,6 +97,41 @@ const calculateRto = (price: string): Pick<FormState, "rto_36" | "rto_48"> => {
         rto_48: formatCurrency(amount / 25.44),
       }
     : { rto_36: "", rto_48: "" };
+};
+
+const preparePhotoForUpload = async (file: File): Promise<File> => {
+  if (file.size <= MAX_UPLOAD_BYTES && file.type !== "image/heic" && file.type !== "image/heif") {
+    return file;
+  }
+  if (file.type === "image/gif") {
+    throw new Error("Please choose a GIF smaller than 4 MB.");
+  }
+
+  const objectUrl = URL.createObjectURL(file);
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new window.Image();
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("This photo format could not be read. Please use JPEG or PNG."));
+      element.src = objectUrl;
+    });
+    const scale = Math.min(1, 2400 / Math.max(image.naturalWidth, image.naturalHeight));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+    canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+    const context = canvas.getContext("2d");
+    if (!context) throw new Error("The photo could not be prepared for upload.");
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.82));
+    if (!blob || blob.size > MAX_UPLOAD_BYTES) {
+      throw new Error("The photo is still too large. Please choose a smaller photo.");
+    }
+    return new File([blob], `${file.name.replace(/\.[^.]+$/, "") || "inventory-photo"}.jpg`, {
+      type: "image/jpeg",
+    });
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
 };
 
 const cx = (...classes: Array<string | false | undefined>) =>
@@ -283,8 +319,9 @@ export default function AdminDashboard() {
     setImageUploading(true);
     setError("");
     try {
+      const uploadFile = await preparePhotoForUpload(file);
       const fd = new FormData();
-      fd.append("file", file);
+      fd.append("file", uploadFile);
       const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
       const body = await res.json().catch(() => ({
         error: "The photo could not be uploaded. Please try a smaller photo.",
@@ -352,7 +389,7 @@ export default function AdminDashboard() {
   };
 
   const handleSeed = async () => {
-    if (!confirm("This will import all inventory from the static buildings list into Supabase. Existing items with the same slug will be updated. Continue?")) return;
+    if (!confirm("This will import missing inventory from the static buildings list. Existing inventory will not be changed. Continue?")) return;
     setSeeding(true);
     setSeedMsg("");
     setError("");
@@ -647,7 +684,7 @@ export default function AdminDashboard() {
             <button
               onClick={handleSeed}
               disabled={seeding}
-              title="Import all inventory from buildings.ts into Supabase"
+              title="Import missing inventory from buildings.ts into Supabase"
               className={cx(styles.button, styles.buttonImport)}
             >
               {seeding ? "Importing…" : "⬇ Import from Static"}
@@ -868,7 +905,7 @@ export default function AdminDashboard() {
                     id="f-file"
                     ref={fileInputRef}
                     type="file"
-                    accept="image/jpeg,image/png,image/webp,image/gif"
+                    accept="image/jpeg,image/png,image/webp,image/gif,image/heic,image/heif"
                     onChange={handleImageUpload}
                     className={styles.fileInput}
                     aria-label="Upload inventory photo"

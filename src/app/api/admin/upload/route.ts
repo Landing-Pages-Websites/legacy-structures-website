@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 
 const BUCKET = "inventory-images";
-const MAX_FILE_SIZE = 15 * 1024 * 1024;
+const MAX_FILE_SIZE = 4 * 1024 * 1024;
 const FILE_EXTENSIONS: Record<string, string> = {
   "image/jpeg": "jpg",
   "image/png": "png",
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     }
     if (file.size > MAX_FILE_SIZE) {
       return NextResponse.json(
-        { error: "That photo is too large. Please choose one smaller than 15 MB." },
+        { error: "That photo is too large. Please choose one smaller than 4 MB." },
         { status: 400 }
       );
     }

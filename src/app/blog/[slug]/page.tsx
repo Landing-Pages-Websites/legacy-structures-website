@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import blogPosts from "@/data/blog-posts";
 import { absoluteUrl } from "@/lib/metadata";
@@ -152,7 +153,7 @@ export default async function BlogPostPage({ params }: Props) {
           padding: "0 20px 60px",
         }}
       >
-        <a
+        <Link
           href="/blog"
           style={{
             color: "#006580",
@@ -163,7 +164,7 @@ export default async function BlogPostPage({ params }: Props) {
           }}
         >
           &larr; Back to Blog
-        </a>
+        </Link>
       </div>
 
       <style>{`
