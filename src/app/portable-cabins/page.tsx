@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Portable Cabins for Sale | Hudson Falls, NY",
+  title: "Portable Cabins Near Lake George, NY",
   description:
-    "Prefab portable cabins perfect for hunting cabins, home offices, she-sheds, man-caves, or tiny homes. Built locally in Hudson Falls, NY. Multiple sizes and finishes available.",
+    "Shop prefab portable cabins near Lake George, NY — ideal for hunting cabins, tiny homes & she-sheds. Locally built with a 5-year warranty. Get your free quote today!",
   path: "/portable-cabins",
 });
 
