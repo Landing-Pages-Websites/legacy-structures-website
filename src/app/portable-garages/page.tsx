@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Portable Garages for Sale | Hudson Falls, NY",
+  title: "Garages Near Saratoga Springs, NY",
   description:
-    "Shop single and tandem portable garages in Hudson Falls, NY. Perfect for vehicles, equipment, and workshop space. Multiple sizes, finishes, and rent-to-own options available.",
+    "Shop single & tandem portable garages near Saratoga Springs, NY. Perfect for vehicles, equipment & workshop space. Free delivery within 30 miles & rent-to-own available.",
   path: "/portable-garages",
 });
 

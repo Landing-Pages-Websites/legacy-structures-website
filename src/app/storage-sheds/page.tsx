@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Storage Sheds for Sale in Hudson Falls, NY",
+  title: "Storage Sheds in Washington County, NY",
   description:
-    "Shop utility sheds, metal sheds, single-slope sheds, and dormer sheds at Legacy Structures in Hudson Falls, NY. Quality construction, multiple sizes, rent-to-own available.",
+    "Shop utility sheds, dormer sheds & metal sheds in Washington County, NY. Quality LP SmartSide siding, free delivery within 30 miles & rent-to-own financing. Browse designs today!",
   path: "/storage-sheds",
 });
 
