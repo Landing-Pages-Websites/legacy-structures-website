@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { buildings, getInventoryFallbackImage } from "@/data/buildings";
 import { siteAssets } from "@/lib/site-assets";
+import { ALL_MODEL_TYPES } from "@/lib/model-routes";
 
 const parsePrice = (s: string | undefined): number => {
   if (!s) return 0;
@@ -35,6 +36,7 @@ const STATIC_INVENTORY: InventoryItem[] = buildings
     image: b.image,
     designTemplate: String(b.designerTemplate),
     notes: "",
+    buildingMaterial: "",
   }));
 
 /* ------------------------------------------------------------------ */
@@ -61,6 +63,7 @@ interface InventoryItem {
   image: string;
   designTemplate: string;
   notes: string;
+  buildingMaterial: string;
 }
 
 // inventoryItems is now state — starts from static data, replaced by Supabase on load
@@ -71,20 +74,7 @@ interface InventoryItem {
 
 const WIDTH_OPTIONS = [8, 10, 12, 14];
 const LENGTH_OPTIONS = [8, 12, 14, 16, 20, 24, 32, 40];
-const BUILDING_TYPE_OPTIONS = [
-  "Animal Shelter",
-  "Chicken Coop",
-  "Gable Dormer",
-  "Lofted Barn",
-  "Lofted Garage",
-  "Lofted Playhouse Cabin",
-  "Mini Barn",
-  "Single Slope",
-  "Utility Dormer",
-  "Utility Garage",
-  "Utility Playhouse Cabin",
-  "Utility Shed",
-];
+const BUILDING_TYPE_OPTIONS = ALL_MODEL_TYPES;
 const SIDING_COLOR_OPTIONS = [
   "Barn White",
   "Beige",
@@ -370,6 +360,21 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
                 </span>{" "}
                 {item.roofColor}
               </li>
+              {item.buildingMaterial && (
+                <li style={{ marginBottom: "10px", fontWeight: "bold" }}>
+                  <span
+                    style={{
+                      color: "#194b7d",
+                      fontWeight: "bold",
+                      minWidth: "75px",
+                      display: "inline-block",
+                    }}
+                  >
+                    Material:
+                  </span>{" "}
+                  {item.buildingMaterial}
+                </li>
+              )}
               <li
                 style={{
                   marginBottom: "10px",
@@ -539,6 +544,7 @@ export default function InventoryPage() {
             image: String(item.image_url ?? ""),
             designTemplate: String(item.designer_template ?? "25"),
             notes: String(item.notes ?? ""),
+            buildingMaterial: String(item.building_material ?? ""),
           };
         });
         setInventoryItems(mapped);

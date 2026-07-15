@@ -56,6 +56,7 @@ export async function GET() {
       image_url: b.image,
       designer_template: b.designerTemplate,
       sort_order: 0,
+      building_material: "",
     }));
 
   return NextResponse.json(staticItems);

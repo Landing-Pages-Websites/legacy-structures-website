@@ -33,6 +33,7 @@ interface BuildingData {
   image: string;
   designerTemplate: number;
   notes: string;
+  buildingMaterial: string;
 }
 
 // Try buildings.ts first; fall back to Supabase for admin-created items.
@@ -74,6 +75,7 @@ async function getBuildingData(slug: string): Promise<BuildingData | null> {
       ),
       designerTemplate: Number(db?.designer_template ?? s.designerTemplate),
       notes: String(db?.notes ?? ""),
+      buildingMaterial: String(db?.building_material ?? ""),
     };
   }
 
@@ -95,6 +97,7 @@ async function getBuildingData(slug: string): Promise<BuildingData | null> {
       image: String(db.image_url ?? "") || "/logo.png",
       designerTemplate: Number(db.designer_template ?? 25),
       notes: String(db.notes ?? ""),
+      buildingMaterial: String(db.building_material ?? ""),
     };
   }
 
@@ -206,6 +209,9 @@ export default async function BuildingPage({
     { label: "Wall", value: building.wallColor },
     { label: "Trim", value: building.trimColor },
     { label: "Roof", value: building.roofColor },
+    ...(building.buildingMaterial
+      ? [{ label: "Material", value: building.buildingMaterial }]
+      : []),
     { label: "Inv #", value: building.inventoryNumber },
   ];
 

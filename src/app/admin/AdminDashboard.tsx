@@ -46,6 +46,7 @@ interface InventoryItem {
   designer_template: number;
   sort_order: number;
   notes: string;
+  building_material: string;
 }
 
 type FormState = Omit<InventoryItem, "id">;
@@ -69,6 +70,32 @@ const EMPTY_FORM: FormState = {
   designer_template: 25,
   sort_order: 0,
   notes: "",
+  building_material: "",
+};
+
+const MATERIAL_OPTIONS = ["Metal", "Wood", "Vinyl"] as const;
+
+const parseCurrency = (value: string | null): number => {
+  if (!value) return 0;
+  return Number.parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
+};
+
+const formatCurrency = (amount: number): string =>
+  `${amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })} +tax`;
+
+const calculateRto = (price: string): Pick<FormState, "rto_36" | "rto_48"> => {
+  const amount = parseCurrency(price);
+  return amount > 0
+    ? {
+        rto_36: formatCurrency(amount / 21.6),
+        rto_48: formatCurrency(amount / 25.44),
+      }
+    : { rto_36: "", rto_48: "" };
 };
 
 const cx = (...classes: Array<string | false | undefined>) =>
@@ -182,7 +209,8 @@ export default function AdminDashboard() {
       const res = await fetch("/api/admin/inventory");
       if (res.status === 401) { router.push("/admin/login"); return; }
       if (!res.ok) throw new Error("Failed to load inventory");
-      setItems(await res.json());
+      const rows: InventoryItem[] = await res.json();
+      setItems(rows.map((item) => ({ ...item, building_material: item.building_material ?? "" })));
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -213,7 +241,11 @@ export default function AdminDashboard() {
 
   const openEdit = (item: InventoryItem) => {
     setEditItem(item);
-    setForm({ ...item });
+    setForm({
+      ...item,
+      building_material: item.building_material ?? "",
+      ...calculateRto(item.cash_price),
+    });
     setShowForm(true);
   };
 
@@ -229,6 +261,22 @@ export default function AdminDashboard() {
     }));
   };
 
+  const handleCashPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const cashPrice = e.target.value;
+    setForm((current) => ({
+      ...current,
+      cash_price: cashPrice,
+      ...calculateRto(cashPrice),
+    }));
+  };
+
+  const formatPriceField = (field: "cash_price" | "sale_price") => {
+    setForm((current) => {
+      const amount = parseCurrency(current[field]);
+      return amount > 0 ? { ...current, [field]: formatCurrency(amount) } : current;
+    });
+  };
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -238,7 +286,9 @@ export default function AdminDashboard() {
       const fd = new FormData();
       fd.append("file", file);
       const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-      const body = await res.json();
+      const body = await res.json().catch(() => ({
+        error: "The photo could not be uploaded. Please try a smaller photo.",
+      }));
       if (!res.ok) throw new Error(body.error ?? "Upload failed");
       setForm((f) => ({ ...f, image_url: body.url }));
     } catch (e) {
@@ -647,7 +697,7 @@ export default function AdminDashboard() {
                 <div className={styles.itemDetails}>
                   <div className={styles.itemType}>{item.model_type}</div>
                   <div className={styles.itemMeta}>
-                    {item.size} &bull; {item.wall_color} / {item.trim_color} / {item.roof_color}
+                    {item.size}{item.building_material ? ` • ${item.building_material}` : ""} &bull; {item.wall_color} / {item.trim_color} / {item.roof_color}
                   </div>
                   <div className={styles.itemNumber}>#{item.inventory_number}</div>
                 </div>
@@ -735,6 +785,25 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
+              <fieldset className={styles.materialBox}>
+                <legend className={styles.label}>Building Material</legend>
+                <div className={styles.materialOptions}>
+                  {MATERIAL_OPTIONS.map((material) => (
+                    <label key={material} className={styles.materialLabel}>
+                      <input
+                        type="radio"
+                        name="building_material"
+                        value={material}
+                        checked={form.building_material === material}
+                        onChange={handleChange}
+                        className={styles.checkbox}
+                      />
+                      <span>{material}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
               {/* Row 3: Colors */}
               <div className={styles.gridThree}>
                 <div>
@@ -755,7 +824,7 @@ export default function AdminDashboard() {
               <div className={styles.gridTwo}>
                 <div>
                   <label htmlFor="f-cash" className={styles.label}>Cash Price *</label>
-                  <input id="f-cash" name="cash_price" value={form.cash_price} onChange={handleChange} required placeholder="e.g. $5,500.00 +tax" className={styles.input} />
+                  <input id="f-cash" name="cash_price" value={form.cash_price} onChange={handleCashPriceChange} onBlur={() => formatPriceField("cash_price")} inputMode="decimal" required placeholder="e.g. $5,500.00 +tax" className={styles.input} />
                 </div>
                 <div>
                   <label htmlFor="f-inv" className={styles.label}>Inventory Number</label>
@@ -772,7 +841,7 @@ export default function AdminDashboard() {
                 {form.is_on_sale && (
                   <div className={styles.salePriceField}>
                     <label htmlFor="f-sale" className={styles.label}>Sale Price</label>
-                    <input id="f-sale" name="sale_price" value={form.sale_price ?? ""} onChange={(e) => setForm((f) => ({ ...f, sale_price: e.target.value }))} placeholder="e.g. $4,950.00 +tax" className={styles.input} />
+                    <input id="f-sale" name="sale_price" value={form.sale_price ?? ""} onChange={(e) => setForm((f) => ({ ...f, sale_price: e.target.value }))} onBlur={() => formatPriceField("sale_price")} inputMode="decimal" placeholder="e.g. $4,950.00 +tax" className={styles.input} />
                   </div>
                 )}
               </div>
@@ -781,13 +850,14 @@ export default function AdminDashboard() {
               <div className={styles.gridTwo}>
                 <div>
                   <label htmlFor="f-rto36" className={styles.label}>36-Mo RTO</label>
-                  <input id="f-rto36" name="rto_36" value={form.rto_36} onChange={handleChange} placeholder="e.g. $229.17 +tax" className={styles.input} />
+                  <input id="f-rto36" name="rto_36" value={form.rto_36} readOnly aria-describedby="rto-help" className={cx(styles.input, styles.readOnlyInput)} />
                 </div>
                 <div>
                   <label htmlFor="f-rto48" className={styles.label}>48-Mo RTO</label>
-                  <input id="f-rto48" name="rto_48" value={form.rto_48} onChange={handleChange} placeholder="e.g. $206.25 +tax" className={styles.input} />
+                  <input id="f-rto48" name="rto_48" value={form.rto_48} readOnly aria-describedby="rto-help" className={cx(styles.input, styles.readOnlyInput)} />
                 </div>
               </div>
+              <p id="rto-help" className={styles.helpText}>Calculated automatically from the cash price.</p>
 
               {/* Image — upload or paste URL */}
               <div>
