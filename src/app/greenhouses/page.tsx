@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Greenhouses for Sale | Hudson Falls, NY",
   description:
-    "Grow herbs, vegetables, and flowers year-round in a fully assembled, climate-controlled greenhouse. Delivered and leveled on-site in Hudson Falls, NY. 8x12 and 8x16 sizes available.",
+    "Shop greenhouses at Legacy Structures in Hudson Falls, NY. Clear polycarbonate roof, auto vent opener, potting shelf, and LP siding. Fully assembled. Sizes: 8x12 and 8x16.",
   path: "/greenhouses",
 });
 

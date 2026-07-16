@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Chicken Coops for Sale | Hudson Falls, NY",
   description:
-    "Safe, practical, and affordable chicken coops for backyard poultry keeping. Delivered fully assembled to Hudson Falls, NY and surrounding areas. Multiple sizes available.",
+    "Chicken coops at Legacy Structures in Hudson Falls, NY. 6 nesting boxes with exterior hatch, roosting ladder, and chicken door. Fully assembled delivery. Get your free pricing guide.",
   path: "/chicken-coops",
 });
 

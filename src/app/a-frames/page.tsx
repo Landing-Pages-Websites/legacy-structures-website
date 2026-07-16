@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import styles from "./AFramesPage.module.css";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Summit Peaks A-Frames | Pre-Built A-Frame Cabins",
+  title: "A-Frame Cabins for Sale | Hudson Falls, NY",
   description:
-    "Build your dream getaway with Legacy Structures' Summit Peaks A-Frames. Pre-built shells or fully finished turnkey units with electrical, plumbing, and climate control. Delivered to NY, VT, NH, CT and surrounding areas.",
+    "Shop pre-built a-frame cabins at Legacy Structures in Hudson Falls, NY. Shell or turnkey units, custom sizes up to 14\u00d740, and free delivery within 30 miles. Get your free pricing guide today.",
   path: "/a-frames",
 });
 
