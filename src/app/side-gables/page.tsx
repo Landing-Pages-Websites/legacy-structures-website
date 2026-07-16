@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Side Gable Buildings | Hudson Falls, NY",
   description:
-    "Side gable storage buildings — a smart side-entry alternative with the roof gable running the length of the structure. Multiple sizes available in Hudson Falls, NY.",
+    "Side gable storage sheds at Legacy Structures in Hudson Falls, NY. Roof gable runs the building length for extra headroom. Custom siding and colors. Free delivery within 30 miles.",
   path: "/side-gables",
 });
 
