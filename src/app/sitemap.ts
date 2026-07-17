@@ -3,7 +3,7 @@ import { buildings } from "@/data/buildings";
 import { BRAND, MODEL_LINKS } from "@/lib/constants";
 import blogPosts from "@/data/blog-posts";
 
-const LAST_MODIFIED = new Date("2026-07-10");
+const LAST_MODIFIED = new Date("2026-07-17");
 
 const STATIC_ROUTES: {
   path: string;
