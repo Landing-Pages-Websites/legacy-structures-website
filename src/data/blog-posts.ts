@@ -748,7 +748,7 @@ Choosing between a portable cabin vs tiny house often comes down to the total co
   {
     slug: "how-to-prepare-your-property-for-shed-delivery",
     title: "How to Prepare Your Property for Shed Delivery: A Complete Guide",
-    metaTitle: "Prepare Your Property for Shed Delivery | Legacy Structures",
+    metaTitle: "Prepare Your Property for Shed Delivery",
     description:
       "Call 518-544-2889 to prepare your property for shed delivery. Learn about site prep, foundations, clearance, permits, and smooth delivery day steps.",
     image: "/images/blog/how-to-prepare-your-property-for-shed-delivery-featured.webp",
