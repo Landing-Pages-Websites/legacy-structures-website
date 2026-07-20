@@ -21,9 +21,58 @@ export const metadata: Metadata = createPageMetadata({
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-mini-barn",
+      "name": "Legacy Structures Mini Barn",
+      "description": "Compact backyard barn with 4ft sidewalls, iconic barn-style roof, available in sizes 8x8 through 12x24 with T1-11 or LP SmartPanel siding.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 12,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/backyard-barns"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-lofted-barn",
+      "name": "Legacy Structures Lofted Barn",
+      "description": "Backyard barn with 6ft 3in sidewalls and overhead lofted storage, available in sizes 8x8 through 12x24 with T1-11 or LP SmartPanel siding.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 12,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/backyard-barns"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-metal-lofted-barn",
+      "name": "Legacy Structures Metal Lofted Barn",
+      "description": "Cost-effective metal-sided lofted barn with 6ft sidewalls and up to 8ft of loft storage, available in sizes 8x8 through 12x28 with 29-gauge steel siding.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 13,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/backyard-barns"
+      }
+    }
+  ]
+};
+
 export default function BackyardBarnsPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <PageHero
         title="Backyard Barns"
         subtitle="Classic barn-style storage with lofted or mini options. Built in Hudson Falls, NY."

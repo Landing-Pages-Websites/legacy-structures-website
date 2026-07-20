@@ -35,9 +35,97 @@ const DELUXE_CABIN_SIZES = [
   { label: "16' WIDE", sizes: ["16x24", "16x28", "16x32", "16x36", "16x40"] },
 ];
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-utility-side-porch-cabin",
+      "name": "Legacy Structures Utility Side Porch Cabin",
+      "description": "Prefab cabin with 8ft sidewalls, 4ft porch, 9-lite door, available in sizes 8x10 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 19,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-cabins"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-lofted-side-porch-cabin",
+      "name": "Legacy Structures Lofted Side Porch Cabin",
+      "description": "Prefab cabin with overhead loft storage, 4ft porch, 9-lite door, available in sizes 8x10 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 19,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-cabins"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-utility-playhouse-cabin",
+      "name": "Legacy Structures Utility Playhouse Cabin",
+      "description": "Prefab cabin with 8ft sidewalls, 4ft porch, house-style door, 3 windows, available in sizes 8x10 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 19,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-cabins"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-lofted-playhouse-cabin",
+      "name": "Legacy Structures Lofted Playhouse Cabin",
+      "description": "Prefab cabin with overhead loft storage, 4ft porch, house-style door, 3 windows, available in sizes 8x10 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 19,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-cabins"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-deluxe-utility-cabin",
+      "name": "Legacy Structures Deluxe Utility Cabin",
+      "description": "Prefab cabin with 8ft sidewalls, 8ft porch, bay windows, available in sizes 12x24 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 12,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-cabins"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-deluxe-lofted-cabin",
+      "name": "Legacy Structures Deluxe Lofted Cabin",
+      "description": "Prefab cabin with overhead loft storage, 8ft porch, bay windows, available in sizes 12x24 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 12,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-cabins"
+      }
+    }
+  ]
+};
+
 export default function PortableCabinsPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <PageHero
         title="Portable Cabins"
         subtitle="Home office, hunting cabin, she-shed, or tiny home — our cabins are a blank canvas."
