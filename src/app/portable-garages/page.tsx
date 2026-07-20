@@ -28,9 +28,45 @@ const GARAGE_SIZES = [
   { label: "16' WIDE", sizes: ["16x24", "16x28", "16x32", "16x36", "16x40"] },
 ];
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-utility-garage",
+      "name": "Legacy Structures Utility Garage",
+      "description": "Portable utility garage with 8ft sidewalls, house-style door, 2x3 window, available in sizes 10x10 through 16x40 with T1-11 or LP SmartPanel siding.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 26,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-garages"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-lofted-garage",
+      "name": "Legacy Structures Lofted Garage",
+      "description": "Portable garage with overhead loft storage, house-style door, 2x3 window, available in sizes 10x10 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 26,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/portable-garages"
+      }
+    }
+  ]
+};
+
 export default function PortableGaragesPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <PageHero
         title="Portable Garages"
         subtitle="Protect your vehicles and equipment with a custom-built portable garage."

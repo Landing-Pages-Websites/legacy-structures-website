@@ -20,9 +20,32 @@ export const metadata: Metadata = createPageMetadata({
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-double-wide-garage",
+      "name": "Legacy Structures Double Wide Garage",
+      "description": "Spacious double-wide garage delivered in two halves and joined on-site, with 12in OC floor joists, 3/4in treated flooring, available in sizes 24x24 through 24x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 6,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/double-wide-garages"
+      }
+    }
+  ]
+};
+
 export default function DoubleWideGaragesPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <PageHero
         title="Double Wide Garages"
         subtitle="Serious space for vehicles, tools, and projects — delivered in two halves."

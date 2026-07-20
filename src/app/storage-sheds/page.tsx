@@ -21,9 +21,84 @@ export const metadata: Metadata = createPageMetadata({
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-utility-shed",
+      "name": "Legacy Structures Utility Shed",
+      "description": "Versatile utility shed with up to 8ft sidewalls, available in T1-11 or LP SmartPanel siding, in sizes from 8x8 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 21,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/storage-sheds"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-metal-shed",
+      "name": "Legacy Structures Metal Shed",
+      "description": "Cost-effective metal storage shed with 29-gauge steel siding, 6ft sidewalls, available in sizes 8x12 through 12x32.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 12,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/storage-sheds"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-single-slope-shed",
+      "name": "Legacy Structures Single Slope Shed",
+      "description": "Lean-to roof design shed with engineered certification, available in sizes 8x12 through 16x40 with T1-11 or LP SmartPanel siding.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 17,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/storage-sheds"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-utility-dormer-shed",
+      "name": "Legacy Structures Utility Dormer Shed",
+      "description": "Utility shed with dormer windows for natural light, 7ft sidewalls, available in sizes 8x12 through 12x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 15,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/storage-sheds"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://legacystructuresusa.com/#product-gable-dormer-shed",
+      "name": "Legacy Structures Gable Dormer Shed",
+      "description": "Utility shed with gable dormer design for added style and natural light, available in sizes 8x12 through 16x40.",
+      "brand": { "@id": "https://legacystructuresusa.com/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 18,
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.legacystructuresusa.com/storage-sheds"
+      }
+    }
+  ]
+};
+
 export default function StorageShedsPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <PageHero
         title="Storage Sheds"
         subtitle="High-quality storage sheds built to last. Customizable siding, roofing, and sizes."
