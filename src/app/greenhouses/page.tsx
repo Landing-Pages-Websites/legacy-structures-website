@@ -7,6 +7,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
+import ProductSchema from "@/components/ProductSchema";
 import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -100,6 +101,13 @@ export default function GreenhousesPage() {
         <DesignerCTA />
         <PricingGuideSection />
       </div>
+      <ProductSchema
+        name="Greenhouses"
+        description="Year-round growing in climate-controlled greenhouses with clear polycarbonate roof, auto vent opener, and LP Smart Siding. Sizes: 8x12 and 8x16."
+        image="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-Greenhouses-Body.jpg"
+        url="https://www.legacystructuresusa.com/greenhouses"
+        price="$3,500+"
+      />
     </div>
   );
 }

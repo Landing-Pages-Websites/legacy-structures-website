@@ -10,6 +10,7 @@ import FadeIn from "@/components/FadeIn";
 import ProductSection from "@/components/ProductSection";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "./AFramesPage.module.css";
+import ProductSchema from "@/components/ProductSchema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "A-Frame Cabins for Sale | Hudson Falls, NY",
@@ -250,6 +251,13 @@ export default function AFramesPage() {
         <DesignerCTA />
         <PricingGuideSection />
       </div>
+      <ProductSchema
+        name="Summit Peaks A-Frame Cabins"
+        description="Pre-built A-frame cabins available as unfinished shell or fully finished turnkey unit. Custom sizes up to 14x40 with premium white pine siding."
+        image="https://www.legacystructuresusa.com/images/optimized-assets/a-frames/hero.webp"
+        url="https://www.legacystructuresusa.com/a-frames"
+        price="$10,000+"
+      />
     </div>
   );
 }
