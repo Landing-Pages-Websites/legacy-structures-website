@@ -19,7 +19,16 @@ export default function ProductSchema({
   availability = "https://schema.org/InStock",
   brandName = "Legacy Structures",
 }: ProductSchemaProps) {
-  const jsonLd = {
+  // Sanitize price to clean numeric value for schema.org
+  const sanitizePrice = (val: string): string =>
+    val.replace(/[$,\s+]/g, "");
+
+  const lowPrice = sanitizePrice(price.split("-")[0]?.trim() || price);
+  const highPrice = price.includes("-")
+    ? sanitizePrice(price.split("-")[1]?.trim())
+    : undefined;
+
+  const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name,
@@ -33,16 +42,14 @@ export default function ProductSchema({
     offers: {
       "@type": "AggregateOffer",
       priceCurrency,
-      lowPrice: price.split("-")[0]?.trim() || price,
-      highPrice: price.includes("-") ? price.split("-")[1]?.trim() : undefined,
+      lowPrice,
       availability,
       url,
     },
   };
 
-  // Remove undefined highPrice
-  if (!jsonLd.offers.highPrice) {
-    delete jsonLd.offers.highPrice;
+  if (highPrice) {
+    (jsonLd.offers as Record<string, unknown>).highPrice = highPrice;
   }
 
   return (
