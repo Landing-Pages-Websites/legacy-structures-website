@@ -7,6 +7,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
+import ProductSchema from "@/components/ProductSchema";
 import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -102,6 +103,13 @@ export default function SideGablesPage() {
         <DesignerCTA />
         <PricingGuideSection />
       </div>
+      <ProductSchema
+        name="Side Gable Buildings"
+        description="Side-entry storage sheds with roof gable running the building length for extra headroom. Custom siding, roofing, and colors. Sizes up to 12x24."
+        image="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-SideGables-Body.png"
+        url="https://www.legacystructuresusa.com/side-gables"
+        price="$3,000+"
+      />
     </div>
   );
 }

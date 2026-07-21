@@ -7,6 +7,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
+import ProductSchema from "@/components/ProductSchema";
 import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -101,6 +102,13 @@ export default function ChickenCoopsPage() {
         <DesignerCTA />
         <PricingGuideSection />
       </div>
+      <ProductSchema
+        name="Chicken Coops"
+        description="Safe, practical, and affordable backyard chicken coops with 6 nesting boxes, exterior hatch, roosting ladder, and chicken door. Available in 6ft and 8ft widths."
+        image="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-ChickenCoops-Body.png"
+        url="https://www.legacystructuresusa.com/chicken-coops"
+        price="$2,964+"
+      />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import ProductSection from "@/components/ProductSection";
 import { createPageMetadata } from "@/lib/metadata";
+import ProductSchema from "@/components/ProductSchema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Log Cabins for Sale | Hudson Falls, NY",
@@ -268,6 +269,13 @@ export default function LogCabinsPage() {
         <DesignerCTA />
         <PricingGuideSection />
       </div>
+      <ProductSchema
+        name="Log Cabins"
+        description="Pre-built log cabins with authentic butt-and-pass log corner construction. Multiple series available: Redwood, Bear Lake, Timber Trail, Appalachian, and Doublewide."
+        image="https://www.legacystructuresusa.com/images/optimized-assets/log-cabins/bear-lake.webp"
+        url="https://www.legacystructuresusa.com/log-cabins"
+        price="$7,000+"
+      />
     </div>
   );
 }
