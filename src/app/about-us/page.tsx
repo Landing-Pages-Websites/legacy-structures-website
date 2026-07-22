@@ -6,9 +6,9 @@ import FadeIn from "@/components/FadeIn";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "About Legacy Structures | Hudson Falls Shed Builder",
+  title: "About Legacy Structures | Family-Owned Shed & Barn Dealer",
   description:
-    "Legacy Structures is a family-owned business in Hudson Falls, NY, crafting high-quality sheds and outdoor storage solutions built to last. We have succeeded by providing our customers with dependable storage solutions and a quality buying experience.",
+    "Legacy Structures is a family-owned shed & barn dealer in Hudson Falls, NY, owned by Stephen Kanagy. 5-year warranty & free delivery within 30 miles.",
   path: "/about-us",
 });
 
