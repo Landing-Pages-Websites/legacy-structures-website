@@ -1,3 +1,5 @@
+import threeDShedConfigurator from "./three-d-shed-configurator";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -12,6 +14,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  threeDShedConfigurator,
   {
     slug: "best-uses-for-a-backyard-barn-workshop-she-shed-and-more",
     title: "Best Uses for a Backyard Barn: Workshop, She-Shed and More",
