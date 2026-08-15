@@ -9,6 +9,7 @@ import SiteMotion from "@/components/SiteMotion";
 import MegaTag from "@/components/analytics/MegaTag";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import PostHogProvider from "@/components/analytics/PostHogProvider";
+import LeadAttribution from "@/components/analytics/LeadAttribution";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 
 const inter = Inter({
@@ -151,6 +152,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <PostHogProvider>
+          <LeadAttribution />
           <BreadcrumbSchema />
           <Header />
           <main>{children}</main>

@@ -5,7 +5,7 @@ import { sendMegaLead } from "@/lib/megaLead";
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const { firstName, lastName, email, phone, state, comments } = await request.json();
+  const { firstName, lastName, email, phone, state, comments, leadContext } = await request.json();
 
   try {
     await resend.emails.send({
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       `,
     });
     // Forward to MEGA Keystone lead store (website lead). Non-blocking.
-    await sendMegaLead({ firstName, lastName, email, phone, state, comments });
+    await sendMegaLead({ firstName, lastName, email, phone, state, comments }, leadContext);
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });

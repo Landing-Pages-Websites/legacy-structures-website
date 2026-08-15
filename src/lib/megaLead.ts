@@ -3,6 +3,8 @@
 // This runs IN ADDITION to the existing Resend email — a Keystone failure must
 // never break the form's existing success behavior (fire-and-log).
 
+import type { LeadContext } from "@/lib/megaLeadContext";
+
 const MEGA_SUBMISSION_ENDPOINT = "https://analytics.gomega.ai/submission/submit";
 
 // MEGA identifiers for Legacy Structures (from go-live provisioning §3).
@@ -22,13 +24,24 @@ export interface MegaLeadFormData {
  * Forward a successful lead submission to the MEGA Keystone lead store.
  * Non-blocking and non-throwing: logs on failure and returns, so the caller's
  * existing success/redirect path is never affected.
+ *
+ * `leadContext` is the attribution captured in the browser at submit time and
+ * relayed through the site's own API route. It is optional so a stale client
+ * bundle that posts without it still produces a lead, just an unattributed one.
  */
-export async function sendMegaLead(formData: MegaLeadFormData): Promise<void> {
+export async function sendMegaLead(
+  formData: MegaLeadFormData,
+  leadContext?: Partial<LeadContext>
+): Promise<void> {
   try {
     const res = await fetch(MEGA_SUBMISSION_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        ...leadContext,
+        // Identity and form fields are stamped after the spread: leadContext
+        // arrives from the request body, so it must never be able to overwrite
+        // which customer, site or source this lead belongs to.
         customer_id: MEGA_CUSTOMER_ID,
         site_id: MEGA_SITE_ID,
         source_provider: MEGA_SOURCE_PROVIDER,
