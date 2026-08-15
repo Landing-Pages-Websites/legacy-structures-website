@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   const {
     firstName, lastName, email, phone,
     buildingType, buildingSize, sidingOption, roofOption,
-    zipCode, state, message,
+    zipCode, state, message, leadContext,
   } = await request.json();
 
   try {
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     await sendMegaLead({
       firstName, lastName, email, phone,
       buildingType, buildingSize, sidingOption, roofOption, zipCode, state, message,
-    });
+    }, leadContext);
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });

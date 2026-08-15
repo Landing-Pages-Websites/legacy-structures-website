@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, FormEvent } from "react";
 import { siteAssets } from "@/lib/site-assets";
+import { captureLeadContext } from "@/lib/megaLeadContext";
 
 const STATES_PROVINCES = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -35,7 +36,9 @@ export default function PricingGuideSection() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("/api/pricing-guide", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      // Attribution has to be read here, at submit time, because it only exists
+      // in the browser. The route relays it to the Keystone lead.
+      const res = await fetch("/api/pricing-guide", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...formData, leadContext: captureLeadContext() }) });
       setStatus(res.ok ? "success" : "error");
     } catch {
       setStatus("error");
