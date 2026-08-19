@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "yfjpgzqxabrafsllxjvz.supabase.co",
       },
+      {
+        protocol: "https",
+        hostname: "zleague-public-prod.s3.us-east-2.amazonaws.com",
+      },
     ],
   },
   async redirects() {
