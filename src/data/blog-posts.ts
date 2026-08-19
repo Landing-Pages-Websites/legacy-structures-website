@@ -1,4 +1,5 @@
 import threeDShedConfigurator from "./three-d-shed-configurator";
+import chickenCoopGuide from "./chicken-coop-guide";
 
 export interface BlogPost {
   slug: string;
@@ -14,6 +15,8 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+
+  chickenCoopGuide,
 
   {
     slug: "how-to-choose-a-greenhouse",
