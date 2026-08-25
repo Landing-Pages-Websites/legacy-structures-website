@@ -1,5 +1,6 @@
 import threeDShedConfigurator from "./three-d-shed-configurator";
 import chickenCoopGuide from "./chicken-coop-guide";
+import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 
 export interface BlogPost {
   slug: string;
@@ -16,6 +17,7 @@ export interface BlogPost {
 
 const blogPosts: BlogPost[] = [
 
+  rentToOwnShedsNoCreditCheck,
   chickenCoopGuide,
 
   {
