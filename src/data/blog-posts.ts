@@ -3,6 +3,7 @@ import chickenCoopGuide from "./chicken-coop-guide";
 import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 import automatedChickenTractorGuide from "./automated-chicken-tractor-guide";
 import backyardBarnIdeas from "./backyard-barn-ideas";
+import backyardGreenhouseForSale from "./backyard-greenhouse-for-sale";
 
 export interface BlogPost {
   slug: string;
@@ -23,6 +24,7 @@ const blogPosts: BlogPost[] = [
   chickenCoopGuide,
   automatedChickenTractorGuide,
   backyardBarnIdeas,
+  backyardGreenhouseForSale,
 
   {
     slug: "how-to-choose-a-greenhouse",
