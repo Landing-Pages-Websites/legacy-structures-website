@@ -6,6 +6,15 @@ import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { createPageMetadata } from "@/lib/metadata";
 
+function formatPostDate(date: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
 export const metadata: Metadata = createPageMetadata({
   title: "Blog | Legacy Structures",
   description:
@@ -86,7 +95,7 @@ export default function BlogIndexPage() {
                       fontFamily: "var(--font-poppins)",
                     }}
                   >
-                    {post.date} &middot; By {post.author}
+                    <time dateTime={post.date}>{formatPostDate(post.date)}</time> &middot; By {post.author}
                   </p>
                   <h2
                     style={{

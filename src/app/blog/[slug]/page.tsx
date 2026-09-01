@@ -5,6 +5,15 @@ import type { Metadata } from "next";
 import blogPosts from "@/data/blog-posts";
 import { absoluteUrl } from "@/lib/metadata";
 
+function formatPostDate(date: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -70,7 +79,7 @@ export default async function BlogPostPage({ params }: Props) {
               margin: "0 0 8px",
             }}
           >
-            {post.date} &middot; By {post.author}
+            <time dateTime={post.date}>{formatPostDate(post.date)}</time> &middot; By {post.author}
           </p>
           <h1
             style={{
