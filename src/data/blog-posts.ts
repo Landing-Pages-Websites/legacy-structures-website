@@ -7,6 +7,7 @@ import backyardGreenhouseForSale from "./backyard-greenhouse-for-sale";
 import howMuchDoesAShedCostInNewYork from "./how-much-does-a-shed-cost-in-new-york";
 import backyardOfficeShedBuilder from "./backyard-office-shed-builder";
 import benefitsOfLoftedBarn from "./benefits-of-lofted-barn";
+import bestPrebuiltStorageSheds from "./best-prebuilt-storage-sheds";
 
 export interface BlogPost {
   slug: string;
@@ -31,6 +32,7 @@ const blogPosts: BlogPost[] = [
   howMuchDoesAShedCostInNewYork,
   backyardOfficeShedBuilder,
   benefitsOfLoftedBarn,
+  bestPrebuiltStorageSheds,
 
   {
     slug: "how-to-choose-a-greenhouse",
