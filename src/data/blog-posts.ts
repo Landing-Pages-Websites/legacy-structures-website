@@ -9,6 +9,7 @@ import backyardOfficeShedBuilder from "./backyard-office-shed-builder";
 import benefitsOfLoftedBarn from "./benefits-of-lofted-barn";
 import bestPrebuiltStorageSheds from "./best-prebuilt-storage-sheds";
 import buyABackyardBarn from "./buy-a-backyard-barn";
+import buyOutdoorStorageShed from "./buy-outdoor-storage-shed";
 
 export interface BlogPost {
   slug: string;
@@ -35,6 +36,7 @@ const blogPosts: BlogPost[] = [
   benefitsOfLoftedBarn,
   bestPrebuiltStorageSheds,
   buyABackyardBarn,
+  buyOutdoorStorageShed,
 
   {
     slug: "how-to-choose-a-greenhouse",
