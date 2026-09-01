@@ -4,6 +4,7 @@ import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 import automatedChickenTractorGuide from "./automated-chicken-tractor-guide";
 import backyardBarnIdeas from "./backyard-barn-ideas";
 import backyardGreenhouseForSale from "./backyard-greenhouse-for-sale";
+import howMuchDoesAShedCostInNewYork from "./how-much-does-a-shed-cost-in-new-york";
 
 export interface BlogPost {
   slug: string;
@@ -25,6 +26,7 @@ const blogPosts: BlogPost[] = [
   automatedChickenTractorGuide,
   backyardBarnIdeas,
   backyardGreenhouseForSale,
+  howMuchDoesAShedCostInNewYork,
 
   {
     slug: "how-to-choose-a-greenhouse",
