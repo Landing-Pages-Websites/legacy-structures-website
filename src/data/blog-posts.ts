@@ -2,6 +2,7 @@ import threeDShedConfigurator from "./three-d-shed-configurator";
 import chickenCoopGuide from "./chicken-coop-guide";
 import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 import automatedChickenTractorGuide from "./automated-chicken-tractor-guide";
+import backyardBarnIdeas from "./backyard-barn-ideas";
 
 export interface BlogPost {
   slug: string;
@@ -21,6 +22,7 @@ const blogPosts: BlogPost[] = [
   rentToOwnShedsNoCreditCheck,
   chickenCoopGuide,
   automatedChickenTractorGuide,
+  backyardBarnIdeas,
 
   {
     slug: "how-to-choose-a-greenhouse",
