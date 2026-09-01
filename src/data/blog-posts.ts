@@ -18,9 +18,9 @@ export interface BlogPost {
 
 const blogPosts: BlogPost[] = [
 
-  automatedChickenTractorGuide,
   rentToOwnShedsNoCreditCheck,
   chickenCoopGuide,
+  automatedChickenTractorGuide,
 
   {
     slug: "how-to-choose-a-greenhouse",
