@@ -8,6 +8,7 @@ import chickenHouseWinchGuide from "./chicken-house-winch-guide";
 import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 import automatedChickenTractorGuide from "./automated-chicken-tractor-guide";
 import chickenTractorFor50Broilers from "./chicken-tractor-for-50-broilers";
+import chickenTractorFor6Chickens from "./chicken-tractor-for-6-chickens";
 import backyardBarnIdeas from "./backyard-barn-ideas";
 import backyardGreenhouseForSale from "./backyard-greenhouse-for-sale";
 import howMuchDoesAShedCostInNewYork from "./how-much-does-a-shed-cost-in-new-york";
@@ -44,6 +45,7 @@ const blogPosts: BlogPost[] = [
   chickenHouseWinchGuide,
   automatedChickenTractorGuide,
   chickenTractorFor50Broilers,
+  chickenTractorFor6Chickens,
   backyardBarnIdeas,
   backyardGreenhouseForSale,
   howMuchDoesAShedCostInNewYork,
