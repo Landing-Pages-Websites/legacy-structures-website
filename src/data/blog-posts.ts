@@ -24,6 +24,7 @@ import costOfALoftedGarage from "./cost-of-a-lofted-garage";
 import howToPrepareGroundForAShedOnSkids from "./how-to-prepare-ground-for-a-shed-on-skids";
 import customShedDesignIdeas from "./custom-shed-design-ideas";
 import largeWalkInChickenCoop from "./large-walk-in-chicken-coop";
+import loftedGarageDesignIdeas from "./lofted-garage-design-ideas";
 
 export interface BlogPost {
   slug: string;
@@ -65,6 +66,7 @@ const blogPosts: BlogPost[] = [
   howToPrepareGroundForAShedOnSkids,
   customShedDesignIdeas,
   largeWalkInChickenCoop,
+  loftedGarageDesignIdeas,
 
   {
     slug: "how-to-choose-a-greenhouse",
