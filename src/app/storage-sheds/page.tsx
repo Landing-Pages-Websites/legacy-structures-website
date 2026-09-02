@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Storage Sheds in Washington County, NY",
+  title: "Storage Sheds for Sale Near Hudson Falls",
   description:
-    "Shop utility sheds, dormer sheds & metal sheds in Washington County, NY. Quality LP SmartSide siding, free delivery within 30 miles & rent-to-own financing. Browse designs today!",
+    "Shop storage sheds for sale near Hudson Falls, NY. Explore customizable models now, get free delivery within 30 miles, and request your shed quote today.",
   path: "/storage-sheds",
 });
 
