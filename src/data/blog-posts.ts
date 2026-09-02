@@ -3,6 +3,7 @@ import chickenCoopGuide from "./chicken-coop-guide";
 import chickenCoopStorageIdeas from "./chicken-coop-storage-ideas";
 import chickenCoopWagonGuide from "./chicken-coop-wagon-guide";
 import chickenNestingTrailerGuide from "./chicken-nesting-trailer-guide";
+import chickenShackOnWheels from "./chicken-shack-on-wheels";
 import chickenHouseWinchGuide from "./chicken-house-winch-guide";
 import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 import automatedChickenTractorGuide from "./automated-chicken-tractor-guide";
@@ -38,6 +39,7 @@ const blogPosts: BlogPost[] = [
   chickenCoopStorageIdeas,
   chickenCoopWagonGuide,
   chickenNestingTrailerGuide,
+  chickenShackOnWheels,
   chickenHouseWinchGuide,
   automatedChickenTractorGuide,
   backyardBarnIdeas,
