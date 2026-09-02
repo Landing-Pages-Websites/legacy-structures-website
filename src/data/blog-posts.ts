@@ -21,6 +21,7 @@ import buyPortableCabinGuide from "./buy-portable-cabin-guide";
 import buyPrebuiltShedOnline from "./buy-prebuilt-shed-online";
 import buySmallPrebuiltCabin from "./buy-small-prebuilt-cabin";
 import costOfALoftedGarage from "./cost-of-a-lofted-garage";
+import howToPrepareGroundForAShedOnSkids from "./how-to-prepare-ground-for-a-shed-on-skids";
 
 export interface BlogPost {
   slug: string;
@@ -59,6 +60,7 @@ const blogPosts: BlogPost[] = [
   buyPrebuiltShedOnline,
   buySmallPrebuiltCabin,
   costOfALoftedGarage,
+  howToPrepareGroundForAShedOnSkids,
 
   {
     slug: "how-to-choose-a-greenhouse",
