@@ -1,6 +1,7 @@
 import threeDShedConfigurator from "./three-d-shed-configurator";
 import chickenCoopGuide from "./chicken-coop-guide";
 import chickenCoopStorageIdeas from "./chicken-coop-storage-ideas";
+import chickenCoopWagonGuide from "./chicken-coop-wagon-guide";
 import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
 import automatedChickenTractorGuide from "./automated-chicken-tractor-guide";
 import backyardBarnIdeas from "./backyard-barn-ideas";
@@ -33,6 +34,7 @@ const blogPosts: BlogPost[] = [
   rentToOwnShedsNoCreditCheck,
   chickenCoopGuide,
   chickenCoopStorageIdeas,
+  chickenCoopWagonGuide,
   automatedChickenTractorGuide,
   backyardBarnIdeas,
   backyardGreenhouseForSale,
