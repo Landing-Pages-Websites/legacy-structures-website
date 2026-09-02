@@ -7,8 +7,6 @@ import FadeIn from "@/components/FadeIn";
 import { createPageMetadata } from "@/lib/metadata";
 
 function formatPostDate(date: string) {
-  if (date !== "2026-09-01") return date;
-
   return new Intl.DateTimeFormat("en-US", {
     month: "long",
     day: "numeric",
