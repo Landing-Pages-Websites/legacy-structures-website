@@ -36,6 +36,7 @@ import nestingBoxesInsideChickenCoop from "./nesting-boxes-inside-chicken-coop";
 import noCreditCheckCabins from "./no-credit-check-cabins";
 import portableBuildingsForSaleUpstateNewYork from "./portable-buildings-for-sale-upstate-new-york";
 import portableCabinPricesGuide from "./portable-cabin-prices-guide";
+import prefabricatedTwoCarGarage from "./prefabricated-two-car-garage";
 
 export interface BlogPost {
   slug: string;
@@ -89,6 +90,7 @@ const blogPosts: BlogPost[] = [
   noCreditCheckCabins,
   portableBuildingsForSaleUpstateNewYork,
   portableCabinPricesGuide,
+  prefabricatedTwoCarGarage,
 
   {
     slug: "how-to-choose-a-greenhouse",
