@@ -37,6 +37,7 @@ import noCreditCheckCabins from "./no-credit-check-cabins";
 import portableBuildingsForSaleUpstateNewYork from "./portable-buildings-for-sale-upstate-new-york";
 import portableCabinPricesGuide from "./portable-cabin-prices-guide";
 import prefabricatedTwoCarGarage from "./prefabricated-two-car-garage";
+import professionalShedBuildersGuide from "./professional-shed-builders-guide";
 
 export interface BlogPost {
   slug: string;
@@ -91,6 +92,7 @@ const blogPosts: BlogPost[] = [
   portableBuildingsForSaleUpstateNewYork,
   portableCabinPricesGuide,
   prefabricatedTwoCarGarage,
+  professionalShedBuildersGuide,
 
   {
     slug: "how-to-choose-a-greenhouse",
@@ -2520,4 +2522,3 @@ schema: {
 ];
 
 export default blogPosts;
-
