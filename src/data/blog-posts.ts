@@ -27,6 +27,7 @@ import largeWalkInChickenCoop from "./large-walk-in-chicken-coop";
 import loftedGarageDesignIdeas from "./lofted-garage-design-ideas";
 import loftedGarageForSale from "./lofted-garage-for-sale";
 import metalShedChickenCoop from "./metal-shed-chicken-coop";
+import mobileChickenCaravanGuide from "./mobile-chicken-caravan-guide";
 
 export interface BlogPost {
   slug: string;
@@ -71,6 +72,7 @@ const blogPosts: BlogPost[] = [
   loftedGarageDesignIdeas,
   loftedGarageForSale,
   metalShedChickenCoop,
+  mobileChickenCaravanGuide,
 
   {
     slug: "how-to-choose-a-greenhouse",
