@@ -3,6 +3,7 @@ import chickenCoopGuide from "./chicken-coop-guide";
 import chickenCoopStorageIdeas from "./chicken-coop-storage-ideas";
 import chickenCoopWagonGuide from "./chicken-coop-wagon-guide";
 import chickenNestingTrailerGuide from "./chicken-nesting-trailer-guide";
+import predatorProofChickenTractor from "./predator-proof-chicken-tractor";
 import chickenShackOnWheels from "./chicken-shack-on-wheels";
 import chickenHouseWinchGuide from "./chicken-house-winch-guide";
 import rentToOwnShedsNoCreditCheck from "./rent-to-own-sheds-no-credit-check";
@@ -51,6 +52,7 @@ export interface BlogPost {
 const blogPosts: BlogPost[] = [
 
   rentToOwnShedsNoCreditCheck,
+  predatorProofChickenTractor,
   chickenCoopGuide,
   chickenCoopStorageIdeas,
   chickenCoopWagonGuide,
