@@ -241,6 +241,8 @@ We also believe that you should have the power to create the perfect building fo
 **Can I actually live in one of these cabins full-time?** It's definitely possible to use a portable cabin as a full-time residence, but it requires careful planning. To make it a comfortable and legal dwelling, you would need to incorporate insulation, heating, cooling, electrical wiring, and plumbing. The most important factor is your local regulations. You must check with your town or county's code enforcement office to understand the specific permit requirements and building codes for permanent dwellings. They will guide you on what is needed to make your cabin a safe and compliant home.
 
 **What's the very first step I should take if I'm interested?** A great first step is to make a quick call to your local code enforcement office. Ask them about the size limits for accessory structures and what triggers the need for a permit in your area. Knowing the rules upfront will make the entire process smoother. While you're waiting to hear back, you can start exploring designs with our 3D Shed Builder. This allows you to experiment with layouts, colors, and features to get a clear idea of what you want, so you're ready to move forward once you understand the local guidelines.
+
+**How much maintenance does a cabin really need?** The maintenance is surprisingly minimal, especially when you start with a quality building. Your choice of materials will be the biggest factor. A cabin with metal or composite siding requires little more than an occasional wash to stay looking new. A wood cabin will need a fresh coat of paint or stain every few years to protect it from the weather. Otherwise, it's just a matter of simple seasonal checks, like clearing debris from the roof and making sure the seals around windows and doors are intact.
 `;
 
 const faq = [
@@ -259,6 +261,10 @@ const faq = [
   [
     "What's the very first step I should take if I'm interested?",
     "A great first step is to make a quick call to your local code enforcement office. Ask them about the size limits for accessory structures and what triggers the need for a permit in your area. Knowing the rules upfront will make the entire process smoother. While you're waiting to hear back, you can start exploring designs with our 3D Shed Builder. This allows you to experiment with layouts, colors, and features to get a clear idea of what you want, so you're ready to move forward once you understand the local guidelines.",
+  ],
+  [
+    "How much maintenance does a cabin really need?",
+    "The maintenance is surprisingly minimal, especially when you start with a quality building. Your choice of materials will be the biggest factor. A cabin with metal or composite siding requires little more than an occasional wash to stay looking new. A wood cabin will need a fresh coat of paint or stain every few years to protect it from the weather. Otherwise, it's just a matter of simple seasonal checks, like clearing debris from the roof and making sure the seals around windows and doors are intact.",
   ],
 ] as const;
 
