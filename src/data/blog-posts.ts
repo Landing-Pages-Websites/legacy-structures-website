@@ -43,6 +43,7 @@ import storageShedBuyingGuideUpstateNewYork from "./storage-shed-buying-guide-up
 import walkInChickenCoopRun from "./walk-in-chicken-coop-run";
 import whatToLookForInAPortableCabin from "./what-to-look-for-in-a-portable-cabin";
 import whatToLookForWhenBuyingPrebuiltShed from "./what-to-look-for-when-buying-prebuilt-shed";
+import winterProofChickenCoop from "./winter-proof-chicken-coop";
 
 export interface BlogPost {
   slug: string;
@@ -103,6 +104,7 @@ const blogPosts: BlogPost[] = [
   walkInChickenCoopRun,
   whatToLookForInAPortableCabin,
   whatToLookForWhenBuyingPrebuiltShed,
+  winterProofChickenCoop,
 
   {
     slug: "how-to-choose-a-greenhouse",
