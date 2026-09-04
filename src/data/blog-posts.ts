@@ -41,6 +41,7 @@ import prefabricatedTwoCarGarage from "./prefabricated-two-car-garage";
 import professionalShedBuildersGuide from "./professional-shed-builders-guide";
 import storageShedBuyingGuideUpstateNewYork from "./storage-shed-buying-guide-upstate-new-york";
 import walkInChickenCoopRun from "./walk-in-chicken-coop-run";
+import whatToLookForInAPortableCabin from "./what-to-look-for-in-a-portable-cabin";
 
 export interface BlogPost {
   slug: string;
@@ -99,6 +100,7 @@ const blogPosts: BlogPost[] = [
   professionalShedBuildersGuide,
   storageShedBuyingGuideUpstateNewYork,
   walkInChickenCoopRun,
+  whatToLookForInAPortableCabin,
 
   {
     slug: "how-to-choose-a-greenhouse",
