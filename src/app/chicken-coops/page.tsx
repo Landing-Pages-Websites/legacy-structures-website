@@ -12,9 +12,9 @@ import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Chicken Coops for Sale | Hudson Falls, NY",
+  title: "Chicken Coops Near Me | Hudson Falls, NY | Legacy Structures",
   description:
-    "Chicken coops at Legacy Structures in Hudson Falls, NY. 6 nesting boxes with exterior hatch, roosting ladder, and chicken door. Fully assembled delivery. Get your free pricing guide.",
+    "Find agricultural-grade chicken coops near Hudson Falls, NY for cold-climate flocks. Choose 6' or 8' widths, six nesting boxes, and local delivery options.",
   path: "/chicken-coops",
 });
 
