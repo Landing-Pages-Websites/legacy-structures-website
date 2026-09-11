@@ -46,6 +46,7 @@ import whatToLookForWhenBuyingPrebuiltShed from "./what-to-look-for-when-buying-
 import winterProofChickenCoop from "./winter-proof-chicken-coop";
 import singleSlopeShedProsAndCons from "./single-slope-shed-pros-and-cons";
 import dormerShedVsStandardGableShed from "./dormer-shed-vs-standard-gable-shed";
+import howToMaximizeShedLoftStorageSpace from "./how-to-maximize-shed-loft-storage-space";
 
 export interface BlogPost {
   slug: string;
@@ -109,6 +110,7 @@ const blogPosts: BlogPost[] = [
   winterProofChickenCoop,
   singleSlopeShedProsAndCons,
   dormerShedVsStandardGableShed,
+  howToMaximizeShedLoftStorageSpace,
 
   {
     slug: "how-to-choose-a-greenhouse",
