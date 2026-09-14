@@ -12,9 +12,9 @@ import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Greenhouses for Sale | Hudson Falls, NY",
+  title: "Greenhouses for Sale in Hudson Falls, NY",
   description:
-    "Shop greenhouses at Legacy Structures in Hudson Falls, NY. Clear polycarbonate roof, auto vent opener, potting shelf, and LP siding. Fully assembled. Sizes: 8x12 and 8x16.",
+    "Shop greenhouses in Hudson Falls, NY: 8x12 and 8x16 sizes, fully assembled delivery, on-site leveling, and a longer Upstate NY growing season. Get a quote.",
   path: "/greenhouses",
 });
 
