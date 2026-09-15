@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Backyard Barns | Hudson Falls, NY (2026)",
+  title: "Backyard Barns for Sale in Hudson Falls | Legacy Structures",
   description:
-    "Shop mini barns, lofted barns & metal barns near Hudson Falls, NY. Locally built with Mennonite craftsmanship & backed by a 5-year warranty. Browse designs & get your free quote today!",
+    "Backyard barns for sale near Hudson Falls, with lofted styles, usable storage, custom options, delivery, and a 5-year warranty. Browse models today.",
   path: "/backyard-barns",
 });
 
