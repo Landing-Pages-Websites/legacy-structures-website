@@ -11,9 +11,9 @@ import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Double Wide Garages | 5-Yr Warranty",
+  title: "Two-Car Double-Wide Garages | Legacy Structures",
   description:
-    "Shop double-wide garages with a 5-year warranty & free delivery within 30 miles. Ideal for vehicles, workshops & equipment storage near Hudson Falls. Get your free quote today!",
+    "Double-wide garages near Hudson Falls, NY for two vehicles, workshops, and equipment. Explore 24-foot widths, on-site joining, and request a local quote.",
   path: "/double-wide-garages",
 });
 
