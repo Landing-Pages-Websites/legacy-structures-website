@@ -13,9 +13,9 @@ import styles from "./AFramesPage.module.css";
 import ProductSchema from "@/components/ProductSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "A-Frame Cabins for Sale | Hudson Falls, NY",
+  title: "A-Frame Cabins for Sale Near You",
   description:
-    "Shop pre-built a-frame cabins at Legacy Structures in Hudson Falls, NY. Shell or turnkey units, custom sizes up to 14\u00d740, and free delivery within 30 miles. Get your free pricing guide today.",
+    "Find A-frame cabins for sale near Hudson Falls, NY. Choose a recreational shell or turnkey cabin, customize designs, and ask about Adirondack delivery.",
   path: "/a-frames",
 });
 
