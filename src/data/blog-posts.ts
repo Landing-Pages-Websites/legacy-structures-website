@@ -50,6 +50,7 @@ import howToMaximizeShedLoftStorageSpace from "./how-to-maximize-shed-loft-stora
 import whatIsAMiniBarnShed from "./what-is-a-mini-barn-shed";
 import howDoesShedDeliveryAndInstallationWork from "./how-does-shed-delivery-and-installation-work";
 import rentToOwnShedVsBuyingOutright from "./rent-to-own-shed-vs-buying-outright";
+import customShedsNearMeUpstateNy from "./custom-sheds-near-me-upstate-ny";
 
 export interface BlogPost {
   slug: string;
@@ -117,6 +118,7 @@ const blogPosts: BlogPost[] = [
   whatIsAMiniBarnShed,
   howDoesShedDeliveryAndInstallationWork,
   rentToOwnShedVsBuyingOutright,
+  customShedsNearMeUpstateNy,
 
   {
     slug: "how-to-choose-a-greenhouse",
