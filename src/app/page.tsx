@@ -7,12 +7,21 @@ import { siteAssets } from "@/lib/site-assets";
 import { BRAND } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata = createPageMetadata({
+const homepageMetadata = createPageMetadata({
   title: "Legacy Structures | Storage Sheds for Sale in Hudson Falls, NY",
   description:
     "Shop storage sheds, barns, cabins, garages, greenhouses, and more at Legacy Structures in Hudson Falls, NY. Explore current inventory, rent-to-own options, and custom designs.",
   path: "/",
 });
+
+export const metadata = {
+  ...homepageMetadata,
+  alternates: { canonical: "https://www.legacystructuresusa.com" },
+  openGraph: {
+    ...(homepageMetadata.openGraph ?? {}),
+    url: "https://www.legacystructuresusa.com",
+  },
+};
 
 /* ── Featured sheds ────────────────────────────────────────────────── */
 const featuredSheds = [
