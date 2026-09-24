@@ -52,6 +52,7 @@ import howDoesShedDeliveryAndInstallationWork from "./how-does-shed-delivery-and
 import rentToOwnShedVsBuyingOutright from "./rent-to-own-shed-vs-buying-outright";
 import customShedsNearMeUpstateNy from "./custom-sheds-near-me-upstate-ny";
 import howToMoveAStorageShed from "./how-to-move-a-storage-shed";
+import howMuchDoesItCostToMoveAStorageShed from "./how-much-does-it-cost-to-move-a-storage-shed";
 
 export interface BlogPost {
   slug: string;
@@ -121,6 +122,7 @@ const blogPosts: BlogPost[] = [
   rentToOwnShedVsBuyingOutright,
   customShedsNearMeUpstateNy,
   howToMoveAStorageShed,
+  howMuchDoesItCostToMoveAStorageShed,
 
   {
     slug: "how-to-choose-a-greenhouse",
