@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Storage Sheds for Sale Near Hudson Falls",
+  title: "Storage Sheds Near Me | Hudson Falls, NY",
   description:
     "Shop storage sheds for sale near Hudson Falls, NY. Explore customizable models now, get free delivery within 30 miles, and request your shed quote today.",
   path: "/storage-sheds",
