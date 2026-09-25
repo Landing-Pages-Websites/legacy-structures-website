@@ -5,7 +5,7 @@ const howToBuildARampForAStorageShed: BlogPost = {
   title: "How to Build a Ramp for a Storage Shed",
   metaTitle: "How to Build a Ramp for a Storage Shed | Guide",
   description: "Learn how to build a ramp for a storage shed with practical measuring, material, drainage, and safety guidance for shed owners in Upstate New York.",
-  image: ">-",
+  image: "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/how-to-build-a-ramp-for-a-storage-shed-921452.webp",
   imageAlt: "Wooden access ramp leading to a portable storage shed in an Upstate New York yard",
   date: "2026-09-23",
   author: "Stephen Kanagy",
