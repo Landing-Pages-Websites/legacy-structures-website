@@ -55,7 +55,6 @@ import howToMoveAStorageShed from "./how-to-move-a-storage-shed";
 import howMuchDoesItCostToMoveAStorageShed from "./how-much-does-it-cost-to-move-a-storage-shed";
 import howToBuildARampForAStorageShed from "./how-to-build-a-ramp-for-a-storage-shed";
 import howToInsulateAStorageShed from "./how-to-insulate-a-storage-shed-insulate-storage-shed";
-import howToInsulateAStorageShed from "./how-to-insulate-a-storage-shed-insulate-storage-shed";
 
 export interface BlogPost {
   slug: string;
