@@ -11,12 +11,24 @@ import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = createPageMetadata({
+const baseMetadata = createPageMetadata({
   title: "Portable Cabins for Sale in New York",
   description:
     "Shop portable cabins for sale in New York from Legacy Structures. Explore sizes and uses for hunting cabins, home offices, and more. Get a free quote.",
   path: "/portable-cabins",
 });
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...(baseMetadata.alternates ?? {}),
+    canonical: "https://www.legacystructuresusa.com/portable-cabins",
+  },
+  openGraph: {
+    ...(baseMetadata.openGraph ?? {}),
+    url: "https://www.legacystructuresusa.com/portable-cabins",
+  },
+};
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";

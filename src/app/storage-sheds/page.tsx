@@ -11,12 +11,24 @@ import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = createPageMetadata({
+const baseMetadata = createPageMetadata({
   title: "Storage Sheds Near Me | Hudson Falls, NY",
   description:
     "Shop storage sheds for sale near Hudson Falls, NY. Explore customizable models now, get free delivery within 30 miles, and request your shed quote today.",
   path: "/storage-sheds",
 });
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...(baseMetadata.alternates ?? {}),
+    canonical: "https://www.legacystructuresusa.com/storage-sheds",
+  },
+  openGraph: {
+    ...(baseMetadata.openGraph ?? {}),
+    url: "https://www.legacystructuresusa.com/storage-sheds",
+  },
+};
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";

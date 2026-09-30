@@ -11,12 +11,24 @@ import { siteAssets } from "@/lib/site-assets";
 import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
-export const metadata: Metadata = createPageMetadata({
+const baseMetadata = createPageMetadata({
   title: "Backyard Barns for Sale in Hudson Falls | Legacy Structures",
   description:
     "Backyard barns for sale near Hudson Falls, with lofted styles, usable storage, custom options, delivery, and a 5-year warranty. Browse models today.",
   path: "/backyard-barns",
 });
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...(baseMetadata.alternates ?? {}),
+    canonical: "https://www.legacystructuresusa.com/backyard-barns",
+  },
+  openGraph: {
+    ...(baseMetadata.openGraph ?? {}),
+    url: "https://www.legacystructuresusa.com/backyard-barns",
+  },
+};
 
 const BASE_URL =
   "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
