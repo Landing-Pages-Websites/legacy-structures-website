@@ -13,7 +13,7 @@ const howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors: BlogPost = {
   author: "Stephen Kanagy",
   body: String.raw`
 <p>Planning a storage shed starts with more than a square-foot number. The final budget can change with the building's size, floor, height, enclosure, materials, layout, delivery, and the work needed at your property.</p>
-<p><strong><a>Call 518-544-2889</a> to discuss a building-specific storage shed price for your property.</strong></p>
+<p><strong><a href="tel:5185442889">Call 518-544-2889</a> to discuss a building-specific storage shed price for your property.</strong></p>
 <div class=""><p>So, how much does it cost to build a storage shed? There is no single answer that fits every Hudson Falls property. A realistic number depends on the building you choose, the features it includes, local site conditions, and whether you compare a portable building with a fully site-built project.</p></div>
 <p>For a useful estimate, separate the building itself from site preparation, permits, delivery, and ongoing ownership costs. That makes it easier to compare options without treating an inventory price or payment example as a universal construction quote.</p>
 <p>Let us start with what a build-cost estimate should include, and why two sheds with similar footprints can still have different totals.</p>
@@ -113,7 +113,7 @@ const howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors: BlogPost = {
   </tbody>
 </table>
 <p>For a practical checklist of features and questions to compare, review the <a href="https://legacystructuresusa.com/blog/storage-shed-buying-guide-upstate-new-york">storage shed buying guide</a>. Legacy Structures also recommends confirming current details for your size, options, and Hudson Falls-area location rather than relying on an older listing or generic estimate.</p>
-<p><strong><a>Call 518-544-2889</a> to discuss a portable building and the options that fit your property.</strong></p>
+<p><strong><a href="tel:5185442889">Call 518-544-2889</a> to discuss a portable building and the options that fit your property.</strong></p>
 <h2>How to Get a Realistic Storage Shed Price in Hudson Falls</h2>
 <p>A useful answer to "how much does it cost to build a storage shed" starts with a specific building, not a generic square-foot number. In Hudson Falls, the most reliable estimate reflects how you will use the shed, the size and layout you need, the selected materials and options, and the delivery location.</p>
 <h3>1. Define the building before comparing prices</h3>
