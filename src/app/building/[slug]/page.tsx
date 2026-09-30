@@ -8,6 +8,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import { createAnonClient } from "@/utils/supabase/server";
 import { createPageMetadata } from "@/lib/metadata";
+import InventoryProductSchema from "@/components/InventoryProductSchema";
 
 // Static params for items already in buildings.ts (pre-rendered at build time).
 // dynamicParams = true (default) means admin-created slugs render on first request.
@@ -217,6 +218,17 @@ export default async function BuildingPage({
 
   return (
     <div style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+      <InventoryProductSchema
+        name={`${building.modelType} ${building.size}`}
+        sku={building.inventoryNumber}
+        description={description.body}
+        image={building.image}
+        url={`https://legacystructuresusa.com/building/${building.slug}`}
+        cashPrice={building.cashPrice}
+        salePrice={building.salePrice}
+        rto36={building.rto36}
+        rto48={building.rto48}
+      />
       {/* Title bar */}
       <div
         style={{
