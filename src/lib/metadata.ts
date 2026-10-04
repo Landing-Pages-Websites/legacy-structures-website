@@ -21,12 +21,16 @@ export function createPageMetadata({
   title,
   description,
   path,
+  canonicalHost,
 }: {
   title: string;
   description: string;
   path: string;
+  canonicalHost?: string;
 }): Metadata {
-  const url = absoluteUrl(path);
+  const normalizedHost = (canonicalHost ?? BRAND.siteUrl).replace(/\/+$/, "");
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const url = `${normalizedHost}${normalizedPath === "/" ? "" : normalizedPath}`;
   const fullTitle = withBrand(title);
 
   return {

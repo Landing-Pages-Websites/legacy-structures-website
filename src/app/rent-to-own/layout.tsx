@@ -6,6 +6,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Rent-to-own sheds, barns & garages in Hudson Falls, NY. No credit check, instant approval, month-to-month agreements. Buildings from just $103/mo.",
   path: "/rent-to-own",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 export default function RentToOwnLayout({
