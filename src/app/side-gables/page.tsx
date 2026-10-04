@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Side gable storage sheds at Legacy Structures in Hudson Falls, NY. Roof gable runs the building length for extra headroom. Custom siding and colors. Free delivery within 30 miles.",
   path: "/side-gables",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const BASE_URL =

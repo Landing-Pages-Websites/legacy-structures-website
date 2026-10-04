@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Shop greenhouses in Hudson Falls, NY: 8x12 and 8x16 sizes, fully assembled delivery, on-site leveling, and a longer Upstate NY growing season. Get a quote.",
   path: "/greenhouses",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const BASE_URL =

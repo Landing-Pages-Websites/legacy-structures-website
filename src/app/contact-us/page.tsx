@@ -10,6 +10,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Visit Legacy Structures in Hudson Falls, NY — our lot is open 24/7. Call or text Stephen at 518-544-2889 or fill out our contact form to request a quote.",
   path: "/contact-us",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const MAP_SRC =

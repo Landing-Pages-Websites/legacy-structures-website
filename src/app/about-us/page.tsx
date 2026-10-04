@@ -10,6 +10,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Legacy Structures is a family-owned shed & barn dealer in Hudson Falls, NY, owned by Stephen Kanagy. 5-year warranty & free delivery within 30 miles.",
   path: "/about-us",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 export default function AboutUsPage() {
