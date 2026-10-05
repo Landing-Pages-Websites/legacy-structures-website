@@ -9,6 +9,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Privacy Policy for Legacy Structures in Hudson Falls, NY. Learn how contact form information, cookies, and basic analytics may be used.",
   path: "/privacy-policy",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 export default function PrivacyPolicyPage() {
