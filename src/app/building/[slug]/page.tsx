@@ -8,6 +8,7 @@ import DesignerCTA from "@/components/DesignerCTA";
 import PricingGuideSection from "@/components/PricingGuideSection";
 import { createAnonClient } from "@/utils/supabase/server";
 import { createPageMetadata } from "@/lib/metadata";
+import { BRAND } from "@/lib/constants";
 import InventoryProductSchema from "@/components/InventoryProductSchema";
 
 // Static params for items already in buildings.ts (pre-rendered at build time).
@@ -117,6 +118,7 @@ export async function generateMetadata({
       title: `${building.modelType} ${building.size}`,
       description: `${building.modelType} available in ${building.size}. Inventory # ${building.inventoryNumber}.`,
       path: `/building/${slug}`,
+      canonicalHost: getCanonicalHost(slug),
     });
   }
   const data = await getBuildingData(slug);
@@ -125,11 +127,23 @@ export async function generateMetadata({
     title: `${data.modelType} ${data.size}`,
     description: `${data.modelType} available in ${data.size}. Inventory # ${data.inventoryNumber}.`,
     path: `/building/${slug}`,
+    canonicalHost: getCanonicalHost(slug),
   });
 }
 
 const DESIGNER_BASE =
   "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=";
+
+const WWW_CANONICAL_BUILDING_SLUGS = new Set([
+  "chicken-coop",
+  "mini-barn",
+  "utility-shed-3",
+]);
+
+const getCanonicalHost = (slug: string): string =>
+  WWW_CANONICAL_BUILDING_SLUGS.has(slug)
+    ? "https://www.legacystructuresusa.com"
+    : BRAND.siteUrl;
 
 const NAVY = "#1a3a5c";
 const GOLD = "#d4a017";
@@ -174,6 +188,7 @@ export default async function BuildingPage({
   if (!building) notFound();
 
   const { notes } = building;
+  const pageUrl = `${getCanonicalHost(slug)}/building/${building.slug}`;
 
   // Fetch editable model description from Supabase (admin "Model Descriptions" tab).
   // Falls back to the static model-descriptions.ts data if nothing saved yet.
@@ -223,7 +238,7 @@ export default async function BuildingPage({
         sku={building.inventoryNumber}
         description={description.body}
         image={building.image}
-        url={`https://legacystructuresusa.com/building/${building.slug}`}
+        url={pageUrl}
         cashPrice={building.cashPrice}
         salePrice={building.salePrice}
         rto36={building.rto36}
