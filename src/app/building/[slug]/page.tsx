@@ -117,6 +117,7 @@ export async function generateMetadata({
       title: `${building.modelType} ${building.size}`,
       description: `${building.modelType} available in ${building.size}. Inventory # ${building.inventoryNumber}.`,
       path: `/building/${slug}`,
+      canonicalHost: canonicalHostForSlug(slug),
     });
   }
   const data = await getBuildingData(slug);
@@ -125,11 +126,21 @@ export async function generateMetadata({
     title: `${data.modelType} ${data.size}`,
     description: `${data.modelType} available in ${data.size}. Inventory # ${data.inventoryNumber}.`,
     path: `/building/${slug}`,
+    canonicalHost: canonicalHostForSlug(slug),
   });
 }
 
 const DESIGNER_BASE =
   "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=";
+const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
+const WWW_CANONICAL_SLUGS = new Set([
+  "chicken-coop",
+  "mini-barn",
+  "utility-shed-3",
+]);
+
+const canonicalHostForSlug = (slug: string): string =>
+  WWW_CANONICAL_SLUGS.has(slug) ? WWW_CANONICAL_HOST : "https://legacystructuresusa.com";
 
 const NAVY = "#1a3a5c";
 const GOLD = "#d4a017";
@@ -223,7 +234,7 @@ export default async function BuildingPage({
         sku={building.inventoryNumber}
         description={description.body}
         image={building.image}
-        url={`https://legacystructuresusa.com/building/${building.slug}`}
+        url={`${canonicalHostForSlug(building.slug)}/building/${building.slug}`}
         cashPrice={building.cashPrice}
         salePrice={building.salePrice}
         rto36={building.rto36}

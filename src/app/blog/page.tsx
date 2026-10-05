@@ -20,6 +20,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Read expert tips and inspiration from Legacy Structures for storage sheds, backyard barns, portable buildings, and more in Hudson Falls, NY.",
   path: "/blog",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 export default function BlogIndexPage() {
