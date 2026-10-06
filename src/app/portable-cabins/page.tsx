@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import QuoteForm from "@/components/QuoteForm";
 import ProductSection from "@/components/ProductSection";
 import DisclaimerText from "@/components/DisclaimerText";
@@ -194,6 +195,9 @@ export default function PortableCabinsPage() {
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
             The benefit of the Utility version is the ability to have 8ft sidewalls while the benefit of the Lofted version is the built-in overhead lofted storage. If you are in the market for a prefab cabin in or around Hudson Falls, NY give us a call at <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
+          </p>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            If you are comparing portable cabins for sale, read our <Link href="/blog/buy-portable-cabin-guide" className="text-[#c0392b] underline">guide to buying a portable cabin</Link> for practical help with styles, features, sizing, site preparation, and payment options.
           </p>
           <p className="mb-8">
             <a href="#pricing-form" className="text-[#c0392b] font-bold underline">
