@@ -1,5 +1,6 @@
 import threeDShedConfigurator from "./three-d-shed-configurator";
 import chickenCoopGuide from "./chicken-coop-guide";
+import howToKeepRatsOutOfChickenCoop from "./how-to-keep-rats-out-of-chicken-coop";
 import chickenCoopStorageIdeas from "./chicken-coop-storage-ideas";
 import chickenCoopWagonGuide from "./chicken-coop-wagon-guide";
 import chickenNestingTrailerGuide from "./chicken-nesting-trailer-guide";
@@ -57,6 +58,7 @@ import howToBuildARampForAStorageShed from "./how-to-build-a-ramp-for-a-storage-
 import howToInsulateAStorageShed from "./how-to-insulate-a-storage-shed-insulate-storage-shed";
 import doYouNeedAPermitToBuildAStorageShed from "./do-you-need-a-permit-to-build-a-storage-shed";
 import howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors from "./how-much-does-it-cost-to-build-a-storage-shed-storage-shed-cost-factors";
+import howToKeepSnakesAwayFromAChickenCoop from "./how-to-keep-snakes-away-from-a-chicken-coop";
 
 export interface BlogPost {
   slug: string;
@@ -78,6 +80,7 @@ const blogPosts: BlogPost[] = [
   predatorProofChickenTractor,
   predatorProofMobileChickenCoop,
   chickenCoopGuide,
+  howToKeepRatsOutOfChickenCoop,
   chickenCoopStorageIdeas,
   chickenCoopWagonGuide,
   chickenNestingTrailerGuide,
@@ -131,6 +134,7 @@ const blogPosts: BlogPost[] = [
   howToInsulateAStorageShed,
   doYouNeedAPermitToBuildAStorageShed,
   howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors,
+  howToKeepSnakesAwayFromAChickenCoop,
 
   {
     slug: "how-to-choose-a-greenhouse",
