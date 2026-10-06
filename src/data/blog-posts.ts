@@ -1,6 +1,5 @@
 import threeDShedConfigurator from "./three-d-shed-configurator";
 import chickenCoopGuide from "./chicken-coop-guide";
-import howToKeepRatsOutOfChickenCoop from "./how-to-keep-rats-out-of-chicken-coop";
 import chickenCoopStorageIdeas from "./chicken-coop-storage-ideas";
 import chickenCoopWagonGuide from "./chicken-coop-wagon-guide";
 import chickenNestingTrailerGuide from "./chicken-nesting-trailer-guide";
@@ -80,7 +79,6 @@ const blogPosts: BlogPost[] = [
   predatorProofChickenTractor,
   predatorProofMobileChickenCoop,
   chickenCoopGuide,
-  howToKeepRatsOutOfChickenCoop,
   chickenCoopStorageIdeas,
   chickenCoopWagonGuide,
   chickenNestingTrailerGuide,
