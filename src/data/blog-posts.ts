@@ -57,6 +57,7 @@ import howToBuildARampForAStorageShed from "./how-to-build-a-ramp-for-a-storage-
 import howToInsulateAStorageShed from "./how-to-insulate-a-storage-shed-insulate-storage-shed";
 import doYouNeedAPermitToBuildAStorageShed from "./do-you-need-a-permit-to-build-a-storage-shed";
 import howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors from "./how-much-does-it-cost-to-build-a-storage-shed-storage-shed-cost-factors";
+import howToKeepSnakesAwayFromAChickenCoop from "./how-to-keep-snakes-away-from-a-chicken-coop";
 
 export interface BlogPost {
   slug: string;
@@ -131,6 +132,7 @@ const blogPosts: BlogPost[] = [
   howToInsulateAStorageShed,
   doYouNeedAPermitToBuildAStorageShed,
   howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors,
+  howToKeepSnakesAwayFromAChickenCoop,
 
   {
     slug: "how-to-choose-a-greenhouse",
