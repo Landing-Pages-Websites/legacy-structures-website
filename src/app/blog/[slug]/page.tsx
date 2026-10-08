@@ -231,6 +231,9 @@ export default async function BlogPostPage({ params }: Props) {
         }
         article table {
           width: 100%;
+          max-width: 100%;
+          display: block;
+          overflow-x: auto;
           border-collapse: collapse;
           margin: 24px 0;
           font-size: 16px;
