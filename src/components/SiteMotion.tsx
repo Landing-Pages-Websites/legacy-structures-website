@@ -3,12 +3,11 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Long-form article bodies can start below the fold, so they must not depend on
-// a scroll-triggered reveal to be painted in the initial render.
 const REVEAL_SELECTOR = [
   "main .motion-reveal",
   "main > div > section",
   "main section section",
+  "main article",
   "main form",
   "main [class*='card']",
   "main [class*='Card']",
