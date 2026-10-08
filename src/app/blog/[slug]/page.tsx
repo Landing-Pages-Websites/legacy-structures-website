@@ -143,6 +143,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Article body */}
       <article
+        className="blog-post-body no-motion"
         style={{
           maxWidth: 740,
           margin: "0 auto",
@@ -231,9 +232,16 @@ export default async function BlogPostPage({ params }: Props) {
         }
         article table {
           width: 100%;
+          max-width: 100%;
+          table-layout: fixed;
           border-collapse: collapse;
           margin: 24px 0;
           font-size: 16px;
+        }
+        article th,
+        article td {
+          overflow-wrap: anywhere;
+          vertical-align: top;
         }
         article th {
           background: #006580;
