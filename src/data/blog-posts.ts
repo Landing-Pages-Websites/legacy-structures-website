@@ -1,5 +1,6 @@
 import threeDShedConfigurator from "./three-d-shed-configurator";
 import chickenCoopGuide from "./chicken-coop-guide";
+import chickenCoopIdeas from "./chicken-coop-ideas";
 import howToKeepRatsOutOfChickenCoop from "./how-to-keep-rats-out-of-chicken-coop";
 import chickenCoopStorageIdeas from "./chicken-coop-storage-ideas";
 import chickenCoopWagonGuide from "./chicken-coop-wagon-guide";
@@ -2567,6 +2568,7 @@ schema: {
     }
   },
   backyardShedIdeasForSmallYards,
+  chickenCoopIdeas,
 ];
 
 export default blogPosts;
