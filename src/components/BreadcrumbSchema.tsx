@@ -17,6 +17,11 @@ const WWW_CANONICAL_PATHS = new Set([
   "/building/chicken-coop",
   "/building/mini-barn",
   "/building/utility-shed-3",
+  "/building/lofted-barn-6",
+  "/building/lofted-barn-5",
+  "/building/lofted-barn",
+  "/building/animal-shelter",
+  "/building/lofted-barn-3",
 ]);
 
 export default function BreadcrumbSchema() {
