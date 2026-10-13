@@ -43,7 +43,9 @@ export default function BlogIndexPage() {
               gap: 32,
             }}
           >
-            {blogPosts.map((post) => (
+            {[...blogPosts]
+              .sort((a, b) => b.date.localeCompare(a.date))
+              .map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
