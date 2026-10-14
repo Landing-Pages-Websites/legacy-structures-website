@@ -26,7 +26,10 @@ const STATIC_ROUTES: {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publicPages = STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
-    url: `${BRAND.siteUrl}${path === "/" ? "" : path}`,
+    url:
+      path === "/storage-sheds"
+        ? `https://www.legacystructuresusa.com${path}`
+        : `${BRAND.siteUrl}${path === "/" ? "" : path}`,
     lastModified: LAST_MODIFIED,
     changeFrequency,
     priority,
