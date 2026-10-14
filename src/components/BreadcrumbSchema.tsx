@@ -14,6 +14,7 @@ const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_PATHS = new Set([
   "/blog",
   "/privacy-policy",
+  "/storage-sheds",
   "/building/chicken-coop",
   "/building/mini-barn",
   "/building/utility-shed-3",

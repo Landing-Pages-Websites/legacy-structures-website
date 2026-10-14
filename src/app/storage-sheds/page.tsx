@@ -38,7 +38,7 @@ const productSchema = {
   "@graph": [
     {
       "@type": "Product",
-      "@id": "https://legacystructuresusa.com/#product-utility-shed",
+      "@id": "https://www.legacystructuresusa.com/#product-utility-shed",
       "name": "Legacy Structures Utility Shed",
       "description": "Versatile utility shed with up to 8ft sidewalls, available in T1-11 or LP SmartPanel siding, in sizes from 8x8 through 16x40.",
       "brand": { "@id": "https://legacystructuresusa.com/#organization" },
@@ -51,7 +51,7 @@ const productSchema = {
     },
     {
       "@type": "Product",
-      "@id": "https://legacystructuresusa.com/#product-metal-shed",
+      "@id": "https://www.legacystructuresusa.com/#product-metal-shed",
       "name": "Legacy Structures Metal Shed",
       "description": "Cost-effective metal storage shed with 29-gauge steel siding, 6ft sidewalls, available in sizes 8x12 through 12x32.",
       "brand": { "@id": "https://legacystructuresusa.com/#organization" },
@@ -64,7 +64,7 @@ const productSchema = {
     },
     {
       "@type": "Product",
-      "@id": "https://legacystructuresusa.com/#product-single-slope-shed",
+      "@id": "https://www.legacystructuresusa.com/#product-single-slope-shed",
       "name": "Legacy Structures Single Slope Shed",
       "description": "Lean-to roof design shed with engineered certification, available in sizes 8x12 through 16x40 with T1-11 or LP SmartPanel siding.",
       "brand": { "@id": "https://legacystructuresusa.com/#organization" },
@@ -77,7 +77,7 @@ const productSchema = {
     },
     {
       "@type": "Product",
-      "@id": "https://legacystructuresusa.com/#product-utility-dormer-shed",
+      "@id": "https://www.legacystructuresusa.com/#product-utility-dormer-shed",
       "name": "Legacy Structures Utility Dormer Shed",
       "description": "Utility shed with dormer windows for natural light, 7ft sidewalls, available in sizes 8x12 through 12x40.",
       "brand": { "@id": "https://legacystructuresusa.com/#organization" },
@@ -90,7 +90,7 @@ const productSchema = {
     },
     {
       "@type": "Product",
-      "@id": "https://legacystructuresusa.com/#product-gable-dormer-shed",
+      "@id": "https://www.legacystructuresusa.com/#product-gable-dormer-shed",
       "name": "Legacy Structures Gable Dormer Shed",
       "description": "Utility shed with gable dormer design for added style and natural light, available in sizes 8x12 through 16x40.",
       "brand": { "@id": "https://legacystructuresusa.com/#organization" },
