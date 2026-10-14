@@ -268,7 +268,10 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
               background: "#f5f3f0",
             }}
           >
-            <InventoryPhoto item={item} />
+            <InventoryPhoto
+              key={`${item.image}|${item.slug}|${item.model}`}
+              item={item}
+            />
           </div>
         </Link>
       </div>
