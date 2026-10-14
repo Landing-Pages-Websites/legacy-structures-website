@@ -18,7 +18,7 @@ const chickenTractor: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor/#article",
+        "@id": "https://legacystructuresusa.com/blog/chicken-tractor/#article",
         headline: "Chicken Tractor or Stationary Coop? Choosing the Right Setup",
         description: "Compare a chicken tractor with a stationary coop, including daily care, predator protection, winter needs, and what to consider before you buy.",
         image: "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/chicken-tractor-or-stationary-coop-choosing-the-right-setup-524108.webp",
@@ -28,12 +28,12 @@ const chickenTractor: BlogPost = {
         publisher: { "@type": "Organization", name: "Legacy Structures" },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor",
+          "@id": "https://legacystructuresusa.com/blog/chicken-tractor",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor/#faq",
+        "@id": "https://legacystructuresusa.com/blog/chicken-tractor/#faq",
         mainEntity: [
           {
             "@type": "Question",
