@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import blogPosts from "@/data/blog-posts";
 import PageHero from "@/components/PageHero";
 import FadeIn from "@/components/FadeIn";
@@ -15,6 +16,27 @@ function formatPostDate(date: string) {
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
+const POSTS_PER_PAGE = 12;
+
+// Newest first; slug breaks ties so posts sharing a date keep a stable order.
+const sortedPosts = [...blogPosts].sort((a, b) => {
+  if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+  return a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0;
+});
+
+const totalPages = Math.max(1, Math.ceil(sortedPosts.length / POSTS_PER_PAGE));
+
+function parsePageParam(value: string | string[] | undefined): number | null {
+  if (value === undefined) return 1;
+  if (typeof value !== "string" || !/^[1-9]\d{0,5}$/.test(value)) return null;
+  const page = Number(value);
+  return page <= totalPages ? page : null;
+}
+
+function pageHref(page: number) {
+  return page === 1 ? "/blog" : `/blog?page=${page}`;
+}
+
 export const metadata: Metadata = createPageMetadata({
   title: "Blog | Legacy Structures",
   description:
@@ -23,7 +45,17 @@ export const metadata: Metadata = createPageMetadata({
   canonicalHost: "https://www.legacystructuresusa.com",
 });
 
-export default function BlogIndexPage() {
+export default async function BlogIndexPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const currentPage = parsePageParam((await searchParams).page);
+  if (currentPage === null) notFound();
+
+  const start = (currentPage - 1) * POSTS_PER_PAGE;
+  const pagePosts = sortedPosts.slice(start, start + POSTS_PER_PAGE);
+
   return (
     <div>
       <PageHero
@@ -43,7 +75,7 @@ export default function BlogIndexPage() {
               gap: 32,
             }}
           >
-            {blogPosts.map((post) => (
+            {pagePosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -123,6 +155,47 @@ export default function BlogIndexPage() {
                 </div>
               </Link>
             ))}
+
+            {totalPages > 1 && (
+              <nav aria-label="Blog pagination" className="blog-pagination">
+                {currentPage > 1 && (
+                  <Link
+                    href={pageHref(currentPage - 1)}
+                    className="blog-pagination-link blog-pagination-step"
+                    rel="prev"
+                  >
+                    <span aria-hidden="true">&larr;</span> Previous
+                    <span className="blog-pagination-sr"> page</span>
+                  </Link>
+                )}
+                <ul className="blog-pagination-list">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <li key={page}>
+                        <Link
+                          href={pageHref(page)}
+                          className="blog-pagination-link"
+                          aria-current={page === currentPage ? "page" : undefined}
+                          aria-label={`Page ${page}`}
+                        >
+                          {page}
+                        </Link>
+                      </li>
+                    )
+                  )}
+                </ul>
+                {currentPage < totalPages && (
+                  <Link
+                    href={pageHref(currentPage + 1)}
+                    className="blog-pagination-link blog-pagination-step"
+                    rel="next"
+                  >
+                    Next<span className="blog-pagination-sr"> page</span>{" "}
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                )}
+              </nav>
+            )}
           </div>
         </section>
       </FadeIn>
@@ -130,6 +203,63 @@ export default function BlogIndexPage() {
       <style>{`
         .blog-card-link:hover {
           box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .blog-pagination {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 8px;
+          padding-top: 32px;
+          border-top: 1px solid #e8e4df;
+          font-family: var(--font-poppins);
+        }
+        .blog-pagination-list {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        .blog-pagination-link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          min-width: 44px;
+          min-height: 44px;
+          padding: 0 14px;
+          border-radius: 8px;
+          border: 1px solid #e8e4df;
+          background: #f7f5f2;
+          color: #1a3a5c;
+          font-size: 15px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .blog-pagination-link:hover {
+          border-color: #1a3a5c;
+        }
+        .blog-pagination-link:focus-visible {
+          outline: 3px solid #1a3a5c;
+          outline-offset: 2px;
+        }
+        .blog-pagination-link[aria-current="page"] {
+          background: #1a3a5c;
+          border-color: #1a3a5c;
+          color: #fff;
+        }
+        .blog-pagination-sr {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          white-space: nowrap;
         }
         @media (max-width: 640px) {
           .blog-card-link {
