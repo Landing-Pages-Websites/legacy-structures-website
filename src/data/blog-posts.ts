@@ -63,6 +63,7 @@ import howMuchDoesItCostToBuildAStorageShedStorageShedCostFactors from "./how-mu
 import howToKeepSnakesAwayFromAChickenCoop from "./how-to-keep-snakes-away-from-a-chicken-coop";
 import howToBuildAChickenCoopDoor from "./how-to-build-a-chicken-coop-door";
 import howToCleanAChickenCoop from "./how-to-clean-a-chicken-coop";
+import chickenCoopPlans from "./chicken-coop-plans";
 import backyardShedIdeasForSmallYards from "./backyard-shed-ideas-small-yards";
 
 export interface BlogPost {
@@ -143,6 +144,7 @@ const blogPosts: BlogPost[] = [
   howToKeepSnakesAwayFromAChickenCoop,
   howToBuildAChickenCoopDoor,
   howToCleanAChickenCoop,
+  chickenCoopPlans,
 
   {
     slug: "how-to-choose-a-greenhouse",
