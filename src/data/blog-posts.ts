@@ -64,6 +64,7 @@ import howToKeepSnakesAwayFromAChickenCoop from "./how-to-keep-snakes-away-from-
 import howToBuildAChickenCoopDoor from "./how-to-build-a-chicken-coop-door";
 import howToCleanAChickenCoop from "./how-to-clean-a-chicken-coop";
 import backyardShedIdeasForSmallYards from "./backyard-shed-ideas-small-yards";
+import chickenCoopPlans from "./chicken-coop-plans";
 
 export interface BlogPost {
   slug: string;
@@ -2570,6 +2571,7 @@ schema: {
     }
   },
   backyardShedIdeasForSmallYards,
+  chickenCoopPlans,
   chickenCoopIdeas,
 ];
 
