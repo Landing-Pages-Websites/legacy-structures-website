@@ -4,6 +4,7 @@ import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { validateInventoryPayload } from "@/lib/admin-inventory";
+import { inventoryConflictMessage } from "@/lib/inventory-slug";
 
 const TABLE = "inventory_items";
 
@@ -28,10 +29,7 @@ export async function PUT(
     .select()
     .single();
   if (error?.code === "23505") {
-    return NextResponse.json(
-      { error: "That inventory number or building already exists." },
-      { status: 409 }
-    );
+    return NextResponse.json({ error: inventoryConflictMessage(error) }, { status: 409 });
   }
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   revalidatePath("/inventory");
