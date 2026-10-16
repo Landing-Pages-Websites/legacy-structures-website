@@ -238,6 +238,58 @@ export default async function BlogPostPage({ params }: Props) {
           margin: 24px 0;
           font-size: 16px;
         }
+        article table.portable-cabin-comparison {
+          border: 1px solid #e8e4df;
+        }
+        @media (max-width: 700px) {
+          article table.portable-cabin-comparison,
+          article table.portable-cabin-comparison tbody,
+          article table.portable-cabin-comparison tr,
+          article table.portable-cabin-comparison th[scope="row"],
+          article table.portable-cabin-comparison td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+          }
+          article table.portable-cabin-comparison {
+            table-layout: auto;
+          }
+          article table.portable-cabin-comparison thead {
+            display: none;
+          }
+          article table.portable-cabin-comparison tbody tr {
+            margin-bottom: 18px;
+            border: 1px solid #e8e4df;
+            border-radius: 8px;
+            overflow: hidden;
+          }
+          article table.portable-cabin-comparison th[scope="row"] {
+            background: #006580;
+            color: #fff;
+            padding: 12px 16px;
+          }
+          article table.portable-cabin-comparison td {
+            display: grid;
+            grid-template-columns: minmax(92px, 34%) 1fr;
+            gap: 12px;
+            padding: 12px 16px;
+            overflow-wrap: normal;
+            word-break: normal;
+          }
+          article table.portable-cabin-comparison td::before {
+            content: attr(data-label);
+            color: #1a3a5c;
+            font-weight: 700;
+          }
+          article table.portable-cabin-comparison td:nth-of-type(2) {
+            background: #f7f5f2;
+          }
+          article table.portable-cabin-comparison caption {
+            display: block;
+            margin-bottom: 12px;
+            text-align: left;
+          }
+        }
         article th,
         article td {
           overflow-wrap: anywhere;
