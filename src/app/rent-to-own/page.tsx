@@ -167,15 +167,22 @@ export default function RentToOwnPage() {
         </div>
       </div>
 
-      {/* CTA Bar: Check Out Inventory */}
+      {/* CTA Bar: Browse Rent-to-Own Storage Sheds */}
       <div className="bg-[#00567a] py-[20px]">
         <div className="max-w-[1100px] mx-auto px-[20px] text-center">
           <Link
             href="/inventory"
             className="text-white font-bold text-[24px] no-underline hover:underline font-heading tracking-[1.5px]"
           >
-            CHECK OUT OUR CURRENT INVENTORY &ndash; <span>CLICK HERE</span>
+            Browse Rent-to-Own Storage Sheds
           </Link>
+          <p className="text-white text-[16px] leading-[24px] mt-[9px] mb-0">
+            View current buildings, sizes, and pricing, then contact Legacy Structures at{" "}
+            <a href="tel:5185442889" className="text-white underline underline-offset-4">
+              518-544-2889
+            </a>{" "}
+            with questions.
+          </p>
         </div>
       </div>
 
