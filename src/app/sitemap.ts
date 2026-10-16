@@ -36,7 +36,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const inventoryPages = buildings.map(({ slug }) => ({
-    url: `${BRAND.siteUrl}/building/${slug}`,
+    url: [
+      "utility-dormer",
+      "lofted-barn-10",
+      "utility-shed-7",
+      "utility-gable-dormer",
+      "lofted-barn-playhouse",
+    ].includes(slug)
+      ? `https://www.legacystructuresusa.com/building/${slug}`
+      : `${BRAND.siteUrl}/building/${slug}`,
     lastModified: LAST_MODIFIED,
     changeFrequency: "weekly" as const,
     priority: 0.6,

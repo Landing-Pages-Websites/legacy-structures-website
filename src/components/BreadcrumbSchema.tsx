@@ -28,6 +28,11 @@ const WWW_CANONICAL_PATHS = new Set([
   "/building/utility-shed-4",
   "/building/lofted-barn-9",
   "/building/lofted-barn-7",
+  "/building/utility-dormer",
+  "/building/lofted-barn-10",
+  "/building/utility-shed-7",
+  "/building/utility-gable-dormer",
+  "/building/lofted-barn-playhouse",
 ]);
 
 export default function BreadcrumbSchema() {
