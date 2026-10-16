@@ -67,6 +67,7 @@ import backyardShedIdeasForSmallYards from "./backyard-shed-ideas-small-yards";
 import chickenCoopPlans from "./chicken-coop-plans";
 import designChickenCoops from "./how-to-design-chicken-coops";
 import polycarbonateGreenhouse from "./polycarbonate-greenhouse";
+import greenhouseKitComparison from "./greenhouse-kit-comparison";
 
 export interface BlogPost {
   slug: string;
@@ -2576,6 +2577,7 @@ schema: {
   backyardShedIdeasForSmallYards,
   chickenCoopPlans,
   polycarbonateGreenhouse,
+  greenhouseKitComparison,
   chickenCoopIdeas,
 ];
 
