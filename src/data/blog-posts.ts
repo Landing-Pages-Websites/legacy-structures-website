@@ -82,6 +82,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  designChickenCoops,
 
   rentToOwnShedsNoCreditCheck,
   rentToOwnShedPrices,
@@ -2573,7 +2574,6 @@ schema: {
     }
   },
   backyardShedIdeasForSmallYards,
-  designChickenCoops,
   chickenCoopPlans,
   polycarbonateGreenhouse,
   chickenCoopIdeas,
