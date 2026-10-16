@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import ProductSchema from "@/components/ProductSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Log Cabins for Sale | Hudson Falls, NY",
+  title: "Portable Log Cabins for Sale in New York",
   description:
-    "Browse log cabins at Legacy Structures in Hudson Falls, NY. Butt-and-pass log corners with hand-hewn options for offices, retreats & hunting camps. Free delivery within 30 miles.",
+    "Portable log cabins for sale in New York from Legacy Structures. Explore customizable cabins for retreats, hunting camps, and offices, then get a quote.",
   path: "/log-cabins",
 });
 
