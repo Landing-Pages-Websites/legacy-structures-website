@@ -65,6 +65,7 @@ import howToBuildAChickenCoopDoor from "./how-to-build-a-chicken-coop-door";
 import howToCleanAChickenCoop from "./how-to-clean-a-chicken-coop";
 import backyardShedIdeasForSmallYards from "./backyard-shed-ideas-small-yards";
 import chickenCoopPlans from "./chicken-coop-plans";
+import polycarbonateGreenhouse from "./polycarbonate-greenhouse";
 
 export interface BlogPost {
   slug: string;
@@ -2572,6 +2573,7 @@ schema: {
   },
   backyardShedIdeasForSmallYards,
   chickenCoopPlans,
+  polycarbonateGreenhouse,
   chickenCoopIdeas,
 ];
 
