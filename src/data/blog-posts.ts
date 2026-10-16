@@ -65,6 +65,7 @@ import howToBuildAChickenCoopDoor from "./how-to-build-a-chicken-coop-door";
 import howToCleanAChickenCoop from "./how-to-clean-a-chicken-coop";
 import backyardShedIdeasForSmallYards from "./backyard-shed-ideas-small-yards";
 import chickenCoopPlans from "./chicken-coop-plans";
+import polycarbonateGreenhouse from "./polycarbonate-greenhouse";
 import designChickenCoops from "./how-to-design-chicken-coops";
 
 export interface BlogPost {
@@ -81,6 +82,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  designChickenCoops,
 
   rentToOwnShedsNoCreditCheck,
   rentToOwnShedPrices,
@@ -2572,8 +2574,8 @@ schema: {
     }
   },
   backyardShedIdeasForSmallYards,
-  designChickenCoops,
   chickenCoopPlans,
+  polycarbonateGreenhouse,
   chickenCoopIdeas,
 ];
 
