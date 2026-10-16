@@ -152,6 +152,11 @@ const WWW_CANONICAL_SLUGS = new Set([
   "utility-shed-4",
   "lofted-barn-9",
   "lofted-barn-7",
+  "utility-dormer",
+  "lofted-barn-10",
+  "utility-shed-7",
+  "utility-gable-dormer",
+  "lofted-barn-playhouse",
 ]);
 
 const canonicalHostForSlug = (slug: string): string =>
