@@ -42,6 +42,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "utility-shed-7",
       "utility-gable-dormer",
       "lofted-barn-playhouse",
+      "utility-dormer-3",
+      "12x24-garage",
+      "a-frame",
+      "lofted-barn-playhouse-2",
+      "lofted-garage",
     ].includes(slug)
       ? `https://www.legacystructuresusa.com/building/${slug}`
       : `${BRAND.siteUrl}/building/${slug}`,
