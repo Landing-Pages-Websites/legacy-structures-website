@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Browse log cabins at Legacy Structures in Hudson Falls, NY. Butt-and-pass log corners with hand-hewn options for offices, retreats & hunting camps. Free delivery within 30 miles.",
   path: "/log-cabins",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const CABIN_IMAGE_BASE = "/images/optimized-assets/log-cabins";

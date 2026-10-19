@@ -24,10 +24,19 @@ const STATIC_ROUTES: {
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
 ];
 
+const WWW_CANONICAL_STATIC_PATHS = new Set([
+  "/storage-sheds",
+  "/portable-garages",
+  "/double-wide-garages",
+  "/a-frames",
+  "/log-cabins",
+  "/chicken-coops",
+]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const publicPages = STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
     url:
-      path === "/storage-sheds"
+      WWW_CANONICAL_STATIC_PATHS.has(path)
         ? `https://www.legacystructuresusa.com${path}`
         : `${BRAND.siteUrl}${path === "/" ? "" : path}`,
     lastModified: LAST_MODIFIED,
