@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Find agricultural-grade chicken coops near Hudson Falls, NY for cold-climate flocks. Choose 6' or 8' widths, six nesting boxes, and local delivery options.",
   path: "/chicken-coops",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const BASE_URL =

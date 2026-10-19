@@ -17,6 +17,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Find A-frame cabins for sale near Hudson Falls, NY. Choose a recreational shell or turnkey cabin, customize designs, and ask about Adirondack delivery.",
   path: "/a-frames",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const A_FRAME_IMAGE_BASE = "/images/optimized-assets/a-frames";

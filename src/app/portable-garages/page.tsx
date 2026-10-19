@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Shop single-wide and double-wide portable garages near Hudson Falls, NY. Protect vehicles with delivery, installation, and local quotes from Legacy Structures.",
   path: "/portable-garages",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const BASE_URL =

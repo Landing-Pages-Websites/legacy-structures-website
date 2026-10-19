@@ -15,6 +15,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Double-wide garages near Hudson Falls, NY for two vehicles, workshops, and equipment. Explore 24-foot widths, on-site joining, and request a local quote.",
   path: "/double-wide-garages",
+  canonicalHost: "https://www.legacystructuresusa.com",
 });
 
 const BASE_URL =
