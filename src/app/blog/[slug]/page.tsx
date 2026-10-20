@@ -8,6 +8,7 @@ import { absoluteUrl } from "@/lib/metadata";
 const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "rent-to-own-sheds-no-credit-check",
+  "small-greenhouses",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>
