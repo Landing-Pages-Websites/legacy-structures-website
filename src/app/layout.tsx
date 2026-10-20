@@ -7,6 +7,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import CookieConsent from "@/components/CookieConsent";
 import SiteMotion from "@/components/SiteMotion";
 import MegaTag from "@/components/analytics/MegaTag";
+import { GomegaReviewBridge } from "@/components/analytics/GomegaReviewBridge";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import PostHogProvider from "@/components/analytics/PostHogProvider";
 import LeadAttribution from "@/components/analytics/LeadAttribution";
@@ -145,6 +146,7 @@ export default function RootLayout({
       <head>
         <MegaTag />
         <GoogleAnalytics />
+        <GomegaReviewBridge />
       </head>
       <body>
         <script
