@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { siteAssets } from "@/lib/site-assets";
 import { captureLeadContext } from "@/lib/megaLeadContext";
@@ -24,7 +25,7 @@ const STATES_PROVINCES = [
 const inputClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4a017] focus:border-transparent transition";
 const selectClasses = "w-full p-3 border border-gray-200 rounded-lg bg-white text-gray-800 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#d4a017] focus:border-transparent transition appearance-none";
 
-export default function PricingGuideSection() {
+export default function PricingGuideSection({ includeShedPricingLink = false }: { includeShedPricingLink?: boolean }) {
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", phone: "", state: "", comments: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -52,7 +53,7 @@ export default function PricingGuideSection() {
           Looking for Pricing? Download Our FREE Pricing Guide!
         </h2>
         <p style={{ fontSize: 18, color: "#1f1f1f", maxWidth: 1100, margin: "0 auto", paddingBottom: 28, fontFamily: "Georgia, 'Times New Roman', serif", lineHeight: 1.55 }}>
-          Ready to explore your options for the perfect portable building? Start with our <strong>FREE Pricing Guide!</strong> This detailed download provides you with all the pricing information you need to make an informed decision, including various models, sizes, and customization options. Don&apos;t miss out on this essential resource.
+          Ready to explore your options for the perfect portable building? Start with our <strong>FREE Pricing Guide!</strong> This detailed download provides you with all the pricing information you need to make an informed decision, including various models, sizes, and customization options.{includeShedPricingLink && <> For a closer look at <Link href="/blog/custom-shed-cost-pricing-guide">shed prices</Link>, read our custom shed pricing guide.</>} Don&apos;t miss out on this essential resource.
         </p>
       </div>
 
