@@ -73,7 +73,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* Pricing Guide Section */}
-      <PricingGuideSection />
+      <PricingGuideSection includeShedPricingLink />
 
       <style>{`
         @media (max-width: 600px) {
