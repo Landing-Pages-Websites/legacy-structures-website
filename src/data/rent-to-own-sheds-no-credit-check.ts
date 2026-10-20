@@ -18,7 +18,7 @@ const rentToOwnShedsNoCreditCheck: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/rent-to-own-sheds-no-credit-check/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-sheds-no-credit-check/#article",
         headline: "Rent to Own Sheds No Credit Check: A Clear Guide",
         description:
           "Learn how rent to own sheds no credit check plans work, compare full payment terms, and request a clear Upstate NY quote from Legacy Structures today.",
@@ -37,12 +37,12 @@ const rentToOwnShedsNoCreditCheck: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/rent-to-own-sheds-no-credit-check",
+          "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-sheds-no-credit-check",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/rent-to-own-sheds-no-credit-check/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-sheds-no-credit-check/#faq",
         mainEntity: [
           {
             "@type": "Question",
