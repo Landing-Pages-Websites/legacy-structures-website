@@ -134,6 +134,10 @@ const DESIGNER_BASE =
   "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=";
 const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_SLUGS = new Set([
+  "side-dormer-a-frame",
+  "greenhouse",
+  "utility-shed",
+  "lofted-barn-2",
   "chicken-coop",
   "mini-barn",
   "utility-shed-3",

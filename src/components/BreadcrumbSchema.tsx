@@ -13,9 +13,14 @@ const labelFromSegment = (segment: string) =>
 const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_PATHS = new Set([
   "/blog",
+  "/blog/rent-to-own-sheds-no-credit-check",
   "/privacy-policy",
   "/storage-sheds",
   "/building/chicken-coop",
+  "/building/side-dormer-a-frame",
+  "/building/greenhouse",
+  "/building/utility-shed",
+  "/building/lofted-barn-2",
   "/building/mini-barn",
   "/building/utility-shed-3",
   "/building/lofted-barn-6",
