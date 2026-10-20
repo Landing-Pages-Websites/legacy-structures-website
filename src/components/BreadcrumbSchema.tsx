@@ -13,9 +13,14 @@ const labelFromSegment = (segment: string) =>
 const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_PATHS = new Set([
   "/blog",
+  "/blog/rent-to-own-sheds-no-credit-check",
   "/privacy-policy",
   "/storage-sheds",
   "/building/chicken-coop",
+  "/building/side-dormer-a-frame",
+  "/building/greenhouse",
+  "/building/utility-shed",
+  "/building/lofted-barn-2",
   "/building/mini-barn",
   "/building/utility-shed-3",
   "/building/lofted-barn-6",
@@ -30,14 +35,19 @@ const WWW_CANONICAL_PATHS = new Set([
   "/building/lofted-barn-7",
   "/building/utility-dormer",
   "/building/lofted-barn-10",
-  "/building/utility-shed-7",
-  "/building/utility-gable-dormer",
-  "/building/lofted-barn-playhouse",
   "/building/utility-dormer-3",
   "/building/12x24-garage",
   "/building/a-frame",
   "/building/lofted-barn-playhouse-2",
   "/building/lofted-garage",
+  "/building/utility-shed-7",
+  "/building/utility-gable-dormer",
+  "/building/lofted-barn-playhouse",
+  "/building/garage",
+  "/building/reverse-gable-a-frame",
+  "/building/utility-log-siding-cabin",
+  "/building/double-wide-garage",
+  "/building/timber-trail-log-cabin",
 ]);
 
 export default function BreadcrumbSchema() {

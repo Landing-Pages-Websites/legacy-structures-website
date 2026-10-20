@@ -5,6 +5,15 @@ import type { Metadata } from "next";
 import blogPosts from "@/data/blog-posts";
 import { absoluteUrl } from "@/lib/metadata";
 
+const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
+const WWW_CANONICAL_BLOG_SLUGS = new Set([
+  "rent-to-own-sheds-no-credit-check",
+  "small-greenhouses",
+]);
+
+const canonicalUrlForSlug = (slug: string): string =>
+  `${WWW_CANONICAL_BLOG_SLUGS.has(slug) ? WWW_CANONICAL_HOST : absoluteUrl("")}/blog/${slug}`;
+
 function formatPostDate(date: string) {
   return new Intl.DateTimeFormat("en-US", {
     month: "long",
@@ -25,15 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
 
+  const canonicalUrl = canonicalUrlForSlug(post.slug);
+
   return {
     title: post.metaTitle,
     description: post.description,
-    alternates: { canonical: absoluteUrl(`/blog/${post.slug}`) },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       type: "article",
       title: post.metaTitle,
       description: post.description,
-      url: absoluteUrl(`/blog/${post.slug}`),
+      url: canonicalUrl,
       images: [{ url: absoluteUrl(post.image), width: 1200, height: 630, alt: post.imageAlt }],
       publishedTime: post.date,
       authors: [post.author],

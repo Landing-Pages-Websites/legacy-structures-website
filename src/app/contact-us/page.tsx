@@ -32,7 +32,7 @@ export default async function ContactUsPage({
     <div style={{ background: "#f7f5f2" }}>
       <PageHero
         title="Contact Us"
-        subtitle="Visit us in Hudson Falls, NY — we'd love to help you find the perfect building for your needs."
+        subtitle="Looking for a shed dealer in Hudson Falls, NY? Visit our lot to explore storage sheds and other buildings, or call or text Stephen at 518-544-2889 for help choosing the right building."
         variant="navy"
       />
 

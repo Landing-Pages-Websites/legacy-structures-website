@@ -134,6 +134,10 @@ const DESIGNER_BASE =
   "https://orders.barnportal.com/myquote?dealerid=&dir=1&template=";
 const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_SLUGS = new Set([
+  "side-dormer-a-frame",
+  "greenhouse",
+  "utility-shed",
+  "lofted-barn-2",
   "chicken-coop",
   "mini-barn",
   "utility-shed-3",
@@ -154,14 +158,19 @@ const WWW_CANONICAL_SLUGS = new Set([
   "lofted-barn-7",
   "utility-dormer",
   "lofted-barn-10",
-  "utility-shed-7",
-  "utility-gable-dormer",
-  "lofted-barn-playhouse",
   "utility-dormer-3",
   "12x24-garage",
   "a-frame",
   "lofted-barn-playhouse-2",
   "lofted-garage",
+  "utility-shed-7",
+  "utility-gable-dormer",
+  "lofted-barn-playhouse",
+  "garage",
+  "reverse-gable-a-frame",
+  "utility-log-siding-cabin",
+  "double-wide-garage",
+  "timber-trail-log-cabin",
 ]);
 
 const canonicalHostForSlug = (slug: string): string =>
