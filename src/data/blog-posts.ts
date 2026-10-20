@@ -68,6 +68,7 @@ import chickenCoopPlans from "./chicken-coop-plans";
 import designChickenCoops from "./how-to-design-chicken-coops";
 import polycarbonateGreenhouse from "./polycarbonate-greenhouse";
 import greenhouseKitComparison from "./greenhouse-kit-comparison";
+import smallGreenhouses from "./small-greenhouses";
 
 export interface BlogPost {
   slug: string;
@@ -2578,6 +2579,7 @@ schema: {
   chickenCoopPlans,
   polycarbonateGreenhouse,
   greenhouseKitComparison,
+  smallGreenhouses,
   chickenCoopIdeas,
 ];
 
