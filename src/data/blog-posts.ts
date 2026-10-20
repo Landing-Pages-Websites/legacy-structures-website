@@ -43,6 +43,7 @@ import portableCabinPricesGuide from "./portable-cabin-prices-guide";
 import prefabricatedTwoCarGarage from "./prefabricated-two-car-garage";
 import professionalShedBuildersGuide from "./professional-shed-builders-guide";
 import storageShedBuyingGuideUpstateNewYork from "./storage-shed-buying-guide-upstate-new-york";
+import preBuiltShedVsShedKit from "./pre-built-shed-vs-shed-kit";
 import walkInChickenCoopRun from "./walk-in-chicken-coop-run";
 import whatToLookForInAPortableCabin from "./what-to-look-for-in-a-portable-cabin";
 import whatToLookForWhenBuyingPrebuiltShed from "./what-to-look-for-when-buying-prebuilt-shed";
@@ -129,6 +130,7 @@ const blogPosts: BlogPost[] = [
   prefabricatedTwoCarGarage,
   professionalShedBuildersGuide,
   storageShedBuyingGuideUpstateNewYork,
+  preBuiltShedVsShedKit,
   walkInChickenCoopRun,
   whatToLookForInAPortableCabin,
   whatToLookForWhenBuyingPrebuiltShed,
