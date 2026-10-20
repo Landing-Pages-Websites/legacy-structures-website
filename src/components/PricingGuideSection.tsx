@@ -53,7 +53,7 @@ export default function PricingGuideSection({ includeShedPricingLink = false }: 
           Looking for Pricing? Download Our FREE Pricing Guide!
         </h2>
         <p style={{ fontSize: 18, color: "#1f1f1f", maxWidth: 1100, margin: "0 auto", paddingBottom: 28, fontFamily: "Georgia, 'Times New Roman', serif", lineHeight: 1.55 }}>
-          Ready to explore your options for the perfect portable building? Start with our <strong>FREE Pricing Guide!</strong> This detailed download provides you with all the pricing information you need to make an informed decision, including various models, sizes, and customization options.{includeShedPricingLink && <> For a closer look at <Link href="/blog/custom-shed-cost-pricing-guide">shed prices</Link>, read our custom shed pricing guide.</>} Don&apos;t miss out on this essential resource.
+          Ready to explore your options for the perfect portable building? Start with our <strong>FREE Pricing Guide!</strong> This detailed download provides you with all the pricing information you need to make an informed decision, including various models, sizes, and customization options.{includeShedPricingLink && <> For a closer look at <Link href="/blog/custom-shed-cost-pricing-guide">shed prices</Link>, read our custom shed pricing guide.</>} {" "}Don&apos;t miss out on this essential resource.
         </p>
       </div>
 
