@@ -35,6 +35,7 @@ const WWW_CANONICAL_STATIC_PATHS = new Set([
 
 const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "rent-to-own-sheds-no-credit-check",
+  "small-greenhouses",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([
