@@ -246,17 +246,23 @@ export default async function BlogPostPage({ params }: Props) {
         article .answer-capsule p:last-child {
           margin-bottom: 0;
         }
+        article .table-scroll {
+          max-width: 100%;
+          margin: 24px 0;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-inline: contain;
+        }
         article table {
           width: 100%;
-          max-width: 100%;
-          table-layout: fixed;
+          min-width: 720px;
           border-collapse: collapse;
-          margin: 24px 0;
+          margin: 0;
           font-size: 16px;
         }
         article th,
         article td {
-          overflow-wrap: anywhere;
+          overflow-wrap: normal;
           vertical-align: top;
         }
         article th {
