@@ -14,6 +14,11 @@ const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_PATHS = new Set([
   "/blog",
   "/blog/rent-to-own-sheds-no-credit-check",
+  "/blog/rent-to-own-shed-prices",
+  "/blog/predator-proof-chicken-tractor",
+  "/blog/predator-proof-mobile-chicken-coop",
+  "/blog/how-to-choose-a-chicken-coop",
+  "/blog/chicken-coop-storage-ideas",
   "/privacy-policy",
   "/storage-sheds",
   "/building/chicken-coop",

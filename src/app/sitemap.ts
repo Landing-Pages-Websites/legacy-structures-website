@@ -36,6 +36,11 @@ const WWW_CANONICAL_STATIC_PATHS = new Set([
 const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "rent-to-own-sheds-no-credit-check",
   "small-greenhouses",
+  "rent-to-own-shed-prices",
+  "predator-proof-chicken-tractor",
+  "predator-proof-mobile-chicken-coop",
+  "how-to-choose-a-chicken-coop",
+  "chicken-coop-storage-ideas",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([

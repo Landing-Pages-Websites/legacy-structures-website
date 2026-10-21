@@ -9,6 +9,11 @@ const WWW_CANONICAL_HOST = "https://www.legacystructuresusa.com";
 const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "rent-to-own-sheds-no-credit-check",
   "small-greenhouses",
+  "rent-to-own-shed-prices",
+  "predator-proof-chicken-tractor",
+  "predator-proof-mobile-chicken-coop",
+  "how-to-choose-a-chicken-coop",
+  "chicken-coop-storage-ideas",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>

@@ -135,7 +135,7 @@ const predatorProofMobileChickenCoop: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/predator-proof-mobile-chicken-coop/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/predator-proof-mobile-chicken-coop/#article",
         headline: "7 Features of a Predator Proof Mobile Chicken Coop",
         description:
           "Find out the 7 must-have features every predator proof mobile chicken coop needs to keep your flock safe from foxes, raccoons, hawks, and more.",
@@ -151,12 +151,12 @@ const predatorProofMobileChickenCoop: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/predator-proof-mobile-chicken-coop",
+          "@id": "https://www.legacystructuresusa.com/blog/predator-proof-mobile-chicken-coop",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/predator-proof-mobile-chicken-coop/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/predator-proof-mobile-chicken-coop/#faq",
         mainEntity: [
           {
             "@type": "Question",
