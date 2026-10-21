@@ -4,7 +4,7 @@ const portableGreenhouses: BlogPost = {
   slug: "portable-greenhouses",
   title: "Portable Greenhouses: Options for Flexible Growing Space",
   metaTitle: "Portable Greenhouse Options for Flexible Growing Space",
-  description: "Compare portable greenhouses by growing needs, placement, weather, and upkeep. Use this guide to plan a practical setup in Upstate New York.",
+  description: "Compare portable greenhouse options by growing needs, placement, weather, and upkeep. Use this guide to plan a practical setup in Upstate New York.",
   image: "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/portable-greenhouses-options-for-flexible-growing-space-710018.webp",
   imageAlt: "Portable greenhouse set in a sunny backyard with raised growing beds",
   date: "2026-10-21",
@@ -16,8 +16,8 @@ const portableGreenhouses: BlogPost = {
       {
         "@type": "BlogPosting",
         headline: "Portable Greenhouses: Options for Flexible Growing Space",
-        description: "Compare portable greenhouses by growing needs, placement, weather, and upkeep. Use this guide to plan a practical setup in Upstate New York.",
-        image: "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/portable-greenhouses-options-for-flexible-growing-space-710018.webp",
+        description: "Compare portable greenhouse options by growing needs, placement, weather, and upkeep. Use this guide to plan a practical setup in Upstate New York.",
+        image: ">-",
         datePublished: "2026-10-21",
         dateModified: "2026-10-21",
         author: { "@type": "Person", name: "Stephen Kanagy" },
@@ -27,46 +27,46 @@ const portableGreenhouses: BlogPost = {
       {
         "@type": "FAQPage",
         mainEntity: [
-        {
-          "@type": "Question",
-          name: "Can a portable greenhouse be moved later?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Possibly, but portability does not mean every model can be moved easily or frequently. Ask about the exact building, its setup, and the access and equipment a move would require before you buy.",
+          {
+            "@type": "Question",
+            name: "Can a portable greenhouse be moved later?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Possibly, but portability does not mean every model can be moved easily or frequently. Ask about the exact building, its setup, and the access and equipment a move would require before you buy.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "How much space do I need for a portable greenhouse?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "It depends on the plants, containers, and work area you need. Measure the site and sketch the interior layout, including space to enter, reach plants, and move supplies. Confirm usable dimensions for the model you are considering.",
+          {
+            "@type": "Question",
+            name: "How much space do I need for a portable greenhouse?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "It depends on the plants, containers, and work area you need. Measure the site and sketch the interior layout, including space to enter, reach plants, and move supplies. Confirm usable dimensions for the model you are considering.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "Where is the best place to put a greenhouse?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Look for a practical location with suitable light, drainage, access, and room for delivery. Consider how trees, buildings, weather exposure, and seasonal changes affect the site. Discuss model-specific placement guidance with the seller.",
+          {
+            "@type": "Question",
+            name: "Where is the best place to put a greenhouse?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Look for a practical location with suitable light, drainage, access, and room for delivery. Consider how trees, buildings, weather exposure, and seasonal changes affect the site. Discuss model-specific placement guidance with the seller.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "Can a portable greenhouse be used in Upstate New York?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Gardeners can consider greenhouse options in Upstate New York, but the intended season of use and local site conditions matter. Ask about the selected structure's features and care recommendations, and plan for the weather it will encounter.",
+          {
+            "@type": "Question",
+            name: "Can a portable greenhouse be used in Upstate New York?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Gardeners can consider greenhouse options in Upstate New York, but the intended season of use and local site conditions matter. Ask about the selected structure's features and care recommendations, and plan for the weather it will encounter.",
+            },
           },
-        },
-        {
-          "@type": "Question",
-          name: "What should I confirm before ordering?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Confirm dimensions, configuration, delivery access, surface preparation, warranty terms, and any local property requirements you need to check. Ask whether the particular structure can be moved if that may matter later.",
-          },
-        }
+          {
+            "@type": "Question",
+            name: "What should I confirm before ordering?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Confirm dimensions, configuration, delivery access, surface preparation, warranty terms, and any local property requirements you need to check. Ask whether the particular structure can be moved if that may matter later.",
+            },
+          }
         ]
       }
     ]
