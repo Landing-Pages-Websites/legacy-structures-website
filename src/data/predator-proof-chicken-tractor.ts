@@ -120,7 +120,7 @@ A high-quality, pre-built coop takes the guesswork out of security. When you&#39
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/predator-proof-chicken-tractor/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/predator-proof-chicken-tractor/#article",
         headline: "The Essential Predator Proof Chicken Tractor Guide",
         description:
           "Get practical tips for building a predator proof chicken tractor that keeps your flock safe. Learn the best materials, designs, and security features.",
@@ -136,12 +136,12 @@ A high-quality, pre-built coop takes the guesswork out of security. When you&#39
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/predator-proof-chicken-tractor",
+          "@id": "https://www.legacystructuresusa.com/blog/predator-proof-chicken-tractor",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/predator-proof-chicken-tractor/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/predator-proof-chicken-tractor/#faq",
         mainEntity: [
           {
             "@type": "Question",

@@ -121,7 +121,7 @@ const rentToOwnShedPrices: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/rent-to-own-shed-prices/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-shed-prices/#article",
         headline: "Rent to Own Shed Prices: A Complete Guide",
         description:
           "Get clear answers on rent to own shed prices, monthly payment options, and what affects the total cost so you can choose the best shed for your budget.",
@@ -137,12 +137,12 @@ const rentToOwnShedPrices: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/rent-to-own-shed-prices",
+          "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-shed-prices",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/rent-to-own-shed-prices/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-shed-prices/#faq",
         mainEntity: [
           {
             "@type": "Question",

@@ -102,11 +102,11 @@ const chickenCoopStorageIdeas: BlogPost = {
         "image": "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/9-clever-chicken-coop-storage-ideas-to-try-433459.webp",
         "datePublished": "2026-09-01",
         "author": { "@type": "Person", "name": "Stephen Kanagy" },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://legacystructuresusa.com/blog/chicken-coop-storage-ideas" }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.legacystructuresusa.com/blog/chicken-coop-storage-ideas" }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/chicken-coop-storage-ideas/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/chicken-coop-storage-ideas/#faq",
         "mainEntity": [
           { "@type": "Question", "name": "What's the most critical storage mistake to avoid?", "acceptedAnswer": { "@type": "Answer", "text": "The biggest mistake is storing feed improperly. Keep feed in a galvanized steel can or heavy-duty, airtight plastic container to keep it safe, dry, and pest-free." } },
           { "@type": "Question", "name": "My coop is really small. What's the best way to add storage without creating more clutter?", "acceptedAnswer": { "@type": "Answer", "text": "Use vertical space. Install hooks for tools and shelves for smaller supplies to organize essentials without taking up more floor space." } },
