@@ -71,6 +71,7 @@ import polycarbonateGreenhouse from "./polycarbonate-greenhouse";
 import greenhouseKitComparison from "./greenhouse-kit-comparison";
 import smallGreenhouses from "./small-greenhouses";
 import portableGreenhouses from "./portable-greenhouses";
+import outdoorGreenhouse from "./outdoor-greenhouse";
 
 export interface BlogPost {
   slug: string;
@@ -2584,6 +2585,7 @@ schema: {
   greenhouseKitComparison,
   smallGreenhouses,
   portableGreenhouses,
+  outdoorGreenhouse,
   chickenCoopIdeas,
 ];
 
