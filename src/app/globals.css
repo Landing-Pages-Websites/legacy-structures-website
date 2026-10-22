@@ -66,6 +66,13 @@ body {
   animation: page-enter 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Keep mobile content visible while the client-side motion layer initializes. */
+@media (max-width: 767px) {
+  .has-js .page-transition-shell {
+    animation: none;
+  }
+}
+
 .has-js .motion-reveal {
   opacity: 0;
   transform: translate3d(0, var(--motion-y, 26px), 0);
