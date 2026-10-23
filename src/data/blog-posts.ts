@@ -72,6 +72,7 @@ import greenhouseKitComparison from "./greenhouse-kit-comparison";
 import smallGreenhouses from "./small-greenhouses";
 import portableGreenhouses from "./portable-greenhouses";
 import outdoorGreenhouse from "./outdoor-greenhouse";
+import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 
 export interface BlogPost {
   slug: string;
@@ -2586,6 +2587,7 @@ schema: {
   smallGreenhouses,
   portableGreenhouses,
   outdoorGreenhouse,
+  howLongDoesAPrefabShedLast,
   chickenCoopIdeas,
 ];
 
