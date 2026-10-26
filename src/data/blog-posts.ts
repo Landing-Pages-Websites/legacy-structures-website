@@ -72,6 +72,7 @@ import greenhouseKitComparison from "./greenhouse-kit-comparison";
 import smallGreenhouses from "./small-greenhouses";
 import portableGreenhouses from "./portable-greenhouses";
 import outdoorGreenhouse from "./outdoor-greenhouse";
+import smallGreenhouseKit from "./small-greenhouse-kit";
 import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best-uses";
 
@@ -2588,6 +2589,7 @@ schema: {
   smallGreenhouses,
   portableGreenhouses,
   outdoorGreenhouse,
+  smallGreenhouseKit,
   howLongDoesAPrefabShedLast,
   metalBuildingsTypesCostsBestUses,
   chickenCoopIdeas,
