@@ -14,6 +14,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "predator-proof-mobile-chicken-coop",
   "how-to-choose-a-chicken-coop",
   "chicken-coop-storage-ideas",
+  "chicken-coop-wagon-guide",
+  "chicken-nesting-trailer-guide",
+  "chicken-shack-on-wheels",
+  "chicken-house-winch-guide",
+  "automated-chicken-tractor-guide",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>
