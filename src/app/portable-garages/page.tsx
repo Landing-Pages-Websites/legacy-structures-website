@@ -117,7 +117,16 @@ export default function PortableGaragesPage() {
             Often times adding a garage onto an existing home or having a free-standing garage built can be cost-prohibitive. By the time you&apos;ve hired an architect and priced out the materials, the dream of owning a garage can seem out of reach. This is where a portable garage from Backyard Outfitters comes in! Whether you need to store an antique car or want to have space to work on your vehicle, one of these portable garages might just be the solution you are looking for. Our buildings are built to exacting standards, in the spirit of Mennonite craftsmanship, and with the highest quality materials. One unique feature of our portable garages is that&hellip;well&hellip;they are portable.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
-            Our garages start out as small as 8ft x 10ft and come as big as 16ft x 40ft (depending on location.) We offer two basic styles of garages: a Utility Garage and a Lofted Garage. Each building has its own unique advantages. After construction, they are delivered to your location and set up where you&apos;d like them to sit. **Some placement restrictions might apply depending on a number of factors. In the event you ever moved to a new home or needed to relocate one of these structures, you can contact your dealer to obtain the delivery company&apos;s contact information. They can assist you in helping get your structure moved.
+            Our garages start out as small as 8ft x 10ft and come as big as 16ft x 40ft (depending on location). We offer two basic styles of garages: a Utility Garage and a Lofted Garage. Each building has its own unique advantages.
+          </p>
+          <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">
+            Portable Garage Delivery and Installation
+          </h3>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            After construction, your portable garage is delivered to your location and set up where you would like it to sit. Delivery availability and pricing vary by location, and placement restrictions may apply depending on your property, access, building size, local building codes, and zoning requirements.
+          </p>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            Before ordering, contact Legacy Structures to discuss your location and the delivery and installation details for your garage. If you move later, contact your dealer for the delivery company&apos;s contact information to discuss relocating the structure.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
             We have seen many different uses when customers purchase our portable garages&hellip;including car storage, home office, homeschool room, crafting room, and so much more! If you live in or around Hudson Falls, NY and need storage, come by and visit us or give us a call at <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
