@@ -43,6 +43,7 @@ import portableCabinPricesGuide from "./portable-cabin-prices-guide";
 import prefabricatedTwoCarGarage from "./prefabricated-two-car-garage";
 import professionalShedBuildersGuide from "./professional-shed-builders-guide";
 import storageShedBuyingGuideUpstateNewYork from "./storage-shed-buying-guide-upstate-new-york";
+import storageBuildings from "./storage-buildings";
 import preBuiltShedVsShedKit from "./pre-built-shed-vs-shed-kit";
 import walkInChickenCoopRun from "./walk-in-chicken-coop-run";
 import whatToLookForInAPortableCabin from "./what-to-look-for-in-a-portable-cabin";
@@ -75,7 +76,6 @@ import outdoorGreenhouse from "./outdoor-greenhouse";
 import smallGreenhouseKit from "./small-greenhouse-kit";
 import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best-uses";
-import storageBuildings from "./storage-buildings";
 
 export interface BlogPost {
   slug: string;
@@ -136,6 +136,7 @@ const blogPosts: BlogPost[] = [
   prefabricatedTwoCarGarage,
   professionalShedBuildersGuide,
   storageShedBuyingGuideUpstateNewYork,
+  storageBuildings,
   preBuiltShedVsShedKit,
   walkInChickenCoopRun,
   whatToLookForInAPortableCabin,
@@ -2593,7 +2594,6 @@ schema: {
   smallGreenhouseKit,
   howLongDoesAPrefabShedLast,
   metalBuildingsTypesCostsBestUses,
-  storageBuildings,
   chickenCoopIdeas,
 ];
 
