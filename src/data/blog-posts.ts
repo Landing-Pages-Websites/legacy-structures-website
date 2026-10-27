@@ -75,6 +75,7 @@ import outdoorGreenhouse from "./outdoor-greenhouse";
 import smallGreenhouseKit from "./small-greenhouse-kit";
 import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best-uses";
+import storageBuildings from "./storage-buildings";
 
 export interface BlogPost {
   slug: string;
@@ -2592,6 +2593,7 @@ schema: {
   smallGreenhouseKit,
   howLongDoesAPrefabShedLast,
   metalBuildingsTypesCostsBestUses,
+  storageBuildings,
   chickenCoopIdeas,
 ];
 
