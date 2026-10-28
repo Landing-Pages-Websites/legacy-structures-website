@@ -109,7 +109,7 @@ It&#39;s a fair question. Building a tractor requires basic carpentry skills, th
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/chicken-tractor-for-50-broilers/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor-for-50-broilers/#article",
         headline: "How to Build a Chicken Tractor for 50 Broilers",
         description:
           "Get practical tips on building a chicken tractor for 50 broilers, including sizing, materials, daily care, and predator-proofing for a healthy, happy flock.",
@@ -125,12 +125,12 @@ It&#39;s a fair question. Building a tractor requires basic carpentry skills, th
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/chicken-tractor-for-50-broilers",
+          "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor-for-50-broilers",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/chicken-tractor-for-50-broilers/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor-for-50-broilers/#faq",
         mainEntity: [
           {
             "@type": "Question",

@@ -18,7 +18,7 @@ const howMuchDoesAShedCostInNewYork: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/how-much-does-a-shed-cost-in-new-york/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/how-much-does-a-shed-cost-in-new-york/#article",
         headline: "How Much Does a Shed Cost in New York? Local Guide",
         description:
           "How much does a shed cost in New York? Compare shed sizes, styles, delivery, payment options, and practical budget tips for your Upstate NY property today.",
@@ -34,12 +34,12 @@ const howMuchDoesAShedCostInNewYork: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/how-much-does-a-shed-cost-in-new-york",
+          "@id": "https://www.legacystructuresusa.com/blog/how-much-does-a-shed-cost-in-new-york",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/how-much-does-a-shed-cost-in-new-york/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/how-much-does-a-shed-cost-in-new-york/#faq",
         mainEntity: [
           {
             "@type": "Question",

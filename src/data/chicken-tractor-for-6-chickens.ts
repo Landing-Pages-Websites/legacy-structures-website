@@ -129,7 +129,7 @@ const chickenTractorFor6Chickens: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/chicken-tractor-for-6-chickens/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor-for-6-chickens/#article",
         headline: "Best Chicken Tractor for 6 Chickens: Your Guide",
         description:
           "Find the best chicken tractor for 6 chickens with tips on sizing, features, and materials to keep your flock healthy, safe, and happy year-round.",
@@ -145,12 +145,12 @@ const chickenTractorFor6Chickens: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/chicken-tractor-for-6-chickens",
+          "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor-for-6-chickens",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/chicken-tractor-for-6-chickens/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/chicken-tractor-for-6-chickens/#faq",
         mainEntity: [
           {
             "@type": "Question",

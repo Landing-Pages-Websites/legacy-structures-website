@@ -128,7 +128,7 @@ You have a lot of control over the final look and function of your greenhouse. U
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/backyard-greenhouse-for-sale/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/backyard-greenhouse-for-sale/#article",
         headline: "Backyard Greenhouse for Sale: An Essential Guide",
         description:
           "Find the best backyard greenhouse for sale with tips on choosing the right size, materials, and features to create your ideal home garden space.",
@@ -144,12 +144,12 @@ You have a lot of control over the final look and function of your greenhouse. U
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/backyard-greenhouse-for-sale",
+          "@id": "https://www.legacystructuresusa.com/blog/backyard-greenhouse-for-sale",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/backyard-greenhouse-for-sale/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/backyard-greenhouse-for-sale/#faq",
         mainEntity: [
           {
             "@type": "Question",
