@@ -77,6 +77,8 @@ import smallGreenhouseKit from "./small-greenhouse-kit";
 import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best-uses";
 
+import bestRentToOwnPortableGarageCompanies from "./best-rent-to-own-portable-garage-companies";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -91,6 +93,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  bestRentToOwnPortableGarageCompanies,
   designChickenCoops,
 
   rentToOwnShedsNoCreditCheck,
