@@ -19,6 +19,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "chicken-shack-on-wheels",
   "chicken-house-winch-guide",
   "automated-chicken-tractor-guide",
+  "chicken-tractor-for-50-broilers",
+  "chicken-tractor-for-6-chickens",
+  "backyard-barn-ideas",
+  "backyard-greenhouse-for-sale",
+  "how-much-does-a-shed-cost-in-new-york",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>
