@@ -81,6 +81,8 @@ import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best-uses";
 
 import bestRentToOwnPortableGarageCompanies from "./best-rent-to-own-portable-garage-companies";
+import walkInGreenhouse from "./walk-in-greenhouse";
+
 
 export interface BlogPost {
   slug: string;
@@ -96,6 +98,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  walkInGreenhouse,
   bestRentToOwnPortableGarageCompanies,
   designChickenCoops,
 
