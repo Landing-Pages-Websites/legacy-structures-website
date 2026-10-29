@@ -24,6 +24,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "backyard-barn-ideas",
   "backyard-greenhouse-for-sale",
   "how-much-does-a-shed-cost-in-new-york",
+  "backyard-office-shed-builder",
+  "benefits-of-lofted-barn",
+  "best-prebuilt-storage-sheds",
+  "buy-a-backyard-barn",
+  "buy-outdoor-storage-shed",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>

@@ -46,6 +46,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "chicken-shack-on-wheels",
   "chicken-house-winch-guide",
   "automated-chicken-tractor-guide",
+  "backyard-office-shed-builder",
+  "benefits-of-lofted-barn",
+  "best-prebuilt-storage-sheds",
+  "buy-a-backyard-barn",
+  "buy-outdoor-storage-shed",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([

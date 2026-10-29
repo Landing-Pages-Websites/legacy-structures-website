@@ -134,7 +134,7 @@ const backyardOfficeShedBuilder: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/backyard-office-shed-builder",
+          "@id": "https://www.legacystructuresusa.com/blog/backyard-office-shed-builder",
         },
       },
       {
