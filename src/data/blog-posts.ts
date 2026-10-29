@@ -1,7 +1,4 @@
-
 import threeDShedConfigurator from "./three-d-shed-configurator";
-  walkInGreenhouse,
-  
 import chickenCoopGuide from "./chicken-coop-guide";
 import chickenTractor from "./chicken-tractor";
 import chickenCoopIdeas from "./chicken-coop-ideas";
@@ -2604,7 +2601,7 @@ schema: {
   howLongDoesAPrefabShedLast,
   metalBuildingsTypesCostsBestUses,
   chickenCoopIdeas,
-          walkInGreenhouse,
+  walkInGreenhouse,
 ];
 
 export default blogPosts;
