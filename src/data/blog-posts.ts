@@ -98,7 +98,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
-  walkInGreenhouse,
+  
   bestRentToOwnPortableGarageCompanies,
   designChickenCoops,
 
