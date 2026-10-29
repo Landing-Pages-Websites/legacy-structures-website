@@ -2604,7 +2604,7 @@ schema: {
   howLongDoesAPrefabShedLast,
   metalBuildingsTypesCostsBestUses,
   chickenCoopIdeas,
-          walkInGreenhouse,
+          
 ];
 
 export default blogPosts;
