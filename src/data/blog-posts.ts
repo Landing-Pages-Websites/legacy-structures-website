@@ -1,7 +1,5 @@
-
+import walkInGreenhouse from "./walk-in-greenhouse";
 import threeDShedConfigurator from "./three-d-shed-configurator";
-  walkInGreenhouse,
-  
 import chickenCoopGuide from "./chicken-coop-guide";
 import chickenTractor from "./chicken-tractor";
 import chickenCoopIdeas from "./chicken-coop-ideas";
@@ -81,7 +79,6 @@ import howLongDoesAPrefabShedLast from "./how-long-does-a-prefab-shed-last";
 import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best-uses";
 
 import bestRentToOwnPortableGarageCompanies from "./best-rent-to-own-portable-garage-companies";
-import walkInGreenhouse from "./walk-in-greenhouse";
 
 
 export interface BlogPost {
@@ -2605,6 +2602,7 @@ schema: {
   metalBuildingsTypesCostsBestUses,
   chickenCoopIdeas,
           
+  walkInGreenhouse,
 ];
 
 export default blogPosts;
