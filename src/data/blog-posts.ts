@@ -1,4 +1,4 @@
-import walkInGreenhouse from "./walk-in-greenhouse";
+
 import threeDShedConfigurator from "./three-d-shed-configurator";
   walkInGreenhouse,
   
