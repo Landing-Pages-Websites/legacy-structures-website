@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withMegaPreview } from "./src/mega-preview/preview_config.mjs";
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
@@ -74,4 +75,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withMegaPreview(nextConfig);

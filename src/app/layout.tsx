@@ -12,6 +12,7 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import PostHogProvider from "@/components/analytics/PostHogProvider";
 import LeadAttribution from "@/components/analytics/LeadAttribution";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
+import { megaPreviewNavScript } from "@/mega-preview/preview_nav.mjs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -141,9 +142,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navScript = megaPreviewNavScript();
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${bricolage.variable} ${oswald.variable}`}>
       <head>
+        {navScript ? <script dangerouslySetInnerHTML={{ __html: navScript }} /> : null}
         <MegaTag />
         <GoogleAnalytics />
         <GomegaReviewBridge />
