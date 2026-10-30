@@ -62,8 +62,11 @@ export default function QueensburyShedsPage() {
       />
 
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row">
-          <div className="lg:w-[67%]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:block">
+          <div className="order-2 lg:order-none lg:float-right lg:w-[33%]">
+            <QuoteForm title="Request Your" titleSpan="FREE Shed Quote!" />
+          </div>
+          <div className="order-1 lg:order-none lg:w-[67%]">
             <Image
               src={siteAssets.categoryPage.storageSheds.src}
               alt="Custom backyard storage shed by Legacy Structures"
@@ -89,13 +92,7 @@ export default function QueensburyShedsPage() {
               />
             </a>
           </div>
-          <div className="lg:w-[33%]">
-            <QuoteForm title="Request Your" titleSpan="FREE Shed Quote!" />
-          </div>
-        </div>
-      </div>
-
-      <main className="bg-white max-w-7xl mx-auto px-4 py-10">
+          <main className="order-3 bg-white px-4 py-10">
         <FadeIn>
           <h2 className="page-content-heading">Find a Shed That Fits Your Queensbury Property</h2>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
@@ -167,7 +164,9 @@ export default function QueensburyShedsPage() {
             ))}
           </div>
         </FadeIn>
-      </main>
+          </main>
+        </div>
+      </div>
     </div>
   );
 }
