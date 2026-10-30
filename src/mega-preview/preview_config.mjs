@@ -8,11 +8,33 @@ export const MEGA_PREVIEW_HEADERS = Object.freeze([
   { key: "Cache-Control", value: "no-store" },
 ]);
 const DEV_ORIGIN = "*.megabuild.ai";
-const SITE_FRAMING_HEADERS = new Set(["content-security-policy", "content-security-policy-report-only", "x-frame-options"]);
+const CSP_HEADERS = new Set(["content-security-policy", "content-security-policy-report-only"]);
+const FRAMING_DIRECTIVE = "frame-ancestors";
 const EXTERNAL = /^https?:\/\//iu;
 
+/** A CSP value is a comma-separated policy list of `;`-separated directives; keep every directive but frame-ancestors. */
+function withoutFrameAncestors(csp) {
+  return csp
+    .split(",")
+    .map((policy) => policy.split(";").map((d) => d.trim()).filter((d) => d && d.split(/\s+/u)[0].toLowerCase() !== FRAMING_DIRECTIVE).join("; "))
+    .filter(Boolean)
+    .join(", ");
+}
+
+/** The site's header with its framing restriction removed, or null when nothing else is left. */
+function unframed(header) {
+  const key = header.key.toLowerCase();
+  if (key === "x-frame-options") return null;
+  if (!CSP_HEADERS.has(key)) return header;
+  const value = withoutFrameAncestors(header.value);
+  return value ? { ...header, value } : null;
+}
+
+/** Next rejects a header rule with no headers ("Invalid header found") and exits, so rules left empty are dropped. */
 function withoutSiteFraming(rules) {
-  return rules.map((rule) => ({ ...rule, headers: rule.headers.filter((h) => !SITE_FRAMING_HEADERS.has(h.key.toLowerCase())) }));
+  return (rules ?? [])
+    .map((rule) => ({ ...rule, headers: (rule.headers ?? []).map(unframed).filter(Boolean) }))
+    .filter((rule) => rule.headers.length > 0);
 }
 
 function withoutExternalRewrites(rewrites) {
