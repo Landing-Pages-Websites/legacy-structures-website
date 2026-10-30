@@ -152,7 +152,7 @@ export default function QueensburyShedsPage() {
             <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline font-bold">Call or text {BRAND.phone}</a>
           </p>
           <p className="mb-10">
-            <a href="/contact-us" className="inline-block rounded-md bg-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-white transition hover:bg-[#a93226]">Contact Legacy Structures</a>
+            <a href="/contact-us" style={{ color: "#fff" }} className="inline-block rounded-md bg-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-white transition hover:bg-[#a93226]">Contact Legacy Structures</a>
           </p>
         </FadeIn>
 
