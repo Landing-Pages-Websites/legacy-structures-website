@@ -80,6 +80,8 @@ import metalBuildingsTypesCostsBestUses from "./metal-buildings-types-costs-best
 
 import bestRentToOwnPortableGarageCompanies from "./best-rent-to-own-portable-garage-companies";
 
+import bestUtilitySheds from "./best-utility-sheds";
+
 
 export interface BlogPost {
   slug: string;
@@ -96,6 +98,7 @@ export interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   
+  bestUtilitySheds,
   bestRentToOwnPortableGarageCompanies,
   designChickenCoops,
 
