@@ -19,57 +19,57 @@ const bestUtilitySheds: BlogPost = {
       {
         "@type": "BlogPosting",
         "@id": "https://legacystructuresusa.com/blog/best-utility-sheds#article",
-        headline: "Best Utility Sheds: How to Choose the Right One",
-        description: "Compare utility shed sizes, layouts, materials, site needs, and costs to find the right portable storage building for your property and everyday use.",
-        image: "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/best-utility-sheds-how-to-choose-the-right-one-202074.webp",
-        datePublished: "2026-10-30",
-        dateModified: "2026-10-30",
-        author: { "@type": "Person", name: "Stephen Kanagy" },
-        publisher: { "@type": "Organization", name: "Legacy Structures", url: "https://legacystructuresusa.com" },
-        mainEntityOfPage: { "@type": "WebPage", "@id": "https://legacystructuresusa.com/blog/best-utility-sheds" },
+        "headline": "Best Utility Sheds: How to Choose the Right One",
+        "description": "Compare utility shed sizes, layouts, materials, site needs, and costs to find the right portable storage building for your property and everyday use.",
+        "image": "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43c4-9482-327fadfb8dce/best-utility-sheds-how-to-choose-the-right-one-202074.webp",
+        "datePublished": "2026-10-30",
+        "dateModified": "2026-10-30",
+        "author": { "@type": "Person", "name": "Stephen Kanagy" },
+        "publisher": { "@type": "Organization", "name": "Legacy Structures", "url": "https://legacystructuresusa.com" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://legacystructuresusa.com/blog/best-utility-sheds" },
       },
       {
         "@type": "FAQPage",
         "@id": "https://legacystructuresusa.com/blog/best-utility-sheds#faq",
-        mainEntity: [
+        "mainEntity": [
           {
             "@type": "Question",
-            name: "What is the difference between a utility shed and a backyard barn?",
-            acceptedAnswer: {
+            "name": "What is the difference between a utility shed and a backyard barn?",
+            "acceptedAnswer": {
               "@type": "Answer",
-              text: "Names can vary by seller, so compare the actual shape, dimensions, roof, interior layout, and included features. A barn-style profile may suit a buyer seeking a particular appearance or storage arrangement, while another utility-shed layout may better fit a narrow site or a specific doorway. Ask for the measurements and specifications of each building rather than choosing by name alone.",
+              "text": "Names can vary by seller, so compare the actual shape, dimensions, roof, interior layout, and included features. A barn-style profile may suit a buyer seeking a particular appearance or storage arrangement, while another utility-shed layout may better fit a narrow site or a specific doorway. Ask for the measurements and specifications of each building rather than choosing by name alone.",
             },
           },
           {
             "@type": "Question",
-            name: "How do I know what size utility shed I need?",
-            acceptedAnswer: {
+            "name": "How do I know what size utility shed I need?",
+            "acceptedAnswer": {
               "@type": "Answer",
-              text: "List and measure the largest items, include room to get them through the door, and draw a simple floor plan with shelves and a walking path. Mark the proposed footprint outdoors and check that it fits the site and delivery route. If the building must serve several uses, make sure the layout works for the most demanding one.",
+              "text": "List and measure the largest items, include room to get them through the door, and draw a simple floor plan with shelves and a walking path. Mark the proposed footprint outdoors and check that it fits the site and delivery route. If the building must serve several uses, make sure the layout works for the most demanding one.",
             },
           },
           {
             "@type": "Question",
-            name: "Do I need a permit for a portable utility shed in New York?",
-            acceptedAnswer: {
+            "name": "Do I need a permit for a portable utility shed in New York?",
+            "acceptedAnswer": {
               "@type": "Answer",
-              text: "Requirements depend on the property and local jurisdiction. Ask the building or planning office serving your address about permits, zoning, setbacks, size limits, and utility work before ordering. Do not apply another state's exemption rules to a New York property.",
+              "text": "Requirements depend on the property and local jurisdiction. Ask the building or planning office serving your address about permits, zoning, setbacks, size limits, and utility work before ordering. Do not apply another state's exemption rules to a New York property.",
             },
           },
           {
             "@type": "Question",
-            name: "What is the best surface for placing a portable shed?",
-            acceptedAnswer: {
+            "name": "What is the best surface for placing a portable shed?",
+            "acceptedAnswer": {
               "@type": "Answer",
-              text: "The suitable surface depends on the building and site. Ask the seller what preparation is needed for a level, stable placement with good drainage; a properly prepared gravel pad is one common approach. Keep the building sitting on or above the prepared surface rather than burying it in the ground.",
+              "text": "The suitable surface depends on the building and site. Ask the seller what preparation is needed for a level, stable placement with good drainage; a properly prepared gravel pad is one common approach. Keep the building sitting on or above the prepared surface rather than burying it in the ground.",
             },
           },
           {
             "@type": "Question",
-            name: "What should I compare besides the purchase price?",
-            acceptedAnswer: {
+            "name": "What should I compare besides the purchase price?",
+            "acceptedAnswer": {
               "@type": "Answer",
-              text: "Compare the usable dimensions, door opening, construction specifications, options, site preparation, delivery terms, warranty, and payment terms. Ask for a written quote that shows what is included and what may cost extra. That makes it easier to see whether two prices represent comparable buildings.",
+              "text": "Compare the usable dimensions, door opening, construction specifications, options, site preparation, delivery terms, warranty, and payment terms. Ask for a written quote that shows what is included and what may cost extra. That makes it easier to see whether two prices represent comparable buildings.",
             },
           },
         ],
