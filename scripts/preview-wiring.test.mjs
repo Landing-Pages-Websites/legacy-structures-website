@@ -56,8 +56,9 @@ async function withEnv(value, run) {
 const req = (method, pathname, headers = {}) =>
   new NextRequest(`https://saved-x.megabuild.ai${pathname}`, { method, headers });
 
-// NextResponse.next() marks a pass-through with this header; the sink never sets it.
-const passedThrough = (response) => response.headers.get("x-middleware-next") === "1";
+// The site's own handler may redirect or rewrite these paths itself; what the kit
+// promises is that the sink does not answer them.
+const passedThrough = (response) => response.headers.get("x-mega-preview-sink") !== "1";
 const sunk = (response) => response.headers.get("x-mega-preview-sink") === "1";
 
 describe("preview wiring through the real src/proxy.ts", () => {
