@@ -124,23 +124,31 @@ describe("next.config.ts wiring", () => {
   });
 });
 
+// Every file that renders the site's <html>: the root layout, each route-group
+// root layout, or the one shell they all return.
+const LAYOUT_FILES = ["src/app/layout.tsx"];
+
 describe("root layout wiring of the navigation emitter", () => {
   // layout.tsx imports next/font/google, which Node cannot load, so the layout is
   // checked statically and the function it calls is checked at runtime.
-  const layout = readFileSync(path.join(root, "src/app/layout.tsx"), "utf8");
+  it("names at least one layout", () => assert.ok(LAYOUT_FILES.length > 0));
 
-  it("imports the kit function and calls it once", () => {
-    assert.match(layout, /import \{ megaPreviewNavScript \} from "@\/mega-preview\/preview_nav\.mjs";/);
-    assert.equal(layout.match(/megaPreviewNavScript\(\)/g)?.length, 1);
-  });
+  for (const layoutFile of LAYOUT_FILES) {
+    const layout = readFileSync(path.join(root, layoutFile), "utf8");
 
-  it("renders the script inline, first, inside <head>, with no next/script", () => {
-    const nav = "{navScript ? <script dangerouslySetInnerHTML={{ __html: navScript }} /> : null}";
-    assert.equal(layout.split(nav).length, 2, "the script is rendered exactly once");
-    // A comment or string earlier in the file may also say "<head>", so the check is that the script follows one.
-    assert.ok(new RegExp(`<head>\\s*${nav.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`).test(layout));
+    it(`${layoutFile} imports the kit function and calls it once`, () => {
+      assert.match(layout, /import \{ megaPreviewNavScript \} from "@\/mega-preview\/preview_nav\.mjs";/);
+      assert.equal(layout.match(/megaPreviewNavScript\(\)/g)?.length, 1);
+    });
+
+    it(`${layoutFile} renders the script inline, first, inside <head>, with no next/script`, () => {
+      const nav = "{navScript ? <script dangerouslySetInnerHTML={{ __html: navScript }} /> : null}";
+      assert.equal(layout.split(nav).length, 2, "the script is rendered exactly once");
+      // A comment or string earlier in the file may also say "<head>", so the check is that the script follows one.
+      assert.ok(new RegExp(`<head>\\s*${nav.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`).test(layout));
     assert.ok(!layout.includes('from "next/script"'));
-  });
+    });
+  }
 
   it("emits the script only when MEGA_PREVIEW_MODE is exactly 1", () => {
     assert.equal(megaPreviewNavScript({ MEGA_PREVIEW_MODE: "1" }), MEGA_PREVIEW_NAV_SCRIPT);
