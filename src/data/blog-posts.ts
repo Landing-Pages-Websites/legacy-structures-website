@@ -1305,6 +1305,8 @@ Choosing between a portable cabin vs tiny house often comes down to the total co
             { "@type": "ListItem", position: 2, name: "Blog", item: "https://legacystructuresusa.com/blog" },
             { "@type": "ListItem", position: 3, name: "How to Prepare Your Property for Shed Delivery: A Complete Guide" },
           ],
+            highTunnelGreenhouse,
+          import highTunnelGreenhouse from "./high-tunnel-greenhouse";
         },
         {
           "@type": "WebPage",
