@@ -40,9 +40,10 @@ interface BuildingData {
 // Try buildings.ts first; fall back to Supabase for admin-created items.
 // Supabase values always win for editable fields (pricing, colors, image).
 async function getBuildingData(slug: string): Promise<BuildingData | null> {
-  const supabase = createAnonClient();
   let db: Record<string, unknown> | null = null;
   try {
+    // Inside the try: without Supabase env (a build with no secrets) creating the client throws, and the page falls back to buildings.ts like any failed read.
+    const supabase = createAnonClient();
     const { data } = await supabase
       .from("inventory_items")
       .select("*")
