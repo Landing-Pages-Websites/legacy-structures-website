@@ -70,8 +70,11 @@ export default function ChickenCoopsPage() {
           <h2 className="page-content-heading">
             Chicken Coops for Sale in Hudson Falls, NY
           </h2>
+          <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">
+            How to Choose the Best Portable Chicken Coop
+          </h3>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
-            Looking for a safe, practical, and affordable way to raise chickens? Our Chicken Coops at Legacy Structures are designed to make backyard chicken keeping easy and enjoyable. Whether you&apos;re starting with a few hens or expanding your flock, these coops offer everything you need to keep your birds happy and protected.
+            If you&apos;re comparing chicken coop ideas, start with the space your flock needs, how you&apos;ll access the coop, and how you&apos;ll manage airflow, nesting, and cleaning. Legacy Structures chicken coops give you practical features to compare: 6-foot or 8-foot widths, several length options, a 3-foot barn door, two windows for ventilation, a roosting ladder, six nesting boxes, and an exterior hatch for collecting eggs. The small chicken door can open to a fenced yard or run, so you can plan the coop around your flock and available outdoor space.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Each Chicken Coop includes a 3ft barn door on the end for easy access, two 24&quot; x 27&quot; single-pane windows for fresh air and ventilation, a roosting ladder, and raised nesting boxes with an exterior hatch so you can easily collect eggs. There&apos;s even a small chicken door to give your flock access to roam the yard or a fenced-in area. Coops are available in either 6ft or 8ft widths with several length options depending on your needs.
