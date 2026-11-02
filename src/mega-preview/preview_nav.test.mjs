@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 import test from "node:test";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
@@ -151,13 +152,54 @@ test("K12 script is inline, eval-free, network-free, ES5-safe", () => {
   assert.doesNotThrow(() => new vm.Script(s));
 });
 
+// The files that render the <html> of every page Next serves. The kit sits where
+// the site's "@/*" alias points (<root>/mega-preview or <root>/src/mega-preview);
+// <root> is the nearer of the two that holds package.json. Next serves <root>/app
+// whenever that path exists (next/dist/lib/find-pages-dir.js) and <root>/src/app
+// otherwise. Without <app>/layout.tsx the root layouts are the route groups'
+// (<app>/(en)/layout.tsx): each renders <html> itself, or returns a shell it
+// imports by a relative path from a .tsx file that renders it. <app>/global-not-found
+// (a URL nothing matches) replaces every root layout, so it is one of them too:
+// its own <html>, or the shell it returns. global-error is a client component
+// Next shows only when the root layout threw; the kit does not wire it.
+const HTML_ELEMENT = /<html[\s>]/;
+const ROUTE_GROUP = /^\([^/()]+\)$/;
+const RELATIVE_IMPORT = /\bfrom\s+(["'])(\.\.?\/[^"']+)\1/g;
+const GLOBAL_NOT_FOUND = ["tsx", "jsx", "js", "ts"].map((ext) => `global-not-found.${ext}`);
+
+// `file` itself when it renders <html>, otherwise the one shell it imports that does.
+function documentOf(file) {
+  const text = readFileSync(file, "utf8");
+  if (HTML_ELEMENT.test(text)) return file;
+  const shells = [...new Set([...text.matchAll(RELATIVE_IMPORT)].map((m) => path.resolve(path.dirname(file), `${m[2]}.tsx`)))].filter((shell) => existsSync(shell) && HTML_ELEMENT.test(readFileSync(shell, "utf8")));
+  assert.equal(shells.length, 1, `${file} renders no <html> and imports ${shells.length} shells that do`);
+  return shells[0];
+}
+
+function servedRootLayouts() {
+  const kit = path.dirname(fileURLToPath(import.meta.url));
+  const root = [path.dirname(kit), path.dirname(path.dirname(kit))].find((dir) => existsSync(path.join(dir, "package.json")));
+  assert.ok(root, "no package.json above the kit");
+  const rootApp = path.join(root, "app");
+  const app = existsSync(rootApp) ? rootApp : path.join(root, "src", "app");
+  const single = path.join(app, "layout.tsx");
+  const notFound = GLOBAL_NOT_FOUND.map((name) => path.join(app, name)).filter((file) => existsSync(file));
+  assert.ok(notFound.length <= 1, `more than one global-not-found: ${notFound.join(", ")}`);
+  if (existsSync(single)) return [...new Set([single, ...notFound.map(documentOf)])];
+  const groups = readdirSync(app).filter((name) => ROUTE_GROUP.test(name) && existsSync(path.join(app, name, "layout.tsx")));
+  assert.ok(groups.length > 0, `no root layout: neither ${single} nor a route-group layout.tsx`);
+  return [...new Set([...groups.map((group) => documentOf(path.join(app, group, "layout.tsx"))), ...notFound.map(documentOf)])];
+}
+
 test("K13 layout renders the script only through the preview-mode gate, in head", () => {
-  const layout = readFileSync(fileURLToPath(new URL("../app/layout.tsx", import.meta.url)), "utf8");
-  assert.match(layout, /import \{ megaPreviewNavScript \} from "@\/mega-preview\/preview_nav\.mjs"/);
-  assert.match(layout, /const navScript = megaPreviewNavScript\(\);/);
-  const head = layout.slice(layout.indexOf("<head>"), layout.indexOf("</head>"));
-  assert.match(head, /navScript \? <script dangerouslySetInnerHTML=\{\{ __html: navScript \}\} \/> : null/);
-  assert.doesNotMatch(layout, /MEGA_PREVIEW_NAV_SCRIPT/);
+  for (const file of servedRootLayouts()) {
+    const layout = readFileSync(file, "utf8");
+    assert.match(layout, /import \{ megaPreviewNavScript \} from "@\/mega-preview\/preview_nav\.mjs"/, file);
+    assert.match(layout, /const navScript = megaPreviewNavScript\(\);/, file);
+    const head = layout.slice(layout.indexOf("<head>"), layout.indexOf("</head>"));
+    assert.match(head, /navScript \? <script dangerouslySetInnerHTML=\{\{ __html: navScript \}\} \/> : null/, file);
+    assert.doesNotMatch(layout, /MEGA_PREVIEW_NAV_SCRIPT/, file);
+  }
   assert.equal(megaPreviewNavScript({}), null);
   assert.equal(megaPreviewNavScript({ MEGA_PREVIEW_MODE: "0" }), null);
 });
