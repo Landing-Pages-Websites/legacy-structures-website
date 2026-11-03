@@ -19,8 +19,7 @@ export const metadata: Metadata = createPageMetadata({
   canonicalHost: "https://www.legacystructuresusa.com",
 });
 
-const BASE_URL =
-  "https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images";
+const CHICKEN_COOP_IMAGE = "/images/source-assets/BYO-ChickenCoops.png";
 
 export default function ChickenCoopsPage() {
   return (
@@ -95,7 +94,7 @@ export default function ChickenCoopsPage() {
           <ProductSection
             title="ABOUT OUR CHICKEN COOPS"
             description="Our Chicken Coops offer a practical, low-maintenance solution for anyone looking to raise chickens in a safe and secure backyard setup. These buildings are designed to protect your flock from predators while offering great airflow and easy access for cleaning and egg gathering. Each coop features a gable-style roof, a 3ft wooden barn door on the end, two 24&quot; x 27&quot; single-pane windows, a roosting ladder, and six nesting boxes with exterior hatch access for convenient egg collection. A small chicken door gives your flock access to roam in a fenced yard or run. These coops are available in both T1-11 siding and LP Smart Panel&#8482; siding and come in the following sizes:"
-            image={`${BASE_URL}/BYO-ChickenCoops-Body.png`}
+            image={CHICKEN_COOP_IMAGE}
             imageAlt="Chicken Coop"
             sizeGroups={[
               { label: "6' WIDE", sizes: ["6x8", "6x10", "6x12"] },
@@ -112,7 +111,7 @@ export default function ChickenCoopsPage() {
       <ProductSchema
         name="Chicken Coops"
         description="Safe, practical, and affordable backyard chicken coops with 6 nesting boxes, exterior hatch, roosting ladder, and chicken door. Available in 6ft and 8ft widths."
-        image="https://legacystructuresusa.com/wp-content/themes/barndealer/assets/images/BYO-ChickenCoops-Body.png"
+        image="https://www.legacystructuresusa.com/images/source-assets/BYO-ChickenCoops.png"
         url="https://www.legacystructuresusa.com/chicken-coops"
         price="$2,964+"
       />
