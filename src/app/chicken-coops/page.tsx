@@ -79,6 +79,9 @@ export default function ChickenCoopsPage() {
             For winter use, choose a level, well-drained location and plan how you will keep bedding dry while maintaining ventilation. The product page notes that buildings may not suit every climate or environment without additional modifications, so ask about the options and site preparation your flock may need before ordering. Coops are available in 6-foot or 8-foot widths with several length options depending on your needs.
           </p>
           <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            Planning your flock? Read our <a href="/blog/chicken-coop-buying-guide">Chicken Coop Buying Guide</a> for practical sizing, predator protection, ventilation, and everyday care considerations before you choose a coop.
+          </p>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
             Each Chicken Coop includes a 3ft barn door on the end for easy access, two 24&quot; x 27&quot; single-pane windows for fresh air and ventilation, a roosting ladder, and raised nesting boxes with an exterior hatch so you can easily collect eggs. There&apos;s even a small chicken door to give your flock access to roam the yard or a fenced-in area. Coops are available in either 6ft or 8ft widths with several length options depending on your needs.
           </p>
           <p className="mb-8">
