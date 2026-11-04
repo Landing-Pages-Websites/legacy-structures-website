@@ -86,6 +86,7 @@ import bestRentToOwnPortableGarageCompanies from "./best-rent-to-own-portable-ga
 
 
 import highTunnelGreenhouse from "./high-tunnel-greenhouse";
+import portableCabinWinterPlumbingTips from "./portable-cabin-winter-plumbing-tips";
 
 export interface BlogPost {
   slug: string;
@@ -2612,6 +2613,7 @@ schema: {
   bestUtilitySheds,
   highTunnelGreenhouse,
   backyardBarnShelvingPlanning,
+  portableCabinWinterPlumbingTips,
 ];
 
 export default blogPosts;
