@@ -102,7 +102,7 @@ const buyPortableCabinGuide: BlogPost = {
         dateModified: "2026-09-01",
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/buy-portable-cabin-guide",
+          "@id": "https://www.legacystructuresusa.com/blog/buy-portable-cabin-guide",
         },
       },
       {

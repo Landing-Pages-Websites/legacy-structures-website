@@ -52,6 +52,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "best-prebuilt-storage-sheds",
   "buy-a-backyard-barn",
   "buy-outdoor-storage-shed",
+  "buy-portable-cabin-guide",
+  "buy-prebuilt-shed-online",
+  "buy-small-prebuilt-cabin",
+  "cost-of-a-lofted-garage",
+  "how-to-prepare-ground-for-a-shed-on-skids",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([

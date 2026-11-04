@@ -102,7 +102,7 @@ const buyPrebuiltShedOnline: BlogPost = {
         dateModified: "2026-09-01",
         author: { "@type": "Person", name: "Stephen Kanagy" },
         publisher: { "@type": "Organization", name: "Legacy Structures", url: "https://www.legacystructuresusa.com" },
-        mainEntityOfPage: { "@type": "WebPage", "@id": "https://legacystructuresusa.com/blog/buy-prebuilt-shed-online" },
+        mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.legacystructuresusa.com/blog/buy-prebuilt-shed-online" },
       },
       {
         "@type": "FAQPage",

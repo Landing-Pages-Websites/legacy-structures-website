@@ -130,7 +130,7 @@ const howToPrepareGroundForAShedOnSkids: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/how-to-prepare-ground-for-a-shed-on-skids",
+          "@id": "https://www.legacystructuresusa.com/blog/how-to-prepare-ground-for-a-shed-on-skids",
         },
       },
       {
