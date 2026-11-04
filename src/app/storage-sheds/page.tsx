@@ -131,7 +131,7 @@ export default function StorageShedsPage() {
               className="w-full h-auto"
               sizes="(max-width: 1024px) 100vw, 67vw"
             />
-            <a href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1" target="_blank" rel="noopener noreferrer" className="block">
+            <a data-mega-cta="3d-designer" href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1" target="_blank" rel="noopener noreferrer" className="block">
               <Image
                 src={siteAssets.categoryPage.designerCta.src}
                 alt="3D Designer - Design Your Own Building"

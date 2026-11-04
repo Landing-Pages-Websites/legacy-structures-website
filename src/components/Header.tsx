@@ -517,10 +517,10 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hdr-cta">
-            <Link href="/contact-us" className="hdr-contact-btn">
+            <Link data-mega-cta="contact-us" href="/contact-us" className="hdr-contact-btn">
               Contact Us
             </Link>
-            <a
+            <a data-mega-cta="call-now"
               href={`tel:${BRAND.phoneTel}`}
               className="hdr-call-btn"
               aria-label={`Call or text us at ${BRAND.phone}`}
@@ -609,10 +609,10 @@ export default function Header() {
         </ul>
 
         <div className="hdr-mobile-cta">
-          <Link href="/contact-us" className="hdr-mobile-contact" onClick={() => setMobileOpen(false)}>
+          <Link data-mega-cta="contact-us" href="/contact-us" className="hdr-mobile-contact" onClick={() => setMobileOpen(false)}>
             Contact Us
           </Link>
-          <a
+          <a data-mega-cta="call-now"
             href={`tel:${BRAND.phoneTel}`}
             className="hdr-mobile-call"
             aria-label={`Call or text us at ${BRAND.phone}`}

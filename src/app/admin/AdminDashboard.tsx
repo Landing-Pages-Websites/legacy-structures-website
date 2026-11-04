@@ -595,7 +595,7 @@ export default function AdminDashboard() {
                 <div className={styles.editorForm}>
                   <div>
                     <label htmlFor="d-heading" className={styles.label}>Section Heading</label>
-                    <input
+                    <input type="text"
                       id="d-heading"
                       value={descForm.heading}
                       onChange={(e) => setDescForm((f) => ({ ...f, heading: e.target.value }))}
@@ -632,7 +632,7 @@ export default function AdminDashboard() {
 
                   <div>
                     <label htmlFor="d-image" className={styles.label}>Section Image URL <span className={styles.labelNote}>(optional — the illustration beside the text)</span></label>
-                    <input
+                    <input type="text"
                       id="d-image"
                       value={descForm.sizes_image_url}
                       onChange={(e) => setDescForm((f) => ({ ...f, sizes_image_url: e.target.value }))}
@@ -790,7 +790,7 @@ export default function AdminDashboard() {
               <button onClick={() => setShowForm(false)} className={cx(styles.button, styles.buttonClose)} aria-label="Close form">✕</button>
             </div>
 
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form data-mega-form="admin-inventory" data-mega-private="" onSubmit={handleSubmit} className={styles.form}>
               {/* Row 1: Model + Size */}
               <div className={styles.gridTwo}>
                 <div>
@@ -802,7 +802,7 @@ export default function AdminDashboard() {
                 </div>
                 <div>
                   <label htmlFor="f-size" className={styles.label}>Size *</label>
-                  <input id="f-size" name="size" value={form.size} onChange={handleChange} required placeholder="e.g. 12 x 20" className={styles.input} />
+                  <input type="text" id="f-size" name="size" value={form.size} onChange={handleChange} required placeholder="e.g. 12 x 20" className={styles.input} />
                 </div>
               </div>
 
@@ -845,15 +845,15 @@ export default function AdminDashboard() {
               <div className={styles.gridThree}>
                 <div>
                   <label htmlFor="f-wall" className={styles.label}>Wall Color</label>
-                  <input id="f-wall" name="wall_color" value={form.wall_color} onChange={handleChange} className={styles.input} />
+                  <input type="text" id="f-wall" name="wall_color" value={form.wall_color} onChange={handleChange} className={styles.input} />
                 </div>
                 <div>
                   <label htmlFor="f-trim" className={styles.label}>Trim Color</label>
-                  <input id="f-trim" name="trim_color" value={form.trim_color} onChange={handleChange} className={styles.input} />
+                  <input type="text" id="f-trim" name="trim_color" value={form.trim_color} onChange={handleChange} className={styles.input} />
                 </div>
                 <div>
                   <label htmlFor="f-roof" className={styles.label}>Roof Color</label>
-                  <input id="f-roof" name="roof_color" value={form.roof_color} onChange={handleChange} className={styles.input} />
+                  <input type="text" id="f-roof" name="roof_color" value={form.roof_color} onChange={handleChange} className={styles.input} />
                 </div>
               </div>
 
@@ -861,11 +861,11 @@ export default function AdminDashboard() {
               <div className={styles.gridTwo}>
                 <div>
                   <label htmlFor="f-cash" className={styles.label}>Cash Price *</label>
-                  <input id="f-cash" name="cash_price" value={form.cash_price} onChange={handleCashPriceChange} onBlur={() => formatPriceField("cash_price")} inputMode="decimal" required placeholder="e.g. $5,500.00 +tax" className={styles.input} />
+                  <input type="text" id="f-cash" name="cash_price" value={form.cash_price} onChange={handleCashPriceChange} onBlur={() => formatPriceField("cash_price")} inputMode="decimal" required placeholder="e.g. $5,500.00 +tax" className={styles.input} />
                 </div>
                 <div>
                   <label htmlFor="f-inv" className={styles.label}>Inventory Number</label>
-                  <input id="f-inv" name="inventory_number" value={form.inventory_number} onChange={handleChange} className={styles.input} />
+                  <input type="text" id="f-inv" name="inventory_number" value={form.inventory_number} onChange={handleChange} className={styles.input} />
                 </div>
               </div>
 
@@ -878,7 +878,7 @@ export default function AdminDashboard() {
                 {form.is_on_sale && (
                   <div className={styles.salePriceField}>
                     <label htmlFor="f-sale" className={styles.label}>Sale Price</label>
-                    <input id="f-sale" name="sale_price" value={form.sale_price ?? ""} onChange={(e) => setForm((f) => ({ ...f, sale_price: e.target.value }))} onBlur={() => formatPriceField("sale_price")} inputMode="decimal" placeholder="e.g. $4,950.00 +tax" className={styles.input} />
+                    <input type="text" id="f-sale" name="sale_price" value={form.sale_price ?? ""} onChange={(e) => setForm((f) => ({ ...f, sale_price: e.target.value }))} onBlur={() => formatPriceField("sale_price")} inputMode="decimal" placeholder="e.g. $4,950.00 +tax" className={styles.input} />
                   </div>
                 )}
               </div>
@@ -887,11 +887,11 @@ export default function AdminDashboard() {
               <div className={styles.gridTwo}>
                 <div>
                   <label htmlFor="f-rto36" className={styles.label}>36-Mo RTO</label>
-                  <input id="f-rto36" name="rto_36" value={form.rto_36} readOnly aria-describedby="rto-help" className={cx(styles.input, styles.readOnlyInput)} />
+                  <input type="text" id="f-rto36" name="rto_36" value={form.rto_36} readOnly aria-describedby="rto-help" className={cx(styles.input, styles.readOnlyInput)} />
                 </div>
                 <div>
                   <label htmlFor="f-rto48" className={styles.label}>48-Mo RTO</label>
-                  <input id="f-rto48" name="rto_48" value={form.rto_48} readOnly aria-describedby="rto-help" className={cx(styles.input, styles.readOnlyInput)} />
+                  <input type="text" id="f-rto48" name="rto_48" value={form.rto_48} readOnly aria-describedby="rto-help" className={cx(styles.input, styles.readOnlyInput)} />
                 </div>
               </div>
               <p id="rto-help" className={styles.helpText}>Calculated automatically from the cash price.</p>
@@ -919,7 +919,7 @@ export default function AdminDashboard() {
                     {imageUploading ? "Uploading…" : "⬆ Upload Photo"}
                   </button>
                   <span className={styles.photoHint}>or paste a URL:</span>
-                  <input
+                  <input type="text"
                     id="f-image"
                     name="image_url"
                     value={form.image_url}

@@ -124,7 +124,7 @@ export default function HeroWithOverlay() {
         }
       `}</style>
 
-      <section
+      <section data-mega-section="hero"
         style={{ position: "relative", width: "100%", overflow: "hidden" }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}

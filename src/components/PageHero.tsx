@@ -24,7 +24,7 @@ export default function PageHero({
   if (hasImage) bg = "#003f55";
 
   return (
-    <section
+    <section data-mega-section="hero"
       style={{
         position: "relative",
         background: bg,

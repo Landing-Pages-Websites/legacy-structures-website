@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { siteAssets } from "@/lib/site-assets";
 import { captureLeadContext } from "@/lib/megaLeadContext";
+import { submitSiteLead } from "@/lib/siteLead";
 
 const highlights = [
   "No Credit Check!",
@@ -35,14 +36,16 @@ export default function RentToOwnPage() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
+    await submitSiteLead({
+      form: e.currentTarget as HTMLFormElement,
+      formKey: "rent-to-own-form",
+      route: "/api/rent-to-own",
       // Attribution has to be read here, at submit time, because it only exists
       // in the browser. The route relays it to the Keystone lead.
-      const res = await fetch("/api/rent-to-own", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...formData, leadContext: captureLeadContext() }) });
-      setStatus(res.ok ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
+      payload: { ...formData, leadContext: captureLeadContext() },
+      onConfirmed: () => setStatus("success"),
+      onFailed: () => setStatus("error"),
+    });
   };
 
   return (
@@ -71,7 +74,7 @@ export default function RentToOwnPage() {
                   Get a Brochure with <span style={{ color: "#ffc400" }}>Rent-To-Own Pricing</span>
                 </h2>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-[10px]">
+              <form data-mega-form="rent-to-own-form" onSubmit={handleSubmit} className="space-y-[10px]">
                 <label className="sr-only" htmlFor="rto-first-name">First Name</label>
                 <input
                   id="rto-first-name"
@@ -129,6 +132,7 @@ export default function RentToOwnPage() {
                 <div className="text-center">
                   <button
                     type="submit"
+                    data-mega-cta="download-brochure"
                     disabled={status === "loading" || status === "success"}
                     className="bg-[#af1919] text-white font-bold uppercase py-[12px] px-[40px] rounded-md text-[18px] cursor-pointer hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                   >
@@ -170,7 +174,7 @@ export default function RentToOwnPage() {
       {/* CTA Bar: Browse Rent-to-Own Storage Sheds */}
       <div className="bg-[#00567a] py-[20px]">
         <div className="max-w-[1100px] mx-auto px-[20px] text-center">
-          <Link
+          <Link data-mega-cta="view-inventory"
             href="/inventory"
             className="block text-white font-bold text-[24px] no-underline hover:underline font-heading tracking-[1.5px]"
           >
@@ -178,7 +182,7 @@ export default function RentToOwnPage() {
           </Link>
           <p className="mt-[8px] mb-0 text-white text-[16px] leading-[24px]">
             View current buildings, sizes, and pricing, then contact Legacy Structures at{" "}
-            <a href="tel:5185442889" className="text-white font-bold underline">
+            <a data-mega-cta="call-now" href="tel:5185442889" className="text-white font-bold underline">
               518-544-2889
             </a>{" "}
             with questions.
@@ -205,7 +209,7 @@ export default function RentToOwnPage() {
         <h2 className="!text-black">Customizable Options Available</h2>
         <p>
           We believe that everyone should have access to affordable and convenient storage options, which is why we offer multiple building styles and finishes to choose from. If you want a custom barn built, you are in luck!!! We have a{" "}
-          <a
+          <a data-mega-cta="3d-designer"
             href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
             target="_blank"
             rel="noopener noreferrer"

@@ -517,7 +517,7 @@ export default async function BuildingPage({
             >
               Try Our 3D Shed Builder
             </a>
-            <a
+            <a data-mega-cta="contact-us"
               href={`/contact-us?model=${encodeURIComponent(building.modelType)}&size=${encodeURIComponent(building.size)}&inv=${encodeURIComponent(building.inventoryNumber)}`}
               style={{
                 display: "block",
@@ -538,7 +538,7 @@ export default async function BuildingPage({
         </div>
 
         {/* Model basics description */}
-        <section
+        <section data-mega-section="building-details"
           style={{
             marginTop: "48px",
             borderBottom: `3px solid ${NAVY}`,
@@ -667,7 +667,7 @@ export default async function BuildingPage({
         </section>
 
         {/* Standard Colors */}
-        <section
+        <section data-mega-section="building-description"
           style={{
             marginTop: "32px",
             borderBottom: `3px solid ${NAVY}`,

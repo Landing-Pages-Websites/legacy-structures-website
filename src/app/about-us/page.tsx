@@ -24,7 +24,7 @@ export default function AboutUsPage() {
 
       {/* About copy */}
       <FadeIn>
-        <section style={{ background: "#fff", padding: "32px 24px 64px" }}>
+        <section data-mega-section="about-story" style={{ background: "#fff", padding: "32px 24px 64px" }}>
           <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
             <p style={{ fontSize: 18, lineHeight: 1.85, color: "#5a6c7e" }}>
               Legacy Structures is a family-owned business located at 3570 US 4,
@@ -43,7 +43,7 @@ export default function AboutUsPage() {
 
       {/* Trust badges row */}
       <FadeIn>
-        <section style={{ background: "#f7f5f2", padding: "40px 24px" }}>
+        <section data-mega-section="about-highlights" style={{ background: "#f7f5f2", padding: "40px 24px" }}>
           <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, textAlign: "center" }} className="about-trust-grid">
             {[
               { label: "Family Owned", sub: "Serving Hudson Falls, NY" },
@@ -62,7 +62,7 @@ export default function AboutUsPage() {
       {/* Rent-to-Own CTA */}
       <div style={{ background: "#e9bb52", padding: "20px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
-          <Link
+          <Link data-mega-cta="rent-to-own"
             href="/rent-to-own"
             style={{ color: "#000", fontWeight: 700, fontSize: 22, textDecoration: "none", textTransform: "uppercase", letterSpacing: 1.5, textAlign: "center", fontFamily: "var(--font-poppins)", padding: "10px 40px", borderRadius: 999, transition: "background 0.2s" }}
           >

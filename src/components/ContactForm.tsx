@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { BRAND } from "@/lib/constants";
 import { captureLeadContext } from "@/lib/megaLeadContext";
+import { submitSiteLead } from "@/lib/siteLead";
 
 const NE_STATES = [
   "New York",
@@ -94,18 +95,16 @@ export default function ContactForm({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        // Attribution has to be read here, at submit time, because it only
-        // exists in the browser. The route relays it to the Keystone lead.
-        body: JSON.stringify({ ...formData, leadContext: captureLeadContext() }),
-      });
-      setStatus(res.ok ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
+    await submitSiteLead({
+      form: e.currentTarget as HTMLFormElement,
+      formKey: "contact-form",
+      route: "/api/contact",
+      // Attribution has to be read here, at submit time, because it only
+      // exists in the browser. The route relays it to the Keystone lead.
+      payload: { ...formData, leadContext: captureLeadContext() },
+      onConfirmed: () => setStatus("success"),
+      onFailed: () => setStatus("error"),
+    });
   };
 
   if (status === "success") {
@@ -125,7 +124,7 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+    <form data-mega-form="contact-form" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       <p style={{ color: "#5a6c7e", fontSize: 14, paddingBottom: 8 }}>
         Fill out the form below and we&apos;ll get back to you within 2 business days.
         Need a faster reply? Call or text us at{" "}
@@ -266,6 +265,7 @@ export default function ContactForm({
 
       <button
         type="submit"
+        data-mega-cta="send-message"
         disabled={status === "loading"}
         style={{
           background: "#c0392b",

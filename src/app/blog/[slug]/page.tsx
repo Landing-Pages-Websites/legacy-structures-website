@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       {/* Hero */}
-      <section
+      <section data-mega-section="blog-hero"
         style={{
           background: "#006580",
           padding: "clamp(40px, 6vw, 72px) 24px 32px",

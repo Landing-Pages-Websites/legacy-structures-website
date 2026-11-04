@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="legacy-footer">
       <div className="footer-call">
-        <a href={`tel:${BRAND.phoneTel}`}>
+        <a data-mega-cta="call-now" href={`tel:${BRAND.phoneTel}`}>
           Call or Text a Shed Expert Today! <span>{BRAND.phone}</span>
         </a>
       </div>

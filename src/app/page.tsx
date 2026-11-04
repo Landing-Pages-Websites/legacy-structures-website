@@ -119,7 +119,7 @@ export default function Home() {
       <HeroWithOverlay />
 
       {/* ── Trust Bar ──────────────────────────────────────────────── */}
-      <section className="trust-bar" aria-label="Why choose Legacy Structures">
+      <section data-mega-section="trust-bar" className="trust-bar" aria-label="Why choose Legacy Structures">
         <div className="trust-bar-inner">
           {trustItems.map((item) => (
             <div key={item.label} className="trust-item">
@@ -132,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* ── Split CTA ──────────────────────────────────────────────── */}
-      <section className="split-cta" aria-label="Design or browse our buildings">
+      <section data-mega-section="split-cta" className="split-cta" aria-label="Design or browse our buildings">
         <div className="split-cta-inner">
           <div className="split-panel split-panel-builder">
             <div className="split-copy">
@@ -144,7 +144,7 @@ export default function Home() {
                 <li>Preview colors before buying</li>
                 <li>Send your build for pricing</li>
               </ul>
-              <a
+              <a data-mega-cta="3d-designer"
                 className="yellow-btn split-primary-btn"
                 href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
                 target="_blank"
@@ -175,7 +175,7 @@ export default function Home() {
                 <li>Compare styles and pricing</li>
                 <li>Fast local delivery options</li>
               </ul>
-              <Link className="yellow-btn split-primary-btn" href="/inventory">
+              <Link data-mega-cta="view-inventory" className="yellow-btn split-primary-btn" href="/inventory">
                 View Inventory
               </Link>
             </div>
@@ -194,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* ── Featured Sheds ─────────────────────────────────────────── */}
-      <section className="featured-section" aria-labelledby="featured-heading">
+      <section data-mega-section="featured" className="featured-section" aria-labelledby="featured-heading">
         <h2 id="featured-heading">
           Featured Storage Sheds &amp; Barns for Sale in Hudson Falls, NY
         </h2>
@@ -202,17 +202,17 @@ export default function Home() {
           <FeaturedCarousel sheds={featuredSheds} />
         </div>
         <div className="featured-cta-row">
-          <Link href="/inventory" className="yellow-btn-dark">
+          <Link data-mega-cta="view-inventory" href="/inventory" className="yellow-btn-dark">
             Browse Full Inventory
           </Link>
-          <Link href="/contact-us" className="outline-btn">
+          <Link data-mega-cta="contact-us" href="/contact-us" className="outline-btn">
             Request a Quote
           </Link>
         </div>
       </section>
 
       {/* ── Category Cards ─────────────────────────────────────────── */}
-      <section className="category-section" aria-labelledby="category-heading">
+      <section data-mega-section="categories" className="category-section" aria-labelledby="category-heading">
         <div className="category-header">
           <h2 id="category-heading">Explore Our Outdoor Structures</h2>
           <p>From backyard barns and storage sheds to garages, cabins, greenhouses, and chicken coops — we build and deliver across Hudson Falls, NY and surrounding areas.</p>
@@ -260,7 +260,7 @@ export default function Home() {
       </div>
 
       {/* ── Materials Section ──────────────────────────────────────── */}
-      <section className="materials-section" aria-labelledby="materials-heading">
+      <section data-mega-section="materials" className="materials-section" aria-labelledby="materials-heading">
         <h2 id="materials-heading">Built With Superior Materials and Construction!</h2>
         <div className="materials-grid">
           <ul>
@@ -284,20 +284,20 @@ export default function Home() {
       </section>
 
       {/* ── Bottom CTA Bar ─────────────────────────────────────────── */}
-      <section className="bottom-cta-bar" aria-label="Get in touch">
+      <section data-mega-section="bottom-cta" className="bottom-cta-bar" aria-label="Get in touch">
         <div className="bottom-cta-inner">
           <div className="bottom-cta-text">
             <strong>Ready to get started?</strong>
             <span>Call us or request a free quote — we&apos;re local, family-owned, and ready to help.</span>
           </div>
           <div className="bottom-cta-actions">
-            <a href={`tel:${BRAND.phoneTel}`} className="cta-phone-btn" aria-label={`Call or text us at ${BRAND.phone}`}>
+            <a data-mega-cta="call-now" href={`tel:${BRAND.phoneTel}`} className="cta-phone-btn" aria-label={`Call or text us at ${BRAND.phone}`}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.35 6.35l.91-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
               Call or Text: {BRAND.phone}
             </a>
-            <Link href="/contact-us" className="cta-quote-btn">
+            <Link data-mega-cta="contact-us" href="/contact-us" className="cta-quote-btn">
               Request a Free Quote
             </Link>
           </div>

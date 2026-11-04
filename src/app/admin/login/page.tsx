@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
           <p style={{ color: "#5a6c7e", fontSize: 14, marginTop: 6 }}>Legacy Structures Inventory Management</p>
         </div>
 
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <form data-mega-form="admin-login" data-mega-private="" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div>
             <label htmlFor="admin-email" style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#1a3a5c", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>
               Email
