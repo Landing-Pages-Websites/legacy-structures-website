@@ -100,7 +100,7 @@ const buySmallPrebuiltCabin: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/buy-small-prebuilt-cabin",
+          "@id": "https://www.legacystructuresusa.com/blog/buy-small-prebuilt-cabin",
         },
       },
       {
