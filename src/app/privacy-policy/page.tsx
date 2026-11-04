@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
         variant="navy"
       />
 
-      <section className="privacy-wrap">
+      <section data-mega-section="privacy-policy" className="privacy-wrap">
         <div className="privacy-intro">
           <div>
             <span className="privacy-eyebrow">Website privacy</span>
@@ -76,13 +76,13 @@ export default function PrivacyPolicyPage() {
         <div className="privacy-content">
           <div className="privacy-main">
             {sections.map((section) => (
-              <section key={section.title} className="privacy-section">
+              <section data-mega-section="privacy-section" key={section.title} className="privacy-section">
                 <h2>{section.title}</h2>
                 <p>{section.text}</p>
               </section>
             ))}
 
-            <section className="privacy-section">
+            <section data-mega-section="privacy-contact" className="privacy-section">
               <h2>Contact</h2>
               <p>
                 Questions about this policy can be sent to{" "}

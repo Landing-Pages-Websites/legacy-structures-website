@@ -75,7 +75,7 @@ export default function QueensburyShedsPage() {
               className="w-full h-auto"
               sizes="(max-width: 1024px) 100vw, 67vw"
             />
-            <a
+            <a data-mega-cta="3d-designer"
               href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
               target="_blank"
               rel="noopener noreferrer"
@@ -146,10 +146,10 @@ export default function QueensburyShedsPage() {
             Tell us what you want to store, how much space you have, and where you plan to place the building. We can help you compare options and take the next step.
           </p>
           <p className="mb-8">
-            <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline font-bold">Call or text {BRAND.phone}</a>
+            <a data-mega-cta="call-now" href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline font-bold">Call or text {BRAND.phone}</a>
           </p>
           <p className="mb-10">
-            <a href="/contact-us" style={{ color: "#fff" }} className="inline-block rounded-md bg-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-white transition hover:bg-[#a93226]">Contact Legacy Structures</a>
+            <a data-mega-cta="contact-us" href="/contact-us" style={{ color: "#fff" }} className="inline-block rounded-md bg-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-white transition hover:bg-[#a93226]">Contact Legacy Structures</a>
           </p>
         </FadeIn>
 

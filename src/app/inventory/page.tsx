@@ -152,7 +152,7 @@ function PricingGuideCTA() {
         >
           Get Your Free Pricing Guide
         </span>
-        <Link
+        <Link data-mega-cta="contact-us"
           href="/contact-us"
           style={{
             color: "#ffc800",
@@ -456,7 +456,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
             <div
               className="inventory-link-buttons"
             >
-              <a
+              <a data-mega-cta="3d-designer"
                 href={`https://orders.barnportal.com/myquote?dealerid=&dir=1&template=${item.designTemplate}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -475,7 +475,7 @@ function InventoryItemRow({ item }: { item: InventoryItem }) {
               >
                 Design Your Own!
               </a>
-              <Link
+              <Link data-mega-cta="request-info"
                 href={inquiryUrl}
                 style={{
                   background: "#1a3a5c",

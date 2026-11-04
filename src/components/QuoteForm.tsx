@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { captureLeadContext } from "@/lib/megaLeadContext";
+import { submitSiteLead } from "@/lib/siteLead";
 
 const US_STATES = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -60,14 +61,16 @@ export default function QuoteForm({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
+    await submitSiteLead({
+      form: e.currentTarget as HTMLFormElement,
+      formKey: "quote-form",
+      route: "/api/quote",
       // Attribution has to be read here, at submit time, because it only exists
       // in the browser. The route relays it to the Keystone lead.
-      const res = await fetch("/api/quote", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...formData, leadContext: captureLeadContext() }) });
-      setStatus(res.ok ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
+      payload: { ...formData, leadContext: captureLeadContext() },
+      onConfirmed: () => setStatus("success"),
+      onFailed: () => setStatus("error"),
+    });
   };
 
   return (
@@ -79,7 +82,7 @@ export default function QuoteForm({
         {titleSpan}
       </p>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <form data-mega-form="quote-form" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <label className="sr-only" htmlFor="quote-first-name">First Name</label>
           <input id="quote-first-name" type="text" name="firstName" placeholder="First Name *" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
@@ -123,7 +126,7 @@ export default function QuoteForm({
         <label className="sr-only" htmlFor="quote-message">Message</label>
         <textarea id="quote-message" name="message" placeholder="Message" value={formData.message} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
 
-        <button type="submit" disabled={status === "loading" || status === "success"} style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: status === "loading" || status === "success" ? "not-allowed" : "pointer", width: "100%", transition: "background 0.2s", opacity: status === "loading" ? 0.7 : 1 }}>
+        <button type="submit" data-mega-cta="get-my-free-quote" disabled={status === "loading" || status === "success"} style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: status === "loading" || status === "success" ? "not-allowed" : "pointer", width: "100%", transition: "background 0.2s", opacity: status === "loading" ? 0.7 : 1 }}>
           {status === "loading" ? "Sending..." : "Get My Free Quote"}
         </button>
         {status === "success" && <p style={{ color: "#2e7d32", fontWeight: 600, textAlign: "center" }}>Thank you! We&apos;ll be in touch with your quote soon.</p>}

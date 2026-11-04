@@ -82,7 +82,7 @@ export default async function ContactUsPage({
       </div>
 
       {/* Info + Map */}
-      <section style={{ padding: "64px 20px" }}>
+      <section data-mega-section="contact-info" style={{ padding: "64px 20px" }}>
         <div
           style={{
             maxWidth: 1100,
@@ -144,7 +144,7 @@ export default async function ContactUsPage({
                 <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 6 }}>
                   Call or Text
                 </div>
-                <a
+                <a data-mega-cta="call-now"
                   href={`tel:${BRAND.phoneTel}`}
                   style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
                 >
@@ -156,7 +156,7 @@ export default async function ContactUsPage({
                 <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", color: "#5a6c7e", letterSpacing: 0.5, marginBottom: 6 }}>
                   Email
                 </div>
-                <a
+                <a data-mega-cta="email-us"
                   href={`mailto:${BRAND.email}`}
                   style={{ color: "#c0392b", fontSize: 16, fontWeight: 600, textDecoration: "none" }}
                 >
@@ -220,7 +220,7 @@ export default async function ContactUsPage({
       </section>
 
       {/* Contact Form */}
-      <section style={{ padding: "24px 20px 80px" }}>
+      <section data-mega-section="contact-form" style={{ padding: "24px 20px 80px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <FadeIn>
             <div

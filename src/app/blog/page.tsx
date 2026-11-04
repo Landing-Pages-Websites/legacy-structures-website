@@ -65,7 +65,7 @@ export default async function BlogIndexPage({
       />
 
       <FadeIn>
-        <section style={{ background: "#fff", padding: "48px 24px 80px" }}>
+        <section data-mega-section="blog-list" style={{ background: "#fff", padding: "48px 24px 80px" }}>
           <div
             style={{
               maxWidth: 860,

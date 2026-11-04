@@ -4,12 +4,13 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import CookieConsent from "@/components/CookieConsent";
+import { ConsentBanner } from "@/components/consent/ConsentBanner";
 import SiteMotion from "@/components/SiteMotion";
 import MegaTag from "@/components/analytics/MegaTag";
 import { GomegaReviewBridge } from "@/components/analytics/GomegaReviewBridge";
-import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import PostHogProvider from "@/components/analytics/PostHogProvider";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { PostHogProvider } from "@/components/analytics/PostHogProvider";
+import { TrackingListeners } from "@/components/analytics/TrackingListeners";
 import LeadAttribution from "@/components/analytics/LeadAttribution";
 import { BRAND, BUSINESS_HOURS, SOCIAL_LINKS } from "@/lib/constants";
 import { megaPreviewNavScript } from "@/mega-preview/preview_nav.mjs";
@@ -148,7 +149,6 @@ export default function RootLayout({
       <head>
         {navScript ? <script dangerouslySetInnerHTML={{ __html: navScript }} /> : null}
         <MegaTag />
-        <GoogleAnalytics />
         <GomegaReviewBridge />
       </head>
       <body>
@@ -156,15 +156,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <PostHogProvider>
-          <LeadAttribution />
-          <BreadcrumbSchema />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <SiteMotion />
-          <CookieConsent />
-        </PostHogProvider>
+        <LeadAttribution />
+        <BreadcrumbSchema />
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <SiteMotion />
+        <ConsentBanner />
+        <GoogleAnalytics />
+        <PostHogProvider />
+        <TrackingListeners />
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ export default function DesignerCTA() {
   return (
     <div className="bg-[#b12029]">
       <div className="max-w-[1150px] mx-auto flex flex-col md:flex-row justify-evenly items-center py-[20px] px-[20px]">
-        <Link
+        <Link data-mega-cta="3d-designer"
           href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1"
           target="_blank"
           rel="noopener noreferrer"

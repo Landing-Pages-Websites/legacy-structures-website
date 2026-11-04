@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { siteAssets } from "@/lib/site-assets";
 import { captureLeadContext } from "@/lib/megaLeadContext";
+import { submitSiteLead } from "@/lib/siteLead";
 
 const STATES_PROVINCES = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -36,18 +37,20 @@ export default function PricingGuideSection({ includeShedPricingLink = false }: 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
+    await submitSiteLead({
+      form: e.currentTarget as HTMLFormElement,
+      formKey: "pricing-guide-form",
+      route: "/api/pricing-guide",
       // Attribution has to be read here, at submit time, because it only exists
       // in the browser. The route relays it to the Keystone lead.
-      const res = await fetch("/api/pricing-guide", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...formData, leadContext: captureLeadContext() }) });
-      setStatus(res.ok ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
+      payload: { ...formData, leadContext: captureLeadContext() },
+      onConfirmed: () => setStatus("success"),
+      onFailed: () => setStatus("error"),
+    });
   };
 
   return (
-    <section id="pricing-guide" style={{ background: "#e9e6e1", padding: "44px 24px 52px" }}>
+    <section data-mega-section="pricing-guide" id="pricing-guide" style={{ background: "#e9e6e1", padding: "44px 24px 52px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <h2 style={{ color: "#bd171f", fontSize: "clamp(28px, 2.5vw, 43px)", fontWeight: 700, fontFamily: "var(--font-oswald), Impact, sans-serif", paddingBottom: 18, textTransform: "uppercase" }}>
           Looking for Pricing? Download Our FREE Pricing Guide!
@@ -68,7 +71,7 @@ export default function PricingGuideSection({ includeShedPricingLink = false }: 
         />
         <div style={{ textAlign: "center" }}>
           <p style={{ fontWeight: 700, fontSize: 28, color: "#bd171f", paddingBottom: 12, fontFamily: "var(--font-oswald), Impact, sans-serif", textTransform: "uppercase" }}>Free Pricing Guide!</p>
-          <a href="#pricing-form" style={{ display: "inline-block", background: "#ffc400", color: "#050505", fontWeight: 700, fontSize: 17, padding: "13px 34px", borderRadius: 4, textDecoration: "none", textTransform: "uppercase" }}>
+          <a data-mega-cta="pricing-form" href="#pricing-form" style={{ display: "inline-block", background: "#ffc400", color: "#050505", fontWeight: 700, fontSize: 17, padding: "13px 34px", borderRadius: 4, textDecoration: "none", textTransform: "uppercase" }}>
             Download Here!
           </a>
         </div>
@@ -77,7 +80,7 @@ export default function PricingGuideSection({ includeShedPricingLink = false }: 
       {/* Form */}
       <div id="pricing-form" style={{ maxWidth: 600, margin: "0 auto", background: "#fff", borderRadius: 12, padding: 32, border: "1px solid #e8e4df", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
         <h3 style={{ textAlign: "center", fontSize: 22, fontWeight: 700, color: "#006580", marginBottom: 20, fontFamily: "var(--font-oswald), Impact, sans-serif", textTransform: "uppercase" }}>Request Your Pricing Guide</h3>
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <form data-mega-form="pricing-guide-form" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             <label className="sr-only" htmlFor="pricing-guide-first-name">First Name</label>
             <input id="pricing-guide-first-name" type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className={inputClasses} />
@@ -97,7 +100,7 @@ export default function PricingGuideSection({ includeShedPricingLink = false }: 
           </select>
           <label className="sr-only" htmlFor="pricing-guide-comments">Comments</label>
           <textarea id="pricing-guide-comments" name="comments" placeholder="Comments" value={formData.comments} onChange={handleChange} className={inputClasses} style={{ height: 80, resize: "none" }} />
-          <button type="submit" disabled={status === "loading" || status === "success"} style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: status === "loading" || status === "success" ? "not-allowed" : "pointer", width: "100%", opacity: status === "loading" ? 0.7 : 1 }}>
+          <button type="submit" data-mega-cta="download-our-pricing" disabled={status === "loading" || status === "success"} style={{ background: "#c0392b", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 32px", borderRadius: 6, border: "none", textTransform: "uppercase", letterSpacing: 0.5, cursor: status === "loading" || status === "success" ? "not-allowed" : "pointer", width: "100%", opacity: status === "loading" ? 0.7 : 1 }}>
             {status === "loading" ? "Sending..." : "Download Our Pricing"}
           </button>
           {status === "success" && <p style={{ color: "#2e7d32", fontWeight: 600, textAlign: "center", marginTop: 8 }}>Thank you! Check your email for the pricing guide.</p>}
