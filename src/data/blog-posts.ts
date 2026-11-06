@@ -1,4 +1,5 @@
 import portableCabinFlooringOptions from "./portable-cabin-flooring-options";
+import smallGreenhouseVentilationSetup from "./small-greenhouse-ventilation-setup";
 import backyardBarnShelvingPlanning from "./backyard-barn-shelving-planning";
 import bestUtilitySheds from "./best-utility-sheds";
 import walkInGreenhouse from "./walk-in-greenhouse";
@@ -2615,6 +2616,7 @@ schema: {
   backyardBarnShelvingPlanning,
   portableCabinWinterPlumbingTips,
   portableCabinFlooringOptions,
+  smallGreenhouseVentilationSetup,
 ];
 
 export default blogPosts;
