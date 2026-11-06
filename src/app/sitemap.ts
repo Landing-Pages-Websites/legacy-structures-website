@@ -21,6 +21,7 @@ const STATIC_ROUTES: {
   { path: "/about-us", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact-us", changeFrequency: "monthly", priority: 0.7 },
   { path: "/service-areas/queensbury-ny", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/service-areas/saratoga-springs-ny", changeFrequency: "monthly", priority: 0.75 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.7 },
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
 ];
