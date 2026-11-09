@@ -2618,6 +2618,7 @@ schema: {
   portableCabinWinterPlumbingTips,
   portableCabinFlooringOptions,
   smallGreenhouseVentilationSetup,
+  portableGarageElectricalPlanning,
 ];
 
 export default blogPosts;
