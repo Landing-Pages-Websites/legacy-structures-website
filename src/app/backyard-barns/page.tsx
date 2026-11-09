@@ -143,6 +143,27 @@ export default function BackyardBarnsPage() {
           </p>
         </FadeIn>
 
+        {/* Storage Shed Insulation Guidance */}
+        <FadeIn>
+          <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
+            <h2 className="page-content-heading">
+              How to Insulate a Storage Shed
+            </h2>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Planning to use a backyard barn as a workshop or year-round storage space? You can insulate a storage shed, but the right approach depends on the building style, your climate, and how you plan to use the room.
+            </p>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              For a wood storage shed, start with a dry, level site and address roof or floor moisture before closing the walls. Fit insulation between the wall studs, insulate the roof or ceiling, and use a properly sealed door to limit drafts. If you choose a metal-sided building, use an insulation system designed for metal framing and manage condensation so moisture does not become trapped against the panels.
+            </p>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Seal obvious gaps around doors and windows, keep ventilation paths clear, and follow the insulation manufacturer&apos;s instructions and local building requirements. If you plan to heat, cool, or finish the interior, ask a qualified contractor to confirm the wall, roof, electrical, and ventilation details for your project.
+            </p>
+            <p className="text-[#5a6c7e] leading-relaxed">
+              Legacy Structures can help you compare backyard barn styles, sizes, siding, and customization options for a workshop or storage plan. Call <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a> or <a href="#pricing-form" className="text-[#c0392b] underline">download our FREE Pricing Guide</a> to take the next step.
+            </p>
+          </div>
+        </FadeIn>
+
         {/* Mini Barns */}
         <FadeIn>
         <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
