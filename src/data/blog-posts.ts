@@ -1,3 +1,4 @@
+import portableGarageElectricalPlanning from "./portable-garage-electrical-planning";
 import portableCabinFlooringOptions from "./portable-cabin-flooring-options";
 import smallGreenhouseVentilationSetup from "./small-greenhouse-ventilation-setup";
 import backyardBarnShelvingPlanning from "./backyard-barn-shelving-planning";
@@ -2617,6 +2618,7 @@ schema: {
   portableCabinWinterPlumbingTips,
   portableCabinFlooringOptions,
   smallGreenhouseVentilationSetup,
+  portableGarageElectricalPlanning,
 ];
 
 export default blogPosts;
