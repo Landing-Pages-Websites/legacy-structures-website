@@ -1,3 +1,4 @@
+import carportKits from "./carport-kits";
 import buyPortableLoftedBarn from "./buy-portable-lofted-barn";
 import portableGarageElectricalPlanning from "./portable-garage-electrical-planning";
 import portableGarageSnowStorage from "./portable-garage-snow-storage";
@@ -2624,6 +2625,7 @@ schema: {
   portableGarageElectricalPlanning,
   portableGarageSnowStorage,
   buyPortableLoftedBarn,
+  carportKits,
 ];
 
 export default blogPosts;
