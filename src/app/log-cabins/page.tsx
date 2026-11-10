@@ -151,6 +151,26 @@ export default function LogCabinsPage() {
           </p>
         </FadeIn>
 
+        {/* Prefab Cabin Uses */}
+        <FadeIn>
+          <h2 className="page-content-heading">
+            What Can You Use a Prefab Cabin For?
+          </h2>
+          <p className="text-[#5a6c7e] leading-relaxed mb-4">
+            Prefab cabins give Adirondack property owners a ready-to-place space without the timeline
+            of building a cabin from scratch. At Legacy Structures, our pre-built log cabins are delivered
+            to your property and can serve as a home office, seasonal retreat, hunting camp, campground
+            cabin, or guest space, depending on your plans and local requirements.
+          </p>
+          <p className="text-[#5a6c7e] leading-relaxed mb-8">
+            For a Hudson Falls, Lake George, or broader Adirondack property, choose the layout and size
+            around how you will use it. Smaller cabins can create a quiet office or studio, while larger
+            models and the Doublewide Cabin provide more room for a getaway, hunting retreat, or campground
+            rental cabin. Explore the Redwood, Bear Lake, Timber Trail, Appalachian, and Doublewide series
+            below, then request a quote to discuss delivery, placement, and available options.
+          </p>
+        </FadeIn>
+
         {/* Brochure Download */}
         <FadeIn>
           <div
