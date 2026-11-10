@@ -1,3 +1,4 @@
+import buyPortableLoftedBarn from "./buy-portable-lofted-barn";
 import portableGarageElectricalPlanning from "./portable-garage-electrical-planning";
 import portableGarageSnowStorage from "./portable-garage-snow-storage";
 import portableCabinFlooringOptions from "./portable-cabin-flooring-options";
@@ -2622,6 +2623,7 @@ schema: {
   smallGreenhouseVentilationSetup,
   portableGarageElectricalPlanning,
   portableGarageSnowStorage,
+  buyPortableLoftedBarn,
 ];
 
 export default blogPosts;
