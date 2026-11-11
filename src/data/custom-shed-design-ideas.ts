@@ -140,7 +140,7 @@ const customShedDesignIdeas: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/custom-shed-design-ideas",
+          "@id": "https://www.legacystructuresusa.com/blog/custom-shed-design-ideas",
         },
       },
       {

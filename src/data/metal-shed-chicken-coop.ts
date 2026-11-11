@@ -230,7 +230,7 @@ const metalShedChickenCoop: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/metal-shed-chicken-coop",
+          "@id": "https://www.legacystructuresusa.com/blog/metal-shed-chicken-coop",
         },
       },
       {

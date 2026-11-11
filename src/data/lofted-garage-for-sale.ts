@@ -131,7 +131,7 @@ const loftedGarageForSale: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/lofted-garage-for-sale",
+          "@id": "https://www.legacystructuresusa.com/blog/lofted-garage-for-sale",
         },
       },
       {
