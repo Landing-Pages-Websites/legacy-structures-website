@@ -1,6 +1,7 @@
 import carportKits from "./carport-kits";
 import loftedBarnPricesGuide from "./lofted-barn-prices-guide";
 import portableGarageDoorHeightForTrucks from "./portable-garage-door-height-for-trucks";
+import t111VsLpSmartsideWoodShedSiding from "./t1-11-vs-lp-smartside-wood-shed-siding";
 import buyPortableLoftedBarn from "./buy-portable-lofted-barn";
 import portableGarageElectricalPlanning from "./portable-garage-electrical-planning";
 import portableGarageSnowStorage from "./portable-garage-snow-storage";
@@ -2630,6 +2631,7 @@ schema: {
   carportKits,
   loftedBarnPricesGuide,
   portableGarageDoorHeightForTrucks,
+  t111VsLpSmartsideWoodShedSiding,
 ];
 
 export default blogPosts;
