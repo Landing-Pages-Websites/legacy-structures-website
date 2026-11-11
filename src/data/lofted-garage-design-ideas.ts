@@ -133,7 +133,7 @@ const loftedGarageDesignIdeas: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/lofted-garage-design-ideas",
+          "@id": "https://www.legacystructuresusa.com/blog/lofted-garage-design-ideas",
         },
       },
       {

@@ -126,7 +126,7 @@ const largeWalkInChickenCoop: BlogPost = {
         "author": { "@type": "Person", "name": "Stephen Kanagy" },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/large-walk-in-chicken-coop",
+          "@id": "https://www.legacystructuresusa.com/blog/large-walk-in-chicken-coop",
         },
       },
       {

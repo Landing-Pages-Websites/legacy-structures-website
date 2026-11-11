@@ -34,6 +34,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "buy-small-prebuilt-cabin",
   "cost-of-a-lofted-garage",
   "how-to-prepare-ground-for-a-shed-on-skids",
+  "custom-shed-design-ideas",
+  "large-walk-in-chicken-coop",
+  "lofted-garage-design-ideas",
+  "lofted-garage-for-sale",
+  "metal-shed-chicken-coop",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>
