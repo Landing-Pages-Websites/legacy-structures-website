@@ -1,3 +1,4 @@
+import applyRentToOwnPortableGarage from "./apply-rent-to-own-portable-garage";
 import carportKits from "./carport-kits";
 import loftedBarnPricesGuide from "./lofted-barn-prices-guide";
 import portableGarageDoorHeightForTrucks from "./portable-garage-door-height-for-trucks";
@@ -110,6 +111,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  applyRentToOwnPortableGarage,
   
   bestRentToOwnPortableGarageCompanies,
   designChickenCoops,
