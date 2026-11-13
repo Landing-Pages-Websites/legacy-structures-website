@@ -124,7 +124,7 @@ const mobileChickenCaravanGuide: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/mobile-chicken-caravan-guide/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/mobile-chicken-caravan-guide/#article",
         headline: "Mobile Chicken Caravan 101: A Complete Guide",
         description:
           "A mobile chicken caravan gives your flock fresh pasture, healthier eggs, and easier care. Learn how to choose, use, and maintain a mobile chicken caravan.",
@@ -140,12 +140,12 @@ const mobileChickenCaravanGuide: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/mobile-chicken-caravan-guide",
+          "@id": "https://www.legacystructuresusa.com/blog/mobile-chicken-caravan-guide",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/mobile-chicken-caravan-guide/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/mobile-chicken-caravan-guide/#faq",
         mainEntity: [
           {
             "@type": "Question",

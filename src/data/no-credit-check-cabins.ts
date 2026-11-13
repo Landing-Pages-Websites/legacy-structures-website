@@ -120,7 +120,7 @@ const noCreditCheckCabins: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/no-credit-check-cabins/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/no-credit-check-cabins/#article",
         headline: "Your Guide to No Credit Check Rent to Own Cabins",
         description:
           "Find out how no credit check rent to own cabins work, who qualifies, and what to expect from payments, contracts, and cabin options in this practical guide.",
@@ -136,12 +136,12 @@ const noCreditCheckCabins: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/no-credit-check-cabins",
+          "@id": "https://www.legacystructuresusa.com/blog/no-credit-check-cabins",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/no-credit-check-cabins/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/no-credit-check-cabins/#faq",
         mainEntity: [
           {
             "@type": "Question",

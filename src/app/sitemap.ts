@@ -63,6 +63,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "lofted-garage-design-ideas",
   "lofted-garage-for-sale",
   "metal-shed-chicken-coop",
+  "mobile-chicken-caravan-guide",
+  "mobile-chicken-coop-hay-wagon",
+  "moveable-chicken-tractor-guide",
+  "nesting-boxes-inside-chicken-coop",
+  "no-credit-check-cabins",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([
