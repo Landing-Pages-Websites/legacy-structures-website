@@ -1,3 +1,4 @@
+import backyardBarnWorkspaceLighting from "./backyard-barn-workspace-lighting";
 import applyRentToOwnPortableGarage from "./apply-rent-to-own-portable-garage";
 import carportKits from "./carport-kits";
 import loftedBarnPricesGuide from "./lofted-barn-prices-guide";
@@ -111,6 +112,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  backyardBarnWorkspaceLighting,
   applyRentToOwnPortableGarage,
   
   bestRentToOwnPortableGarageCompanies,
