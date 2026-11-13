@@ -1,3 +1,4 @@
+import rentToOwnShedsExplained from "./rent-to-own-sheds-explained";
 import backyardBarnWorkspaceLighting from "./backyard-barn-workspace-lighting";
 import applyRentToOwnPortableGarage from "./apply-rent-to-own-portable-garage";
 import carportKits from "./carport-kits";
@@ -112,6 +113,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  rentToOwnShedsExplained,
   backyardBarnWorkspaceLighting,
   applyRentToOwnPortableGarage,
   
