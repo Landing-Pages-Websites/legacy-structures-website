@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div>
+    <div className="no-motion" data-no-motion="true">
       {/* JSON-LD schemas */}
       <script
         type="application/ld+json"
@@ -278,6 +278,7 @@ export default async function BlogPostPage({ params }: Props) {
         }
         article .table-scroll {
           max-width: 100%;
+          box-sizing: border-box;
           margin: 24px 0;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
@@ -308,6 +309,18 @@ export default async function BlogPostPage({ params }: Props) {
         }
         article tr:nth-child(even) td {
           background: #f7f5f2;
+        }
+        @media (max-width: 767px) {
+          article table {
+            min-width: 0;
+            table-layout: fixed;
+            font-size: 13px;
+          }
+          article th,
+          article td {
+            padding: 8px 6px;
+            overflow-wrap: anywhere;
+          }
         }
         article strong {
           color: #1a3a5c;
