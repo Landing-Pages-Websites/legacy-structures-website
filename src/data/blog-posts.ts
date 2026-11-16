@@ -8,6 +8,7 @@ import t111VsLpSmartsideWoodShedSiding from "./t1-11-vs-lp-smartside-wood-shed-s
 import buyPortableLoftedBarn from "./buy-portable-lofted-barn";
 import portableGarageElectricalPlanning from "./portable-garage-electrical-planning";
 import portableGarageSnowStorage from "./portable-garage-snow-storage";
+import portableGarageRoofLoadPlanning from "./portable-garage-roof-load-planning";
 import portableCabinFlooringOptions from "./portable-cabin-flooring-options";
 import smallGreenhouseVentilationSetup from "./small-greenhouse-ventilation-setup";
 import backyardBarnShelvingPlanning from "./backyard-barn-shelving-planning";
@@ -2633,6 +2634,7 @@ schema: {
   smallGreenhouseVentilationSetup,
   portableGarageElectricalPlanning,
   portableGarageSnowStorage,
+  portableGarageRoofLoadPlanning,
   buyPortableLoftedBarn,
   carportKits,
   loftedBarnPricesGuide,
