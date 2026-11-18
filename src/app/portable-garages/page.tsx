@@ -101,7 +101,7 @@ export default function PortableGaragesPage() {
             </a>
           </div>
           {/* Right - Quote Form */}
-          <div className="lg:w-[33%]">
+          <div id="garage-quote-form" className="lg:w-[33%]">
             <QuoteForm title="Request Your" titleSpan="FREE Garage Quote!" />
           </div>
         </div>
@@ -136,6 +136,60 @@ export default function PortableGaragesPage() {
               Download Our FREE Pricing Guide
             </a>
           </p>
+        </FadeIn>
+
+        {/* Garage Pricing Comparison */}
+        <FadeIn>
+          <section className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
+            <h2 className="page-content-heading">Garage Building Prices: Compare Your Options</h2>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Garage building prices depend on the size and style you choose, how you plan to use the space, and the options needed for your property. Compare the three garage paths below, then use the free quote form above to get current pricing for your size, location, and delivery needs.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[760px] border-collapse text-left text-[#5a6c7e]">
+                <caption className="sr-only">Compare portable garage styles by use, size, and value drivers.</caption>
+                <thead>
+                  <tr className="bg-[#1a3a5c] text-white">
+                    <th scope="col" className="border border-[#d9e1e8] p-3">Garage style</th>
+                    <th scope="col" className="border border-[#d9e1e8] p-3">Best for</th>
+                    <th scope="col" className="border border-[#d9e1e8] p-3">Typical available sizes</th>
+                    <th scope="col" className="border border-[#d9e1e8] p-3">What affects value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" className="border border-[#d9e1e8] p-3 text-[#1a3a5c]">Utility Garage</th>
+                    <td className="border border-[#d9e1e8] p-3">Zero-turn mowers, motorcycles, smaller vehicles, or floor-level storage.</td>
+                    <td className="border border-[#d9e1e8] p-3">10&apos;–16&apos; wide; 10x10 through 16x40.</td>
+                    <td className="border border-[#d9e1e8] p-3">8-foot sidewalls, a house-style door, and a 2&apos; x 3&apos; window.</td>
+                  </tr>
+                  <tr className="bg-[#f8fafb]">
+                    <th scope="row" className="border border-[#d9e1e8] p-3 text-[#1a3a5c]">Lofted Garage</th>
+                    <td className="border border-[#d9e1e8] p-3">Vehicle or equipment storage plus seasonal items stored overhead.</td>
+                    <td className="border border-[#d9e1e8] p-3">10&apos;–16&apos; wide; 10x10 through 16x40.</td>
+                    <td className="border border-[#d9e1e8] p-3">An overhead loft instead of 8-foot sidewalls, plus a house-style door and a 2&apos; x 3&apos; window.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="border border-[#d9e1e8] p-3 text-[#1a3a5c]">
+                      <a href="https://www.legacystructuresusa.com/double-wide-garages" className="text-[#c0392b] underline">Double-Wide Garage</a>
+                    </th>
+                    <td className="border border-[#d9e1e8] p-3">Two vehicles, a larger workshop, or large equipment.</td>
+                    <td className="border border-[#d9e1e8] p-3">24x24 through 24x40.</td>
+                    <td className="border border-[#d9e1e8] p-3">Two halves joined on-site, two roll-up doors, a 9-lite walk-in door, four windows, 12-inch on-center floor joists, and 3/4-inch treated flooring.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-[#5a6c7e] leading-relaxed mt-4 mb-4">
+              The final quote can change with building size, siding, roof style, doors, windows, loft or interior options, delivery distance, site access, setup, local requirements, and applicable taxes. Prices shown on this site do not include delivery, site preparation, or applicable taxes unless specifically stated. Delivery availability and pricing vary by location.
+            </p>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              For current cash or rent-to-own figures, download the FREE Pricing Guide or call Legacy Structures at 518-544-2889. A local quote helps you compare the right building instead of comparing a base price that may not fit your vehicle, equipment, or property.
+            </p>
+            <p>
+              <a href="#garage-quote-form" className="text-[#c0392b] font-bold underline">Request your free garage quote</a>
+            </p>
+          </section>
         </FadeIn>
 
         {/* Utility Garages */}
