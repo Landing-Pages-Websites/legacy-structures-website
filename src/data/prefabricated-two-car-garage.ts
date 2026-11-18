@@ -126,7 +126,7 @@ The best way to start is by exploring your options and figuring out what you nee
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/prefabricated-two-car-garage",
+          "@id": "https://www.legacystructuresusa.com/blog/prefabricated-two-car-garage",
         },
       },
       {

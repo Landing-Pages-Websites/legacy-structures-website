@@ -134,7 +134,7 @@ const professionalShedBuildersGuide: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/professional-shed-builders-guide",
+          "@id": "https://www.legacystructuresusa.com/blog/professional-shed-builders-guide",
         },
       },
       {

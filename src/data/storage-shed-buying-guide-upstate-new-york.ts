@@ -35,7 +35,7 @@ const storageShedBuyingGuideUpstateNewYork: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/storage-shed-buying-guide-upstate-new-york",
+          "@id": "https://www.legacystructuresusa.com/blog/storage-shed-buying-guide-upstate-new-york",
         },
       },
       {
