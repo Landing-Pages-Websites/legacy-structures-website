@@ -101,6 +101,7 @@ import bestRentToOwnPortableGarageCompanies from "./best-rent-to-own-portable-ga
 
 import highTunnelGreenhouse from "./high-tunnel-greenhouse";
 import portableCabinWinterPlumbingTips from "./portable-cabin-winter-plumbing-tips";
+import portableGarageForTwoCars from "./portable-garage-for-two-cars";
 
 export interface BlogPost {
   slug: string;
@@ -116,6 +117,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  portableGarageForTwoCars,
   storageShedElectricalPlanning,
   portableBuildingWinterPreparation,
   rentToOwnShedsExplained,
