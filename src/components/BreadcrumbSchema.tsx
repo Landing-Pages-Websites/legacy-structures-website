@@ -73,6 +73,11 @@ const WWW_CANONICAL_PATHS = new Set([
   "/building/utility-log-siding-cabin",
   "/building/double-wide-garage",
   "/building/timber-trail-log-cabin",
+  "/blog/portable-buildings-for-sale-upstate-new-york",
+  "/blog/portable-cabin-prices-guide",
+  "/blog/prefabricated-two-car-garage",
+  "/blog/professional-shed-builders-guide",
+  "/blog/storage-shed-buying-guide-upstate-new-york",
 ]);
 
 export default function BreadcrumbSchema() {

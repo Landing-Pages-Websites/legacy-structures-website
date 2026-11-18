@@ -97,7 +97,7 @@ Our cabins are built to last. We use high-quality, treated materials and proven 
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/portable-cabin-prices-guide",
+          "@id": "https://www.legacystructuresusa.com/blog/portable-cabin-prices-guide",
         },
       },
       {

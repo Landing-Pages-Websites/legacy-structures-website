@@ -69,6 +69,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "moveable-chicken-tractor-guide",
   "nesting-boxes-inside-chicken-coop",
   "no-credit-check-cabins",
+  "portable-buildings-for-sale-upstate-new-york",
+  "portable-cabin-prices-guide",
+  "prefabricated-two-car-garage",
+  "professional-shed-builders-guide",
+  "storage-shed-buying-guide-upstate-new-york",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([

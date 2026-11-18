@@ -122,7 +122,7 @@ const portableBuildingsForSaleUpstateNewYork: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/portable-buildings-for-sale-upstate-new-york",
+          "@id": "https://www.legacystructuresusa.com/blog/portable-buildings-for-sale-upstate-new-york",
         },
       },
       {
