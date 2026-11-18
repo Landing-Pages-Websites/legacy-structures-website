@@ -175,6 +175,69 @@ export default function StorageShedsPage() {
           </p>
         </FadeIn>
 
+        <FadeIn>
+          <section data-mega-section="local-storage-guide" className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
+            <h2 className="page-content-heading">Storage Buildings for Sale Near Hudson Falls, NY</h2>
+            <p className="text-[#5a6c7e] leading-relaxed mb-6">
+              For shoppers comparing storage buildings for sale in Hudson Falls, NY, Legacy Structures makes it easier to compare storage-building styles before you choose a size or request a quote. Use the guide below to match the building to your plans, then browse current inventory or contact us about the options available for your property.
+            </p>
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full min-w-[760px] border-collapse text-left text-[#5a6c7e]">
+                <caption className="sr-only">Storage-building styles, uses, and features to compare</caption>
+                <thead>
+                  <tr className="bg-[#1a3a5c] text-white">
+                    <th scope="col" className="border border-[#1a3a5c] px-4 py-3 font-bold">Storage-building style</th>
+                    <th scope="col" className="border border-[#1a3a5c] px-4 py-3 font-bold">A good fit for</th>
+                    <th scope="col" className="border border-[#1a3a5c] px-4 py-3 font-bold">What to compare</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" className="border border-gray-200 px-4 py-3 align-top font-bold text-[#1a3a5c]">Utility Shed</th>
+                    <td className="border border-gray-200 px-4 py-3 align-top">Flexible storage, a workshop, home office, or she shed</td>
+                    <td className="border border-gray-200 px-4 py-3 align-top">T1-11 pressure-treated or LP Smart™ Panel siding, plus an 8-foot sidewall option. Listed sizes include 8x8 through 16x40.</td>
+                  </tr>
+                  <tr className="bg-[#f7f9fa]">
+                    <th scope="row" className="border border-gray-200 px-4 py-3 align-top font-bold text-[#1a3a5c]">Metal Shed</th>
+                    <td className="border border-gray-200 px-4 py-3 align-top">Cost-conscious storage for equipment and belongings</td>
+                    <td className="border border-gray-200 px-4 py-3 align-top">29-gauge metal siding, 36-inch on-center studs and trusses, and standard Light Stone siding with a Burnished Slate roof. Listed sizes include 8x12 through 12x32.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="border border-gray-200 px-4 py-3 align-top font-bold text-[#1a3a5c]">Single Slope Shed</th>
+                    <td className="border border-gray-200 px-4 py-3 align-top">A lean-to profile beside a tree line or property boundary</td>
+                    <td className="border border-gray-200 px-4 py-3 align-top">A lean-to roof, optional horizontal windows, and engineer-certified construction. Listed sizes include 8x12 through 14x40.</td>
+                  </tr>
+                  <tr className="bg-[#f7f9fa]">
+                    <th scope="row" className="border border-gray-200 px-4 py-3 align-top font-bold text-[#1a3a5c]">Utility Dormer Shed</th>
+                    <td className="border border-gray-200 px-4 py-3 align-top">A craft room, gardening supplies, or a brighter storage space</td>
+                    <td className="border border-gray-200 px-4 py-3 align-top">A 7/12 roof pitch and three 10x29 horizontal windows. Listed sizes include 8x12 through 12x40.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="border border-gray-200 px-4 py-3 align-top font-bold text-[#1a3a5c]">Gable Dormer Shed</th>
+                    <td className="border border-gray-200 px-4 py-3 align-top">Storage with a more decorative gable-dormer look</td>
+                    <td className="border border-gray-200 px-4 py-3 align-top">A Utility Shed-style building with a gable dormer. Listed sizes include 8x12 through 16x40.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-[#5a6c7e] leading-relaxed mb-8">
+              The sizes above reflect the model ranges listed on this page. Current inventory, delivery availability, and final pricing can vary by location and building specifications.
+            </p>
+            <h3 className="text-2xl font-bold text-[#1a3a5c] mb-4">Check current inventory and request a quote</h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-6">
+              Browse <a href="https://www.legacystructuresusa.com/inventory" className="text-[#c0392b] underline">current inventory</a> to see buildings available for sale. If you need a different size or want to compare custom options, <a href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1" className="text-[#c0392b] underline">request a free quote online</a> or call or text <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a>.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="https://www.legacystructuresusa.com/inventory" className="inline-block rounded-md bg-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-white transition hover:bg-[#a93226]">
+                View Current Inventory
+              </a>
+              <a href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1" className="inline-block rounded-md border-2 border-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-[#c0392b] transition hover:bg-[#c0392b] hover:text-white">
+                Request a Free Quote
+              </a>
+            </div>
+          </section>
+        </FadeIn>
+
         {/* Utility Sheds */}
         <FadeIn>
         <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
