@@ -284,6 +284,34 @@ export default function PortableCabinsPage() {
         </div>
         </FadeIn>
 
+        <FadeIn>
+          <section className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
+            <h2 className="page-content-heading">Portable Cabins Near Hudson Falls, NY</h2>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              If you are searching for a portable cabin near Hudson Falls, NY, Legacy Structures can help you compare styles, choose a practical size, and plan delivery before ordering. Our lot is at 3570 US 4 in Hudson Falls, and we serve nearby communities in Washington, Warren, Saratoga, and the Adirondack region. Contact us to talk through your property and plans.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">Choose a cabin style that fits your plans</h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Side Porch Cabins pair a 4-foot-by-8-foot porch with a dedicated work area and storage. Playhouse Cabins add a 4-foot porch, house-style walk-in door, and three 2-foot-by-3-foot windows for uses such as home offices, she-sheds, playrooms, or hunting cabins. Deluxe Cabins offer up to an 8-foot porch, three bay windows, and a house-style walk-in door. Each style is available in Utility and Lofted versions: choose Utility for 8-foot sidewalls or Lofted for built-in overhead storage.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">Match the size to the way you will use it</h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Cabins range from 8x10 to 16x40, depending on location and model. Start with the main use, then consider furniture, work surfaces, storage, porch space, and a clear route for delivery. Smaller footprints can work for a focused office or hobby room. Wider and longer models give you more room for multiple uses, furnishings, and loft storage. Our team can help compare the available sizes for your property.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">Plan delivery before you order</h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Legacy Structures offers free delivery within 30 miles of Hudson Falls for qualifying orders; locations farther away may have an additional delivery charge. Before ordering, confirm the building location, access for the delivery team, local zoning or permit requirements, and any site preparation your property needs. Availability, delivery pricing, and model specifications can vary by location.
+            </p>
+
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              <strong>Ready to compare portable cabins for sale near you?</strong> Request your free cabin quote to discuss styles, size, delivery, and current availability. Call <a href={`tel:${BRAND.phoneTel}`} className="text-[#c0392b] underline">{BRAND.phone}</a> or use the <a href="#pricing-form" className="text-[#c0392b] underline">quote form on this page</a>.
+            </p>
+          </section>
+        </FadeIn>
+
         <DisclaimerText />
         <DesignerCTA />
         <PricingGuideSection />
