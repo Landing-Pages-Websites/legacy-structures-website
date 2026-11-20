@@ -121,7 +121,7 @@ const whatToLookForWhenBuyingPrebuiltShed: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/what-to-look-for-when-buying-prebuilt-shed",
+          "@id": "https://www.legacystructuresusa.com/blog/what-to-look-for-when-buying-prebuilt-shed",
         },
       },
       {

@@ -118,7 +118,7 @@ const winterProofChickenCoop: BlogPost = {
         dateModified: "2026-09-04",
         author: { "@type": "Person", name: "Stephen Kanagy" },
         publisher: { "@type": "Organization", name: "Legacy Structures", url: "https://legacystructuresusa.com" },
-        mainEntityOfPage: { "@type": "WebPage", "@id": "https://legacystructuresusa.com/blog/winter-proof-chicken-coop" },
+        mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.legacystructuresusa.com/blog/winter-proof-chicken-coop" },
       },
       {
         "@type": "FAQPage",

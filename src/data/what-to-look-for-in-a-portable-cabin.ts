@@ -287,7 +287,7 @@ const schema = {
       dateModified: date,
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": `https://legacystructuresusa.com/blog/${slug}`,
+        "@id": `https://www.legacystructuresusa.com/blog/${slug}`,
       },
     },
     {
