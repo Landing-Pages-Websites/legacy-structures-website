@@ -28,7 +28,7 @@ const singleSlopeShedProsAndCons: BlogPost = {
         author: { "@type": "Person", name: "Stephen Kanagy" },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/single-slope-shed-pros-and-cons",
+          "@id": "https://www.legacystructuresusa.com/blog/single-slope-shed-pros-and-cons",
         },
       },
       {

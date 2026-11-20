@@ -69,6 +69,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "moveable-chicken-tractor-guide",
   "nesting-boxes-inside-chicken-coop",
   "no-credit-check-cabins",
+  "walk-in-chicken-coop-run",
+  "what-to-look-for-in-a-portable-cabin",
+  "what-to-look-for-when-buying-prebuilt-shed",
+  "winter-proof-chicken-coop",
+  "single-slope-shed-pros-and-cons",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([

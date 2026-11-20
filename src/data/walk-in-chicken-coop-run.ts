@@ -100,7 +100,7 @@ Rent-to-own can be a fantastic solution if you want a high-quality coop without 
         "image": "https://zleague-public-prod.s3.us-east-2.amazonaws.com/article_images/354f9e65-c4c2-43b2-8491-518e87d3c509/walk-in-chicken-coop-with-run-features--benefits-195347.webp",
         "datePublished": "2026-09-04",
         "author": { "@type": "Person", "name": "Stephen Kanagy" },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://legacystructuresusa.com/blog/walk-in-chicken-coop-run" }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.legacystructuresusa.com/blog/walk-in-chicken-coop-run" }
       },
       {
         "@type": "FAQPage",
