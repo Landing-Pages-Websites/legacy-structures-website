@@ -33,7 +33,7 @@ const howDoesShedDeliveryAndInstallationWork: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/how-does-shed-delivery-and-installation-work",
+          "@id": "https://www.legacystructuresusa.com/blog/how-does-shed-delivery-and-installation-work",
         },
       },
       {

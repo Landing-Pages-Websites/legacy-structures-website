@@ -33,7 +33,7 @@ const rentToOwnShedVsBuyingOutright: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/rent-to-own-shed-vs-buying-outright",
+          "@id": "https://www.legacystructuresusa.com/blog/rent-to-own-shed-vs-buying-outright",
         },
       },
       {

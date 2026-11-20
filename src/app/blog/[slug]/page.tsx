@@ -49,6 +49,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "what-to-look-for-when-buying-prebuilt-shed",
   "winter-proof-chicken-coop",
   "single-slope-shed-pros-and-cons",
+  "dormer-shed-vs-standard-gable-shed",
+  "how-to-maximize-shed-loft-storage-space",
+  "what-is-a-mini-barn-shed",
+  "how-does-shed-delivery-and-installation-work",
+  "rent-to-own-shed-vs-buying-outright",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>

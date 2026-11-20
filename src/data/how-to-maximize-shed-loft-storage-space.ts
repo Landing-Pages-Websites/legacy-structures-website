@@ -31,7 +31,7 @@ const howToMaximizeShedLoftStorageSpace: BlogPost = {
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id":
-            "https://legacystructuresusa.com/blog/how-to-maximize-shed-loft-storage-space",
+            "https://www.legacystructuresusa.com/blog/how-to-maximize-shed-loft-storage-space",
         },
       },
       {

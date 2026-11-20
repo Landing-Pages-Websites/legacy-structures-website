@@ -29,7 +29,7 @@ const dormerShedVsStandardGableShed: BlogPost = {
         author: { "@type": "Person", name: "Stephen Kanagy" },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/dormer-shed-vs-standard-gable-shed",
+          "@id": "https://www.legacystructuresusa.com/blog/dormer-shed-vs-standard-gable-shed",
         },
       },
       {
