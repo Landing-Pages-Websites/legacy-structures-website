@@ -28,7 +28,7 @@ const whatIsAMiniBarnShed: BlogPost = {
         author: { "@type": "Person", name: "Stephen Kanagy" },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/what-is-a-mini-barn-shed",
+          "@id": "https://www.legacystructuresusa.com/blog/what-is-a-mini-barn-shed",
         },
       },
       {
