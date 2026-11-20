@@ -83,6 +83,53 @@ export default function GreenhousesPage() {
           </p>
         </FadeIn>
 
+        <FadeIn>
+          <section className="mb-10">
+            <h2 className="page-content-heading">
+              Greenhouse Installation Planning in Hudson Falls, NY
+            </h2>
+            <p className="text-[#5a6c7e] leading-relaxed mb-6">
+              If you are searching for greenhouse installers near me, start by planning the site and delivery details before you request a quote. Legacy Structures delivers each greenhouse fully assembled and levels it on-site up to 2 feet. A clear delivery route, a suitable growing location, and a plan for drainage can help your greenhouse arrive ready for use.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">
+              Prepare the site before delivery
+            </h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-6">
+              Choose a firm, accessible area with enough room for the greenhouse, delivery equipment, and the door to open fully. Consider sunlight, drainage, and the route from the road to the placement area. Check local building codes and zoning rules before ordering, because permit requirements depend on your property and the structure.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">
+              Assembled delivery and on-site leveling
+            </h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-6">
+              Greenhouses are delivered fully assembled, so you do not have to build the structure from a kit. We level the greenhouse on-site up to 2 feet. When you request a quote, share your location, the slope of the site, and any access details that could affect delivery, site preparation, or placement. Delivery, site preparation, and applicable taxes are not included in displayed prices, and availability and delivery pricing vary by location.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">
+              Automatic ventilation for changing temperatures
+            </h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-6">
+              Each greenhouse includes a vented louvre door with an automatic opener that adjusts as temperatures rise. The clear polycarbonate roof and upper walls bring in natural light, while the raised-deck-style pressure-treated floor helps with drainage. These features support a lower-maintenance growing space, but plant care and climate needs still vary by season.
+            </p>
+
+            <h3 className="text-[#1a3a5c] text-2xl font-bold mb-3">
+              Request a local greenhouse quote
+            </h3>
+            <p className="text-[#5a6c7e] leading-relaxed mb-4">
+              Tell us whether you are considering an 8x12 or 8x16 greenhouse, where it will go, and what you plan to grow. We can review your location and delivery questions with you before you order.
+            </p>
+            <p className="mb-2">
+              <strong>
+                <a href="tel:5185442889" className="text-[#c0392b] underline">
+                  Call or text 518-544-2889
+                </a>{" "}
+                to discuss your greenhouse location and delivery questions.
+              </strong>
+            </p>
+          </section>
+        </FadeIn>
+
         {/* Greenhouses */}
         <FadeIn>
         <div className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10">
