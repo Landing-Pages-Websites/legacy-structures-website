@@ -1,3 +1,4 @@
+import miniCabinForBackyard from "./mini-cabin-for-backyard";
 import storageShedElectricalPlanning from "./storage-shed-electrical-planning";
 import portableBuildingWinterPreparation from "./portable-building-winter-preparation";
 import rentToOwnShedsExplained from "./rent-to-own-sheds-explained";
@@ -118,6 +119,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  miniCabinForBackyard,
   portableGarageForTwoCars,
   howDoesRentToOwnWork,
   storageShedElectricalPlanning,
