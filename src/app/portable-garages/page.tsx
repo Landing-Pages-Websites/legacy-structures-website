@@ -12,9 +12,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Portable Garage for Sale | Legacy Structures",
+  title: "Portable Garage Building Prices | Legacy Structures",
   description:
-    "Find a portable garage for sale near Hudson Falls, NY, with utility and lofted styles, local delivery, installation, and a free quote.",
+    "Compare portable garage building prices in Hudson Falls, NY by size, utility or lofted style, and delivery needs. Explore options and request a local quote",
   path: "/portable-garages",
   canonicalHost: "https://www.legacystructuresusa.com",
 });
