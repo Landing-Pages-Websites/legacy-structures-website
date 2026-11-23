@@ -1,3 +1,4 @@
+import bestLoftedBarnDesigns from "./best-lofted-barn-designs";
 import miniCabinForBackyard from "./mini-cabin-for-backyard";
 import storageShedElectricalPlanning from "./storage-shed-electrical-planning";
 import portableBuildingWinterPreparation from "./portable-building-winter-preparation";
@@ -121,6 +122,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  bestLoftedBarnDesigns,
   miniCabinForBackyard,
   portableGarageForTwoCars,
   howDoesRentToOwnWork,
