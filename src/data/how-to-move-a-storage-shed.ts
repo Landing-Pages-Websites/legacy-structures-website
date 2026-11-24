@@ -17,7 +17,7 @@ const howToMoveAStorageShed: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/how-to-move-a-storage-shed#article",
+        "@id": "https://www.legacystructuresusa.com/blog/how-to-move-a-storage-shed#article",
         headline: "How to Move a Storage Shed Safely",
         description:
           "Learn how to move a storage shed safely with a condition check, route plan, support guidance, and practical advice for Hudson Falls and Upstate New York.",
@@ -33,7 +33,7 @@ const howToMoveAStorageShed: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/how-to-move-a-storage-shed",
+          "@id": "https://www.legacystructuresusa.com/blog/how-to-move-a-storage-shed",
         },
       },
       {
