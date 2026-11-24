@@ -219,7 +219,7 @@ const blogPosts: BlogPost[] = [
       "@graph": [
         {
           "@type": "Article",
-          "@id": "https://legacystructuresusa.com/blog/how-to-choose-a-greenhouse/#article",
+          "@id": "https://www.legacystructuresusa.com/blog/how-to-choose-a-greenhouse/#article",
           headline: "How to Choose a Greenhouse: Size, Material, and Style",
           description: "Request your free greenhouse pricing guide. Learn how to choose a greenhouse by size, material, and style for cold-climate growing in Upstate NY.",
           image: "https://legacystructuresusa.com/images/blog/how-to-choose-a-greenhouse.webp",
@@ -236,7 +236,7 @@ const blogPosts: BlogPost[] = [
           dateModified: "2026-08-14",
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": "https://legacystructuresusa.com/blog/how-to-choose-a-greenhouse",
+            "@id": "https://www.legacystructuresusa.com/blog/how-to-choose-a-greenhouse",
           },
         },
         {

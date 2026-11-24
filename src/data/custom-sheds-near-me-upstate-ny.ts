@@ -17,7 +17,7 @@ const customShedsNearMeUpstateNy: BlogPost = {
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://legacystructuresusa.com/blog/custom-sheds-near-me-upstate-ny#article",
+        "@id": "https://www.legacystructuresusa.com/blog/custom-sheds-near-me-upstate-ny#article",
         headline: "Custom Sheds Near Me: Upstate NY Design Guide",
         description:
           "Compare custom sheds near me by craftsmanship, winter durability, site fit, warranty, delivery, and design options before choosing in Upstate NY.",
@@ -33,7 +33,7 @@ const customShedsNearMeUpstateNy: BlogPost = {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/custom-sheds-near-me-upstate-ny",
+          "@id": "https://www.legacystructuresusa.com/blog/custom-sheds-near-me-upstate-ny",
         },
       },
       {

@@ -79,6 +79,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "what-is-a-mini-barn-shed",
   "how-does-shed-delivery-and-installation-work",
   "rent-to-own-shed-vs-buying-outright",
+  "custom-sheds-near-me-upstate-ny",
+  "how-to-move-a-storage-shed",
+  "how-much-does-it-cost-to-move-a-storage-shed",
+  "how-to-build-a-ramp-for-a-storage-shed",
+  "how-to-choose-a-greenhouse",
 ]);
 
 const WWW_CANONICAL_INVENTORY_SLUGS = new Set([
