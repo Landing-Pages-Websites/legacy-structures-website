@@ -107,6 +107,7 @@ import portableGarageForTwoCars from "./portable-garage-for-two-cars";
 import howDoesRentToOwnWork from "./how-does-rent-to-own-work";
 
 import howToBuildAGreenhouse from "./how-to-build-a-greenhouse";
+import portableGarageSideEntryPlanning from "./portable-garage-side-entry-planning";
 
 export interface BlogPost {
   slug: string;
@@ -2655,6 +2656,7 @@ schema: {
   portableGarageDoorHeightForTrucks,
   t111VsLpSmartsideWoodShedSiding,
   howToBuildAGreenhouse,
+  portableGarageSideEntryPlanning,
 ];
 
 export default blogPosts;
