@@ -244,6 +244,15 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
 
       <style>{`
+        .no-motion,
+        .no-motion * {
+          animation: none !important;
+        }
+        .no-motion .motion-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
         article a {
           color: #bd171f;
           text-decoration: underline;
@@ -329,18 +338,6 @@ export default async function BlogPostPage({ params }: Props) {
         }
         article tr:nth-child(even) td {
           background: #f7f5f2;
-        }
-        @media (max-width: 767px) {
-          article table {
-            min-width: 0;
-            table-layout: fixed;
-            font-size: 13px;
-          }
-          article th,
-          article td {
-            padding: 8px 6px;
-            overflow-wrap: anywhere;
-          }
         }
         article strong {
           color: #1a3a5c;
