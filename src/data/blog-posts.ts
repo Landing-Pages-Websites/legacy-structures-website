@@ -298,7 +298,7 @@ const blogPosts: BlogPost[] = [
       "@graph": [
         {
           "@type": "Article",
-          "@id": "https://legacystructuresusa.com/blog/portable-greenhouse-rental/#article",
+          "@id": "https://www.legacystructuresusa.com/blog/portable-greenhouse-rental/#article",
           headline: "Portable Greenhouse Rental: Rent-to-Own Made Simple",
           description: "Call 518-544-2889 to explore a portable greenhouse rental in Hudson Falls, NY. No-credit-check rent-to-own with instant approval and free delivery within 30...",
           image: "https://legacystructuresusa.com/images/blog/portable-greenhouse-rental.webp",
@@ -315,12 +315,12 @@ const blogPosts: BlogPost[] = [
           dateModified: "2026-08-13",
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": "https://legacystructuresusa.com/blog/portable-greenhouse-rental",
+            "@id": "https://www.legacystructuresusa.com/blog/portable-greenhouse-rental",
           },
         },
         {
           "@type": "FAQPage",
-          "@id": "https://legacystructuresusa.com/blog/portable-greenhouse-rental/#faq",
+          "@id": "https://www.legacystructuresusa.com/blog/portable-greenhouse-rental/#faq",
           mainEntity: [
       {
         "@type": "Question",
@@ -376,7 +376,7 @@ const blogPosts: BlogPost[] = [
       "@graph": [
         {
           "@type": "Article",
-          "@id": "https://legacystructuresusa.com/blog/chicken-coop-financing-options/#article",
+          "@id": "https://www.legacystructuresusa.com/blog/chicken-coop-financing-options/#article",
           headline: "Chicken Coop Financing Options for Every Budget",
           description: "Get a free pricing guide and compare chicken coop financing options with no credit check and instant approval. Pick a monthly payment that fits your budget.",
           image: "https://legacystructuresusa.com/images/blog/chicken-coop-financing-options.webp",
@@ -393,12 +393,12 @@ const blogPosts: BlogPost[] = [
           dateModified: "2026-08-12",
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": "https://legacystructuresusa.com/blog/chicken-coop-financing-options",
+            "@id": "https://www.legacystructuresusa.com/blog/chicken-coop-financing-options",
           },
         },
         {
           "@type": "FAQPage",
-          "@id": "https://legacystructuresusa.com/blog/chicken-coop-financing-options/#faq",
+          "@id": "https://www.legacystructuresusa.com/blog/chicken-coop-financing-options/#faq",
           mainEntity: [
             {
               "@type": "Question",
@@ -454,7 +454,7 @@ const blogPosts: BlogPost[] = [
     "@graph":     [
             {
         "@type": "Article",
-        "@id": "https://legacystructuresusa.com/blog/backyard-barn-financing/#article",
+        "@id": "https://www.legacystructuresusa.com/blog/backyard-barn-financing/#article",
         headline: "Backyard Barn Financing: Rent-to-Own and Payment Options",
         description: "Get backyard barn financing made simple with no-credit-check rent-to-own plans and instant approval. Call 518-544-2889 for your free pricing guide.",
         image: "https://legacystructuresusa.com/images/blog/backyard-barn-financing.webp",
@@ -471,12 +471,12 @@ const blogPosts: BlogPost[] = [
         dateModified: "2026-08-11",
         mainEntityOfPage:         {
           "@type": "WebPage",
-          "@id": "https://legacystructuresusa.com/blog/backyard-barn-financing",
+          "@id": "https://www.legacystructuresusa.com/blog/backyard-barn-financing",
         },
       },
             {
         "@type": "FAQPage",
-        "@id": "https://legacystructuresusa.com/blog/backyard-barn-financing/#faq",
+        "@id": "https://www.legacystructuresusa.com/blog/backyard-barn-financing/#faq",
         mainEntity:         [
                     {
             "@type": "Question",
@@ -532,7 +532,7 @@ const blogPosts: BlogPost[] = [
       "@graph": [
         {
           "@type": "Article",
-          "@id": "https://legacystructuresusa.com/blog/best-uses-for-a-backyard-barn-workshop-she-shed-and-more/#article",
+          "@id": "https://www.legacystructuresusa.com/blog/best-uses-for-a-backyard-barn-workshop-she-shed-and-more/#article",
           headline: "Best Uses for a Backyard Barn: Workshop, She-Shed and More",
           description:
             "Schedule your free consultation and discover the best uses for a backyard barn. From workshops to she-sheds and hobby studios, get expert tips and pricing.",
@@ -550,12 +550,12 @@ const blogPosts: BlogPost[] = [
           dateModified: "2026-07-10",
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": "https://legacystructuresusa.com/blog/best-uses-for-a-backyard-barn-workshop-she-shed-and-more",
+            "@id": "https://www.legacystructuresusa.com/blog/best-uses-for-a-backyard-barn-workshop-she-shed-and-more",
           },
         },
         {
           "@type": "FAQPage",
-          "@id": "https://legacystructuresusa.com/blog/best-uses-for-a-backyard-barn-workshop-she-shed-and-more/#faq",
+          "@id": "https://www.legacystructuresusa.com/blog/best-uses-for-a-backyard-barn-workshop-she-shed-and-more/#faq",
           mainEntity: [
             {
               "@type": "Question",
