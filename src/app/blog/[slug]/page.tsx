@@ -59,6 +59,11 @@ const WWW_CANONICAL_BLOG_SLUGS = new Set([
   "how-much-does-it-cost-to-move-a-storage-shed",
   "how-to-build-a-ramp-for-a-storage-shed",
   "how-to-choose-a-greenhouse",
+  "portable-greenhouse-rental",
+  "chicken-coop-financing-options",
+  "backyard-barn-financing",
+  "how-the-3d-shed-configurator-works",
+  "best-uses-for-a-backyard-barn-workshop-she-shed-and-more",
 ]);
 
 const canonicalUrlForSlug = (slug: string): string =>
