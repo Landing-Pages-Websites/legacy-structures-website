@@ -105,6 +105,7 @@ import highTunnelGreenhouse from "./high-tunnel-greenhouse";
 import portableCabinWinterPlumbingTips from "./portable-cabin-winter-plumbing-tips";
 import portableGarageForTwoCars from "./portable-garage-for-two-cars";
 import howDoesRentToOwnWork from "./how-does-rent-to-own-work";
+import leaseToOwnRentToOwn from "./lease-to-own-rent-to-own";
 
 import howToBuildAGreenhouse from "./how-to-build-a-greenhouse";
 import portableGarageSideEntryPlanning from "./portable-garage-side-entry-planning";
@@ -127,6 +128,7 @@ const blogPosts: BlogPost[] = [
   miniCabinForBackyard,
   portableGarageForTwoCars,
   howDoesRentToOwnWork,
+  leaseToOwnRentToOwn,
   storageShedElectricalPlanning,
   portableBuildingWinterPreparation,
   rentToOwnShedsExplained,
