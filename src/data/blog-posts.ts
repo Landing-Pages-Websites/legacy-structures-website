@@ -1,3 +1,4 @@
+import bestPortableChickenCoops from "./best-portable-chicken-coops";
 import bestLoftedBarnDesigns from "./best-lofted-barn-designs";
 import miniCabinForBackyard from "./mini-cabin-for-backyard";
 import storageShedElectricalPlanning from "./storage-shed-electrical-planning";
@@ -124,6 +125,7 @@ export interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  bestPortableChickenCoops,
   bestLoftedBarnDesigns,
   miniCabinForBackyard,
   portableGarageForTwoCars,
