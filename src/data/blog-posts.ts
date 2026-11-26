@@ -920,19 +920,18 @@ Choosing between a portable cabin vs tiny house often comes down to the total co
 <h3>Home Value Impact</h3>
 <p>A wood shed that matches your house can increase your property value by improving curb appeal and providing usable square footage. Real estate agents note that finished sheds with electricity and insulation recoup a higher percentage of their cost at resale. Metal sheds are seen as utilitarian and typically do not add measurable value beyond the storage function itself.</p>
 
-<table>
-<thead><tr><th scope="col">Factor</th><th scope="col">Metal Shed</th><th scope="col">Wood Shed</th></tr></thead>
+<div class="table-scroll"><table>
+<caption>Metal vs. wood storage shed decision guide.</caption>
+<thead><tr><th scope="col">Decision factor</th><th scope="col">Metal storage shed</th><th scope="col">Wood storage shed</th></tr></thead>
 <tbody>
-<tr><td>Initial Cost (per sqft)</td><td>About $5</td><td>About $7</td></tr>
-<tr><td>Typical Lifespan</td><td>10-25 years</td><td>20-40+ years</td></tr>
-<tr><td>Warranty</td><td>1-2 years</td><td>5 years (Legacy Structures)</td></tr>
-<tr><td>Annual Maintenance</td><td>None</td><td>Moderate (paint/seal)</td></tr>
-<tr><td>Customization</td><td>Low</td><td>High (lofts, windows)</td></tr>
-<tr><td>Home Value Impact</td><td>Minimal</td><td>Positive</td></tr>
-<tr><td>Insulation</td><td>Poor</td><td>Good</td></tr>
-<tr><td>Engineer Certification</td><td>Rare</td><td>Available</td></tr>
+<tr><td>Upfront cost</td><td>Usually lower starting cost; ask for a current price for your size and options.</td><td>Usually higher starting cost; final price depends on size and chosen features.</td></tr>
+<tr><td>Durability</td><td>Resists rot and insects; protect the coating and manage ventilation and drainage.</td><td>Strong, repairable construction; protect siding and floor from moisture with routine care.</td></tr>
+<tr><td>Maintenance</td><td>Low routine maintenance; inspect the finish and keep the interior ventilated.</td><td>Plan periodic painting or staining; timing depends on exposure and finish.</td></tr>
+<tr><td>Customization</td><td>Standard kits typically offer fewer options for windows, lofts, and layout.</td><td>More flexibility for doors, windows, lofts, finish, and workspace features.</td></tr>
+<tr><td>Best fit</td><td>Basic storage when low upkeep is the priority.</td><td>Long-term storage, a workshop, or a more tailored backyard building.</td></tr>
+<tr><td>Next step</td><td>Compare available sizes and features before choosing.</td><td>Review Legacy Structures storage sheds, then request a current pricing guide.</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>Durability and Maintenance: Which Shed Material Lasts Longer?</h2>
 <p>Your shed endures rain, snow, wind, and sun through every season. Both materials offer solid performance, but they handle the elements in very different ways.</p>
@@ -974,7 +973,7 @@ Choosing between a portable cabin vs tiny house often comes down to the total co
 <li>Is insulation important for your intended use?</li>
 <li>Would you benefit from the 5-year warranty coverage?</li>
 </ul>
-<p>If you answered yes to customization, long-term use, or insulation, wood is the better investment. If you need quick, affordable storage with no maintenance, metal will serve you well. Legacy Structures offers both options, including metal lofted barns that combine the low maintenance of metal with the extra storage of a loft design. For more ideas, <a href="https://legacystructuresusa.com/3d-shed-builder/">use our 3D shed builder</a> to design your custom building online.</p>
+<p>Choose metal when your priority is straightforward, lower-upfront-cost storage with minimal routine upkeep. Choose wood when you want a more customizable building for long-term use, a workshop, or a space where insulation and appearance matter. To compare current sizes and features, <a href="https://legacystructuresusa.com/storage-sheds/">review Legacy Structures storage shed options</a>. Then <strong><a href="tel:5185442889">call 518-544-2889</a></strong> or <a href="https://legacystructuresusa.com/contact-us">contact Legacy Structures</a> for a free pricing guide and a quote based on your selected size and features. Nothing on this page replaces a current quote, so confirm pricing, delivery, and available customization before ordering.</p>
 
 <h2>Frequently Asked Questions</h2>
 <h3>Is it cheaper to build a shed out of wood or metal?</h3>
