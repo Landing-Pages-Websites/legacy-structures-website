@@ -104,12 +104,64 @@ const productSchema = {
   ]
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://www.legacystructuresusa.com/storage-sheds",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Storage-building styles, uses, and features to compare",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our storage sheds are built using the best quality materials and exacting standards resulting in a quality building that will last for years to come. We offer three basic versions of our storage sheds: Utility Sheds, Metal Utility Sheds, and our Utility Dormer sheds. Each shed has its own unique value:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Available Sizes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Utility Shed comes in the following sizes:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Current inventory, delivery availability, and final pricing can vary by location and building specifications.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Current inventory, delivery availability, and final pricing can vary by location and building specifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "High-quality storage sheds built to last. Customizable siding, roofing, and sizes.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High-quality storage sheds built to last. Customizable siding, roofing, and sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Check current inventory and request a quote",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browse current inventory to see buildings available for sale. If you need a different size or want to compare custom options, request a free quote online or call or text 518-544-2889."
+      }
+    }
+  ]
+};
+
 export default function StorageShedsPage() {
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <PageHero
         title="Storage Sheds"
