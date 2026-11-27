@@ -61,12 +61,58 @@ const productSchema = {
   ]
 };
 
+const portableGarageFaqs = [
+  {
+    question: "What affects portable garage building prices?",
+    answer:
+      "Garage building prices depend on the size and style you choose, how you plan to use the space, and the options needed for your property. The final quote can change with building size, siding, roof style, doors, windows, loft or interior options, delivery distance, site access, setup, local requirements, and applicable taxes. Prices shown on this site do not include delivery, site preparation, or applicable taxes unless specifically stated.",
+  },
+  {
+    question: "What sizes are available for portable garages?",
+    answer:
+      "Our garages start out as small as 8ft x 10ft and come as big as 16ft x 40ft, depending on location. We offer two basic styles of garages: a Utility Garage and a Lofted Garage. Each building has its own unique advantages.",
+  },
+  {
+    question: "What doors and features come with portable garages?",
+    answer:
+      "Utility Garages include 8ft sidewalls, a solid house-style door, and a 2' x 3' window. Lofted Garages include an overhead loft instead of 8ft sidewalls, plus a solid house-style door and a 2' x 3' window. Double-Wide Garages include two roll-up doors, a 9-lite walk-in door, four windows, 12-inch on-center floor joists, and 3/4-inch treated flooring.",
+  },
+  {
+    question: "How are portable garages delivered and installed?",
+    answer:
+      "After construction, your portable garage is delivered to your location and set up where you would like it to sit. Delivery availability and pricing vary by location, and placement restrictions may apply depending on your property, access, building size, local building codes, and zoning requirements. Before ordering, contact Legacy Structures to discuss your location and the delivery and installation details for your garage.",
+  },
+  {
+    question: "How do I get current portable garage pricing or request a quote?",
+    answer:
+      "For current cash or rent-to-own figures, download the FREE Pricing Guide or call Legacy Structures at 518-544-2889. A local quote helps you compare the right building instead of comparing a base price that may not fit your vehicle, equipment, or property. You can also use the free garage quote form on this page.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://www.legacystructuresusa.com/portable-garages",
+  "mainEntity": portableGarageFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    },
+  })),
+};
+
 export default function PortableGaragesPage() {
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <PageHero
         title="Portable Garages"
@@ -189,6 +235,20 @@ export default function PortableGaragesPage() {
             <p>
               <a href="#garage-quote-form" className="text-[#c0392b] font-bold underline">Request your free garage quote</a>
             </p>
+          </section>
+        </FadeIn>
+
+        <FadeIn>
+          <section className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10" aria-labelledby="portable-garages-faq-heading">
+            <h2 id="portable-garages-faq-heading" className="page-content-heading">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {portableGarageFaqs.map((faq) => (
+                <details key={faq.question} className="border border-gray-200 p-4">
+                  <summary className="cursor-pointer font-bold text-[#1a3a5c]">{faq.question}</summary>
+                  <p className="mt-3 text-[#5a6c7e] leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
           </section>
         </FadeIn>
 
