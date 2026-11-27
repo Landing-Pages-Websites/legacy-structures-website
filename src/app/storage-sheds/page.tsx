@@ -104,12 +104,64 @@ const productSchema = {
   ]
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://www.legacystructuresusa.com/storage-sheds",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Storage-building styles, uses, and features to compare",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our storage sheds are built using the best quality materials and exacting standards resulting in a quality building that will last for years to come. We offer three basic versions of our storage sheds: Utility Sheds, Metal Utility Sheds, and our Utility Dormer sheds. Each shed has its own unique value:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Available Sizes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Utility Shed comes in the following sizes:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Current inventory, delivery availability, and final pricing can vary by location and building specifications.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Current inventory, delivery availability, and final pricing can vary by location and building specifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "High-quality storage sheds built to last. Customizable siding, roofing, and sizes.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High-quality storage sheds built to last. Customizable siding, roofing, and sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Check current inventory and request a quote",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browse current inventory to see buildings available for sale. If you need a different size or want to compare custom options, request a free quote online or call or text 518-544-2889."
+      }
+    }
+  ]
+};
+
 export default function StorageShedsPage() {
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <PageHero
         title="Storage Sheds"
@@ -234,6 +286,34 @@ export default function StorageShedsPage() {
               <a href="https://orders.barnportal.com/myquote?dealerid=&dir=1&template=1" className="inline-block rounded-md border-2 border-[#c0392b] px-6 py-3 font-bold uppercase tracking-wide text-[#c0392b] transition hover:bg-[#c0392b] hover:text-white">
                 Request a Free Quote
               </a>
+            </div>
+          </section>
+        </FadeIn>
+
+        <FadeIn>
+          <section className="border-b-[3px] border-[#1a3a5c] pb-10 mb-10" aria-labelledby="storage-sheds-faq-heading">
+            <h2 id="storage-sheds-faq-heading" className="page-content-heading">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <details className="border border-gray-200 p-4">
+                <summary className="cursor-pointer font-bold text-[#1a3a5c]">Storage-building styles, uses, and features to compare</summary>
+                <p className="mt-3 text-[#5a6c7e] leading-relaxed">Our storage sheds are built using the best quality materials and exacting standards resulting in a quality building that will last for years to come. We offer three basic versions of our storage sheds: Utility Sheds, Metal Utility Sheds, and our Utility Dormer sheds. Each shed has its own unique value:</p>
+              </details>
+              <details className="border border-gray-200 p-4">
+                <summary className="cursor-pointer font-bold text-[#1a3a5c]">Available Sizes</summary>
+                <p className="mt-3 text-[#5a6c7e] leading-relaxed">The Utility Shed comes in the following sizes:</p>
+              </details>
+              <details className="border border-gray-200 p-4">
+                <summary className="cursor-pointer font-bold text-[#1a3a5c]">Current inventory, delivery availability, and final pricing can vary by location and building specifications.</summary>
+                <p className="mt-3 text-[#5a6c7e] leading-relaxed">Current inventory, delivery availability, and final pricing can vary by location and building specifications.</p>
+              </details>
+              <details className="border border-gray-200 p-4">
+                <summary className="cursor-pointer font-bold text-[#1a3a5c]">High-quality storage sheds built to last. Customizable siding, roofing, and sizes.</summary>
+                <p className="mt-3 text-[#5a6c7e] leading-relaxed">High-quality storage sheds built to last. Customizable siding, roofing, and sizes.</p>
+              </details>
+              <details className="border border-gray-200 p-4">
+                <summary className="cursor-pointer font-bold text-[#1a3a5c]">Check current inventory and request a quote</summary>
+                <p className="mt-3 text-[#5a6c7e] leading-relaxed">Browse current inventory to see buildings available for sale. If you need a different size or want to compare custom options, request a free quote online or call or text 518-544-2889.</p>
+              </details>
             </div>
           </section>
         </FadeIn>
